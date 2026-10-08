@@ -265,6 +265,23 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
     log(`  dodano: ${add.to}`);
   }
   if (wanted({ stage: "jezik" })) {
+    // Ključi, ki jih je original dodal pozneje in jih slovenski katalog še nima, dobijo angleško besedilo
+    // (sicer gradnja vodnika pade na neznanem besedilu vmesnika).
+    const enFile = join(root, "apps/web/src/lib/messages.en.ts");
+    const deFile = join(root, "apps/web/src/lib/messages.de.ts");
+    if (existsSync(enFile) && existsSync(deFile)) {
+      const keyLine = /^\s*"([^"]+)":\s*.*,\s*$/gm;
+      const de = readFileSync(deFile, "utf8");
+      const have = new Set([...de.matchAll(keyLine)].map((m) => m[1]));
+      const missing = [...readFileSync(enFile, "utf8").matchAll(keyLine)].filter((m) => !have.has(m[1]));
+      if (missing.length) {
+        const marker = "} as unknown as Record<MessageKey, string>;";
+        writeFileSync(deFile, de.replace(marker, () => missing.map((m) => m[0].replace(/\s+$/, "")).join("\n") + "\n" + marker));
+        log(`  neprevedeni ključi (angleško): ${missing.length}`);
+      }
+    }
+  }
+  if (wanted({ stage: "jezik" })) {
     // Novosti: prevod za zadnji različici, starejše ostanejo v angleščini (ključ "de" nosi slovenščino).
     const file = join(root, "apps/web/src/lib/whatsNew.json");
     if (existsSync(file)) {

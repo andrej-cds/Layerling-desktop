@@ -1,20 +1,82 @@
 {
+  "1.49.1": [
+    [
+      "Vrteno telo ostane na mestu",
+      "Ko spremeniš kot vrtenja ali začetni kot vrtenega telesa, njegova os zdaj ostane tam, kjer je bila. Prej je celotno telo zdrsnilo po plošči, kadar je zapolnjevalo le del obrata."
+    ]
+  ],
+  "1.49.0": [
+    [
+      "Ukrivi ravno stranico",
+      "V skici izberi ravno črto in klikni »Ukrivi črto«: stranica se izboči v krivuljo, kot v Tinkercadu, in pokaže dva ročaja za oblikovanje. »Ravna črta« jo spet naredi ravno."
+    ],
+    [
+      "Delovna ravnina znotraj telesa prikaže prerez",
+      "Ko je delovna ravnina sredi telesa, na primer v votlini izdolbene škatle, skica prikaže obris prereza. Votlo telo se prikaže kot obroč, skico pa lahko poravnaš z njegovimi stenami."
+    ],
+    [
+      "Popravki",
+      "Gumb »Gladko« na točki skice od različice 1.47.0 ni naredil ničesar; zdaj točko spet zaobli, z ročaji."
+    ]
+  ],
   "1.48.0": [
-    ["Puščice osi", "V zadnjem levem kotu plošče puščice kažejo X (rdeča, v desno), Y (zelena, naprej) in Z (modra, navzgor), tako kot štejejo številke. Sledijo delovni ravnini, v nastavitvah pa jih lahko izklopiš."],
-    ["Poravnaj ploskve", "Novo orodje pod »Razporedi«: klikni ploskev dela, ki se premika, nato ploskev drugega. Oba se stakneta ploskev ob ploskvi ali ležita poravnano v isti ravnini, po želji z režo."],
-    ["Zasukani koti: ogled in vnos", "Zasukano telo pod izbiro prikaže svoje kote okoli X, Y in Z. Kartica »Zasuk« v njegovih nastavitvah jih sprejme kot številke, koti pa so zdaj tudi berljivi: trikrat pritisnjena R da 135° namesto vrste vrednosti 180°."],
-    ["Vrtena telesa je mogoče izdolbiti", "Telo, narejeno z vrtenjem (Revolve), je zdaj natančno telo kot iztis: lahko ga izdolbeš, posnameš in zaobliš, na primer za skodelico ali vazo. Starejša vrtena telesa postanejo natančna, ko urediš njihovo skico in jo znova dokončaš."]
+    [
+      "Puščice osi",
+      "V zadnjem levem kotu plošče puščice kažejo X (rdeča, v desno), Y (zelena, naprej) in Z (modra, navzgor), tako kot štejejo številke. Sledijo delovni ravnini, v nastavitvah pa jih lahko izklopiš."
+    ],
+    [
+      "Poravnaj ploskve",
+      "Novo orodje pod »Razporedi«: klikni ploskev dela, ki se premika, nato ploskev drugega. Oba se stakneta ploskev ob ploskvi ali ležita poravnano v isti ravnini, po želji z režo."
+    ],
+    [
+      "Zasukani koti: ogled in vnos",
+      "Zasukano telo pod izbiro prikaže svoje kote okoli X, Y in Z. Kartica »Zasuk« v njegovih nastavitvah jih sprejme kot številke, koti pa so zdaj tudi berljivi: trikrat pritisnjena R da 135° namesto vrste vrednosti 180°."
+    ],
+    [
+      "Vrtena telesa je mogoče izdolbiti",
+      "Telo, narejeno z vrtenjem (Revolve), je zdaj natančno telo kot iztis: lahko ga izdolbeš, posnameš in zaobliš, na primer za skodelico ali vazo. Starejša vrtena telesa postanejo natančna, ko urediš njihovo skico in jo znova dokončaš."
+    ]
   ],
   "1.47.0": [
-    ["Koti v skici", "V skici klikni oglišče, kjer se stikata dve ravni črti, in layerling prikaže kot med njima. Klikni vrednost in vpiši nov kot: ena od obeh črt se zavrti okoli oglišča, s tipko Tab pa izbereš, katera."],
-    ["Večbarvne skupine", "Skupine imajo stikalo »Večbarvno«: vsak del se potem prikaže v svoji barvi, tudi če je bila skupina z luknjami združena v eno telo."],
-    ["Izdolbi z odprto katerokoli stranjo", "Pri dolbenju vsako stran odpreš posebej: zgoraj, spodaj, spredaj, zadaj, levo in desno, v poljubni kombinaciji. Samo spredaj naredi režo za predal, levo in desno pa predor."],
-    ["Središče vrtenja ostane s telesom", "Središče vrtenja posameznega telesa ostane z njim: premika se in vrti skupaj z njim, shrani se, njegov položaj pa lahko vpišeš pod »Položaj«."],
-    ["Skico odpri z dvoklikom", "Dvoklik na telo, narejeno iz skice, znova odpre njegovo skico, tako kot v Tinkercadu."],
-    ["Pogled vrtiš s puščičnimi tipkami", "Ko ni nič izbrano, puščične tipke vrtijo pogled: 15° na pritisk, 90° s tipko Shift."],
-    ["Osvetlitev in barve skice", "V nastavitvah nastaviš kontrast senčenja in moč senc. Izbereš barvo ozadja in mreže skice ter ju z enim klikom uskladiš z delovno površino."],
-    ["Premična okna", "Nastavitve, hitri vodnik, bližnjice in iskanje ukazov lahko odvlečeš za naslovno vrstico, da ne pokrivajo delovne površine."],
-    ["Prazni projekti se ne kopičijo", "Ko se iz praznega projekta vrneš na pregled, te layerling vpraša, ali naj ostane. Z »Ne« se odstrani."],
-    ["Popravki", "Zasukani deli v svežnju so bili narisani nekoliko premajhni in stisnjeni. Gladka krivulja v skici pa ne preoblikuje več prej narisanih črt."]
+    [
+      "Koti v skici",
+      "V skici klikni oglišče, kjer se stikata dve ravni črti, in layerling prikaže kot med njima. Klikni vrednost in vpiši nov kot: ena od obeh črt se zavrti okoli oglišča, s tipko Tab pa izbereš, katera."
+    ],
+    [
+      "Večbarvne skupine",
+      "Skupine imajo stikalo »Večbarvno«: vsak del se potem prikaže v svoji barvi, tudi če je bila skupina z luknjami združena v eno telo."
+    ],
+    [
+      "Izdolbi z odprto katerokoli stranjo",
+      "Pri dolbenju vsako stran odpreš posebej: zgoraj, spodaj, spredaj, zadaj, levo in desno, v poljubni kombinaciji. Samo spredaj naredi režo za predal, levo in desno pa predor."
+    ],
+    [
+      "Središče vrtenja ostane s telesom",
+      "Središče vrtenja posameznega telesa ostane z njim: premika se in vrti skupaj z njim, shrani se, njegov položaj pa lahko vpišeš pod »Položaj«."
+    ],
+    [
+      "Skico odpri z dvoklikom",
+      "Dvoklik na telo, narejeno iz skice, znova odpre njegovo skico, tako kot v Tinkercadu."
+    ],
+    [
+      "Pogled vrtiš s puščičnimi tipkami",
+      "Ko ni nič izbrano, puščične tipke vrtijo pogled: 15° na pritisk, 90° s tipko Shift."
+    ],
+    [
+      "Osvetlitev in barve skice",
+      "V nastavitvah nastaviš kontrast senčenja in moč senc. Izbereš barvo ozadja in mreže skice ter ju z enim klikom uskladiš z delovno površino."
+    ],
+    [
+      "Premična okna",
+      "Nastavitve, hitri vodnik, bližnjice in iskanje ukazov lahko odvlečeš za naslovno vrstico, da ne pokrivajo delovne površine."
+    ],
+    [
+      "Prazni projekti se ne kopičijo",
+      "Ko se iz praznega projekta vrneš na pregled, te layerling vpraša, ali naj ostane. Z »Ne« se odstrani."
+    ],
+    [
+      "Popravki",
+      "Zasukani deli v svežnju so bili narisani nekoliko premajhni in stisnjeni. Gladka krivulja v skici pa ne preoblikuje več prej narisanih črt."
+    ]
   ]
 }

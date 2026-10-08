@@ -1868,4 +1868,11 @@ export const MESSAGES_DE = {
   "prop.rotateY": "Okoli Y",
   "prop.rotateZ": "Okoli Z (višina)",
   "workspace.showRotationAngles": "Prikaži kote zasukanih teles",
+  "sketch.segmentActions": "Dejanja črte",
+  "sketch.curveLine": "Ukrivi črto",
+  "sketch.curveLineHint": "Ukrivi to ravno stranico v krivuljo; z vlečenjem obeh ročajev ji oblikuješ obliko",
+  "sketch.straightenLine": "Ravna črta",
+  "sketch.straightenLineHint": "Ukrivljeno stranico spet naredi ravno",
+  "status.sketchLineCurved": "Črta ukrivljena",
+  "status.sketchLineStraightened": "Črta poravnana",
 } as unknown as Record<MessageKey, string>;
