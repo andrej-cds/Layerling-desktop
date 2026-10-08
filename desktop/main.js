@@ -422,7 +422,7 @@ function showAbout() {
     detail:
       `${tr("dlg.aboutStandalone", { os: isMac ? "macOS" : "Windows" })}\n` +
       `${tr("dlg.aboutBase", { version: up.version, commit: up.commit ? ` (${String(up.commit).slice(0, 7)})` : "" })}\n` +
-      `${tr("dlg.aboutLicense")}\n\n${tr("dlg.aboutSource", { url: SOURCE_URL })}`,
+      `${tr("dlg.aboutLicense")}\n\n${tr("dlg.aboutBy")}\n${tr("dlg.aboutSource", { url: SOURCE_URL })}`,
   });
 }
 

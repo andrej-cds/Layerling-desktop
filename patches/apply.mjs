@@ -195,6 +195,24 @@ export const edits = [
     find: "<h1>layerling - Free 3D CAD for 3D printing in your browser</h1>",
     replace: "<h1>layerling - Free 3D CAD for 3D printing</h1>",
   },
+  {
+    name: "CDS: znak ob logotipu na nadzorni plošči",
+    stage: "jezik",
+    file: "apps/web/src/app/page.tsx",
+    marker: "cds-badge-dashboard",
+    find: '            <span className="dashboard-tagline">{t("brand.tagline")}</span>\n          </span>\n        </a>',
+    replace:
+      '            <span className="dashboard-tagline">{t("brand.tagline")}</span>\n          </span>\n          <span className="cds-badge-dashboard" title="Layerling Desktop · Cassette Deck Service" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginLeft: 10, paddingLeft: 14, borderLeft: "1px solid rgba(120,100,70,0.35)", fontSize: 10.5, fontWeight: 600, lineHeight: 1.2, opacity: 0.9 }}>\n            <img src="/assets/cds/cds-round.png" alt="CDS" width={30} height={30} style={{ display: "block", borderRadius: "50%" }} />\n            <span>Desktop by<br />Cassette Deck Service</span>\n          </span>\n        </a>',
+  },
+  {
+    name: "CDS: znak ob logotipu v urejevalniku",
+    stage: "jezik",
+    file: "apps/web/src/components/LayerlingEditor.tsx",
+    marker: "cds-badge-editor",
+    find: '            <span className="toolbar-brand-tagline">{t("brand.tagline")}</span>\n          </span>\n        </div>',
+    replace:
+      '            <span className="toolbar-brand-tagline">{t("brand.tagline")}</span>\n          </span>\n          <img className="cds-badge-editor" src="/assets/cds/cds-round.png" alt="Cassette Deck Service" title="Layerling Desktop · Cassette Deck Service" width={26} height={26} style={{ borderRadius: "50%", marginLeft: 4 }} />\n        </div>',
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
@@ -202,6 +220,7 @@ export const additions = [
   { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
   // Slovenski katalog nadomesti nemškega (notranja oznaka jezika ostane "de").
   { from: "patches/files/messages.de.ts", to: "apps/web/src/lib/messages.de.ts", stage: "jezik" },
+  { from: "patches/files/assets/cds-round.png", to: "apps/web/public/assets/cds/cds-round.png", stage: "jezik" },
 ];
 
 /** `stage`: "osnova" (namizni most, brez jezika), "jezik" (slovenščina) ali neopredeljeno = vse. Testi originalnega programa tečejo po fazi "osnova". */
