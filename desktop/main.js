@@ -10,6 +10,7 @@ const { buildMenu } = require("./menu");
 const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
 
+const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
 const REPO = (process.env.LAYERLING_DESKTOP_REPO || "andrej-cds/layerling-desktop");
 const SOURCE_URL = `https://github.com/${REPO}`;
 const UPSTREAM_DOCS_URL = "https://github.com/henmedia/layerling#readme";
@@ -136,8 +137,9 @@ function createMainWindow() {
     },
   });
   if (bounds.maximized) mainWindow.maximize();
-  // Naslov strani ("… in your browser") ne sodi v namizni program: naslovna vrstica vedno pokaže samo ime programa.
+  // Naslovna vrstica: fiksen naslov brez »in your browser«, ki ga stran sicer nastavi sama.
   mainWindow.on("page-title-updated", (event) => event.preventDefault());
+  mainWindow.setTitle(WINDOW_TITLE);
   mainWindow.once("ready-to-show", () => mainWindow.show());
   // Stran je pripravljena šele, ko jo program sam sporoči; ob pravi navigaciji (ne ob spremembi naslova v isti strani) se to ponastavi.
   mainWindow.webContents.on("did-start-navigation", (details) => {
