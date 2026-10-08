@@ -48,7 +48,7 @@ jobs:
       - name: Pakiranje (in objava ob oznaki)
         shell: bash
         run: ${{ matrix.ukaz }} --publish ${{ (startsWith(github.ref, 'refs/tags/v') && !matrix.monterey) && 'always' || 'never' }}
-      - name: Monterey: dmg se doda izdaji (brez latest-mac.yml, da ne prepiše običajne posodobitve)
+      - name: "Monterey - dmg se doda izdaji (brez latest-mac.yml, da ne prepiše običajne posodobitve)"
         if: matrix.monterey && startsWith(github.ref, 'refs/tags/v')
         shell: bash
         run: |

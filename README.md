@@ -182,3 +182,7 @@ Configure this on **each** computer:
 ## AI Connection (MCP)
 
 *File → Settings → AI Connection (MCP)* displays the configuration settings. Copy this configuration into your client settings (e.g., Claude Desktop: *Settings → Developer → Edit Config*) and restart the client; keep the Layerling program running with the editor open. You can then issue commands such as: *"Create a 40×30×20 box with rounded edges in Layerling."*
+
+## macOS Monterey (12)
+
+Electron 44 zahteva macOS 13 ali novejši. Ob vsaki izdaji se zato zgradi še posebna datoteka `Layerling-<različica>-Monterey-x64.dmg` (Electron 43, samo Intel Mac), ki jo je treba ročno prenesti iz Releases. Samodejnih posodobitev za to gradnjo ni (Mac program samo odpre stran izdaje). Ko Electron 43 preneha dobivati popravke, jo je treba dvigniti ali opustiti (`.github/workflows/build.yml`).
