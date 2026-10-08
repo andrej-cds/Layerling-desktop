@@ -25,8 +25,13 @@ let commit;
 if (args.has("--fresh") || !hasUpstream() || !upstreamMatchesPin()) commit = syncUpstream();
 else commit = capture("git", ["-C", upstreamDir, "rev-parse", "HEAD"]);
 
+// Čisto stanje (popravki se vedno uporabijo znova), da testi originalnega programa tečejo na izvirnem besedilu.
+try {
+  run("git", ["-C", upstreamDir, "checkout", "--", "."]);
+} catch {}
+
 console.log("Uporabljam popravke …");
-applyPatches(upstreamDir);
+applyPatches(upstreamDir, { stage: "osnova" });
 
 console.log("Nameščam odvisnosti originalnega programa …");
 run("npm", [existsSync(join(upstreamDir, "package-lock.json")) ? "ci" : "install", "--no-audit", "--no-fund"], { cwd: upstreamDir });
@@ -36,6 +41,9 @@ if (args.has("--test")) {
   run("npm", ["run", "typecheck"], { cwd: upstreamDir });
   run("npm", ["test"], { cwd: upstreamDir });
 }
+
+console.log("Uporabljam slovenski prevod …");
+applyPatches(upstreamDir, { stage: "jezik" });
 
 console.log("Gradim (Next.js, standalone) …");
 run("npm", ["run", "build"], {

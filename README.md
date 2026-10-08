@@ -109,7 +109,7 @@ upstream.json  pripeta različica originalnega programa
 4. `git tag v1.0.0`, `git push origin v1.0.0`
 
 ## Znane omejitve
-- Vmesnik originalnega programa je v **angleščini ali nemščini** (slovenščine proizvajalec nima). Lupina (meni, nastavitve, sporočila) je v slovenščini.
+- Vmesnik urejevalnika je v **angleščini ali slovenščini**: slovenski prevod nadomešča nemščino (v preklopniku jezika zgoraj desno izbereš SL). Navodila (vodnik) in zgodovina novosti ostanejo v angleščini. Lupina (meni, nastavitve, sporočila) je v slovenščini. Prevod je v `patches/files/messages.de.ts`; besedila, ki jih proizvajalec doda pozneje, se do prevoda prikažejo v angleščini.
 - Vrata **47615** morajo biti prosta. Če jih zaseda drug program, se Layerling ne more zagnati in to tudi pove. Vrata lahko spremenite v `settings.json` (ključ `port`), vendar potem projekti iz prejšnjih vrat v programu niso vidni (obnovite jih iz mape samodejnega shranjevanja).
 - Brez plačljivih podpisov (Microsoft/Apple) se ob prvem zagonu pokažejo opozorila. Delovanje ni omejeno.
 - Hkratnega urejanja istega projekta ni (glejte Deljenje).

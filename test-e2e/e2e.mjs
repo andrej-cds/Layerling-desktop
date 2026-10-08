@@ -122,6 +122,15 @@ try {
   assert.equal(await page.evaluate(() => Boolean(window.layerlingDesktop?.isDesktop)), true);
   ok("most do lupine je na voljo");
 
+  // Slovenščina nadomešča nemščino: preklopnik jezika pokaže SL, vmesnik se prevede in se da vrniti na EN.
+  assert.equal(await page.locator(".language-switch button").count(), 2);
+  await page.locator(".language-switch button", { hasText: "SL" }).first().click();
+  await page.getByText("Ustvari nov 3D projekt").first().waitFor({ timeout: 15000 });
+  assert.equal(await page.evaluate(() => document.documentElement.lang), "sl");
+  ok("slovenski prevod: preklopnik EN/SL in prevedeni vmesnik");
+  await page.locator(".language-switch button", { hasText: "EN" }).first().click();
+  await page.getByText("Create new 3D design").first().waitFor({ timeout: 15000 });
+
   await page.getByText("Create new 3D design").first().click();
   await eventually("urejevalnik se odpre", () => /editor=1/.test(page.url()), 30000);
   await eventually("urejevalnik se registrira za MCP", async () => (await (await fetch(`${BASE}/api/layerling-mcp`, { headers: { Authorization: `Bearer ${token()}` } })).json()).editors.length > 0, 30000);

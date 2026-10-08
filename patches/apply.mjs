@@ -51,16 +51,150 @@ export const edits = [
     replace:
       '    if ((window as unknown as { layerlingDesktop?: unknown }).layerlingDesktop) return;\n    if (!window.isSecureContext || !("serviceWorker" in navigator) || runsAsInstalledApp()) return;',
   },
+  {
+    name: "Slovenščina: ime jezika",
+    stage: "jezik",
+    file: "apps/web/src/lib/i18n.ts",
+    marker: "Slovenščina",
+    find: '  de: "Deutsch",',
+    replace: '  de: "Slovenščina",',
+  },
+  {
+    name: "Slovenščina: jezik brskalnika sl -> notranja oznaka de",
+    stage: "jezik",
+    file: "apps/web/src/lib/i18n.ts",
+    marker: 'primary === "sl"',
+    find: "  return isLanguage(primary) ? primary : null;",
+    replace: '  const mapped = primary === "sl" ? "de" : primary === "de" ? "en" : primary;\n  return isLanguage(mapped) ? mapped : null;',
+  },
+  {
+    name: "Slovenščina: lang atribut",
+    stage: "jezik",
+    file: "apps/web/src/lib/i18n.ts",
+    marker: 'language === "de" ? "sl"',
+    find: "    document.documentElement.lang = language;",
+    replace: '    document.documentElement.lang = language === "de" ? "sl" : language;',
+  },
+  {
+    name: "Slovenščina: zastava in oznaka v preklopniku",
+    stage: "jezik",
+    file: "apps/web/src/components/LanguageSwitch.tsx",
+    marker: "#005da4",
+    find: '        <rect width="5" height="1" y="0" fill="#000000" />\n        <rect width="5" height="1" y="1" fill="#dd0000" />\n        <rect width="5" height="1" y="2" fill="#ffce00" />',
+    replace: '        <rect width="5" height="1" y="0" fill="#ffffff" />\n        <rect width="5" height="1" y="1" fill="#005da4" />\n        <rect width="5" height="1" y="2" fill="#ed1c24" />',
+  },
+  {
+    name: "Slovenščina: oznaka SL v preklopniku",
+    stage: "jezik",
+    file: "apps/web/src/components/LanguageSwitch.tsx",
+    marker: '"SL"',
+    find: "<span>{option.toUpperCase()}</span>",
+    replace: '<span>{option === "de" ? "SL" : option.toUpperCase()}</span>',
+  },
+  {
+    name: "Slovenščina: oblika števil (nastavitve delovnega prostora)",
+    stage: "jezik",
+    file: "apps/web/src/components/workplane/WorkspaceSettingsModal.tsx",
+    marker: '"sl-SI"',
+    find: '"de-DE"',
+    replace: '"sl-SI"',
+  },
+  {
+    name: "Slovenščina: oblika števil (poenostavitev mreže)",
+    stage: "jezik",
+    file: "apps/web/src/components/workplane/MeshSimplifyPanel.tsx",
+    marker: '"sl-SI"',
+    find: '"de-DE"',
+    replace: '"sl-SI"',
+  },
+  {
+    name: "Slovenščina: oblika števil (urejevalnik, števila)",
+    stage: "jezik",
+    file: "apps/web/src/components/LayerlingEditor.tsx",
+    marker: 'getLanguage() === "de" ? "sl-SI" : "en-US");',
+    find: 'return count.toLocaleString(getLanguage() === "de" ? "de-DE" : "en-US");',
+    replace: 'return count.toLocaleString(getLanguage() === "de" ? "sl-SI" : "en-US");',
+  },
+  {
+    name: "Slovenščina: oblika števil (urejevalnik, decimalke)",
+    stage: "jezik",
+    file: "apps/web/src/components/LayerlingEditor.tsx",
+    marker: 'getLanguage() === "de" ? "sl-SI" : "en-US", {',
+    find: 'return value.toLocaleString(getLanguage() === "de" ? "de-DE" : "en-US", {',
+    replace: 'return value.toLocaleString(getLanguage() === "de" ? "sl-SI" : "en-US", {',
+  },
+  {
+    name: "Slovenščina: povezave v nogi brez nemških strani",
+    stage: "jezik",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: "/blob/main/README.md`;",
+    find: '  return `${SOURCE_CODE_URL.replace(/\\/+$/, "")}/blob/main/${language === "de" ? "README.de.md" : "README.md"}`;',
+    replace: '  void language;\n  return `${SOURCE_CODE_URL.replace(/\\/+$/, "")}/blob/main/README.md`;',
+  },
+  {
+    name: "Slovenščina: skupnost (GitHub namesto nemškega foruma)",
+    stage: "jezik",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: "FORUM_URL_UNUSED",
+    find: '  return language === "de" ? FORUM_URL : `${SOURCE_CODE_URL.replace(/\\/+$/, "")}/discussions`;',
+    replace: '  void language;\n  void FORUM_URL;\n  return `${SOURCE_CODE_URL.replace(/\\/+$/, "")}/discussions`; // FORUM_URL_UNUSED',
+  },
+  {
+    name: "Slovenščina: sidro navodil za posodabljanje",
+    stage: "jezik",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: '#windows-quickstart`',
+    find: '#${language === "de" ? "schnellstart-unter-windows" : "windows-quickstart"}`',
+    replace: '#windows-quickstart`',
+  },
+  {
+    name: "Slovenščina: vodnik v angleščini",
+    stage: "jezik",
+    file: "apps/web/src/lib/guideLinks.ts",
+    marker: 'const directory = "guide";',
+    find: '  const directory = language === "de" ? "anleitung" : "guide";',
+    replace: '  void language;\n  const directory = "guide";',
+  },
+  {
+    name: "Slovenščina: poglavja vodnika v angleščini",
+    stage: "jezik",
+    file: "apps/web/src/lib/guideLinks.ts",
+    marker: "GUIDE_CHAPTERS[page].en",
+    find: "GUIDE_CHAPTERS[page][language]}.html${target ? `#${target[language]}` : \"\"}`",
+    replace: "GUIDE_CHAPTERS[page].en}.html${target ? `#${target.en}` : \"\"}`",
+  },
+  {
+    name: "Slovenščina: novosti v angleščini",
+    stage: "jezik",
+    file: "apps/web/src/components/WhatsNewCard.tsx",
+    marker: "item.title.en}</strong>",
+    find: "<strong>{item.title[language]}</strong>\n                <span>{item.body[language]}</span>",
+    replace: "<strong>{item.title.en}</strong>\n                <span>{item.body.en}</span>",
+  },
+  {
+    name: "Slovenščina: jezikovni namig za napake",
+    stage: "jezik",
+    file: "apps/web/src/lib/userErrors.ts",
+    marker: "čšž]/i",
+    find: "|[äöüß]/i;",
+    replace: "|\\b(ni|je|se|za|ali|ter|pri|iz|ne|datoteke|projekta)\\b|[äöüßčšž]/i;",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
-export const additions = [{ from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" }];
+export const additions = [
+  { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
+  // Slovenski katalog nadomesti nemškega (notranja oznaka jezika ostane "de").
+  { from: "patches/files/messages.de.ts", to: "apps/web/src/lib/messages.de.ts", stage: "jezik" },
+];
 
-export function applyPatches(upstreamDir, { log = console.log } = {}) {
+/** `stage`: "osnova" (namizni most, brez jezika), "jezik" (slovenščina) ali neopredeljeno = vse. Testi originalnega programa tečejo po fazi "osnova". */
+export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
   const root = resolve(upstreamDir);
   const projectRoot = resolve(here, "..");
   const problems = [];
-  for (const edit of edits) {
+  const wanted = (item) => !stage || (item.stage ?? "osnova") === stage;
+  for (const edit of edits.filter(wanted)) {
     const target = join(root, edit.file);
     if (!existsSync(target)) {
       problems.push(`${edit.file}: datoteke ni več (${edit.name})`);
@@ -79,7 +213,7 @@ export function applyPatches(upstreamDir, { log = console.log } = {}) {
     writeFileSync(target, source.replace(edit.find, () => edit.replace));
     log(`  uporabljeno: ${edit.name}`);
   }
-  for (const add of additions) {
+  for (const add of additions.filter(wanted)) {
     const from = join(projectRoot, add.from);
     const to = join(root, add.to);
     mkdirSync(dirname(to), { recursive: true });
