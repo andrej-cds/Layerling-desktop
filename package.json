@@ -1,0 +1,31 @@
+{
+  "name": "layerling-desktop",
+  "productName": "Layerling",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Layerling – samostojen program za Windows in macOS (Electron okrog Layerling spletne aplikacije)",
+  "author": "Andrej Češarek",
+  "license": "AGPL-3.0-only",
+  "main": "desktop/main.js",
+  "scripts": {
+    "sync": "node scripts/sync-upstream.mjs",
+    "build:web": "node scripts/build-web.mjs",
+    "start": "electron .",
+    "test": "node --test \"test/*.test.js\"",
+    "dist:win": "node scripts/build-web.mjs && electron-builder --win --publish never",
+    "dist:mac": "node scripts/build-web.mjs && electron-builder --mac --publish never",
+    "test:e2e": "node test-e2e/e2e.mjs",
+    "update:upstream": "node scripts/update-upstream.mjs"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9",
+    "fflate": "^0.8.3"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3",
+    "playwright-core": "^1.64.0"
+  },
+  "repository": "github:andrej-cds/layerling-desktop",
+  "homepage": "https://github.com/andrej-cds/layerling-desktop"
+}

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<title>Nastavitve – Layerling</title>
+<style>
+  :root{--bg:#fafafa;--panel:#fff;--text:#1d2329;--muted:#5d6874;--line:#d9dee3;--accent:#2f6fed;--accent-text:#fff;--ok:#1a7f45;--warn:#b3541e}
+  @media (prefers-color-scheme:dark){:root{--bg:#1e2327;--panel:#262d33;--text:#e8ecef;--muted:#9aa6b1;--line:#3a444c;--accent:#7aa2f7;--accent-text:#10161c;--ok:#6fcf97;--warn:#f2a36b}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:720px;margin:0 auto;padding:20px 22px 90px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);margin:0 0 18px}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+  h2{font-size:15px;margin:0 0 4px}
+  p.hint{color:var(--muted);margin:2px 0 10px;font-size:13px}
+  label.row{display:flex;align-items:center;gap:8px;margin:8px 0}
+  .field{display:flex;gap:8px;align-items:center;margin:6px 0;flex-wrap:wrap}
+  .field>span{min-width:190px}
+  input[type=number]{width:90px}
+  input[type=text],textarea{flex:1;min-width:200px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font:inherit}
+  textarea{width:100%;height:150px;font:12px/1.4 ui-monospace,Consolas,monospace;resize:vertical}
+  input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font:inherit}
+  button{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:6px 12px;font:inherit;cursor:pointer}
+  button:hover{border-color:var(--accent)}
+  button.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+  footer{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 22px;display:flex;gap:10px;justify-content:flex-end;align-items:center}
+  #msg{margin-right:auto;color:var(--ok)}
+  #msg.warn{color:var(--warn)}
+  .status{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Nastavitve</h1>
+  <p class="sub" id="version"></p>
+
+  <section>
+    <h2>Samodejno shranjevanje na disk</h2>
+    <p class="hint">Program ves čas hrani projekte v svoji shrambi; tukaj pa jih dodatno zapisuje kot datoteke <b>.lyl</b> v mapo po vaši izbiri. Zapisujejo se samo spremenjeni projekti. Brisanje projekta v programu ne izbriše njegove kopije na disku.</p>
+    <label class="row"><input type="checkbox" id="as-enabled"> Samodejno shranjuj na disk</label>
+    <div class="field"><span>Na koliko sekund preveri spremembe</span><input type="number" id="as-interval" min="5" max="3600"> <span class="status">(5–3600 s)</span></div>
+    <div class="field"><span>Mapa</span><input type="text" id="as-folder" readonly><button id="as-pick">Izberi …</button><button id="as-open">Odpri</button></div>
+    <div class="field"><span>Koliko starejših verzij ohrani</span><input type="number" id="as-keep" min="0" max="200"> <span class="status">za vsak projekt (0 = brez)</span></div>
+    <div class="field"><span>Najmanj minut med verzijama</span><input type="number" id="as-gap" min="1" max="1440"></div>
+    <div class="status" id="as-status"></div>
+  </section>
+
+  <section>
+    <h2>Skupna mapa (deljenje projektov)</h2>
+    <p class="hint">Mapa, ki jo sinhronizira iCloud Drive (ali druga storitev). V programu se prikaže kot razdelek <b>Shared</b>. Hkratno urejanje istega projekta ni mogoče: odprite ga eden naenkrat. Samodejno shranjevanje zgoraj naj kaže v <b>lokalno</b> mapo, ne v oblak.</p>
+    <div class="field"><span>Mapa</span><input type="text" id="sh-folder" readonly placeholder="(izklopljeno)"><button id="sh-pick">Izberi …</button><button id="sh-clear">Izklopi</button></div>
+    <div class="field" id="sh-icloud-row" hidden><span>Najden iCloud Drive</span><button id="sh-icloud"></button></div>
+    <div class="status" id="sh-note"></div>
+  </section>
+
+  <section>
+    <h2>Povezava z AI (MCP)</h2>
+    <p class="hint">Z njo lahko Claude ali drug odjemalec MCP gradi v odprtem urejevalniku. Povezava je dostopna samo s tega računalnika in zaščitena z žetonom. Vnos prilepite v nastavitve odjemalca (Claude Desktop: Settings → Developer → Edit Config), nato ga znova zaženite.</p>
+    <textarea id="mcp" readonly></textarea>
+    <div class="field"><button id="mcp-copy">Kopiraj nastavitve</button><button id="mcp-regen">Ustvari nov žeton</button><span class="status" id="mcp-note"></span></div>
+  </section>
+
+  <section>
+    <h2>Posodobitve</h2>
+    <label class="row"><input type="checkbox" id="up-check"> Ob zagonu preveri, ali je na voljo nova različica</label>
+    <p class="hint">Nova različica se nikoli ne namesti brez vaše potrditve.</p>
+    <button id="up-now">Preveri zdaj</button>
+  </section>
+</main>
+<footer>
+  <span id="msg"></span>
+  <button id="cancel">Zapri</button>
+  <button id="save" class="primary">Shrani</button>
+</footer>
+<script>
+const $ = (id) => document.getElementById(id);
+let state = null;
+let draft = null;
+
+function msg(text, warn) { const m = $("msg"); m.textContent = text || ""; m.className = warn ? "warn" : ""; }
+
+function render() {
+  const c = draft;
+  $("as-enabled").checked = c.autosave.enabled;
+  $("as-interval").value = c.autosave.intervalSec;
+  $("as-folder").value = c.autosave.folder;
+  $("as-keep").value = c.autosave.keepVersions;
+  $("as-gap").value = c.autosave.versionGapMin;
+  $("sh-folder").value = c.sharedFolder || "";
+  $("up-check").checked = c.checkUpdatesOnStart;
+  const last = state.mirror;
+  $("as-status").textContent = last.lastAt
+    ? "Zadnje zapisovanje: " + new Date(last.lastAt).toLocaleString("sl-SI") + (last.failed ? " (" + last.failed + " ni uspelo)" : "")
+    : "Od zagona še ni bilo zapisovanja.";
+  $("sh-icloud-row").hidden = !state.icloud.length;
+  if (state.icloud.length) $("sh-icloud").textContent = state.icloud[0] + " → Layerling";
+  $("sh-note").textContent = c.sharedFolder ? "Ob spremembi se bo program na kratko znova naložil." : "";
+  $("mcp").value = JSON.stringify(state.mcpConfig, null, 2);
+}
+
+function collect() {
+  draft.autosave.enabled = $("as-enabled").checked;
+  draft.autosave.intervalSec = Number($("as-interval").value);
+  draft.autosave.keepVersions = Number($("as-keep").value);
+  draft.autosave.versionGapMin = Number($("as-gap").value);
+  draft.checkUpdatesOnStart = $("up-check").checked;
+}
+
+async function init() {
+  state = await window.settingsApi.load();
+  draft = JSON.parse(JSON.stringify(state.config));
+  $("version").textContent = "Layerling " + state.appVersion + " · osnova: originalni program " + state.upstreamVersion;
+  render();
+}
+
+$("as-pick").onclick = async () => {
+  const folder = await window.settingsApi.pickFolder({ title: "Mapa za samodejno shranjevanje", defaultPath: draft.autosave.folder });
+  if (folder) { draft.autosave.folder = folder; render(); }
+};
+$("as-open").onclick = () => window.settingsApi.openFolder(draft.autosave.folder);
+$("sh-pick").onclick = async () => {
+  const folder = await window.settingsApi.pickFolder({ title: "Skupna mapa", defaultPath: draft.sharedFolder || (state.icloud[0] || undefined) });
+  if (folder) { draft.sharedFolder = folder; render(); }
+};
+$("sh-clear").onclick = () => { draft.sharedFolder = null; render(); };
+$("sh-icloud").onclick = () => { draft.sharedFolder = state.icloudTarget; render(); };
+$("mcp-copy").onclick = async () => { await window.settingsApi.copyText($("mcp").value); $("mcp-note").textContent = "Kopirano."; };
+$("mcp-regen").onclick = async () => {
+  if (!confirm("Nov žeton bo razveljavil staro nastavitev v odjemalcu MCP. Nadaljujem?")) return;
+  state = await window.settingsApi.regenerateToken();
+  draft = JSON.parse(JSON.stringify(state.config));
+  render();
+  $("mcp-note").textContent = "Žeton je zamenjan; posodobite nastavitve v odjemalcu.";
+};
+$("up-now").onclick = () => window.settingsApi.checkUpdates();
+$("cancel").onclick = () => window.settingsApi.close();
+$("save").onclick = async () => {
+  collect();
+  msg("Shranjujem …");
+  const result = await window.settingsApi.save({
+    autosave: draft.autosave,
+    sharedFolder: draft.sharedFolder,
+    checkUpdatesOnStart: draft.checkUpdatesOnStart,
+  });
+  if (result && result.error) { msg(result.error, true); return; }
+  state = result;
+  draft = JSON.parse(JSON.stringify(state.config));
+  render();
+  msg("Shranjeno.");
+};
+init();
+</script>
+</body>
+</html>

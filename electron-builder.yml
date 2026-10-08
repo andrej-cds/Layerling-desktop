@@ -1,0 +1,53 @@
+appId: si.cassettedeck-service.layerling
+productName: Layerling
+copyright: "Layerling: GNU AGPL v3. Namizna lupina: Andrej Češarek."
+directories:
+  output: dist
+  buildResources: build
+asar: true
+files:
+  - package.json
+  - desktop/**/*
+  - "!desktop/**/*.test.*"
+afterPack: scripts/after-pack.cjs
+fileAssociations:
+  - ext: lyl
+    name: Layerling projekt
+    description: Layerling projekt
+    role: Editor
+  - ext: skf
+    name: Layerling projekt (starejši zapis)
+    description: Layerling projekt (starejši zapis)
+    role: Editor
+publish:
+  provider: github
+  owner: andrej-cds
+  repo: layerling-desktop
+  releaseType: release
+win:
+  icon: build/icon.png
+  target:
+    - target: nsis
+      arch: [x64]
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Layerling
+  language: "1060"
+  deleteAppDataOnUninstall: false
+mac:
+  icon: build/icon.png
+  category: public.app-category.graphics-design
+  # Brez plačljivega Applovega podpisa; "-" pomeni samopodpis, ki ga Apple Silicon zahteva za zagon.
+  identity: "-"
+  # Z samopodpisom je "hardened runtime" nezdružljiv (program se ne bi zagnal), zato je izklopljen.
+  hardenedRuntime: false
+  notarize: false
+  target:
+    - target: dmg
+      arch: [arm64, x64]
+    - target: zip
+      arch: [arm64, x64]

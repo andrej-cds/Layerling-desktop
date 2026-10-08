@@ -1,0 +1,36 @@
+name: Preveri novo različico originalnega programa
+
+# Enkrat tedensko preveri, ali je proizvajalec izdal novo različico. Če je, odpre "Issue", GitHub pa pošlje e-pošto.
+# Nič se ne zgradi in nič se ne objavi samo od sebe: o posodobitvi odločite vi.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  preveri:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: preveri
+        run: node scripts/update-upstream.mjs --check
+      - name: Obvesti
+        if: steps.preveri.outputs.newer == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NASLOV: "Nova različica originalnega programa: ${{ steps.preveri.outputs.latest }}"
+          TRENUTNA: ${{ steps.preveri.outputs.current }}
+        run: |
+          obstaja="$(gh issue list --state all --search "\"$NASLOV\" in:title" --json number --jq 'length')"
+          if [ "$obstaja" = "0" ]; then
+            gh issue create --title "$NASLOV" --body "Proizvajalec je izdal novo različico. Zdaj je pripeta $TRENUTNA.
+
+          Posodobitev: v mapi projekta zaženite \`npm run update:upstream\` (ali prosite Claudia, naj to naredi). Postopek sam uporabi popravke, požene preverjanje tipov, teste proizvajalca in gradnjo ter se ob napaki vrne na staro različico. Nato izdajte novo različico po navodilih v README (razdelek Izdaja)."
+          fi

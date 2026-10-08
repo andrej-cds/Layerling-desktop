@@ -1,0 +1,5 @@
+{
+  "repo": "https://github.com/henmedia/layerling.git",
+  "ref": "v1.47.0",
+  "note": "Pripeta različica originalnega programa. Spremeni se samo z `npm run update:upstream`."
+}
