@@ -12,6 +12,7 @@ const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
 
 const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
+const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
 const REPO = (process.env.LAYERLING_DESKTOP_REPO || "andrej-cds/layerling-desktop");
 const SOURCE_URL = `https://github.com/${REPO}`;
 const UPSTREAM_DOCS_URL = "https://github.com/henmedia/layerling#readme";
@@ -111,7 +112,7 @@ app.on("second-instance", (_event, argv) => {
 // ---------- okno ----------
 function publicSettings() {
   const c = config.get();
-  return { autosave: { enabled: c.autosave.enabled, intervalSec: c.autosave.intervalSec }, platform: process.platform };
+  return { autosave: { enabled: c.autosave.enabled, intervalSec: c.autosave.intervalSec }, platform: process.platform, appVersion: app.getVersion() };
 }
 
 function createMainWindow() {
@@ -140,7 +141,7 @@ function createMainWindow() {
   if (bounds.maximized) mainWindow.maximize();
   // Naslovna vrstica: fiksen naslov brez »in your browser«, ki ga stran sicer nastavi sama.
   mainWindow.on("page-title-updated", (event) => event.preventDefault());
-  mainWindow.setTitle(WINDOW_TITLE);
+  mainWindow.setTitle(windowTitle());
   mainWindow.once("ready-to-show", () => mainWindow.show());
   // Stran je pripravljena šele, ko jo program sam sporoči; ob pravi navigaciji (ne ob spremembi naslova v isti strani) se to ponastavi.
   mainWindow.webContents.on("did-start-navigation", (details) => {
@@ -418,7 +419,7 @@ function showAbout() {
   dialog.showMessageBox(mainWindow || undefined, {
     type: "info",
     title: tr("dlg.aboutTitle"),
-    message: `Layerling ${app.getVersion()}`,
+    message: `Layerling Desktop ${app.getVersion()}`,
     detail:
       `${tr("dlg.aboutStandalone", { os: isMac ? "macOS" : "Windows" })}\n` +
       `${tr("dlg.aboutBase", { version: up.version, commit: up.commit ? ` (${String(up.commit).slice(0, 7)})` : "" })}\n` +

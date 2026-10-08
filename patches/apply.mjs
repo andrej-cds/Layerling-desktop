@@ -140,6 +140,22 @@ export const edits = [
     replace: '  void language;\n  void FORUM_URL;\n  return `${SOURCE_CODE_URL.replace(/\\/+$/, "")}/discussions`; // FORUM_URL_UNUSED',
   },
   {
+    name: "Desktop: različica lupine v nogi",
+    stage: "jezik",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: "DesktopVersion",
+    find: '{t("dashboard.releaseNotes", { version })}\n          </a>,',
+    replace: '{t("dashboard.releaseNotes", { version })}\n          </a>,\n          <DesktopVersion key="desktop-version" />,',
+  },
+  {
+    name: "Desktop: uvoz komponente z različico lupine",
+    stage: "jezik",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: 'from "@/components/DesktopVersion"',
+    find: 'import { SupportNudge } from "@/components/SupportNudge";',
+    replace: 'import { SupportNudge } from "@/components/SupportNudge";\nimport { DesktopVersion } from "@/components/DesktopVersion";',
+  },
+  {
     name: "Slovenščina: sidro navodil za posodabljanje",
     stage: "jezik",
     file: "apps/web/src/components/AppFooter.tsx",
@@ -209,6 +225,7 @@ export const edits = [
 
 /** Datoteke, ki jih popravki dodajo. */
 export const additions = [
+  { stage: "jezik", from: "patches/files/DesktopVersion.tsx", to: "apps/web/src/components/DesktopVersion.tsx" },
   { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
   // Slovenski katalog nadomesti nemškega (notranja oznaka jezika ostane "de").
   { from: "patches/files/messages.de.ts", to: "apps/web/src/lib/messages.de.ts", stage: "jezik" },

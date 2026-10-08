@@ -127,8 +127,11 @@ try {
   ok("most do lupine je na voljo");
 
   const windowTitle = await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].getTitle());
-  assert.equal(windowTitle, "Layerling - Free 3D CAD for 3D printing", `naslov okna: ${windowTitle}`);
-  ok("naslovna vrstica: »Layerling - Free 3D CAD for 3D printing« (brez »in your browser«)");
+  assert.match(windowTitle, /^Layerling - Free 3D CAD for 3D printing - Desktop \d+\.\d+\.\d+$/, `naslov okna: ${windowTitle}`);
+  ok("naslovna vrstica: »Layerling - Free 3D CAD for 3D printing - Desktop x.y.z« (brez »in your browser«)");
+
+  await page.waitForFunction(() => /Desktop \d+\.\d+\.\d+/.test(document.body.innerText), null, { timeout: 15000 });
+  ok("različica lupine je vidna tudi v nogi strani");
 
   // Slovenščina nadomešča nemščino: preklopnik jezika pokaže SL, vmesnik se prevede in se da vrniti na EN.
   assert.equal(await page.locator(".language-switch button").count(), 2);

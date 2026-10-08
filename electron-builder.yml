@@ -37,6 +37,8 @@ nsis:
   createStartMenuShortcut: true
   shortcutName: Layerling
   language: "1060"
+  installerSidebar: build/installerSidebar.bmp
+  uninstallerSidebar: build/uninstallerSidebar.bmp
   deleteAppDataOnUninstall: false
 mac:
   icon: build/icon.png
