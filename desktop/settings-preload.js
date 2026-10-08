@@ -3,6 +3,7 @@ const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("settingsApi", {
   load: () => ipcRenderer.invoke("settings:load"),
+  strings: () => ipcRenderer.invoke("settings:strings"),
   save: (patch) => ipcRenderer.invoke("settings:save", patch),
   pickFolder: (options) => ipcRenderer.invoke("settings:pick-folder", options),
   openFolder: (target) => ipcRenderer.invoke("settings:open-folder", target),

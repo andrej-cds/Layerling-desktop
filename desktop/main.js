@@ -7,6 +7,7 @@ const { ConfigStore } = require("./config");
 const { Mirror } = require("./mirror");
 const { EmbeddedServer } = require("./server");
 const { buildMenu } = require("./menu");
+const { tr, setLanguage, getLanguage, normalizeLanguage, languageFromLocale, STRINGS } = require("./strings");
 const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
 
@@ -76,10 +77,10 @@ function lylPathsFromArgs(argv) {
 function queueFile(filePath) {
   try {
     const stat = fs.statSync(filePath);
-    if (!stat.isFile() || stat.size > MAX_OPEN_BYTES) throw new Error("Datoteka je prevelika ali ni datoteka.");
+    if (!stat.isFile() || stat.size > MAX_OPEN_BYTES) throw new Error(tr("dlg.fileTooBig"));
     sendFile({ name: path.basename(filePath), bytes: fs.readFileSync(filePath) });
   } catch (error) {
-    dialog.showErrorBox("Datoteke ni mogoče odpreti", `${filePath}\n\n${error.message}`);
+    dialog.showErrorBox(tr("dlg.openFailed"), `${filePath}\n\n${error.message}`);
   }
 }
 
@@ -169,7 +170,7 @@ function createMainWindow() {
   });
   mainWindow.on("closed", () => { mainWindow = null; closeHandled = false; });
 
-  mainWindow.loadFile(path.join(__dirname, "loading.html"));
+  mainWindow.loadFile(path.join(__dirname, "loading.html"), { query: { lang: getLanguage() } });
 }
 
 function saveBounds() {
@@ -181,8 +182,8 @@ function saveBounds() {
 
 function showLoadError(message) {
   if (!mainWindow) return;
-  mainWindow.loadFile(path.join(__dirname, "loading.html")).then(() => {
-    const text = JSON.stringify(`Program se ni mogel zagnati: ${message}`);
+  mainWindow.loadFile(path.join(__dirname, "loading.html"), { query: { lang: getLanguage() } }).then(() => {
+    const text = JSON.stringify(tr("dlg.startFailed", { message }));
     return mainWindow.webContents.executeJavaScript(
       `document.body.innerHTML = '<div class="err"></div>'; document.querySelector('.err').textContent = ${text};`,
     );
@@ -200,8 +201,8 @@ async function startServerAndLoad() {
     log(`Zagon strežnika ni uspel: ${error.message}`);
     if (error.code === "PORT_BUSY") {
       dialog.showErrorBox(
-        "Vrata so zasedena",
-        `Vrata ${c.port} že uporablja drug program, zato Layerling ne more teči.\n\nZaprite ta program (ali drugo kopijo Layerlinga) in poskusite znova.`,
+        tr("dlg.portBusyTitle"),
+        tr("dlg.portBusy", { port: c.port }),
       );
     }
     showLoadError(error.message);
@@ -249,7 +250,7 @@ ipcMain.handle("mirror:write", (_event, entries) => {
   if (result.failed.length) {
     log(`Zapisovanje na disk ni uspelo za ${result.failed.length} projektov: ${JSON.stringify(result.failed)}`);
     if (Notification.isSupported()) {
-      new Notification({ title: "Layerling", body: "Samodejno shranjevanje na disk ni uspelo. Preverite mapo v Nastavitvah." }).show();
+      new Notification({ title: "Layerling", body: tr("dlg.autosaveFailed") }).show();
     }
   }
   return result;
@@ -273,10 +274,10 @@ ipcMain.on("renderer:project-count", async (_event, count) => {
   restorePromptShown = true;
   const { response } = await dialog.showMessageBox(mainWindow || undefined, {
     type: "question",
-    title: "Najdeni shranjeni projekti",
-    message: `V programu ni projektov, v mapi samodejnega shranjevanja pa je jih ${files.length}.`,
-    detail: `${config.get().autosave.folder}\n\nŽelite jih vrniti v program?`,
-    buttons: ["Obnovi projekte", "Ne zdaj"],
+    title: tr("dlg.restoreFoundTitle"),
+    message: tr("dlg.restoreFound", { count: files.length }),
+    detail: `${config.get().autosave.folder}\n\n${tr("dlg.restoreAsk")}`,
+    buttons: [tr("dlg.restoreYes"), tr("dlg.restoreNo")],
     defaultId: 0,
     cancelId: 1,
   });
@@ -286,7 +287,7 @@ ipcMain.on("renderer:project-count", async (_event, count) => {
 function restoreFromAutosave() {
   const files = mirror.listProjectFiles();
   if (!files.length) {
-    dialog.showMessageBox(mainWindow || undefined, { type: "info", title: "Obnovitev", message: "V mapi samodejnega shranjevanja ni projektov.", detail: config.get().autosave.folder });
+    dialog.showMessageBox(mainWindow || undefined, { type: "info", title: tr("dlg.restoreTitle"), message: tr("dlg.restoreNone"), detail: config.get().autosave.folder });
     return;
   }
   const entries = {};
@@ -326,7 +327,7 @@ function openSettings() {
     width: 780,
     height: 760,
     parent: mainWindow || undefined,
-    title: "Nastavitve – Layerling",
+    title: tr("settings.windowTitle"),
     backgroundColor: "#1e2327",
     autoHideMenuBar: true,
     webPreferences: {
@@ -342,6 +343,20 @@ function openSettings() {
 }
 
 ipcMain.handle("settings:load", () => settingsPayload());
+ipcMain.handle("settings:strings", () => ({ language: getLanguage(), strings: STRINGS[getLanguage()] }));
+
+// Urejevalnik sporoči jezik (preklopnik EN/SL); lupina (meniji, okna, posodobitve) mu sledi.
+ipcMain.on("renderer:language", (_event, language) => {
+  const next = normalizeLanguage(language);
+  if (!next || next === getLanguage()) return;
+  setLanguage(next);
+  config.update({ language: next });
+  installMenu();
+  if (settingsWindow && !settingsWindow.isDestroyed()) {
+    settingsWindow.setTitle(tr("settings.windowTitle"));
+    settingsWindow.webContents.reload();
+  }
+});
 
 ipcMain.handle("settings:save", async (_event, patch) => {
   const before = config.get();
@@ -352,8 +367,8 @@ ipcMain.handle("settings:save", async (_event, patch) => {
 
   // Mapa mora biti zapisljiva, sicer bi uporabnik mislil, da je shranjeno, pa ne bi bilo.
   const folders = [];
-  if (safePatch.autosave && safePatch.autosave.folder) folders.push(["Mapa samodejnega shranjevanja", safePatch.autosave.folder]);
-  if (safePatch.sharedFolder) folders.push(["Skupna mapa", safePatch.sharedFolder]);
+  if (safePatch.autosave && safePatch.autosave.folder) folders.push([tr("dlg.autosaveFolder"), safePatch.autosave.folder]);
+  if (safePatch.sharedFolder) folders.push([tr("dlg.sharedFolder"), safePatch.sharedFolder]);
   for (const [label, folder] of folders) {
     try {
       fs.mkdirSync(folder, { recursive: true });
@@ -361,7 +376,7 @@ ipcMain.handle("settings:save", async (_event, patch) => {
       fs.writeFileSync(probe, "x");
       fs.rmSync(probe, { force: true });
     } catch (error) {
-      return { error: `${label} ni zapisljiva (${folder}): ${error.message}` };
+      return { error: tr("dlg.folderNotWritable", { label, folder, message: error.message }) };
     }
   }
 
@@ -379,7 +394,7 @@ ipcMain.handle("settings:regenerate-token", async () => {
 
 ipcMain.handle("settings:pick-folder", async (_event, options) => {
   const result = await dialog.showOpenDialog(settingsWindow || mainWindow || undefined, {
-    title: (options && options.title) || "Izberite mapo",
+    title: (options && options.title) || tr("dlg.pickFolder"),
     defaultPath: options && options.defaultPath ? options.defaultPath : undefined,
     properties: ["openDirectory", "createDirectory"],
   });
@@ -402,20 +417,20 @@ function showAbout() {
   const up = upstreamInfo();
   dialog.showMessageBox(mainWindow || undefined, {
     type: "info",
-    title: "O programu",
+    title: tr("dlg.aboutTitle"),
     message: `Layerling ${app.getVersion()}`,
     detail:
-      `Samostojna različica za ${isMac ? "macOS" : "Windows"}.\n` +
-      `Osnova: Layerling ${up.version}${up.commit ? ` (${String(up.commit).slice(0, 7)})` : ""} – github.com/henmedia/layerling,\n` +
-      `izpeljanka SketchForge-3D. Licenca: GNU AGPL v3.\n\nIzvorna koda: ${SOURCE_URL}`,
+      `${tr("dlg.aboutStandalone", { os: isMac ? "macOS" : "Windows" })}\n` +
+      `${tr("dlg.aboutBase", { version: up.version, commit: up.commit ? ` (${String(up.commit).slice(0, 7)})` : "" })}\n` +
+      `${tr("dlg.aboutLicense")}\n\n${tr("dlg.aboutSource", { url: SOURCE_URL })}`,
   });
 }
 
 async function openProjectDialog() {
   const result = await dialog.showOpenDialog(mainWindow || undefined, {
-    title: "Odpri projekt",
+    title: tr("dlg.openProjectTitle"),
     properties: ["openFile"],
-    filters: [{ name: "Layerling projekt", extensions: ["lyl", "skf"] }, { name: "Vse datoteke", extensions: ["*"] }],
+    filters: [{ name: tr("dlg.openProjectFilter"), extensions: ["lyl", "skf"] }, { name: tr("dlg.allFiles"), extensions: ["*"] }],
   });
   if (!result.canceled) result.filePaths.forEach(queueFile);
 }
@@ -458,6 +473,7 @@ app.whenReady().then(async () => {
     runnerPath: path.join(desktopSupportDir(), "server-runner.js"),
     onLog: log,
   });
+  setLanguage(normalizeLanguage(config.get().language) || languageFromLocale(app.getLocale()));
   hardenSession();
   installMenu();
   createMainWindow();

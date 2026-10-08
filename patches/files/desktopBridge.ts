@@ -13,6 +13,7 @@
  */
 
 import { useEffect, useRef } from "react";
+import { getLanguage, subscribeToLanguage } from "@/lib/i18n";
 
 type DesktopSettings = { autosave: { enabled: boolean; intervalSec: number }; platform: string };
 type MirrorEntry = { id: string; name: string; bytes: Uint8Array };
@@ -30,6 +31,7 @@ type DesktopApi = {
   onOpenFile: (callback: (file: OpenedFile) => void) => () => void;
   ready: () => void;
   reportProjectCount: (count: number) => void;
+  reportLanguage?: (language: "sl" | "en") => void;
 };
 
 declare global {
@@ -60,6 +62,20 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
   const running = useRef<Promise<void> | null>(null);
   const settings = useRef<DesktopSettings | null>(null);
   const timer = useRef<number | null>(null);
+
+  // Jezik urejevalnika ("de" je v tej gradnji slovenščina) se sporoča lupini, da so meniji in okna v istem jeziku.
+  useEffect(() => {
+    const api = typeof window !== "undefined" ? window.layerlingDesktop : undefined;
+    if (!api || !api.reportLanguage) return;
+    const report = () => api.reportLanguage?.(getLanguage() === "de" ? "sl" : "en");
+    // Shranjeni jezik se v urejevalniku uveljavi tik po zagonu; prvo poročilo počaka nanj.
+    const first = window.setTimeout(report, 1500);
+    const unsubscribe = subscribeToLanguage(report);
+    return () => {
+      window.clearTimeout(first);
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     const api = typeof window !== "undefined" ? window.layerlingDesktop : undefined;

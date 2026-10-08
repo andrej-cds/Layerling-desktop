@@ -52,6 +52,8 @@ function normalize(raw, documentsDir) {
     },
     sharedFolder: typeof input.sharedFolder === "string" && input.sharedFolder.trim() ? input.sharedFolder.trim() : null,
     mcpToken: token,
+    // Jezik lupine (sl | en): sporoči ga urejevalnik; dokler ni znan, se uporabi jezik sistema.
+    language: input.language === "en" || input.language === "sl" ? input.language : null,
     checkUpdatesOnStart: input.checkUpdatesOnStart !== false,
     windowBounds: input.windowBounds && typeof input.windowBounds === "object" ? input.windowBounds : null,
   };

@@ -39,3 +39,10 @@ test("pokvarjena datoteka nastavitev ne podre programa", () => {
   const c = new ConfigStore(file, "/docs");
   assert.strictEqual(c.get().autosave.intervalSec, 30);
 });
+
+test("jezik lupine: samo sl ali en, sicer ni določen", () => {
+  assert.strictEqual(normalize(null, "/docs").language, null);
+  assert.strictEqual(normalize({ language: "en" }, "/docs").language, "en");
+  assert.strictEqual(normalize({ language: "sl" }, "/docs").language, "sl");
+  assert.strictEqual(normalize({ language: "de" }, "/docs").language, null);
+});

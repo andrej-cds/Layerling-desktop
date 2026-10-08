@@ -69,18 +69,22 @@ async function launch(extraArgs = []) {
   return { app, page };
 }
 
-async function menuClick(app, label) {
+async function menuHas(app, label) {
+  return app.evaluate(({ Menu }, wanted) => Menu.getApplicationMenu().items.some((item) => item.label === wanted), label);
+}
+
+async function menuClick(app, id) {
   const found = await app.evaluate(({ Menu }, wanted) => {
     const walk = (items) => {
       for (const item of items) {
-        if (item.label === wanted && item.click) { item.click(); return true; }
+        if (item.id === wanted && item.click) { item.click(); return true; }
         if (item.submenu && walk(item.submenu.items)) return true;
       }
       return false;
     };
     return walk(Menu.getApplicationMenu().items);
-  }, label);
-  assert.ok(found, `Menijska postavka "${label}" ne obstaja`);
+  }, id);
+  assert.ok(found, `Menijska postavka "${id}" ne obstaja`);
 }
 
 async function mcp(action, params = {}) {
@@ -132,8 +136,12 @@ try {
   await page.getByText("Ustvari nov 3D projekt").first().waitFor({ timeout: 15000 });
   assert.equal(await page.evaluate(() => document.documentElement.lang), "sl");
   ok("slovenski prevod: preklopnik EN/SL in prevedeni vmesnik");
+  await eventually("lupina (meni) sledi slovenščini", () => menuHas(app, "Datoteka"), 15000);
   await page.locator(".language-switch button", { hasText: "EN" }).first().click();
   await page.getByText("Create new 3D design").first().waitFor({ timeout: 15000 });
+  await eventually("lupina (meni) sledi angleščini", () => menuHas(app, "File"), 15000);
+  assert.equal(await menuHas(app, "Datoteka"), false);
+  ok("meniji lupine sledijo jeziku urejevalnika (SL ↔ EN)");
 
   await page.getByText("Create new 3D design").first().click();
   await eventually("urejevalnik se odpre", () => /editor=1/.test(page.url()), 30000);
@@ -159,10 +167,12 @@ try {
   copyFileSync(projectFile, openFile);
 
   // ---------- Nastavitve ----------
-  await menuClick(app, "Nastavitve …");
+  await menuClick(app, "settings");
   const settingsPage = await app.waitForEvent("window", { timeout: 15000 });
   await settingsPage.waitForLoadState("domcontentloaded");
   await settingsPage.locator("#as-interval").waitFor();
+  await eventually("okno z nastavitvami je v angleščini (jezik urejevalnika)", async () => (await settingsPage.locator("h1").textContent()) === "Settings", 10000);
+  assert.equal(await settingsPage.locator("#up-now").textContent(), "Check now");
   assert.equal(await settingsPage.inputValue("#as-interval"), "5");
   assert.equal(await settingsPage.inputValue("#as-folder"), dirs.auto);
   assert.ok((await settingsPage.inputValue("#mcp")).includes("ELECTRON_RUN_AS_NODE"));
@@ -206,7 +216,7 @@ try {
   await page.goto(BASE);
   await page.getByText("Create new 3D design").first().waitFor({ timeout: 30000 });
   const countBeforeRestore = (await storedProjects(page)).length;
-  await menuClick(app, "Obnovi projekte iz samodejnega shranjevanja …");
+  await menuClick(app, "restore");
   await eventually("projekti se obnovijo", async () => (await storedProjects(page)).length > countBeforeRestore, 30000);
   ok("obnovitev iz mape samodejnega shranjevanja vrne projekte");
 
@@ -264,18 +274,18 @@ try {
         return { response: 1 }; // "Pozneje": nič se ne prenese
       };
     });
-    await menuClick(app3, "Preveri posodobitve …");
+    await menuClick(app3, "checkUpdates");
     const asked = await eventually("pojavi se vprašanje o posodobitvi", async () => {
       const list = await app3.evaluate(() => globalThis.__dialogs);
       return list.find((d) => /9\.9\.9/.test(d.message));
     }, 30000);
-    assert.ok(asked.buttons.length === 2 && /Prenesi|Odpri/.test(asked.buttons[0]) && asked.buttons[1] === "Pozneje");
+    assert.ok(asked.buttons.length === 2 && /Prenesi|Odpri|Download|Open/.test(asked.buttons[0]) && /Pozneje|Later/.test(asked.buttons[1]));
     ok("nova različica: program vpraša, ali jo želite prenesti (nič se ne zgodi brez potrditve)");
 
     feedVersion = "0.0.1";
     await app3.evaluate(() => { globalThis.__dialogs.length = 0; });
-    await menuClick(app3, "Preveri posodobitve …");
-    await eventually("sporočilo, da je različica najnovejša", async () => (await app3.evaluate(() => globalThis.__dialogs)).some((d) => /najnovejšo/.test(d.message)), 30000);
+    await menuClick(app3, "checkUpdates");
+    await eventually("sporočilo, da je različica najnovejša", async () => (await app3.evaluate(() => globalThis.__dialogs)).some((d) => /najnovejšo|latest version/.test(d.message)), 30000);
     ok("brez novosti: program to pove");
     await app3.close();
     session = null;

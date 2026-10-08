@@ -19,4 +19,5 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   onOpenFile: (callback) => listen("app:open-file", callback),
   ready: () => ipcRenderer.send("renderer:ready"),
   reportProjectCount: (count) => ipcRenderer.send("renderer:project-count", count),
+  reportLanguage: (language) => ipcRenderer.send("renderer:language", language),
 });

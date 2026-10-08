@@ -2,6 +2,7 @@
 // Posodobitve programa. Nič se ne prenese ali namesti brez potrditve uporabnika.
 const { app, dialog, shell } = require("electron");
 const { cleanReleaseNotes } = require("./notes");
+const { tr } = require("./strings");
 
 let autoUpdater = null;
 let wiredUp = false;
@@ -35,10 +36,10 @@ function setup({ getWindow, repo, log }) {
     const notes = cleanReleaseNotes(info.releaseNotes);
     const { response } = await dialog.showMessageBox(win || undefined, {
       type: "info",
-      title: "Posodobitev programa",
-      message: `Na voljo je nova različica Layerling ${info.version}.`,
-      detail: `Trenutna različica: ${app.getVersion()}.${notes ? `\n\n${notes}` : ""}\n\n${macManual ? "Odprem stran za prenos?" : "Želite jo prenesti in namestiti? Vaši projekti ostanejo nespremenjeni."}`,
-      buttons: [macManual ? "Odpri stran za prenos" : "Prenesi in namesti", "Pozneje"],
+      title: tr("update.title"),
+      message: tr("update.available", { version: info.version }),
+      detail: `${tr("update.current", { version: app.getVersion() })}${notes ? `\n\n${notes}` : ""}\n\n${macManual ? tr("update.askMac") : tr("update.askWin")}`,
+      buttons: [macManual ? tr("update.openPage") : tr("update.download"), tr("update.later")],
       defaultId: 0,
       cancelId: 1,
     });
@@ -54,7 +55,7 @@ function setup({ getWindow, repo, log }) {
     } catch (error) {
       busy = false;
       if (win) win.setProgressBar(-1);
-      dialog.showErrorBox("Prenos posodobitve ni uspel", String(error && error.message ? error.message : error));
+      dialog.showErrorBox(tr("update.downloadFailed"), String(error && error.message ? error.message : error));
     }
   });
 
@@ -63,8 +64,8 @@ function setup({ getWindow, repo, log }) {
     if (interactive) {
       dialog.showMessageBox(getWindow() || undefined, {
         type: "info",
-        title: "Posodobitve",
-        message: "Imate najnovejšo različico.",
+        title: tr("update.upToDateTitle"),
+        message: tr("update.upToDate"),
         detail: `Layerling ${app.getVersion()}`,
       });
     }
@@ -81,10 +82,10 @@ function setup({ getWindow, repo, log }) {
     if (win) win.setProgressBar(-1);
     const { response } = await dialog.showMessageBox(win || undefined, {
       type: "question",
-      title: "Posodobitev je prenesena",
-      message: `Različica ${info.version} je pripravljena.`,
-      detail: "Program se bo zaprl, namestil posodobitev in se znova zagnal. Projekti se pred tem shranijo.",
-      buttons: ["Namesti zdaj", "Ob naslednjem izhodu"],
+      title: tr("update.downloadedTitle"),
+      message: tr("update.downloaded", { version: info.version }),
+      detail: tr("update.downloadedDetail"),
+      buttons: [tr("update.installNow"), tr("update.onExit")],
       defaultId: 0,
       cancelId: 1,
     });
@@ -100,9 +101,9 @@ function setup({ getWindow, repo, log }) {
     if (interactive) {
       dialog.showMessageBox(win || undefined, {
         type: "warning",
-        title: "Posodobitve",
-        message: "Preverjanje posodobitev ni uspelo.",
-        detail: "Preverite internetno povezavo in poskusite znova.",
+        title: tr("update.upToDateTitle"),
+        message: tr("update.checkFailed"),
+        detail: tr("update.checkFailedDetail"),
       });
     }
   });
@@ -112,7 +113,7 @@ function setup({ getWindow, repo, log }) {
 async function check({ userInitiated = false, repo, log }) {
   if (!app.isPackaged) {
     if (userInitiated) {
-      dialog.showMessageBox({ type: "info", title: "Posodobitve", message: "Preverjanje posodobitev deluje samo v nameščenem programu." });
+      dialog.showMessageBox({ type: "info", title: tr("update.upToDateTitle"), message: tr("update.devOnly") });
     }
     return;
   }

@@ -33,51 +33,65 @@
 </head>
 <body>
 <main>
-  <h1>Nastavitve</h1>
+  <h1 data-i18n="s.title">Nastavitve</h1>
   <p class="sub" id="version"></p>
 
   <section>
-    <h2>Samodejno shranjevanje na disk</h2>
-    <p class="hint">Program ves čas hrani projekte v svoji shrambi; tukaj pa jih dodatno zapisuje kot datoteke <b>.lyl</b> v mapo po vaši izbiri. Zapisujejo se samo spremenjeni projekti. Brisanje projekta v programu ne izbriše njegove kopije na disku.</p>
-    <label class="row"><input type="checkbox" id="as-enabled"> Samodejno shranjuj na disk</label>
-    <div class="field"><span>Na koliko sekund preveri spremembe</span><input type="number" id="as-interval" min="5" max="3600"> <span class="status">(5–3600 s)</span></div>
-    <div class="field"><span>Mapa</span><input type="text" id="as-folder" readonly><button id="as-pick">Izberi …</button><button id="as-open">Odpri</button></div>
-    <div class="field"><span>Koliko starejših verzij ohrani</span><input type="number" id="as-keep" min="0" max="200"> <span class="status">za vsak projekt (0 = brez)</span></div>
-    <div class="field"><span>Najmanj minut med verzijama</span><input type="number" id="as-gap" min="1" max="1440"></div>
+    <h2 data-i18n="s.autosaveTitle">Samodejno shranjevanje na disk</h2>
+    <p class="hint" data-i18n-html="s.autosaveHint">Program ves čas hrani projekte v svoji shrambi; tukaj pa jih dodatno zapisuje kot datoteke <b>.lyl</b> v mapo po vaši izbiri. Zapisujejo se samo spremenjeni projekti. Brisanje projekta v programu ne izbriše njegove kopije na disku.</p>
+    <label class="row"><input type="checkbox" id="as-enabled"> <span data-i18n="s.autosaveEnabled">Samodejno shranjuj na disk</span></label>
+    <div class="field"><span data-i18n="s.interval">Na koliko sekund preveri spremembe</span><input type="number" id="as-interval" min="5" max="3600"> <span class="status" data-i18n="s.intervalRange">(5–3600 s)</span></div>
+    <div class="field"><span data-i18n="s.folder">Mapa</span><input type="text" id="as-folder" readonly><button id="as-pick" data-i18n="s.pick">Izberi …</button><button id="as-open" data-i18n="s.open">Odpri</button></div>
+    <div class="field"><span data-i18n="s.keep">Koliko starejših verzij ohrani</span><input type="number" id="as-keep" min="0" max="200"> <span class="status" data-i18n="s.keepNote">za vsak projekt (0 = brez)</span></div>
+    <div class="field"><span data-i18n="s.gap">Najmanj minut med verzijama</span><input type="number" id="as-gap" min="1" max="1440"></div>
     <div class="status" id="as-status"></div>
   </section>
 
   <section>
-    <h2>Skupna mapa (deljenje projektov)</h2>
-    <p class="hint">Mapa, ki jo sinhronizira iCloud Drive (ali druga storitev). V programu se prikaže kot razdelek <b>Shared</b>. Hkratno urejanje istega projekta ni mogoče: odprite ga eden naenkrat. Samodejno shranjevanje zgoraj naj kaže v <b>lokalno</b> mapo, ne v oblak.</p>
-    <div class="field"><span>Mapa</span><input type="text" id="sh-folder" readonly placeholder="(izklopljeno)"><button id="sh-pick">Izberi …</button><button id="sh-clear">Izklopi</button></div>
-    <div class="field" id="sh-icloud-row" hidden><span>Najden iCloud Drive</span><button id="sh-icloud"></button></div>
+    <h2 data-i18n="s.sharedTitle">Skupna mapa (deljenje projektov)</h2>
+    <p class="hint" data-i18n-html="s.sharedHint">Mapa, ki jo sinhronizira iCloud Drive (ali druga storitev). V programu se prikaže kot razdelek <b>Shared</b>. Hkratno urejanje istega projekta ni mogoče: odprite ga eden naenkrat. Samodejno shranjevanje zgoraj naj kaže v <b>lokalno</b> mapo, ne v oblak.</p>
+    <div class="field"><span data-i18n="s.folder">Mapa</span><input type="text" id="sh-folder" readonly placeholder="(izklopljeno)" data-i18n-placeholder="s.sharedOff"><button id="sh-pick" data-i18n="s.pick">Izberi …</button><button id="sh-clear" data-i18n="s.sharedClear">Izklopi</button></div>
+    <div class="field" id="sh-icloud-row" hidden><span data-i18n="s.icloudFound">Najden iCloud Drive</span><button id="sh-icloud"></button></div>
     <div class="status" id="sh-note"></div>
   </section>
 
   <section>
-    <h2>Povezava z AI (MCP)</h2>
-    <p class="hint">Z njo lahko Claude ali drug odjemalec MCP gradi v odprtem urejevalniku. Povezava je dostopna samo s tega računalnika in zaščitena z žetonom. Vnos prilepite v nastavitve odjemalca (Claude Desktop: Settings → Developer → Edit Config), nato ga znova zaženite.</p>
+    <h2 data-i18n="s.mcpTitle">Povezava z AI (MCP)</h2>
+    <p class="hint" data-i18n="s.mcpHint">Z njo lahko Claude ali drug odjemalec MCP gradi v odprtem urejevalniku. Povezava je dostopna samo s tega računalnika in zaščitena z žetonom. Vnos prilepite v nastavitve odjemalca (Claude Desktop: Settings → Developer → Edit Config), nato ga znova zaženite.</p>
     <textarea id="mcp" readonly></textarea>
-    <div class="field"><button id="mcp-copy">Kopiraj nastavitve</button><button id="mcp-regen">Ustvari nov žeton</button><span class="status" id="mcp-note"></span></div>
+    <div class="field"><button id="mcp-copy" data-i18n="s.mcpCopy">Kopiraj nastavitve</button><button id="mcp-regen" data-i18n="s.mcpRegen">Ustvari nov žeton</button><span class="status" id="mcp-note"></span></div>
   </section>
 
   <section>
-    <h2>Posodobitve</h2>
-    <label class="row"><input type="checkbox" id="up-check"> Ob zagonu preveri, ali je na voljo nova različica</label>
-    <p class="hint">Nova različica se nikoli ne namesti brez vaše potrditve.</p>
-    <button id="up-now">Preveri zdaj</button>
+    <h2 data-i18n="s.updatesTitle">Posodobitve</h2>
+    <label class="row"><input type="checkbox" id="up-check"> <span data-i18n="s.updatesCheck">Ob zagonu preveri, ali je na voljo nova različica</span></label>
+    <p class="hint" data-i18n="s.updatesHint">Nova različica se nikoli ne namesti brez vaše potrditve.</p>
+    <button id="up-now" data-i18n="s.updatesNow">Preveri zdaj</button>
   </section>
 </main>
 <footer>
   <span id="msg"></span>
-  <button id="cancel">Zapri</button>
-  <button id="save" class="primary">Shrani</button>
+  <button id="cancel" data-i18n="s.close">Zapri</button>
+  <button id="save" class="primary" data-i18n="s.save">Shrani</button>
 </footer>
 <script>
 const $ = (id) => document.getElementById(id);
 let state = null;
 let draft = null;
+let S = {};
+let LANG = "sl";
+const T = (key, vars) => {
+  const t = S[key] ?? key;
+  return vars ? t.replace(/\{(\w+)\}/g, (m, n) => (n in vars ? String(vars[n]) : m)) : t;
+};
+
+function applyStrings() {
+  document.documentElement.lang = LANG;
+  document.title = T("settings.windowTitle");
+  for (const el of document.querySelectorAll("[data-i18n]")) el.textContent = T(el.dataset.i18n);
+  for (const el of document.querySelectorAll("[data-i18n-html]")) el.innerHTML = T(el.dataset.i18nHtml);
+  for (const el of document.querySelectorAll("[data-i18n-placeholder]")) el.placeholder = T(el.dataset.i18nPlaceholder);
+}
 
 function msg(text, warn) { const m = $("msg"); m.textContent = text || ""; m.className = warn ? "warn" : ""; }
 
@@ -92,11 +106,11 @@ function render() {
   $("up-check").checked = c.checkUpdatesOnStart;
   const last = state.mirror;
   $("as-status").textContent = last.lastAt
-    ? "Zadnje zapisovanje: " + new Date(last.lastAt).toLocaleString("sl-SI") + (last.failed ? " (" + last.failed + " ni uspelo)" : "")
-    : "Od zagona še ni bilo zapisovanja.";
+    ? T("s.lastWrite", { when: new Date(last.lastAt).toLocaleString(T("s.locale")) }) + (last.failed ? T("s.lastWriteFailed", { count: last.failed }) : "")
+    : T("s.noWriteYet");
   $("sh-icloud-row").hidden = !state.icloud.length;
   if (state.icloud.length) $("sh-icloud").textContent = state.icloud[0] + " → Layerling";
-  $("sh-note").textContent = c.sharedFolder ? "Ob spremembi se bo program na kratko znova naložil." : "";
+  $("sh-note").textContent = c.sharedFolder ? T("s.sharedReload") : "";
   $("mcp").value = JSON.stringify(state.mcpConfig, null, 2);
 }
 
@@ -109,36 +123,40 @@ function collect() {
 }
 
 async function init() {
+  const loaded = await window.settingsApi.strings();
+  S = loaded.strings;
+  LANG = loaded.language;
+  applyStrings();
   state = await window.settingsApi.load();
   draft = JSON.parse(JSON.stringify(state.config));
-  $("version").textContent = "Layerling " + state.appVersion + " · osnova: originalni program " + state.upstreamVersion;
+  $("version").textContent = T("s.version", { app: state.appVersion, upstream: state.upstreamVersion });
   render();
 }
 
 $("as-pick").onclick = async () => {
-  const folder = await window.settingsApi.pickFolder({ title: "Mapa za samodejno shranjevanje", defaultPath: draft.autosave.folder });
+  const folder = await window.settingsApi.pickFolder({ title: T("s.pickAutosave"), defaultPath: draft.autosave.folder });
   if (folder) { draft.autosave.folder = folder; render(); }
 };
 $("as-open").onclick = () => window.settingsApi.openFolder(draft.autosave.folder);
 $("sh-pick").onclick = async () => {
-  const folder = await window.settingsApi.pickFolder({ title: "Skupna mapa", defaultPath: draft.sharedFolder || (state.icloud[0] || undefined) });
+  const folder = await window.settingsApi.pickFolder({ title: T("s.pickShared"), defaultPath: draft.sharedFolder || (state.icloud[0] || undefined) });
   if (folder) { draft.sharedFolder = folder; render(); }
 };
 $("sh-clear").onclick = () => { draft.sharedFolder = null; render(); };
 $("sh-icloud").onclick = () => { draft.sharedFolder = state.icloudTarget; render(); };
-$("mcp-copy").onclick = async () => { await window.settingsApi.copyText($("mcp").value); $("mcp-note").textContent = "Kopirano."; };
+$("mcp-copy").onclick = async () => { await window.settingsApi.copyText($("mcp").value); $("mcp-note").textContent = T("s.mcpCopied"); };
 $("mcp-regen").onclick = async () => {
-  if (!confirm("Nov žeton bo razveljavil staro nastavitev v odjemalcu MCP. Nadaljujem?")) return;
+  if (!confirm(T("s.mcpConfirm"))) return;
   state = await window.settingsApi.regenerateToken();
   draft = JSON.parse(JSON.stringify(state.config));
   render();
-  $("mcp-note").textContent = "Žeton je zamenjan; posodobite nastavitve v odjemalcu.";
+  $("mcp-note").textContent = T("s.mcpRegenerated");
 };
 $("up-now").onclick = () => window.settingsApi.checkUpdates();
 $("cancel").onclick = () => window.settingsApi.close();
 $("save").onclick = async () => {
   collect();
-  msg("Shranjujem …");
+  msg(T("s.saving"));
   const result = await window.settingsApi.save({
     autosave: draft.autosave,
     sharedFolder: draft.sharedFolder,
@@ -148,7 +166,7 @@ $("save").onclick = async () => {
   state = result;
   draft = JSON.parse(JSON.stringify(state.config));
   render();
-  msg("Shranjeno.");
+  msg(T("s.saved"));
 };
 init();
 </script>
