@@ -1,3 +1,5 @@
+SLOVENSKA VERZIJA:
+
 # Layerling Desktop
 
 Samostojen program za **Windows** in **macOS** okrog 3D-CAD programa [Layerling](https://github.com/henmedia/layerling).
@@ -116,3 +118,67 @@ upstream.json  pripeta različica originalnega programa
 
 ## Licenca
 GNU AGPL v3, kot originalni program. Glejte `LICENSE` in `NOTICE.md`.
+
+
+ENGLISH VERSION:
+
+# Layerling Desktop
+
+A standalone application for **Windows** and **macOS** based on the 3D CAD program [Layerling](https://github.com/henmedia/layerling).
+It installs like a standard application, runs without a browser or internet connection, and stores your projects as regular `.lyl` files on your disk.
+
+This repository **does not contain** the original program's source code. During the build process, it downloads a specific version (`upstream.json`),
+applies a few minor patches (`patches/`), and wraps it in an Electron shell (`desktop/`). This makes updates simple and efficient.
+
+## Features
+
+| | |
+|---|---|
+| **Automatic disk saving** | Modified projects are saved as `.lyl` files to a selected folder at set intervals (default: 30s). Older versions of each project are also preserved. The final change is saved when the window is closed. |
+| **Shared folder** | Select a folder (e.g., in iCloud Drive), and a *Shared* section appears in the app; this allows you to open and save projects collaboratively with another user. |
+| **AI Integration (MCP)** | Claude (or another MCP client) can build within the open editor. It works without Node.js installed. Configuration is copied from the Settings menu. |
+| **Opening files** | Double-clicking a `.lyl` file opens the project in the application. |
+| **Updates with confirmation** | The app automatically checks for new versions but asks for your approval before downloading or installing anything. | | **Offline use** | The program does not connect to any external addresses while running (verified by automated testing). An internet connection is required only to check for updates. |
+
+## Installation
+
+### Windows
+1. Download `Layerling Setup <version>.exe` from the repository's **Releases** page and run it.
+2. Windows may display a blue warning stating *"Windows protected your PC"* because the program is not signed with a paid certificate. Click **More info → Run anyway**.
+3. The file association for `.lyl` files is set up automatically.
+
+Without GitHub: double-click `Zgradi-Windows.cmd` in the project folder (requires Node.js 20+ and Git). The installer will be created in the `dist` folder.
+
+### macOS
+1. Download the `.dmg` file from the **Releases** page (Apple Silicon: `arm64`; older Intel Macs: without this label), open it, and drag Layerling into the *Applications* folder.
+2. Open the program for the first time by **right-clicking → Open** (or via *System Settings → Privacy & Security → Open Anyway*), as it is not signed with a paid Apple certificate. It will open normally thereafter.
+3. If you have downloaded the program and macOS claims it is damaged, run the following command in *Terminal*: `xattr -cr /Applications/Layerling.app`
+
+## First launch
+
+- Projects are automatically saved to **Documents\Layerling\Projects** (Windows: `Documents`, Mac: `Documents`). Older versions are located in **Documents\Layerling\Copies**. You can change this folder under *File → Settings*.
+- Deleting a project within the program **does not delete** its copy on the disk. The folder serves as a safety net.
+- If the program finds saved projects in the folder upon startup but has none loaded, it will ask if you want to restore them. You can also restore them at any time via: *File → Restore projects from auto-save*.
+
+### Transferring projects from the browser (one-time)
+Projects created in the browser are not transferred automatically (the browser stores them in its own local storage):
+1. Open Layerling in your browser (the URL where you were working) → home page → **Back up all designs** (this gathers everything into a single ZIP file).
+2. In Layerling Desktop, click the **Open a design or import geometry** tile and select that ZIP file. All projects will be restored.
+
+## Sharing between users (iCloud Drive)
+
+Configure this on **each** computer:
+
+1. Windows: Install *iCloud for Windows*, enable *iCloud Drive*, and sign in with the same Apple ID as your daughter (or share a folder via the *Folder Sharing* feature). Mac: iCloud Drive is already enabled.
+2. Create a folder named `Layerling` in iCloud Drive; the other user should accept/open it via the sharing feature.
+3. In the program: *File → Settings → Shared folder → Select…* (on Windows, this is usually `C:\Users\<name>\iCloudDrive\Layerling`; on Mac, `iCloud Drive/Layerling`). If the program detects iCloud Drive, it offers a quick-selection button.
+4. An **On the server** section appears on the start page. Save the project there via *Export → LYL → Save to shared*; another user can then open it from that location.
+
+**Important:**
+- **Only one person can work on the same project at a time.** This involves saving to a shared folder, not real-time collaboration. If another user modifies the project in the meantime, the program will not overwrite it but will alert you instead.
+- Before opening the project, wait for iCloud to finish syncing (check the cloud icon next to the file). On a Mac, the file must be downloaded (*Download Now*).
+- The automatic save function (mentioned above) should remain set to a **local** folder, not iCloud; otherwise, synchronization occurring every 30 seconds would cause conflicts.
+
+## AI Connection (MCP)
+
+*File → Settings → AI Connection (MCP)* displays the configuration settings. Copy this configuration into your client settings (e.g., Claude Desktop: *Settings → Developer → Edit Config*) and restart the client; keep the Layerling program running with the editor open. You can then issue commands such as: *"Create a 40×30×20 box with rounded edges in Layerling."*
