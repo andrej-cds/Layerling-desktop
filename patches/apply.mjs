@@ -156,6 +156,14 @@ export const edits = [
     replace: 'import { SupportNudge } from "@/components/SupportNudge";\nimport { DesktopVersion } from "@/components/DesktopVersion";',
   },
   {
+    name: "Spletni izvoz v podmapi (npr. /layerling)",
+    stage: "podmapa",
+    file: "apps/web/next.config.ts",
+    marker: "LAYERLING_BASE_PATH",
+    find: "        trailingSlash: true,\n",
+    replace: '        trailingSlash: true,\n        ...(process.env.LAYERLING_BASE_PATH ? { basePath: process.env.LAYERLING_BASE_PATH, assetPrefix: process.env.LAYERLING_BASE_PATH } : {}),\n',
+  },
+  {
     name: "Slovenščina: sidro navodil za posodabljanje",
     stage: "jezik",
     file: "apps/web/src/components/AppFooter.tsx",
