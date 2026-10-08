@@ -136,6 +136,8 @@ function createMainWindow() {
     },
   });
   if (bounds.maximized) mainWindow.maximize();
+  // Naslov strani ("… in your browser") ne sodi v namizni program: naslovna vrstica vedno pokaže samo ime programa.
+  mainWindow.on("page-title-updated", (event) => event.preventDefault());
   mainWindow.once("ready-to-show", () => mainWindow.show());
   // Stran je pripravljena šele, ko jo program sam sporoči; ob pravi navigaciji (ne ob spremembi naslova v isti strani) se to ponastavi.
   mainWindow.webContents.on("did-start-navigation", (details) => {

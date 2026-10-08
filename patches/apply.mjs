@@ -179,6 +179,22 @@ export const edits = [
     find: "|[äöüß]/i;",
     replace: "|\\b(ni|je|se|za|ali|ter|pri|iz|ne|datoteke|projekta)\\b|[äöüßčšž]/i;",
   },
+  {
+    name: "Slovenščina: naslov strani brez »in your browser«",
+    stage: "jezik",
+    file: "apps/web/src/app/layout.tsx",
+    marker: 'const TITLE = "layerling - Free 3D CAD for 3D printing";',
+    find: 'const TITLE = "layerling - Free 3D CAD for 3D printing in your browser";',
+    replace: 'const TITLE = "layerling - Free 3D CAD for 3D printing";',
+  },
+  {
+    name: "Slovenščina: skriti naslov brez »in your browser«",
+    stage: "jezik",
+    file: "apps/web/src/app/page.tsx",
+    marker: "<h1>layerling - Free 3D CAD for 3D printing</h1>",
+    find: "<h1>layerling - Free 3D CAD for 3D printing in your browser</h1>",
+    replace: "<h1>layerling - Free 3D CAD for 3D printing</h1>",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */

@@ -122,6 +122,10 @@ try {
   assert.equal(await page.evaluate(() => Boolean(window.layerlingDesktop?.isDesktop)), true);
   ok("most do lupine je na voljo");
 
+  const windowTitle = await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].getTitle());
+  assert.equal(windowTitle, "Layerling", `naslov okna: ${windowTitle}`);
+  ok("naslovna vrstica pokaže samo »Layerling« (brez »in your browser«)");
+
   // Slovenščina nadomešča nemščino: preklopnik jezika pokaže SL, vmesnik se prevede in se da vrniti na EN.
   assert.equal(await page.locator(".language-switch button").count(), 2);
   await page.locator(".language-switch button", { hasText: "SL" }).first().click();

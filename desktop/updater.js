@@ -1,6 +1,7 @@
 "use strict";
 // Posodobitve programa. Nič se ne prenese ali namesti brez potrditve uporabnika.
 const { app, dialog, shell } = require("electron");
+const { cleanReleaseNotes } = require("./notes");
 
 let autoUpdater = null;
 let wiredUp = false;
@@ -31,7 +32,7 @@ function setup({ getWindow, repo, log }) {
   updater.on("update-available", async (info) => {
     const win = getWindow();
     const macManual = process.platform === "darwin";
-    const notes = typeof info.releaseNotes === "string" ? info.releaseNotes.replace(/<[^>]+>/g, "").trim().slice(0, 600) : "";
+    const notes = cleanReleaseNotes(info.releaseNotes);
     const { response } = await dialog.showMessageBox(win || undefined, {
       type: "info",
       title: "Posodobitev programa",
