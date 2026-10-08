@@ -164,14 +164,6 @@ export const edits = [
     replace: "GUIDE_CHAPTERS[page].en}.html${target ? `#${target.en}` : \"\"}`",
   },
   {
-    name: "Slovenščina: novosti v angleščini",
-    stage: "jezik",
-    file: "apps/web/src/components/WhatsNewCard.tsx",
-    marker: "item.title.en}</strong>",
-    find: "<strong>{item.title[language]}</strong>\n                <span>{item.body[language]}</span>",
-    replace: "<strong>{item.title.en}</strong>\n                <span>{item.body.en}</span>",
-  },
-  {
     name: "Slovenščina: jezikovni namig za napake",
     stage: "jezik",
     file: "apps/web/src/lib/userErrors.ts",
@@ -254,6 +246,24 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
     mkdirSync(dirname(to), { recursive: true });
     copyFileSync(from, to);
     log(`  dodano: ${add.to}`);
+  }
+  if (wanted({ stage: "jezik" })) {
+    // Novosti: prevod za zadnji različici, starejše ostanejo v angleščini (ključ "de" nosi slovenščino).
+    const file = join(root, "apps/web/src/lib/whatsNew.json");
+    if (existsSync(file)) {
+      const sl = JSON.parse(readFileSync(join(projectRoot, "patches/files/whatsNew.sl.json"), "utf8"));
+      const data = JSON.parse(readFileSync(file, "utf8"));
+      for (const entry of data) {
+        const translated = sl[entry.version];
+        entry.items.forEach((item, index) => {
+          const t = translated && translated.length === entry.items.length ? translated[index] : null;
+          item.title.de = t ? t[0] : item.title.en;
+          item.body.de = t ? t[1] : item.body.en;
+        });
+      }
+      writeFileSync(file, JSON.stringify(data, null, 2) + "\n");
+      log("  prevedene novosti (whatsNew.json)");
+    } else problems.push("apps/web/src/lib/whatsNew.json: datoteke ni več");
   }
   if (problems.length) {
     const error = new Error(`Popravkov ni bilo mogoče uporabiti:\n - ${problems.join("\n - ")}`);
