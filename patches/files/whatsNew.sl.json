@@ -1,4 +1,42 @@
 {
+  "1.55.0": [
+    [
+      "Odloži na ploskve",
+      "Kot Cruise v Tinkercadu: nova oblika se položi na ploskev pod kazalcem, tudi poševno. C pobere izbiro in jo na enak način odloži na drugo ploskev."
+    ],
+    [
+      "Dvojni klik odpre skupine",
+      "Dvojni klik na skupino ali sveženj ga odpre za urejanje, tresoč klik pa ne premakne več dela. Dvojni klik je mogoče izklopiti v nastavitvah."
+    ]
+  ],
+  "1.54.0": [
+    [
+      "Nova oblika: Prehod",
+      "Poveže en obris spodaj z drugim zgoraj, na primer krog s kvadratom. Z debelino stene postane odprta cev, primerna za prehode za cevi ali ventilator na okroglo cev."
+    ],
+    [
+      "Črte z dolžino in kotom",
+      "Med risanjem črte preprosto vtipkaj »50<30« in Enter postavi naslednjo točko 50 mm stran pod kotom 30°. Shift zdaj pripenja v korakih po 15°."
+    ],
+    [
+      "Klik skozi ozke reže",
+      "Telo za režo ali luknjo, ožjo od 3 mm, je zdaj mogoče klikniti, namesto da vedno zadaneš telo okoli njega."
+    ]
+  ],
+  "1.53.0": [
+    [
+      "Zgornji robovi za modelčke za piškote",
+      "Nov gumb Zgornji robovi v plošči za robove izbere samo zgornji rob. Zgradi obris kot potezo, posnemi vrh in modelček za piškote je gotov."
+    ],
+    [
+      "Napise na plošči je mogoče izklopiti",
+      "Ime projekta in podatke o tiskalniku na plošči lahko skriješ v nastavitvah pod Delovna ravnina."
+    ],
+    [
+      "Pospravljeno in varnejše",
+      "Esc spet zanesljivo zapre Poravnavo ploskev in Spremembo v odstotkih, vsako okno ima vprašaj v vodnik, dodane so varnostne posodobitve."
+    ]
+  ],
   "1.52.0": [
     [
       "Večbarvnost tudi v izvozu",
