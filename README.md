@@ -186,3 +186,7 @@ Configure this on **each** computer:
 ## macOS Monterey (12)
 
 Electron 44 zahteva macOS 13 ali novejši. Ob vsaki izdaji se zato zgradi še posebna datoteka `Layerling-<različica>-Monterey-x64.dmg` (Electron 43, samo Intel Mac), ki jo je treba ročno prenesti iz Releases. Samodejnih posodobitev za to gradnjo ni (Mac program samo odpre stran izdaje). Ko Electron 43 preneha dobivati popravke, jo je treba dvigniti ali opustiti (`.github/workflows/build.yml`).
+
+## Lastne pisave (besedilo)
+
+Poleg sedmih vgrajenih pisav lahko pri oblikah »Besedilo« uporabiš lastne: datoteke `.ttf` in `.otf` daš v mapo `Dokumenti\Layerling\Pisave` (odpreš jo z Datoteka → »Odpri mapo s pisavami«). Ob naslednjem zagonu urejevalnika se pojavijo v seznamu »Pisava«. Ime pisave je ime datoteke brez končnice. Črke, ki jih pisava nima (npr. č, š, ž), se izposodijo iz pisave Sans. Pisave ostanejo samo na tvojem računalniku in niso del namestitve ali repozitorija (pozor na licenco pisav). Projekt, ki uporablja pisavo, ki je na drugem računalniku ni, se tam izriše s privzeto pisavo. Mapo je mogoče spremeniti z okoljsko spremenljivko `LAYERLING_FONTS_DIR`.

@@ -30,6 +30,7 @@ function buildMenu({ isMac, isDev, actions }) {
         { type: "separator" },
         { label: tr("menu.openAutosaveFolder"), click: actions.openAutosaveFolder },
         { id: "restore", label: tr("menu.restore"), click: actions.restoreFromAutosave },
+        { id: "fonts", label: tr("menu.openFontsFolder"), click: actions.openFontsFolder },
         { type: "separator" },
         ...(isMac ? [{ role: "close", label: tr("menu.closeWindow") }] : [
           { id: "settings", label: tr("menu.settings"), accelerator: "CmdOrCtrl+,", click: actions.settings },

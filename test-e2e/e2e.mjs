@@ -21,8 +21,12 @@ const PORT = 47615;
 const BASE = `http://127.0.0.1:${PORT}`;
 
 const root = mkdtempSync(join(tmpdir(), "lyl-e2e-"));
-const dirs = { userData: join(root, "ud"), auto: join(root, "auto"), shared: join(root, "shared"), shared2: join(root, "shared2"), files: join(root, "files") };
+const dirs = { userData: join(root, "ud"), auto: join(root, "auto"), shared: join(root, "shared"), shared2: join(root, "shared2"), files: join(root, "files"), fonts: join(root, "fonts") };
 Object.values(dirs).forEach((d) => mkdirSync(d, { recursive: true }));
+// Lastne pisave: ena sistemska pisava se kopira v mapo s pisavami pod drugim imenom.
+process.env.LAYERLING_FONTS_DIR = dirs.fonts;
+const systemFont = ["/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", "/usr/share/fonts/TTF/DejaVuSerif-Bold.ttf", "C:/Windows/Fonts/georgiab.ttf", "/System/Library/Fonts/Supplemental/Georgia Bold.ttf"].find((f) => existsSync(f));
+if (systemFont) copyFileSync(systemFont, join(dirs.fonts, "Testna pisava.ttf"));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function eventually(label, fn, timeoutMs = 30000, stepMs = 500) {
@@ -154,6 +158,22 @@ try {
   await mcp("create_shape", { kind: "box", name: "Škatla-E2E", width: 40, depth: 30, height: 20 });
   await mcp("create_shape", { kind: "cylinder", name: "Valj-E2E", x: 50, width: 20, depth: 20, height: 30 });
   ok("MCP ustvari obliki v urejevalniku");
+
+  if (systemFont) {
+    assert.deepEqual(await page.evaluate(() => window.layerlingDesktop.listFonts()), ["Testna pisava.ttf"]);
+    await mcp("create_shape", { kind: "text", name: "Besedilo-vgrajena", text: "Čaša", font: "Multilanguage", width: 60, depth: 20, height: 5 });
+    await mcp("create_shape", { kind: "text", name: "Besedilo-lastna", text: "Čaša", font: "Testna pisava", width: 60, depth: 20, height: 5 });
+    const objects = (await mcp("list_objects")).objects;
+    const own = objects.find((o) => o.name === "Besedilo-lastna");
+    assert.equal(own.settings.font, "Testna pisava", "lastna pisava mora biti shranjena v obliki besedila");
+    await mcp("select_objects", { ids: [own.id] });
+    const options = await eventually("seznam pisav v urejevalniku lastnosti", async () => {
+      const found = await page.evaluate(() => [...document.querySelectorAll("select")].map((s) => [...s.options].map((o) => o.value)).find((v) => v.includes("Multilanguage")));
+      return found || null;
+    }, 15000);
+    assert.deepEqual(options, ["Multilanguage", "Sans", "Serif", "Script", "Monospace", "Rounded", "Stencil", "Testna pisava"]);
+    ok("lastna pisava iz mape se naloži in uporabi na besedilu");
+  }
 
   const projectFile = await eventually("projekt se zapiše na disk z obema oblikama", () => {
     const f = lylFiles(join(dirs.auto, "Projekti"))[0];

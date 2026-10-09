@@ -240,6 +240,36 @@ function requestFlush(timeoutMs) {
   });
 }
 
+// ---------- lastne pisave ----------
+// Mapa z datotekami .ttf/.otf; program jih ob zagonu urejevalnika pretvori v obrise črk in doda na seznam pisav.
+function fontsDir() {
+  return process.env.LAYERLING_FONTS_DIR || path.join(app.getPath("documents"), "Layerling", "Pisave");
+}
+const FONT_FILE = /\.(ttf|otf)$/i;
+ipcMain.handle("fonts:list", () => {
+  try {
+    const dir = fontsDir();
+    fs.mkdirSync(dir, { recursive: true });
+    return fs
+      .readdirSync(dir, { withFileTypes: true })
+      .filter((e) => e.isFile() && FONT_FILE.test(e.name))
+      .map((e) => e.name)
+      .sort((a, b) => a.localeCompare(b));
+  } catch (error) {
+    log(`Seznam pisav ni uspel: ${error.message}`);
+    return [];
+  }
+});
+ipcMain.handle("fonts:read", (_event, fileName) => {
+  try {
+    if (typeof fileName !== "string" || fileName !== path.basename(fileName) || !FONT_FILE.test(fileName)) return null;
+    return fs.readFileSync(path.join(fontsDir(), fileName));
+  } catch (error) {
+    log(`Branje pisave ni uspelo (${fileName}): ${error.message}`);
+    return null;
+  }
+});
+
 ipcMain.on("mirror:flush-done", () => flushWaiters.slice().forEach((done) => done()));
 
 ipcMain.handle("mirror:write", (_event, entries) => {
@@ -451,6 +481,11 @@ function installMenu() {
         shell.openPath(folder);
       },
       restoreFromAutosave,
+      openFontsFolder: () => {
+        const folder = fontsDir();
+        fs.mkdirSync(folder, { recursive: true });
+        shell.openPath(folder);
+      },
       checkUpdates: () => updater.check({ userInitiated: true, repo: REPO, log }),
       docs: () => shell.openExternal(UPSTREAM_DOCS_URL),
       source: () => shell.openExternal(SOURCE_URL),

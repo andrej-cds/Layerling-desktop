@@ -19,5 +19,7 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   onOpenFile: (callback) => listen("app:open-file", callback),
   ready: () => ipcRenderer.send("renderer:ready"),
   reportProjectCount: (count) => ipcRenderer.send("renderer:project-count", count),
+  listFonts: () => ipcRenderer.invoke("fonts:list"),
+  readFont: (fileName) => ipcRenderer.invoke("fonts:read", fileName),
   reportLanguage: (language) => ipcRenderer.send("renderer:language", language),
 });
