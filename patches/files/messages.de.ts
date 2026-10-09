@@ -1996,4 +1996,7 @@ export const MESSAGES_DE = {
   "edge.topEdges": "Zgornji robovi",
   "edge.topEdgesHint": "Izbere samo robove čisto na vrhu telesa, na primer rob modelčka za piškote",
   "edge.noTopEdges": "Na vrhu ni roba, ki bi ga bilo mogoče obdelati pri tem pragu.",
+  "whatsNew.earlier": "Prikaži starejše različice ({count})",
+  "whatsNew.beforeLastVisit": "Pred tvojim zadnjim obiskom",
+  "whatsNew.earlierHeading": "Starejše različice",
 } as unknown as Record<MessageKey, string>;

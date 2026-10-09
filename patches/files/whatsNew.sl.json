@@ -1,4 +1,14 @@
 {
+  "1.55.2": [
+    [
+      "Meni v seznamskem pogledu",
+      "Meni Možnosti projekta v seznamskem pogledu začetne strani ostane spredaj in ne zdrsne več za naslednjo vrstico."
+    ],
+    [
+      "Vse od tvojega zadnjega obiska",
+      "Ta kartica zdaj našteje vse različice od tvojega zadnjega obiska, ne samo najnovejše. Gumb spodaj doda še različice izpred tega."
+    ]
+  ],
   "1.55.1": [
     [
       "Bézierova krivulja s predogledom",
