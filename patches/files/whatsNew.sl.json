@@ -1,4 +1,40 @@
 {
+  "1.50.0": [
+    [
+      "Y šteje proti hrbtu",
+      "Osi zdaj sledijo pravilu desne roke kot v Tinkercadu in programih CAD: X v desno, Y proti hrbtu, Z navzgor. Tvoji deli ostanejo, kjer so – spremeni se le predznak številke Y in zasuka okoli Y."
+    ],
+    [
+      "Zasukane oblike, natančne",
+      "Zasukana škatla, valj, zvezda ali cev je zdaj natančno telo CAD: gre v STEP, nanjo pa delujejo posnetja, zaokrožitve in izdolbljenje. Na zaslonu se stranice zdaj enakomerno ovijajo."
+    ],
+    [
+      "Spremeni velikost v odstotkih",
+      "Desni klik na izbiro, »Povečaj ali pomanjšaj v odstotkih«, npr. 120 % – skupaj okoli skupnega središča ali vsak del na svojem mestu."
+    ],
+    [
+      "Več delov naenkrat",
+      "Ko je izbranih več delov, plošča z lastnostmi ostane odprta: ena barva za vse, trdno telo ali luknja in zaklepanje."
+    ],
+    [
+      "Hitri način",
+      "Za počasnejše računalnike: hitri način v nastavitvah naenkrat izklopi sence, robne črte in vztrajnost kamere. Vztrajnost je mogoče izklopiti tudi posebej."
+    ],
+    [
+      "Popravki",
+      "Chromov prevajalnik ne podre več Layerlinga; projekti z velikimi mrežami se spet odprejo; valji, ki ležijo na boku, ob združevanju obdržijo smer; ročaji segajo do roba plošče; plošče z orodji se prilegajo majhnim zaslonom; izvoz STEP navede, kaj izpusti."
+    ]
+  ],
+  "1.49.2": [
+    [
+      "Ravne črte s Shiftom",
+      "Med risanjem v skici drži Shift: nova črta se zaklene vodoravno ali navpično glede na zadnjo točko. To deluje pri Črti, Gladki krivulji, Bezierju in merilnem traku."
+    ],
+    [
+      "Napaka vas ne zaklene več ven",
+      "Če Layerling obstane zaradi napake, se namesto prazne strani prikaže okno s sporočilom o napaki. Iz njega lahko shraniš zadnje shranjeno stanje kot .lyl, se vrneš na pregled ali začneš nov projekt."
+    ]
+  ],
   "1.49.1": [
     [
       "Vrteno telo ostane na mestu",
