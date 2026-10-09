@@ -1,4 +1,24 @@
 {
+  "1.56.1": [
+    [
+      "Luknje brez združevanja",
+      "Luknja, ki ni združena, se zdaj pri izvozu izreže iz teles, do katerih seže, tako kot jo prikazuje pogled. Prej je bila izpuščena."
+    ]
+  ],
+  "1.56.0": [
+    [
+      "Zobniki, ki se zazobijo",
+      "Novi zobniki imajo evolventne zobe. Nastaviš število zob in modul, poleg tega pritisni kot in zračnost. Izberi dva zobnika in plošča lastnosti pokaže razmik središč, pri katerem se zazobita."
+    ],
+    [
+      "Brez utripanja pod delovno ravnino",
+      "Dokler delovna ravnina leži ravno na plošči, plošča pokaže le svoj obris. Dve mreži, ena na drugi, sta prej ustvarjali utripajoč vzorec."
+    ],
+    [
+      "Vogali na pogledni kocki",
+      "Klik na vogal pogledne kocke prikaže model diagonalno z vogala, klik blizu roba pa z roba."
+    ]
+  ],
   "1.55.2": [
     [
       "Meni v seznamskem pogledu",
