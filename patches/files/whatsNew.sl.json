@@ -1,4 +1,14 @@
 {
+  "1.55.1": [
+    [
+      "Bézierova krivulja s predogledom",
+      "Medtem ko vlečeš Bézierovo točko, se odsek do nje zdaj sproti ukrivlja, tako kot bo videti, ko spustiš. Vleci v smer, v katero naj se črta nadaljuje."
+    ],
+    [
+      "Popravljene gladke krivulje in luknje v SVG",
+      "Gladke krivulje se v točkah ne zankajo več, luknja v SVG risbi pa se ob uvozu spet izreže, namesto da bi bila iztisnjena skupaj."
+    ]
+  ],
   "1.55.0": [
     [
       "Odloži na ploskve",
