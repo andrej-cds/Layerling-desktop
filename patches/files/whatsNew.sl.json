@@ -1,4 +1,44 @@
 {
+  "1.52.0": [
+    [
+      "Večbarvnost tudi v izvozu",
+      "Skupina z večbarvnostjo zdaj obdrži barve delov tudi v 3MF in OBJ, tako da lahko razrezovalnik dele preslika na filamente."
+    ],
+    [
+      "Posnetje in zaobljenje: jasneje, kaj gre zraven",
+      "Plošča za robove zdaj pove, po koliko gladko nadaljujočih se robovih jedro CAD nadaljuje posnetje ali zaobljenje."
+    ],
+    [
+      "Poravnava na pravem robu",
+      "Ročaji za poravnavo zdaj stojijo tam, kamor se deli res premaknejo, tudi pri zasukanih oblikah."
+    ]
+  ],
+  "1.51.0": [
+    [
+      "Skice kot poteza",
+      "Novi gumb Poteza v skici zgradi samo črto s širino: sklenjen obris postane okvir (znotraj, zunaj ali na sredini), odprta črta pa trak z ravnima, kvadratnima ali zaobljenima koncema."
+    ],
+    [
+      "Nastavi svetlobo in sence",
+      "Nastavitve zdaj vsebujejo mehke sence ter smer in višino svetlobe, vse do natanko od zgoraj. Kontrast sega dlje proti izrazitemu."
+    ],
+    [
+      "Delovna ravnina na vogalih in robovih",
+      "Klik blizu vogala ali roba postavi delovno ravnino natanko tja, na prazni plošči pa tja, kamor klikneš. Mreža teče vzporedno s telesom, v skici pa se točke pripenjajo na obrise drugih teles."
+    ],
+    [
+      "Raztegni oblike v skici",
+      "Okvir okoli izbrane oblike ima zdaj ročaje na straneh; Shift na vogalu ohrani razmerje. Širino in višino je mogoče tipkati, tudi kot vsoto ali v odstotkih."
+    ],
+    [
+      "Povleci vrtišče",
+      "Oznako vrtišča je mogoče vleči z miško, pripne se na vogale in sredine robov."
+    ],
+    [
+      "Vsote in več v skici",
+      "Številska polja zdaj računajo s +, −, * in oklepaji. Vogal prikaže tudi kote sosedov, po skici pa pogled ostane, kot je bil."
+    ]
+  ],
   "1.50.0": [
     [
       "Y šteje proti hrbtu",
