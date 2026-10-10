@@ -216,8 +216,8 @@ export const edits = [
     stage: "jezik",
     file: "apps/web/src/components/WorkplaneViewport.tsx",
     marker: "mouseRotateOn",
-    find: "    if (event.pointerType === \"mouse\" && (event.button === 1 || event.button === 2 || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    controls.mouseButtons.LEFT = event.button === 0 && (event.ctrlKey || event.metaKey) ? THREE.MOUSE.PAN : null;",
-    replace: "    const mouseRotateOn = event.pointerType === \"mouse\" && event.button === 0 && !event.ctrlKey && !event.metaKey && (window as unknown as { __lylMouseRotate?: boolean }).__lylMouseRotate === true;\n    if (event.pointerType === \"mouse\" && (event.button === 1 || event.button === 2 || mouseRotateOn || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    controls.mouseButtons.LEFT = event.button === 0 && (event.ctrlKey || event.metaKey) ? THREE.MOUSE.PAN : mouseRotateOn ? THREE.MOUSE.ROTATE : null;",
+    find: "    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    controls.mouseButtons.LEFT = event.button === 0 && (event.ctrlKey || event.metaKey) ? THREE.MOUSE.PAN : null;",
+    replace: "    const mouseRotateOn = event.pointerType !== \"touch\" && event.button === 0 && !event.ctrlKey && !event.metaKey && (window as unknown as { __lylMouseRotate?: boolean }).__lylMouseRotate === true;\n    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || mouseRotateOn || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    controls.mouseButtons.LEFT = event.button === 0 && (event.ctrlKey || event.metaKey) ? THREE.MOUSE.PAN : mouseRotateOn ? THREE.MOUSE.ROTATE : null;",
   },
   {
     name: "Pogled: leva tipka miške ne izbira, ko vrti",
@@ -225,7 +225,7 @@ export const edits = [
     file: "apps/web/src/components/WorkplaneViewport.tsx",
     marker: "touchRotateRef.current && !event.ctrlKey",
     find: "      // The right button turns the view; only a press that is let go where it\n      // started opens the menu (finishDrag).",
-    replace: "      if (event.pointerType === \"mouse\" && event.button === 0 && touchRotateRef.current && !event.ctrlKey && !event.metaKey) {\n        return;\n      }\n      // The right button turns the view; only a press that is let go where it\n      // started opens the menu (finishDrag).",
+    replace: "      if (event.pointerType !== \"touch\" && event.button === 0 && touchRotateRef.current && !event.ctrlKey && !event.metaKey) {\n        return;\n      }\n      // The right button turns the view; only a press that is let go where it\n      // started opens the menu (finishDrag).",
   },
   {
     name: "Pisave: uvoz nalagalnika lastnih pisav",

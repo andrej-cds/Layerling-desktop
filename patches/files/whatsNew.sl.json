@@ -1,4 +1,10 @@
 {
+  "1.59.0": [
+    [
+      "Polja si zapomnijo izračun",
+      "V številčno polje vpiši izračun, na primer (140+2)/2, in ob naslednjem kliku v polje je spet tam, pripravljen za spremembo."
+    ]
+  ],
   "1.58.1": [
     [
       "Notranji zobnik in zobata letev",
