@@ -2068,4 +2068,12 @@ export const MESSAGES_DE = {
   "knurl.roundHint": "Okrogli utori in grebeni kot val, prijeten oprijem za gumbe. Globina ostane pod pol koraka.",
   "error.newerDesign": "Ta zasnova je bila shranjena z layerlingom {saved}, ti pa imaš {current}. Vsebuje nekaj, česar ta različica še ne pozna. Ponovno naloži stran, da dobiš najnovejšo različico; nameščena aplikacija ali tvoj strežnik bosta morda potrebovala posodobitev.",
   "notice.newerDesignOpened": "Shranjena je bila z layerlingom {saved}, ti pa imaš {current}: novejše stvari, kot so lastne pisave, so tu lahko videti drugače. Ponovno naloži stran, da dobiš najnovejšo različico.",
+  "inspector.gearPairInternal": "Notranji zobnik in pogonski zobnik: razmik središč {distance} mm, da se zazobita. Zdaj sta središči oddaljeni {current} mm.",
+  "gear.internal": "Notranji zobnik",
+  "gear.rack": "Zobata letev",
+  "gear.internalHint": "Zobje kažejo navznoter. Delilni krog {pitch} mm. Znotraj teče zobnik z modulom {module}; razmik središč = (zobje − njegovi zobje) × modul / 2.",
+  "gear.internalRoundHint": "Okrogli zobje kažejo navznoter. Delilni krog {pitch} mm. Znotraj teče okrogli zobnik z modulom {module}; razmik središč = (zobje − njegovi zobje) × modul / 2.",
+  "gear.rackHint": "Korak {pitchLength} mm na zob; dolžina je zobje × korak. Po njej se kotali zobnik z modulom {module}: njegovo središče stoji njegovi zobje × modul / 2 pred delilno črto, ki leži {offset} mm za vrhovi zob.",
+  "gear.rackRoundHint": "Okrogli zobje, korak {pitchLength} mm na zob; dolžina je zobje × korak. Po njej se kotali okrogli zobnik z modulom {module}: njegovo središče stoji njegovi zobje × modul / 2 pred delilno črto, ki leži {offset} mm za vrhovi zob.",
+  "prop.gearRim": "Venec",
 } as unknown as Record<MessageKey, string>;
