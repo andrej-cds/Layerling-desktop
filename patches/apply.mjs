@@ -204,6 +204,15 @@ export const edits = [
     replace: "            {/* camera-touch-rotate-vedno: v namizni različici (tudi prek oddaljenega zaslona z iPada) mora biti gumb viden vedno */}\n            {true ? (\n              <button\n                className={`camera-touch-rotate${touchRotate ? \" active\" : \"\"}`}",
   },
   {
+    name: "Zmogljivost: podpis materiala ne vsebuje cele slike",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "imageDataSig",
+    find: '    imageData: shape.imagePlate?.dataUrl ?? "",',
+    replace:
+      '    // imageDataSig: celotna slika (več MB) bi se ob vsakem premiku znova stringificirala; identiteto že pove imagePlate zgoraj, tu je le vzorec.\n    imageData: ((u: string) => `${u.length}:${u.slice(0, 48)}${u.slice(Math.floor(u.length / 3), Math.floor(u.length / 3) + 48)}${u.slice(Math.floor((u.length * 2) / 3), Math.floor((u.length * 2) / 3) + 48)}${u.slice(-48)}`)(shape.imagePlate?.dataUrl ?? ""),',
+  },
+  {
     name: "Pogled: preklopnik vrtenja da zastavico tudi miški",
     stage: "jezik",
     file: "apps/web/src/components/WorkplaneViewport.tsx",

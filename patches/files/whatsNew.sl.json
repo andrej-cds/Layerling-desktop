@@ -3,6 +3,10 @@
     [
       "Zasukaj, umeri in obreži referenčno sliko",
       "Fotografijo pod skico lahko zdaj zasukaš, usredinjiš na os, umeriš z dvema točkama znane razdalje in obrežeš na del, ki je pomemben."
+    ],
+    [
+      "Tudi polja mer si zapomnijo izračun",
+      "Izračun, vtipkan v polje mere okoli izbranega telesa, ostane tam tako kot v lastnostih, pripravljen za spremembo."
     ]
   ],
   "1.60.0": [

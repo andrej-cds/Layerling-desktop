@@ -62,6 +62,7 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
   const running = useRef<Promise<void> | null>(null);
   const settings = useRef<DesktopSettings | null>(null);
   const timer = useRef<number | null>(null);
+  const lastActivity = useRef(0);
 
   // Jezik urejevalnika ("de" je v tej gradnji slovenščina) se sporoča lupini, da so meniji in okna v istem jeziku.
   useEffect(() => {
@@ -81,8 +82,25 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
     const api = typeof window !== "undefined" ? window.layerlingDesktop : undefined;
     if (!api) return;
 
+    // Samodejno shranjevanje ne sme motiti dela: kodiranje celotnih projektov blokira stran, zato počaka, da uporabnik miruje.
+    const markActive = () => {
+      lastActivity.current = Date.now();
+    };
+    window.addEventListener("pointermove", markActive, { passive: true, capture: true });
+    window.addEventListener("pointerdown", markActive, { passive: true, capture: true });
+    window.addEventListener("wheel", markActive, { passive: true, capture: true });
+    window.addEventListener("keydown", markActive, { passive: true, capture: true });
+    const waitUntilIdle = async () => {
+      const started = Date.now();
+      while (Date.now() - lastActivity.current < 2000 && Date.now() - started < 60000) {
+        await new Promise((resolve) => window.setTimeout(resolve, 500));
+      }
+    };
+    let urgent = false;
+
     const pass = async () => {
       try {
+        if (!urgent) await waitUntilIdle();
         const changed = projectsRef.current.filter((project) => written.current.get(project.id) !== projectFingerprint(project));
         if (!changed.length) return;
         const entries: MirrorEntry[] = [];
@@ -132,6 +150,7 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
     const offSettings = api.onSettings(applySettings);
     const offFlush = api.onFlushRequest(() => {
       // Če je krog že v teku, počakamo nanj in naredimo še enega, da ujamemo zadnje spremembe.
+      urgent = true;
       const wait = running.current ?? Promise.resolve();
       void wait.then(() => tick()).finally(() => api.flushDone());
     });
@@ -140,7 +159,10 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
     });
 
     api.ready();
-    const first = window.setTimeout(() => void tick(), 5000);
+    // Prvi krog samo, če je samodejno shranjevanje vklopljeno (nastavitve prispejo asinhrono).
+    const first = window.setTimeout(() => {
+      if (settings.current?.autosave.enabled) void tick();
+    }, 5000);
     const countReport = window.setTimeout(() => api.reportProjectCount(projectsRef.current.length), 4500);
 
     return () => {
@@ -149,6 +171,10 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
       offOpen();
       window.clearTimeout(first);
       window.clearTimeout(countReport);
+      window.removeEventListener("pointermove", markActive, { capture: true });
+      window.removeEventListener("pointerdown", markActive, { capture: true });
+      window.removeEventListener("wheel", markActive, { capture: true });
+      window.removeEventListener("keydown", markActive, { capture: true });
       if (timer.current !== null) window.clearInterval(timer.current);
     };
   }, []);
