@@ -1,4 +1,22 @@
 {
+  "1.58.0": [
+    [
+      "Okrogli zobje zobnikov",
+      "Zobniki imajo tretjo obliko zoba: Okrogli. Zobje iz lokov se pri majhnih zobnikih natisnejo prizanesljiveje, gumbom pa dajo prijeten oprijem."
+    ],
+    [
+      "Okroglo narebričenje",
+      "Narebričenje je lahko zdaj okroglo: utori in grebeni kot mehak val, s prosto izbranim številom utorov in posnetjem – prijeten oprijem za gumbe."
+    ],
+    [
+      "Lastne pisave",
+      "Besedilo zdaj lahko uporablja katero koli pisavo TrueType ali OpenType, v Chromu in Edgeu tudi pisavo, nameščeno v računalniku. Na dnu Pisave: Lastne pisave."
+    ],
+    [
+      "Mreža raste skupaj s povečavo",
+      "Vsaka črta mreže se ob približevanju razširi, kot v Tinkercadu, in ne bledi več."
+    ]
+  ],
   "1.57.0": [
     [
       "SVG kot skica",

@@ -171,7 +171,7 @@ try {
       const found = await page.evaluate(() => [...document.querySelectorAll("select")].map((s) => [...s.options].map((o) => o.value)).find((v) => v.includes("Multilanguage")));
       return found || null;
     }, 15000);
-    assert.deepEqual(options, ["Multilanguage", "Sans", "Serif", "Script", "Monospace", "Rounded", "Stencil", "Testna pisava"]);
+    assert.deepEqual(options, ["Multilanguage", "Sans", "Serif", "Script", "Monospace", "Rounded", "Stencil", "Testna pisava", "__font-manager"]);
     ok("lastna pisava iz mape se naloži in uporabi na besedilu");
   }
 
