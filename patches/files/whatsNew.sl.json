@@ -1,4 +1,38 @@
 {
+  "1.57.0": [
+    [
+      "SVG kot skica",
+      "SVG se zdaj uvozi kot telo skice. Zapolnitev nastaviš v lastnostih: ploskev, poteza navzven ali navznoter, Silhueta pa izpusti luknje. Oboje skupaj naredi modelček za piškote."
+    ],
+    [
+      "SVG pravilno obrnjen",
+      "Uvožen SVG in izvoz SVG sta bila prej, gledano od zgoraj, zrcalna. Napisi se zdaj od zgoraj berejo pravilno."
+    ],
+    [
+      "Zasuk in nagib prehoda",
+      "Prehod se lahko na poti navzgor zasuka, njegov zgornji konec pa se nagne do 45°. Ostane natančno telo, ki ga lahko zaokrožiš."
+    ],
+    [
+      "Videz kot v Tinkercadu",
+      "Gumb v Nastavitve → Videz nastavi delovno območje tako, kot ga prikazuje Tinkercad. Temnejša črta mreže je lahko zdaj na vsakih 10 korakov in ima svojo barvo. Tudi površina skice pod mrežo ima zdaj svojo barvo."
+    ],
+    [
+      "Kapsula z manjšim koncem",
+      "Kapsula je lahko na enem koncu ožja, na primer kot ščitnik nad jermenom. Majhen konec in razmik središč nastaviš v lastnostih."
+    ],
+    [
+      "Vrednosti barv se ohranijo",
+      "Šestnajstiško vrednost, vpisano v barvno polje nastavitev, zdaj sprejme Enter in se ne izgubi več, ko se izbirnik zapre."
+    ],
+    [
+      "Pika ali vejica povsod",
+      "Položaj prereza in polmer vogala v skici zdaj sprejmeta piko ali vejico, tako kot vsa druga polja za mere."
+    ],
+    [
+      "Brez prevajanja ob nalaganju",
+      "Chrome začetne strani ne šteje več za nemško in je ob nalaganju ne prevaja."
+    ]
+  ],
   "1.56.2": [
     [
       "Zaokrožitev se ne zatakne več",
