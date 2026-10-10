@@ -5,6 +5,7 @@ const path = require("node:path");
 const crypto = require("node:crypto");
 
 const DEFAULT_PORT = 47615;
+const GRAPHICS_MODES = ["auto", "gpu", "nographite", "software"];
 
 function defaults(documentsDir) {
   return {
@@ -25,6 +26,8 @@ function defaults(documentsDir) {
     // Žeton za povezavo z AI odjemalcem (MCP). Ustvari se ob prvem zagonu.
     mcpToken: null,
     checkUpdatesOnStart: true,
+    // Način izrisa 3D: auto | gpu | nographite | software (uveljavi se ob ponovnem zagonu).
+    graphicsMode: "auto",
     windowBounds: null,
   };
 }
@@ -55,6 +58,7 @@ function normalize(raw, documentsDir) {
     // Jezik lupine (sl | en): sporoči ga urejevalnik; dokler ni znan, se uporabi jezik sistema.
     language: input.language === "en" || input.language === "sl" ? input.language : null,
     checkUpdatesOnStart: input.checkUpdatesOnStart !== false,
+    graphicsMode: GRAPHICS_MODES.includes(input.graphicsMode) ? input.graphicsMode : "auto",
     windowBounds: input.windowBounds && typeof input.windowBounds === "object" ? input.windowBounds : null,
   };
 }

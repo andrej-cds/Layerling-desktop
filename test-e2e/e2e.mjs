@@ -225,6 +225,10 @@ try {
   assert.equal(await settingsPage.inputValue("#as-folder"), dirs.auto);
   assert.ok((await settingsPage.inputValue("#mcp")).includes("ELECTRON_RUN_AS_NODE"));
   ok("okno z nastavitvami prikaže trenutne vrednosti in MCP nastavitev");
+  assert.equal(await settingsPage.inputValue("#gfx-mode"), "auto");
+  await settingsPage.locator("#gfx-info").click();
+  await eventually("diagnostika grafike se izpiše", async () => /Electron/.test(await settingsPage.inputValue("#gfx-out")) && /getGPUFeatureStatus/.test(await settingsPage.inputValue("#gfx-out")), 15000);
+  ok("nastavitve: način izrisa in diagnostika grafike");
 
   await settingsPage.fill("#as-interval", "7");
   await settingsPage.click("#save");

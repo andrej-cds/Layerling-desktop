@@ -46,3 +46,11 @@ test("jezik lupine: samo sl ali en, sicer ni določen", () => {
   assert.strictEqual(normalize({ language: "sl" }, "/docs").language, "sl");
   assert.strictEqual(normalize({ language: "de" }, "/docs").language, null);
 });
+
+test("način izrisa: samo znane vrednosti, sicer samodejno", () => {
+  const { normalize } = require("../desktop/config");
+  assert.equal(normalize({}, "/tmp").graphicsMode, "auto");
+  assert.equal(normalize({ graphicsMode: "gpu" }, "/tmp").graphicsMode, "gpu");
+  assert.equal(normalize({ graphicsMode: "software" }, "/tmp").graphicsMode, "software");
+  assert.equal(normalize({ graphicsMode: "karkoli" }, "/tmp").graphicsMode, "auto");
+});

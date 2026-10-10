@@ -9,6 +9,7 @@ contextBridge.exposeInMainWorld("settingsApi", {
   openFolder: (target) => ipcRenderer.invoke("settings:open-folder", target),
   checkUpdates: () => ipcRenderer.invoke("settings:check-updates"),
   regenerateToken: () => ipcRenderer.invoke("settings:regenerate-token"),
+  graphicsInfo: () => ipcRenderer.invoke("settings:graphics-info"),
   copyText: (text) => ipcRenderer.invoke("settings:copy", text),
   close: () => ipcRenderer.send("settings:close"),
 });

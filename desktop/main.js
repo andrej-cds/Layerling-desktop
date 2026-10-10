@@ -26,6 +26,29 @@ if (!app.requestSingleInstanceLock()) {
   process.exit(0);
 }
 
+// Način izrisa 3D (Nastavitve → Grafika). Stikala morajo biti nastavljena pred zagonom Electrona,
+// zato se nastavitev prebere kar iz datoteke settings.json.
+function applyGraphicsMode() {
+  let mode = "auto";
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(app.getPath("userData"), "settings.json"), "utf8"));
+    if (["gpu", "nographite", "software"].includes(raw.graphicsMode)) mode = raw.graphicsMode;
+  } catch {
+    // Brez nastavitev ostane samodejni način.
+  }
+  if (mode === "gpu") {
+    app.commandLine.appendSwitch("ignore-gpu-blocklist");
+    app.commandLine.appendSwitch("enable-gpu-rasterization");
+    if (process.platform === "win32") app.commandLine.appendSwitch("use-angle", "d3d11");
+  } else if (mode === "nographite") {
+    app.commandLine.appendSwitch("disable-features", "SkiaGraphite");
+  } else if (mode === "software") {
+    app.disableHardwareAcceleration();
+  }
+  return mode;
+}
+const graphicsModeAtStart = applyGraphicsMode();
+
 const logLines = [];
 function log(text) {
   const line = `[${new Date().toISOString()}] ${String(text).trim()}`;
@@ -395,6 +418,7 @@ ipcMain.handle("settings:save", async (_event, patch) => {
   if (patch && patch.autosave) safePatch.autosave = patch.autosave;
   if (patch && "sharedFolder" in patch) safePatch.sharedFolder = patch.sharedFolder;
   if (patch && "checkUpdatesOnStart" in patch) safePatch.checkUpdatesOnStart = !!patch.checkUpdatesOnStart;
+  if (patch && "graphicsMode" in patch) safePatch.graphicsMode = patch.graphicsMode;
 
   // Mapa mora biti zapisljiva, sicer bi uporabnik mislil, da je shranjeno, pa ne bi bilo.
   const folders = [];
@@ -414,8 +438,59 @@ ipcMain.handle("settings:save", async (_event, patch) => {
   const after = config.update(safePatch);
   if (mainWindow) mainWindow.webContents.send("app:settings-changed", publicSettings());
   if (after.sharedFolder !== before.sharedFolder) await restartServer();
+  if (after.graphicsMode !== graphicsModeAtStart && after.graphicsMode !== before.graphicsMode) {
+    const { response } = await dialog.showMessageBox(settingsWindow || mainWindow || undefined, {
+      type: "question",
+      buttons: [tr("dlg.gfxRestartNow"), tr("dlg.gfxLater")],
+      defaultId: 0,
+      cancelId: 1,
+      message: tr("dlg.gfxRestart"),
+    });
+    if (response === 0) {
+      app.relaunch();
+      app.quit();
+    }
+  }
   return settingsPayload();
 });
+
+// Diagnostika grafike: ali se 3D izrisuje na grafični kartici ali programsko, in kdo porablja pomnilnik.
+async function graphicsReport() {
+  const lines = [];
+  lines.push(`Layerling Desktop ${app.getVersion()} | Electron ${process.versions.electron} | Chromium ${process.versions.chrome}`);
+  lines.push(`Način izrisa ob zagonu: ${graphicsModeAtStart}`);
+  try {
+    lines.push("", "Stanje funkcij (app.getGPUFeatureStatus):");
+    const status = app.getGPUFeatureStatus();
+    for (const [key, value] of Object.entries(status)) lines.push(`  ${key}: ${value}`);
+  } catch (error) {
+    lines.push(`  (ni na voljo: ${error.message})`);
+  }
+  try {
+    const info = await app.getGPUInfo("basic");
+    lines.push("", "Grafične kartice:");
+    for (const device of info.gpuDevice || []) {
+      lines.push(`  ${device.active ? "[aktivna] " : ""}vendor 0x${Number(device.vendorId).toString(16)}, device 0x${Number(device.deviceId).toString(16)}${device.driverVersion ? `, gonilnik ${device.driverVersion}` : ""}${device.driverVendor ? ` (${device.driverVendor})` : ""}`);
+    }
+    if (info.auxAttributes) {
+      const aux = info.auxAttributes;
+      lines.push(`  izris: ${aux.glRenderer || "?"} / ${aux.glVendor || "?"}${aux.softwareRendering ? "  ← PROGRAMSKI IZRIS" : ""}`);
+    }
+  } catch (error) {
+    lines.push(`  (ni na voljo: ${error.message})`);
+  }
+  try {
+    lines.push("", "Procesi:");
+    for (const metric of app.getAppMetrics()) {
+      const memory = metric.memory ? Math.round((metric.memory.workingSetSize || 0) / 1024) : 0;
+      lines.push(`  ${metric.type}${metric.name ? ` (${metric.name})` : ""}: procesor ${metric.cpu ? metric.cpu.percentCPUUsage.toFixed(1) : "?"} %, pomnilnik ${memory} MB`);
+    }
+  } catch (error) {
+    lines.push(`  (ni na voljo: ${error.message})`);
+  }
+  return lines.join("\n");
+}
+ipcMain.handle("settings:graphics-info", () => graphicsReport());
 
 ipcMain.handle("settings:regenerate-token", async () => {
   config.update({ mcpToken: "" });
@@ -518,6 +593,7 @@ app.whenReady().then(async () => {
   if (started) {
     updater.setup({ getWindow: () => mainWindow, repo: REPO, log });
     if (config.get().checkUpdatesOnStart) setTimeout(() => updater.check({ repo: REPO, log }), 12000);
+    setTimeout(() => graphicsReport().then((text) => log(`Diagnostika grafike:\n${text}`)).catch(() => undefined), 15000);
   }
 });
 

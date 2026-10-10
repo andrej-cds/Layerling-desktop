@@ -63,6 +63,22 @@
   </section>
 
   <section>
+    <h2 data-i18n="s.gfxTitle">Grafika</h2>
+    <label class="field"><span data-i18n="s.gfxMode">Način izrisa 3D</span>
+      <select id="gfx-mode">
+        <option value="auto" data-i18n="s.gfxAuto">Samodejno (priporočeno)</option>
+        <option value="gpu" data-i18n="s.gfxGpu">Prisilno grafična kartica</option>
+        <option value="nographite" data-i18n="s.gfxNoGraphite">Grafična kartica, starejši način izrisa</option>
+        <option value="software" data-i18n="s.gfxSoftware">Programsko (brez grafične kartice)</option>
+      </select>
+    </label>
+    <p class="hint" data-i18n="s.gfxHint">Če se pogled zatika, poskusi drug način. Sprememba se uveljavi ob ponovnem zagonu.</p>
+    <button id="gfx-info" data-i18n="s.gfxInfo">Pokaži diagnostiko</button>
+    <button id="gfx-copy" hidden data-i18n="s.gfxCopy">Kopiraj</button>
+    <textarea id="gfx-out" readonly hidden></textarea>
+  </section>
+
+  <section>
     <h2 data-i18n="s.updatesTitle">Posodobitve</h2>
     <label class="row"><input type="checkbox" id="up-check"> <span data-i18n="s.updatesCheck">Ob zagonu preveri, ali je na voljo nova različica</span></label>
     <p class="hint" data-i18n="s.updatesHint">Nova različica se nikoli ne namesti brez vaše potrditve.</p>
@@ -104,6 +120,7 @@ function render() {
   $("as-gap").value = c.autosave.versionGapMin;
   $("sh-folder").value = c.sharedFolder || "";
   $("up-check").checked = c.checkUpdatesOnStart;
+  $("gfx-mode").value = c.graphicsMode || "auto";
   const last = state.mirror;
   $("as-status").textContent = last.lastAt
     ? T("s.lastWrite", { when: new Date(last.lastAt).toLocaleString(T("s.locale")) }) + (last.failed ? T("s.lastWriteFailed", { count: last.failed }) : "")
@@ -120,6 +137,7 @@ function collect() {
   draft.autosave.keepVersions = Number($("as-keep").value);
   draft.autosave.versionGapMin = Number($("as-gap").value);
   draft.checkUpdatesOnStart = $("up-check").checked;
+  draft.graphicsMode = $("gfx-mode").value;
 }
 
 async function init() {
@@ -152,6 +170,13 @@ $("mcp-regen").onclick = async () => {
   render();
   $("mcp-note").textContent = T("s.mcpRegenerated");
 };
+$("gfx-info").onclick = async () => {
+  $("gfx-out").hidden = false;
+  $("gfx-copy").hidden = false;
+  $("gfx-out").value = "…";
+  $("gfx-out").value = await window.settingsApi.graphicsInfo();
+};
+$("gfx-copy").onclick = () => window.settingsApi.copyText($("gfx-out").value);
 $("up-now").onclick = () => window.settingsApi.checkUpdates();
 $("cancel").onclick = () => window.settingsApi.close();
 $("save").onclick = async () => {
@@ -161,6 +186,7 @@ $("save").onclick = async () => {
     autosave: draft.autosave,
     sharedFolder: draft.sharedFolder,
     checkUpdatesOnStart: draft.checkUpdatesOnStart,
+    graphicsMode: draft.graphicsMode,
   });
   if (result && result.error) { msg(result.error, true); return; }
   state = result;
