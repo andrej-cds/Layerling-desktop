@@ -159,6 +159,31 @@ try {
   await mcp("create_shape", { kind: "cylinder", name: "Valj-E2E", x: 50, width: 20, depth: 20, height: 30 });
   ok("MCP ustvari obliki v urejevalniku");
 
+  // Gumb za vrtenje (en prst / leva tipka miške) mora biti viden vedno, ne le na zaslonu na dotik,
+  // ker ga uporabnik uporablja tudi prek oddaljenega zaslona z iPada.
+  const rotateButton = page.locator("button.camera-touch-rotate");
+  await eventually("gumb za vrtenje pogleda je viden", async () => (await rotateButton.count()) > 0 && (await rotateButton.first().isVisible()), 15000);
+  const mainCanvas = await page.evaluate(() => {
+    const boxes = [...document.querySelectorAll("canvas")].map((c) => c.getBoundingClientRect());
+    const b = boxes.sort((x, y) => y.width * y.height - x.width * x.height)[0];
+    return { x: Math.round(b.x), y: Math.round(b.y), width: Math.round(b.width), height: Math.round(b.height) };
+  });
+  const view = () => page.screenshot({ clip: { x: mainCanvas.x + 120, y: mainCanvas.y + 80, width: mainCanvas.width - 240, height: mainCanvas.height - 160 } });
+  await rotateButton.first().click();
+  assert.equal(await rotateButton.first().getAttribute("aria-pressed"), "true");
+  const viewBefore = await view();
+  const cx = mainCanvas.x + mainCanvas.width / 2, cy = mainCanvas.y + mainCanvas.height / 2;
+  await page.mouse.move(cx, cy);
+  await page.mouse.down();
+  await page.mouse.move(cx + 160, cy + 60, { steps: 12 });
+  await page.mouse.up();
+  await sleep(1200);
+  const viewAfter = await view();
+  assert.ok(!viewBefore.equals(viewAfter), "z vklopljenim gumbom mora leva tipka miške vrteti pogled");
+  await rotateButton.first().click();
+  assert.equal(await rotateButton.first().getAttribute("aria-pressed"), "false");
+  ok("gumb za vrtenje je viden in z levo tipko miške vrti pogled");
+
   if (systemFont) {
     assert.deepEqual(await page.evaluate(() => window.layerlingDesktop.listFonts()), ["Testna pisava.ttf"]);
     await mcp("create_shape", { kind: "text", name: "Besedilo-vgrajena", text: "Čaša", font: "Multilanguage", width: 60, depth: 20, height: 5 });
