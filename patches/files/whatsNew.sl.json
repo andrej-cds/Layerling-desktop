@@ -1,4 +1,10 @@
 {
+  "1.56.2": [
+    [
+      "Zaokrožitev se ne zatakne več",
+      "Po kliku v polje velikosti pri zaokrožitvi ali posnetju se je Uporabi včasih računal brez konca. To je odpravljeno."
+    ]
+  ],
   "1.56.1": [
     [
       "Luknje brez združevanja",
