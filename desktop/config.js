@@ -7,6 +7,16 @@ const crypto = require("node:crypto");
 const DEFAULT_PORT = 47615;
 const GRAPHICS_MODES = ["auto", "gpu", "nographite", "software"];
 
+/** Dodatne zastavice Chromiuma (npr. --use-angle=gl --disable-direct-composition): obdržijo se samo kosi, ki se začnejo z -- in nimajo presledkov ali narekovajev. */
+function cleanGraphicsFlags(value) {
+  if (typeof value !== "string") return "";
+  return value
+    .split(/\s+/)
+    .filter((token) => /^--[a-z0-9][a-z0-9-]*(=[A-Za-z0-9_.,:+-]*)?$/i.test(token))
+    .slice(0, 12)
+    .join(" ");
+}
+
 function defaults(documentsDir) {
   return {
     port: DEFAULT_PORT,
@@ -28,6 +38,7 @@ function defaults(documentsDir) {
     checkUpdatesOnStart: true,
     // Način izrisa 3D: auto | gpu | nographite | software (uveljavi se ob ponovnem zagonu).
     graphicsMode: "auto",
+    graphicsFlags: "",
     windowBounds: null,
   };
 }
@@ -59,6 +70,7 @@ function normalize(raw, documentsDir) {
     language: input.language === "en" || input.language === "sl" ? input.language : null,
     checkUpdatesOnStart: input.checkUpdatesOnStart !== false,
     graphicsMode: GRAPHICS_MODES.includes(input.graphicsMode) ? input.graphicsMode : "auto",
+    graphicsFlags: cleanGraphicsFlags(input.graphicsFlags),
     windowBounds: input.windowBounds && typeof input.windowBounds === "object" ? input.windowBounds : null,
   };
 }
@@ -105,4 +117,4 @@ class ConfigStore {
   }
 }
 
-module.exports = { ConfigStore, normalize, defaults, DEFAULT_PORT };
+module.exports = { cleanGraphicsFlags, ConfigStore, normalize, defaults, DEFAULT_PORT };

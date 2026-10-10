@@ -3,7 +3,7 @@ const { app, BrowserWindow, Menu, dialog, ipcMain, shell, session, clipboard, No
 const fs = require("node:fs");
 const path = require("node:path");
 const { zipSync } = require("fflate");
-const { ConfigStore } = require("./config");
+const { ConfigStore, cleanGraphicsFlags } = require("./config");
 const { Mirror } = require("./mirror");
 const { EmbeddedServer } = require("./server");
 const { buildMenu } = require("./menu");
@@ -28,11 +28,14 @@ if (!app.requestSingleInstanceLock()) {
 
 // Način izrisa 3D (Nastavitve → Grafika). Stikala morajo biti nastavljena pred zagonom Electrona,
 // zato se nastavitev prebere kar iz datoteke settings.json.
+let graphicsFlagsAtStart = "";
 function applyGraphicsMode() {
   let mode = "auto";
+  let extra = "";
   try {
     const raw = JSON.parse(fs.readFileSync(path.join(app.getPath("userData"), "settings.json"), "utf8"));
     if (["gpu", "nographite", "software"].includes(raw.graphicsMode)) mode = raw.graphicsMode;
+    extra = cleanGraphicsFlags(raw.graphicsFlags);
   } catch {
     // Brez nastavitev ostane samodejni način.
   }
@@ -45,6 +48,15 @@ function applyGraphicsMode() {
   } else if (mode === "software") {
     app.disableHardwareAcceleration();
   }
+  // Poljubne dodatne zastavice (Nastavitve → Grafika → Dodatne zastavice), za preizkušanje.
+  if (extra) {
+    for (const token of extra.split(" ")) {
+      const [name, ...rest] = token.slice(2).split("=");
+      if (rest.length) app.commandLine.appendSwitch(name, rest.join("="));
+      else app.commandLine.appendSwitch(name);
+    }
+  }
+  graphicsFlagsAtStart = extra;
   return mode;
 }
 const graphicsModeAtStart = applyGraphicsMode();
@@ -419,6 +431,7 @@ ipcMain.handle("settings:save", async (_event, patch) => {
   if (patch && "sharedFolder" in patch) safePatch.sharedFolder = patch.sharedFolder;
   if (patch && "checkUpdatesOnStart" in patch) safePatch.checkUpdatesOnStart = !!patch.checkUpdatesOnStart;
   if (patch && "graphicsMode" in patch) safePatch.graphicsMode = patch.graphicsMode;
+  if (patch && "graphicsFlags" in patch) safePatch.graphicsFlags = patch.graphicsFlags;
 
   // Mapa mora biti zapisljiva, sicer bi uporabnik mislil, da je shranjeno, pa ne bi bilo.
   const folders = [];
@@ -438,7 +451,7 @@ ipcMain.handle("settings:save", async (_event, patch) => {
   const after = config.update(safePatch);
   if (mainWindow) mainWindow.webContents.send("app:settings-changed", publicSettings());
   if (after.sharedFolder !== before.sharedFolder) await restartServer();
-  if (after.graphicsMode !== graphicsModeAtStart && after.graphicsMode !== before.graphicsMode) {
+  if ((after.graphicsMode !== graphicsModeAtStart && after.graphicsMode !== before.graphicsMode) || (after.graphicsFlags !== graphicsFlagsAtStart && after.graphicsFlags !== before.graphicsFlags)) {
     const { response } = await dialog.showMessageBox(settingsWindow || mainWindow || undefined, {
       type: "question",
       buttons: [tr("dlg.gfxRestartNow"), tr("dlg.gfxLater")],
@@ -458,7 +471,7 @@ ipcMain.handle("settings:save", async (_event, patch) => {
 async function graphicsReport() {
   const lines = [];
   lines.push(`Layerling Desktop ${app.getVersion()} | Electron ${process.versions.electron} | Chromium ${process.versions.chrome}`);
-  lines.push(`Način izrisa ob zagonu: ${graphicsModeAtStart}`);
+  lines.push(`Način izrisa ob zagonu: ${graphicsModeAtStart}${graphicsFlagsAtStart ? ` + zastavice: ${graphicsFlagsAtStart}` : ""}`);
   try {
     lines.push("", "Stanje funkcij (app.getGPUFeatureStatus):");
     const status = app.getGPUFeatureStatus();

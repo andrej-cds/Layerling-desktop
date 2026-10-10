@@ -1,4 +1,10 @@
 {
+  "1.60.0": [
+    [
+      "Besedilo kot kontura, silhueta, širše ali v plasteh",
+      "Oblika Besedilo ima zdaj načine polnila kot skice in SVG: kontura zunaj, znotraj ali na sredini, silhueta brez lukenj in novo »Širše«, tudi za skice in SVG. Kartica »Plasti« v enem koraku naredi iz besedila napis za večbarvni tisk, nastavljiv sproti, iz seznama imen pa po en napis za vsako ime."
+    ]
+  ],
   "1.59.0": [
     [
       "Polja si zapomnijo izračun",

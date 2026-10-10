@@ -73,6 +73,9 @@
       </select>
     </label>
     <p class="hint" data-i18n="s.gfxHint">Če se pogled zatika, poskusi drug način. Sprememba se uveljavi ob ponovnem zagonu.</p>
+    <label class="field"><span data-i18n="s.gfxFlags">Dodatne zastavice (za preizkušanje)</span>
+      <input id="gfx-flags" type="text" spellcheck="false" placeholder="--use-angle=gl --disable-direct-composition">
+    </label>
     <button id="gfx-info" data-i18n="s.gfxInfo">Pokaži diagnostiko</button>
     <button id="gfx-copy" hidden data-i18n="s.gfxCopy">Kopiraj</button>
     <textarea id="gfx-out" readonly hidden></textarea>
@@ -121,6 +124,7 @@ function render() {
   $("sh-folder").value = c.sharedFolder || "";
   $("up-check").checked = c.checkUpdatesOnStart;
   $("gfx-mode").value = c.graphicsMode || "auto";
+  $("gfx-flags").value = c.graphicsFlags || "";
   const last = state.mirror;
   $("as-status").textContent = last.lastAt
     ? T("s.lastWrite", { when: new Date(last.lastAt).toLocaleString(T("s.locale")) }) + (last.failed ? T("s.lastWriteFailed", { count: last.failed }) : "")
@@ -138,6 +142,7 @@ function collect() {
   draft.autosave.versionGapMin = Number($("as-gap").value);
   draft.checkUpdatesOnStart = $("up-check").checked;
   draft.graphicsMode = $("gfx-mode").value;
+  draft.graphicsFlags = $("gfx-flags").value;
 }
 
 async function init() {
@@ -187,6 +192,7 @@ $("save").onclick = async () => {
     sharedFolder: draft.sharedFolder,
     checkUpdatesOnStart: draft.checkUpdatesOnStart,
     graphicsMode: draft.graphicsMode,
+    graphicsFlags: draft.graphicsFlags,
   });
   if (result && result.error) { msg(result.error, true); return; }
   state = result;

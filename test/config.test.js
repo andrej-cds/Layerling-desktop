@@ -54,3 +54,11 @@ test("način izrisa: samo znane vrednosti, sicer samodejno", () => {
   assert.equal(normalize({ graphicsMode: "software" }, "/tmp").graphicsMode, "software");
   assert.equal(normalize({ graphicsMode: "karkoli" }, "/tmp").graphicsMode, "auto");
 });
+
+test("graphicsFlags: obdržijo se samo varne zastavice", () => {
+  const { cleanGraphicsFlags } = require("../desktop/config");
+  assert.equal(cleanGraphicsFlags("--use-angle=gl  --disable-direct-composition"), "--use-angle=gl --disable-direct-composition");
+  assert.equal(cleanGraphicsFlags("rm -rf / --no-sandbox=\"x\" --a;b"), "");
+  assert.equal(cleanGraphicsFlags(5), "");
+  assert.equal(normalize({ graphicsFlags: "--disable-gpu-vsync" }, "/tmp").graphicsFlags, "--disable-gpu-vsync");
+});
