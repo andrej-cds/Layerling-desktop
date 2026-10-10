@@ -10,6 +10,7 @@ contextBridge.exposeInMainWorld("settingsApi", {
   checkUpdates: () => ipcRenderer.invoke("settings:check-updates"),
   regenerateToken: () => ipcRenderer.invoke("settings:regenerate-token"),
   graphicsInfo: () => ipcRenderer.invoke("settings:graphics-info"),
+  recordProfile: () => ipcRenderer.invoke("settings:record-profile"),
   copyText: (text) => ipcRenderer.invoke("settings:copy", text),
   close: () => ipcRenderer.send("settings:close"),
 });

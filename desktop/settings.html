@@ -77,6 +77,7 @@
       <input id="gfx-flags" type="text" spellcheck="false" placeholder="--use-angle=gl --disable-direct-composition">
     </label>
     <button id="gfx-info" data-i18n="s.gfxInfo">Pokaži diagnostiko</button>
+    <button id="gfx-profile" data-i18n="s.gfxProfile">Posnemi profil zatikanja</button>
     <button id="gfx-copy" hidden data-i18n="s.gfxCopy">Kopiraj</button>
     <textarea id="gfx-out" readonly hidden></textarea>
   </section>
@@ -180,6 +181,11 @@ $("gfx-info").onclick = async () => {
   $("gfx-copy").hidden = false;
   $("gfx-out").value = "…";
   $("gfx-out").value = await window.settingsApi.graphicsInfo();
+};
+$("gfx-profile").onclick = async () => {
+  $("gfx-out").hidden = false;
+  $("gfx-out").value = T("s.gfxProfileWait");
+  $("gfx-out").value = await window.settingsApi.recordProfile();
 };
 $("gfx-copy").onclick = () => window.settingsApi.copyText($("gfx-out").value);
 $("up-now").onclick = () => window.settingsApi.checkUpdates();

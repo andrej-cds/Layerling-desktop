@@ -505,6 +505,48 @@ async function graphicsReport() {
 }
 ipcMain.handle("settings:graphics-info", () => graphicsReport());
 
+// Posnetek profila glavnega okna (za iskanje zatikanja): 8 s odštevanja, nato 12 s snemanja. V tem času naj se v glavnem oknu premika predmet.
+ipcMain.handle("settings:record-profile", async () => {
+  if (!mainWindow || mainWindow.isDestroyed()) return "Glavno okno ni odprto.";
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  const pick = await dialog.showSaveDialog(settingsWindow || mainWindow, {
+    defaultPath: path.join(app.getPath("documents"), `Layerling-profil-${stamp}.cpuprofile`),
+    filters: [{ name: "CPU profil", extensions: ["cpuprofile"] }],
+  });
+  if (pick.canceled || !pick.filePath) return "Preklicano.";
+  const wc = mainWindow.webContents;
+  const dbg = wc.debugger;
+  try {
+    dbg.attach("1.3");
+    await dbg.sendCommand("Profiler.enable");
+    await dbg.sendCommand("Performance.enable");
+    await dbg.sendCommand("Profiler.setSamplingInterval", { interval: 500 });
+    mainWindow.show();
+    mainWindow.focus();
+    await new Promise((resolve) => setTimeout(resolve, 8000));
+    const metric = async () => {
+      const result = await dbg.sendCommand("Performance.getMetrics");
+      const heap = await dbg.sendCommand("Runtime.getHeapUsage").catch(() => ({}));
+      const picked = {};
+      for (const item of result.metrics) picked[item.name] = item.value;
+      return { ...picked, heapUsedMB: heap.usedSize ? Math.round(heap.usedSize / 1048576) : undefined, heapTotalMB: heap.totalSize ? Math.round(heap.totalSize / 1048576) : undefined };
+    };
+    const first = await metric();
+    await dbg.sendCommand("Profiler.start");
+    await new Promise((resolve) => setTimeout(resolve, 12000));
+    const { profile } = await dbg.sendCommand("Profiler.stop");
+    const second = await metric();
+    fs.writeFileSync(pick.filePath, JSON.stringify(profile));
+    fs.writeFileSync(pick.filePath.replace(/\.cpuprofile$/i, "") + ".metrike.json", JSON.stringify({ version: app.getVersion(), electron: process.versions.electron, start: first, end: second }, null, 2));
+    shell.showItemInFolder(pick.filePath);
+    return `Shranjeno: ${pick.filePath}`;
+  } catch (error) {
+    return `Napaka pri snemanju: ${error.message}`;
+  } finally {
+    try { dbg.detach(); } catch { /* ni pripeto */ }
+  }
+});
+
 ipcMain.handle("settings:regenerate-token", async () => {
   config.update({ mcpToken: "" });
   await restartServer();
