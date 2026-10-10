@@ -531,13 +531,43 @@ ipcMain.handle("settings:record-profile", async () => {
       for (const item of result.metrics) picked[item.name] = item.value;
       return { ...picked, heapUsedMB: heap.usedSize ? Math.round(heap.usedSize / 1048576) : undefined, heapTotalMB: heap.totalSize ? Math.round(heap.totalSize / 1048576) : undefined };
     };
+    // Shramba strani: IndexedDB in localStorage (upstream ob vsaki spremembi zapiše ves projekt z zgodovino).
+    const storageProbe = async () => {
+      try {
+        const out = await dbg.sendCommand("Runtime.evaluate", {
+          awaitPromise: true,
+          returnByValue: true,
+          expression: `(async () => {
+            const est = navigator.storage && navigator.storage.estimate ? await navigator.storage.estimate() : {};
+            const dbs = indexedDB.databases ? await indexedDB.databases() : [];
+            const sizes = [];
+            for (const info of dbs) {
+              try {
+                const db = await new Promise((resolve, reject) => { const r = indexedDB.open(info.name); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });
+                for (const name of Array.from(db.objectStoreNames)) {
+                  const rows = await new Promise((resolve, reject) => { const r = db.transaction(name).objectStore(name).getAll(); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });
+                  sizes.push({ db: info.name, store: name, rows: rows.length, bytes: rows.reduce((sum, row) => sum + (row && row.lylPackage ? row.lylPackage.byteLength || row.lylPackage.size || 0 : 0), 0) });
+                }
+                db.close();
+              } catch (error) { sizes.push({ db: info.name, error: String(error) }); }
+            }
+            const ls = Object.keys(localStorage).map((key) => [key, (localStorage.getItem(key) || "").length]);
+            return JSON.stringify({ usageMB: Math.round((est.usage || 0) / 1048576), quotaMB: Math.round((est.quota || 0) / 1048576), dbs, sizes, localStorage: ls });
+          })()`,
+        });
+        return JSON.parse(out.result.value);
+      } catch (error) {
+        return { error: String(error && error.message ? error.message : error) };
+      }
+    };
+    const storage = await storageProbe();
     const first = await metric();
     await dbg.sendCommand("Profiler.start");
     await new Promise((resolve) => setTimeout(resolve, 12000));
     const { profile } = await dbg.sendCommand("Profiler.stop");
     const second = await metric();
     fs.writeFileSync(pick.filePath, JSON.stringify(profile));
-    fs.writeFileSync(pick.filePath.replace(/\.cpuprofile$/i, "") + ".metrike.json", JSON.stringify({ version: app.getVersion(), electron: process.versions.electron, start: first, end: second }, null, 2));
+    fs.writeFileSync(pick.filePath.replace(/\.cpuprofile$/i, "") + ".metrike.json", JSON.stringify({ version: app.getVersion(), electron: process.versions.electron, storage, start: first, end: second }, null, 2));
     shell.showItemInFolder(pick.filePath);
     return `Shranjeno: ${pick.filePath}`;
   } catch (error) {
