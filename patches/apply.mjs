@@ -414,6 +414,22 @@ export const edits = [
     find: "  if (!page) return `/${directory}/index.html`;\n  return `/${directory}/",
     replace: "  const base = process.env.NEXT_PUBLIC_LAYERLING_BASE ?? \"\";\n  if (!page) return `${base}/${directory}/index.html`;\n  return `${base}/${directory}/",
   },
+  {
+    name: "Navodila: povezava iz angleščine v slovenščino",
+    stage: "jezik",
+    file: "scripts/build-guide.mjs",
+    marker: 'switchLanguage: "Slovenian"',
+    find: 'switchLanguage: "Deutsch",\n    switchTitle: "Auf Deutsch lesen",',
+    replace: 'switchLanguage: "Slovenian",\n    switchTitle: "Preberi v slovenščini",',
+  },
+  {
+    name: "Navodila: hreflang slovenščine",
+    stage: "jezik",
+    file: "scripts/build-guide.mjs",
+    marker: 'hreflang="${language === "de" ? "en" : "sl"}"',
+    find: 'hreflang="${language === "de" ? "en" : "de"}"',
+    replace: 'hreflang="${language === "de" ? "en" : "sl"}"',
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
