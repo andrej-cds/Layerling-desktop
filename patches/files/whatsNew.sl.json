@@ -1,4 +1,26 @@
 {
+  "1.62.2": [
+    [
+      "Raztegnjen sveženj reže tam, kjer stoji",
+      "Sveženj zasukanih delov, na primer palic na boku, ki si jih nato podaljšal, ob združevanju ni rezal nič ali na napačnem mestu. Deli so zdaj raztegnjeni vzdolž svojih osi, zato so luknje tam, kjer jih vidiš."
+    ],
+    [
+      "Zaobljen rob na črkah",
+      "Kartica napisa z imenom ima novo vrstico, Rob črk: Brez, Zaobljen ali Posnet, z velikostjo. Črke zgoraj tako izgledajo kot pri natisnjenem napisu, za vsako pisavo in besedo, ne da bi bilo treba odpreti sveženj."
+    ],
+    [
+      "Izdolbi z možnostjo preklica in urejanja",
+      "Okno Izdolbi zdaj prikazuje enak seznam kot zaokrožitev: obdelavo roba lahko prekličeš, ob vsakem izdolbljenju pa je gumb Uredi. Steno lahko pozneje stanjšaš ali odebeliš, ne da bi začel znova."
+    ],
+    [
+      "Zožitev je spet na voljo za besedilo",
+      "Kartici Zožitev ter Zasuk in nagib sta nazaj za navadno besedilo, da črke malo popačiš. Brez njiju je samo napis z imenom."
+    ],
+    [
+      "Poročilo o napaki je datoteka ZIP",
+      "Gumb za poročilo o napaki v nogi zdaj shrani datoteko ZIP s tvojim načrtom in besedilom z različico, brskalnikom in zadnjimi sporočili. GitHub jo sprejme, zato jo lahko priložiš neposredno poročilu. Začetna stran jo odpre kot varnostno kopijo."
+    ]
+  ],
   "1.62.1": [
     [
       "Ročaji za poravnavo ne skačejo več",

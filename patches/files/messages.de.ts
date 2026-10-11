@@ -2220,4 +2220,9 @@ export const MESSAGES_DE = {
   "status.sketchMadeSolid": "Konstrukcijska črta spremenjena v črto",
   "edge.editAction": "Uredi",
   "edge.editHint": "Prekliče to obdelavo in orodje znova odpre z istimi robovi in vrednostjo za spremembo.",
+  "nameTag.letterEdge": "Rob črk",
+  "nameTag.edge.none": "Brez",
+  "nameTag.edge.round": "Zaobljen",
+  "nameTag.edge.chamfer": "Posnet",
+  "nameTag.letterEdgeSize": "Velikost roba",
 } as unknown as Record<MessageKey, string>;
