@@ -1,4 +1,30 @@
 {
+  "1.62.0": [
+    [
+      "Polje lukenj za ploskev",
+      "Nov gumb »Polje lukenj« v orodni vrstici, tik ob Polju, za zračnike, ozvočne mreže in košare: izberi telo, klikni ravno ploskev in nastavi obliko luknje, velikost, razmik, razporeditev, rob in globino. Luknje se pokažejo kot predogled, po Ustvari pa ostanejo navadne luknje, združene s telesom. Oblike Satovje zanj ni več; obstoječe so pretvorjene."
+    ],
+    [
+      "Polja mer sledijo legi telesa",
+      "Če je telo položeno na bok ali zasukano za četrt kroga: Višina je zdaj to, kar gre navzgor, Širina teče vzdolž X, Dolžina vzdolž Y. Vtipkaj višino in spremeni se navpična mera, spodnja stran pa ostane na plošči."
+    ],
+    [
+      "Napisi z imenom: svoj vnos, vrstica za plast in luknja za obesek",
+      "Knjižnica oblik ima zdaj »Napis z imenom« takoj za Besedilom. Ena kartica pokaže besedilo, velikost črk in vsako plast v vrstici z barvo, širino, vogali in višino. Luknjo za obesek z ušescem lahko dodaš levo, desno ali zgoraj."
+    ],
+    [
+      "Skica prikaže telesa tako, kot ležijo",
+      "Telo, položeno na ploskev ali nagnjeno, se zdaj pod skico prikaže tako, kot stoji na plošči, ne tako, kot je bilo narejeno. Če je nastavljena delovna ravnina, ji sledi tudi skica za vrtenje; prej je prikazovala osnovno ploščo."
+    ],
+    [
+      "Konstrukcijske črte v skici",
+      "Nov gumb »Konstrukcijska črta« za risanje: črta je črtkana, nikoli ni del telesa, točke pa se pripenjajo na njene konce in presečišča. Izbrano črto lahko spremeniš v konstrukcijsko in nazaj."
+    ],
+    [
+      "Zaokrožitev, posnetje ali izdolbljenje lahko pozneje spremeniš",
+      "Seznam v orodju za robove ima ob vsaki novi obdelavi gumb »Uredi«. Prekliče jo in orodje znova odpre z istimi robovi in staro vrednostjo, ki jo spremeniš in znova uveljaviš."
+    ]
+  ],
   "1.61.1": [
     [
       "Načrt se odpre v pogledu, kjer si ga pustil",
