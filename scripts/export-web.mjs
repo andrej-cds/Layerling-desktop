@@ -31,7 +31,7 @@ if (base) applyPatches(upstreamDir, { stage: "podmapa" });
 if (!existsSync(join(upstreamDir, "node_modules"))) run("npm", ["ci", "--no-audit", "--no-fund"], { cwd: upstreamDir });
 
 // Isti koraki kot `npm run export` v originalu, brez preverjanja "/_next/" korena, ki za podmapo ne more držati.
-const env = { NEXT_TELEMETRY_DISABLED: "1", ...(base ? { LAYERLING_BASE_PATH: base } : {}) };
+const env = { NEXT_TELEMETRY_DISABLED: "1", ...(base ? { LAYERLING_BASE_PATH: base, NEXT_PUBLIC_LAYERLING_BASE: base } : {}) };
 const nextBin = join(upstreamDir, "node_modules", "next", "dist", "bin", "next");
 run(process.execPath, ["scripts/copy-occt-wasm.mjs"], { cwd: upstreamDir, env });
 run(process.execPath, ["scripts/build-guide.mjs"], { cwd: upstreamDir, env });

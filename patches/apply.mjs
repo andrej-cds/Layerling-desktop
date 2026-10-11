@@ -406,6 +406,14 @@ export const edits = [
     find: "    dir: \"anleitung\",\n    htmlLang: \"de\",\n    quotes: [\"„\", \"“\"],\n    site: \"layerling Anleitung\",\n    home: \"Anleitung\",\n    openEditor: \"Zum Editor\",\n    backToEditor: \"Zurück zum Editor\",\n    editorElsewhere: \"Der Editor ist schon in einem anderen Tab offen - wechsle einfach dorthin.\",\n    chapters: \"Kapitel\",\n    onThisPage: \"Auf dieser Seite\",\n    previous: \"Vorheriges Kapitel\",\n    next: \"Nächstes Kapitel\",\n    switchLanguage: \"English\",\n    switchTitle: \"Read this in English\",\n    overviewLead: \"Alles, was layerling kann, Schritt für Schritt. Die Bilder entstehen aus dem laufenden Programm und werden mit jeder Fassung neu aufgenommen.\",\n    sourceNote: \"Diese Anleitung wächst mit dem Programm. Fehlt dir etwas oder stimmt etwas nicht, sag es im\",\n    forum: \"Forum\",\n    forumUrl: \"https://forum.drucktipps3d.de/forum/board/127-layerling/\",",
     replace: "    dir: \"navodila\",\n    htmlLang: \"sl\",\n    quotes: [\"„\", \"“\"],\n    site: \"layerling navodila\",\n    home: \"Navodila\",\n    openEditor: \"V urejevalnik\",\n    backToEditor: \"Nazaj v urejevalnik\",\n    editorElsewhere: \"Urejevalnik je že odprt v drugem zavihku – preprosto preklopi nanj.\",\n    chapters: \"Poglavja\",\n    onThisPage: \"Na tej strani\",\n    previous: \"Prejšnje poglavje\",\n    next: \"Naslednje poglavje\",\n    switchLanguage: \"English\",\n    switchTitle: \"Read this in English\",\n    overviewLead: \"Vse, kar zmore layerling, korak za korakom. Slike so posnete iz delujočega programa (v angleškem vmesniku).\",\n    sourceNote: \"Ta navodila rastejo skupaj s programom. Če kaj manjka ali ne drži, sporoči v\",\n    forum: \"razpravah\",\n    forumUrl: \"https://github.com/henmedia/layerling/discussions\",",
   },
+  {
+    name: "Podmapa: povezave do navodil",
+    stage: "podmapa",
+    file: "apps/web/src/lib/guideLinks.ts",
+    marker: "NEXT_PUBLIC_LAYERLING_BASE",
+    find: "  if (!page) return `/${directory}/index.html`;\n  return `/${directory}/",
+    replace: "  const base = process.env.NEXT_PUBLIC_LAYERLING_BASE ?? \"\";\n  if (!page) return `${base}/${directory}/index.html`;\n  return `${base}/${directory}/",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
