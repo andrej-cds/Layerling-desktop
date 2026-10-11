@@ -100,6 +100,22 @@ Vsako spremembo vidiš takoj. Napis je sveženj: premika se kot celota, vsaka pl
 
 Imena vpiši v {{ui:textLayers.names}}, eno na vrstico, do sto. Gumb pod njim pove, koliko napisov naredi, na primer »Naredi 12 napisov z imenom«. Vsak napis dobi iste plasti, isto velikost črk in isto luknjo in je lasten objekt; ležijo v vrstah pod prvim, 5 mm narazen. Tudi preprosto besedilo ima seznam imen, nižje v svojih nastavitvah.
 
+## Simbolne oznake
+
+Simbolna oznaka je ista oznaka s simbolom SVG namesto črk: srček, oblak, logotip društva. Zgoraj simbol, pod njim isti obris malo širši v drugi barvi, čisto spodaj plošča brez lukenj.
+
+- **Nova simbolna oznaka:** v knjižnici oblik izberi {{ui:shape.iconTag}}. Odpre se majhno okno: klikni {{ui:iconTag.browse}}, izberi datoteko SVG, preveri sliko, vpiši {{ui:iconTag.width}} simbola in klikni {{ui:iconTag.ok}}. Oznaka stoji na sredini plošče, v enakih plasteh kot nov napis z imenom.
+- **Iz telesa skice:** uvožena datoteka SVG ali skica, ki si jo narisal, ima na vrhu nastavitev {{ui:nameTag.makeLayers}}.
+
+Kartica {{ui:iconTag.title}} na vrhu nastavitev vsebuje:
+
+- **{{ui:iconTag.replace}}:** na oznako postavi simbol druge datoteke SVG; plasti in širina ostanejo, kot so.
+- **{{ui:iconTag.iconWidth}}:** kako širok je simbol zgoraj, v mm. Vse plasti sledijo in ostanejo poravnane.
+- **{{ui:nameTag.layers}}:** vrstice kot pri napisu z imenom – barva, za koliko širše, {{ui:nameTag.corners}}, višina in {{ui:nameTag.noHoles}}, **+** in **–**, od dve do šest plasti. Zgornja vrstica je simbol sam.
+- **{{ui:iconTag.count}}:** koliko oznak želiš, od 1 do 100. {{ui:iconTag.fill}} izračuna število iz plošče tiskalnika, izbranega v nastavitvah; pri majhnih logotipih polna plošča. Gumb spodaj jih naredi, 5 mm narazen, razporejene na sredini plošče; prva je oznaka sama.
+
+SVG potrebuje sklenjene obrise; risba samo iz odprtih črt ne more postati oznaka. Telo skice, katerega polnilo je črta, jo obdrži: ploščina te črte je simbol.
+
 ## Besedilo na krožnem loku
 
 Naj napis ne teče naravnost, ampak sledi robu kovanca, pokrova ali obroča? Za to je nastavitev {{ui:prop.textCurved}}.

@@ -1,4 +1,22 @@
 {
+  "1.64.0": [
+    [
+      "Razveljavi že med drsnikom",
+      "Ko premakneš drsnik v oknu lastnosti, Ctrl+Z zdaj deluje takoj, ne da bi moral prej klikniti v delovno ravnino. Tako lahko nastavitve, kot je zožitev, preprosto preizkusiš in vzameš nazaj."
+    ],
+    [
+      "Simbolna oznaka iz datoteke SVG",
+      "Knjižnica oblik ima novo Simbolno oznako: izberi datoteko SVG in simbol stoji na plošči v enakih barvnih plasteh kot napis z imenom. Širino, plasti in število lahko pozneje spremeniš, »Kolikor jih gre« pa napolni tiskalno ploščo s kopijami."
+    ],
+    [
+      "Izdolbljenje razloži notranje robove",
+      "Pod Notranji robovi zdaj piše, kje se Zaobljeni in Ostri sploh razlikujeta: pri stopnicah in odprtinah, ne v vogalih preproste škatle. Za zaobljeno notranjost najprej zaobli zunanje robove, nato izdolbi."
+    ],
+    [
+      "Razveljavi pove, kje je delovna ravnina",
+      "Ko Razveljavi ali Uveljavi vrne delovno ravnino ali jo postavi nazaj na osnovno ploščo, sporočilo to pove. Delovna ravnina se ne pojavi več kar od nikoder."
+    ]
+  ],
   "1.63.0": [
     [
       "Velikost orodne vrstice",

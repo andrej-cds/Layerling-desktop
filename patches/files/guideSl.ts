@@ -22,6 +22,7 @@ export const SL_GUIDE_SECTIONS: Record<string, string> = {
   "gridAndSnapping": "mreza-in-pripenjanje",
   "shapeSettings": "nastavitve-oblike",
   "wrapCylinder": "ovijanje-okoli-valja",
+  "iconTag": "simbolne-oznake",
   "textFill": "kontura-silhueta-in-sirse",
   "textLayers": "plasti-in-napisi-z-imenom",
   "myShapes": "oblike-po-meri",
