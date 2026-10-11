@@ -1,4 +1,22 @@
 {
+  "1.61.1": [
+    [
+      "Načrt se odpre v pogledu, kjer si ga pustil",
+      "Kot, povečava in položaj pogleda ostanejo pri načrtu, tudi po gumbu Domov ali zaprtju strani. Shranjena datoteka pogled nosi s seboj."
+    ],
+    [
+      "npm install brez varnostnih opozoril",
+      "Če Layerling zgradiš sam iz izvorne kode, npm install ne javlja več ranljivosti; Next.js ostaja na različici 15."
+    ],
+    [
+      "Premaknjena okna se odprejo tam, kjer si jih spustil",
+      "Nastavitve, vodnik in bližnjice so se po premiku odprli zamaknjeni levo in gor, deloma izven vidnega območja. Zdaj stojijo točno tam, kjer si jih spustil."
+    ],
+    [
+      "Datoteke STL se na iPadu dajo izbrati",
+      "Na iPadu in iPhonu so bile datoteke STL, 3MF, STEP in .lyl v izbirniku datotek zatemnjene. Zdaj izbirnik prikaže vse datoteke."
+    ]
+  ],
   "1.61.0": [
     [
       "Zasukaj, umeri in obreži referenčno sliko",
