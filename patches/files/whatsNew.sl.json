@@ -1,4 +1,18 @@
 {
+  "1.62.1": [
+    [
+      "Ročaji za poravnavo ne skačejo več",
+      "Pri dveh oddaljenih oblikah je ročaj orodja za poravnavo skakal sem in tja pod mirujočim kazalcem, oblike pa so utripale. Ročaji zdaj mirujejo, medtem ko se predogled prikazuje."
+    ],
+    [
+      "Poravnava sledi delovni ravnini",
+      "Oblika, zasukana za 45°, se je poravnala po okvirju okoli nje. Nastavi delovno ravnino na eno njenih ploskev: točke poravnave potem stojijo na oseh te ravnine in se oblike poravnajo po pravih robovih, kot v Tinkercadu."
+    ],
+    [
+      "Shift s puščico sledi temnejši črti mreže",
+      "Shift in puščična tipka zdaj premakneta za toliko korakov mreže, kot pravi nastavitev »Temnejša črta mreže na vsakih«: 5 kot doslej ali 10 kot v Tinkercadu."
+    ]
+  ],
   "1.62.0": [
     [
       "Polje lukenj za ploskev",
