@@ -50,7 +50,10 @@ if (base) {
   let changed = 0;
   for (const file of walk(out).filter((f) => /\.(js|html|txt|css|json|webmanifest|xml)$/.test(f) && !f.endsWith("sw.js"))) {
     const text = readFileSync(file, "utf8");
-    const next = text.replace(pattern, (_m, q) => `${q}${base}/assets/`);
+    let next = text.replace(pattern, (_m, q) => `${q}${base}/assets/`);
+    // Navodila (statične strani in povezave iz programa) uporabljajo poti od korena.
+    next = next.replace(/(["'`])\/(navodila|guide)\//g, (_m, q, d) => `${q}${base}/${d}/`);
+    if (/[\\/](navodila|guide)[\\/]/.test(file)) next = next.replace(/(href|src)="\/(?!layerling\/)/g, (_m, a) => `${a}="${base}/`);
     if (next !== text) {
       writeFileSync(file, next);
       changed++;

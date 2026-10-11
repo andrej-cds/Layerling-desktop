@@ -4,7 +4,7 @@
 // posodobitev. Če sidra ni več (ali je dvoumno), skripta glasno odpove in pove, katero datoteko je treba pogledati.
 //
 // Uporaba: node patches/apply.mjs <pot do mape z originalno kodo>
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -320,17 +320,17 @@ export const edits = [
     name: "Slovenščina: vodnik v angleščini",
     stage: "jezik",
     file: "apps/web/src/lib/guideLinks.ts",
-    marker: 'const directory = "guide";',
+    marker: 'language === "de" ? "navodila" : "guide"',
     find: '  const directory = language === "de" ? "anleitung" : "guide";',
-    replace: '  void language;\n  const directory = "guide";',
+    replace: '  const directory = language === "de" ? "navodila" : "guide";',
   },
   {
     name: "Slovenščina: poglavja vodnika v angleščini",
     stage: "jezik",
     file: "apps/web/src/lib/guideLinks.ts",
-    marker: "GUIDE_CHAPTERS[page].en",
+    marker: "SL_GUIDE_CHAPTERS",
     find: "GUIDE_CHAPTERS[page][language]}.html${target ? `#${target[language]}` : \"\"}`",
-    replace: "GUIDE_CHAPTERS[page].en}.html${target ? `#${target.en}` : \"\"}`",
+    replace: "(language === \"de\" ? SL_GUIDE_CHAPTERS[page] : GUIDE_CHAPTERS[page].en)}.html${target ? `#${language === \"de\" ? SL_GUIDE_SECTIONS[section as GuideSection] : target.en}` : \"\"}`",
   },
   {
     name: "Slovenščina: jezikovni namig za napake",
@@ -374,6 +374,38 @@ export const edits = [
     replace:
       '            <span className="toolbar-brand-tagline">{t("brand.tagline")}</span>\n          </span>\n          <img className="cds-badge-editor" src="/assets/cds/cds-round.png" alt="Cassette Deck Service" title="Layerling Desktop · Cassette Deck Service" width={26} height={26} style={{ borderRadius: "50%", marginLeft: 4 }} />\n        </div>',
   },
+  {
+    name: "Slovenščina: uvoz preglednic poglavij vodnika",
+    stage: "jezik",
+    file: "apps/web/src/lib/guideLinks.ts",
+    marker: 'from "@/lib/guideSl"',
+    find: 'import type { Language } from "@/lib/i18n";',
+    replace: 'import type { Language } from "@/lib/i18n";\nimport { SL_GUIDE_CHAPTERS, SL_GUIDE_SECTIONS } from "@/lib/guideSl";',
+  },
+  {
+    name: "Navodila: slovenske črke v sidrih",
+    stage: "jezik",
+    file: "scripts/build-guide.mjs",
+    marker: '.replace(/č/g, "c")',
+    find: '.replace(/ß/g, "ss")',
+    replace: '.replace(/ß/g, "ss").replace(/č/g, "c").replace(/š/g, "s").replace(/ž/g, "z").replace(/đ/g, "d")',
+  },
+  {
+    name: "Navodila: noga v slovenščini",
+    stage: "jezik",
+    file: "scripts/build-guide.mjs",
+    marker: 'imprint: "Odtis"',
+    find: '{ imprint: "Impressum", privacy: "Datenschutz" }',
+    replace: '{ imprint: "Odtis", privacy: "Zasebnost" }',
+  },
+  {
+    name: "Navodila: slovenski podatki o jeziku",
+    stage: "jezik",
+    file: "scripts/build-guide.mjs",
+    marker: 'dir: "navodila"',
+    find: "    dir: \"anleitung\",\n    htmlLang: \"de\",\n    quotes: [\"„\", \"“\"],\n    site: \"layerling Anleitung\",\n    home: \"Anleitung\",\n    openEditor: \"Zum Editor\",\n    backToEditor: \"Zurück zum Editor\",\n    editorElsewhere: \"Der Editor ist schon in einem anderen Tab offen - wechsle einfach dorthin.\",\n    chapters: \"Kapitel\",\n    onThisPage: \"Auf dieser Seite\",\n    previous: \"Vorheriges Kapitel\",\n    next: \"Nächstes Kapitel\",\n    switchLanguage: \"English\",\n    switchTitle: \"Read this in English\",\n    overviewLead: \"Alles, was layerling kann, Schritt für Schritt. Die Bilder entstehen aus dem laufenden Programm und werden mit jeder Fassung neu aufgenommen.\",\n    sourceNote: \"Diese Anleitung wächst mit dem Programm. Fehlt dir etwas oder stimmt etwas nicht, sag es im\",\n    forum: \"Forum\",\n    forumUrl: \"https://forum.drucktipps3d.de/forum/board/127-layerling/\",",
+    replace: "    dir: \"navodila\",\n    htmlLang: \"sl\",\n    quotes: [\"„\", \"“\"],\n    site: \"layerling navodila\",\n    home: \"Navodila\",\n    openEditor: \"V urejevalnik\",\n    backToEditor: \"Nazaj v urejevalnik\",\n    editorElsewhere: \"Urejevalnik je že odprt v drugem zavihku – preprosto preklopi nanj.\",\n    chapters: \"Poglavja\",\n    onThisPage: \"Na tej strani\",\n    previous: \"Prejšnje poglavje\",\n    next: \"Naslednje poglavje\",\n    switchLanguage: \"English\",\n    switchTitle: \"Read this in English\",\n    overviewLead: \"Vse, kar zmore layerling, korak za korakom. Slike so posnete iz delujočega programa (v angleškem vmesniku).\",\n    sourceNote: \"Ta navodila rastejo skupaj s programom. Če kaj manjka ali ne drži, sporoči v\",\n    forum: \"razpravah\",\n    forumUrl: \"https://github.com/henmedia/layerling/discussions\",",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
@@ -382,6 +414,7 @@ export const additions = [
   { stage: "jezik", from: "patches/files/DesktopVersion.tsx", to: "apps/web/src/components/DesktopVersion.tsx" },
   { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
   // Slovenski katalog nadomesti nemškega (notranja oznaka jezika ostane "de").
+  { from: "patches/files/guideSl.ts", to: "apps/web/src/lib/guideSl.ts", stage: "jezik" },
   { from: "patches/files/messages.de.ts", to: "apps/web/src/lib/messages.de.ts", stage: "jezik" },
   { from: "patches/files/assets/cds-round.png", to: "apps/web/public/assets/cds/cds-round.png", stage: "jezik" },
 ];
@@ -452,6 +485,24 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
       writeFileSync(file, JSON.stringify(data, null, 2) + "\n");
       log("  prevedene novosti (whatsNew.json)");
     } else problems.push("apps/web/src/lib/whatsNew.json: datoteke ni več");
+  }
+  if (wanted({ stage: "jezik" })) {
+    // Navodila: slovenski prevod nadomesti nemška poglavja (jezik "de"), slike so angleške.
+    const docs = join(root, "docs/guide");
+    const src = join(projectRoot, "patches/files/guide-sl");
+    if (existsSync(docs) && existsSync(src)) {
+      const deDir = join(docs, "de");
+      mkdirSync(deDir, { recursive: true });
+      for (const f of readdirSync(deDir)) if (/\.md$/.test(f)) rmSync(join(deDir, f));
+      for (const f of readdirSync(src)) copyFileSync(join(src, f), join(deDir, f));
+      const enImg = join(docs, "images/en");
+      const deImg = join(docs, "images/de");
+      if (existsSync(enImg)) {
+        mkdirSync(deImg, { recursive: true });
+        for (const f of readdirSync(enImg)) copyFileSync(join(enImg, f), join(deImg, f));
+      }
+      log("  navodila: slovenska poglavja");
+    } else problems.push("docs/guide: mape ni več");
   }
   if (problems.length) {
     const error = new Error(`Popravkov ni bilo mogoče uporabiti:\n - ${problems.join("\n - ")}`);

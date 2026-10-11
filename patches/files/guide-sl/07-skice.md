@@ -1,0 +1,130 @@
+---
+title: Skice: od obrisa do telesa
+summary: Nariši raven obris, zaobli ali posnemi vogale in iz njega izvleci ali zavrti telo.
+---
+
+Vsega ni mogoče sestaviti iz osnovnih oblik. Za dele z lastnim obrisom, na primer držalo, profil zoba ali vazo, najprej narišeš **obris** in iz njega naredi telo. Za to je način skice.
+
+## Začetek skice
+
+Zgoraj preklopi z {{ui:editor.modeGeometry}} na {{ui:editor.modeSketch}}. V orodni vrstici klikni {{ui:sketch.to3d}} in izberi, kaj naj postane obris:
+
+- **{{ui:sketch.extrude}}:** Obris se potegne v višino, kot modelček za piškote.
+- **{{ui:sketch.revolve}}:** Obris se zavrti okoli osi, kot na stružnici. Tako nastanejo vaze, kozarci, stožci in vse, kar je okroglo.
+
+Potem urejevalnik pokaže list z mrežo. To je tvoja risalna površina.
+
+## Risanje
+
+Orodna vrstica skicirnega načina je razdeljena v področja:
+
+- **Risanje:** {{ui:sketch.line}} postavlja ravne odseke: klikaj točke zaporedoma; s pridržano tipko [[Shift]] se nova črta zaskoči v korakih po 15°, vodoravno in navpično vključeno. Ob kazalcu stojita dolžina in kot nove črte. Kako dolga naj bo, lahko tudi vpišeš, glej [Črte po meri](#crte-po-meri). {{ui:sketch.bezier}} napneš na njenih ročicah: klikni točko in vleci, in sicer v smer, v katero naj črta teče naprej, kot s pisalom v Illustratorju ali Inkscapu. Dlje kot vlečeš, bolj se ukrivi; odsek do nove točke se ukrivlja že med vlečenjem, tako da vidiš, kaj nastaja. Vlečenje pri postavljanju oblikuje krivuljo; kdor prihaja iz Tinkercada in želi samo klikati točke, vzame {{ui:sketch.smooth}}. {{ui:sketch.smooth}} položi tekoč potek skozi točke, ki jih klikneš. Za sklenitev obrisa na koncu spet klikneš prvo točko.
+- **Oblike:** {{ui:sketch.addShape}} ponuja že pripravljene obrise: {{ui:sketch.rectangle}}, {{ui:sketch.circle}}, {{ui:sketch.ellipse}}, {{ui:sketch.halfCircle}}, {{ui:sketch.pieSlice}}, {{ui:sketch.boltCircle}} (plošča z izvrtinami), {{ui:sketch.triangle}} in {{ui:sketch.hexagon}}. Izberi eno in povleci okvir.
+- **Izbor:** {{ui:sketch.select}} premika točke in črte. Klik v sklenjen obris izbere celotni obris, tako da ga lahko takoj premakneš ali mu spremeniš velikost; v luknji se izbere luknja. Okvir okoli izbora ima osem ročic: tiste v vogalih spreminjajo širino in višino hkrati, s pridržano tipko [[Shift]] v enakem razmerju. Tiste ob straneh spreminjajo samo eno smer. Mehurčke mer za širino in višino lahko klikneš; tam vpišeš novo mero, tudi kot račun (»60+12,5«) ali v odstotkih (»150%«). S [[Shift]] s klikom dodaš še druge točke in črte ali jih odvzameš, tako da jih lahko več naenkrat premakneš. Okvir čez prosto površino izbere vse v njem. Tudi črto lahko vlečeš (premakne se na obeh koncih ali pa celoten izbor, če sodi k njemu). Smerne tipke premaknejo izbor za en korak mreže, s [[Shift]] za večji, [[Shift]] med vlečenjem pa drži gibanje na eni osi. {{ui:sketch.refine}}: klik na odsek postavi točko, klik na točko jo odstrani. Zraven sta še {{ui:sketch.erase}} in vstavljanje slike predloge ({{ui:sketch.addImage}}).
+- **Odložišče:** {{ui:editor.tool.copy}}, {{ui:editor.tool.paste}}, {{ui:editor.tool.duplicate}} in {{ui:editor.tool.delete}} delujejo na izbrane točke, črte in slike, kot v 3D-urejevalniku; [[Ctrl]]+[[X]] izreže. Prilepljeno in podvojeno pristane z 10 mm razmika ob originalu, na prostem mestu, kjer se ne dotika nobene obstoječe črte, tako da se nikoli ne poveže z obstoječim. Ostane izbrano, tako da ga lahko takoj povlečeš na mesto.
+- **Zgodovina:** {{ui:sketch.undo}} in {{ui:sketch.redo}}.
+- **Pogled:** [[F]] spet postavi celotno skico v sliko, [[Shift]]+[[F]] se približa izboru, kot v 3D-urejevalniku. {{ui:camera.tapeTools}} v stranski vrstici meri razdaljo med dvema točkama. Poleg tega skica pokaže mere, takoj ko kaj klikneš: pri črti njeno dolžino, pri točki dolžine črt, ki se tam srečajo. Gumb {{ui:sketch.showMeasurements}} v stranski vrstici te mere skrije in spet pokaže, če motijo, na primer pri oblikovanju krivulj; merilni trak še naprej deluje. Pri ravni črti lahko klikneš mehurček mere in vpišeš dolžino v milimetrih; [[Enter]] jo sprejme, [[Esc]] prekine. Črta obdrži svojo smer, njena začetna točka ostane in črte na drugem koncu gredo zraven. Če je označena končna točka, se premakne ta. Z [[Alt]]+[[Enter]] črta raste na obe strani in obdrži svojo sredino. Pri krivuljah mehurček kaže samo dolžino.
+
+Telo nastane samo iz **sklenjenega** obrisa.
+
+![Obris v obliki črke L. Ob izbranem ogliščku zgoraj levo stojita dolžini obeh črt v milimetrih in kot med njima v stopinjah.](shot:sketch-outline)
+
+## Črte po meri
+
+Ko si z {{ui:sketch.line}} ali {{ui:sketch.smooth}} postavil prvo točko, preprosto vpiši številko: ob črti se odpreta dve polji, {{ui:sketch.typedLength}} v milimetrih in {{ui:sketch.typedAngle}} v stopinjah. S [[<]] ali [[Tab]] preskočiš na kot, tako da »50<30« da 50 mm dolgo črto pod 30°, kot v AutoCADu. [[Enter]] postavi točko in takoj vpišeš naslednjo črto; [[Esc]] zapre polji, ne da bi končal črtni potek.
+
+Kot šteje od desne proti nasprotni smeri urnega kazalca: 0° v desno, 90° navzgor, 180° v levo, 270° navzdol. Če ga pustiš prazno, črta sledi kazalcu, torej podaš samo dolžino in smer pokažeš z miško. Računi, kot je »40+12,5«, gredo v obeh poljih. Če bi točka pristala ob plošči, ti polje to pove in čaka na drugo mero.
+
+## Ukrivljanje ravne stranice
+
+Izberi ravno črto in v vrstici, ki se pokaže, klikni {{ui:sketch.curveLine}}: stranica se zaobli v krivuljo kot v Tinkercadu in pokaže svoji dve ročici. Povleci ju, da oblikuješ krivuljo; dlje kot ročica štrli, močnejši je ovinek. {{ui:sketch.straightenLine}} stranico spet naredi ravno. Izbrano točko lahko z {{ui:sketch.smooth}} zaobliš: dobi lastni ročici, črti ob njej pa postaneta krivulji.
+
+![Spodnja stranica obrisa v obliki L, upognjena v krivuljo, z dvema ročicama na koncih.](shot:sketch-curve)
+
+## Odčitavanje in vpisovanje kotov
+
+Če klikneš oglišče, v katerem se srečata **dve ravni črti**, layerling poleg dolžin pokaže **kot** med njima v stopinjah, z majhnim lokom. V sklenjenem obrisu je to kot v notranjosti oblike, vboklina se torej bere nad 180°. Klikni vrednost in vpiši nov kot. Potem se ena od obeh črt zavrti okoli vogala in obdrži dolžino, druga ostane, kjer je. Črta, ki se vrti, je črtkana; s [[Tab]] preskočiš na drugo, [[Enter]] sprejme in [[Esc]] prekine. Kar visi na drugem koncu zavrtene črte, gre zraven.
+
+Če premakneš točko, se spremenijo trije koti: pri njej sami in pri obeh sosednjih ogliščih na drugem koncu njenih črt. Zato layerling pokaže tudi ta dva in vsakega lahko klikneš in vpišeš. Tako nastaviš na primer vogal spodaj levo na 75,5°, medtem ko je zgoraj levo izbrana točka, ki se zato premakne. Tudi tu smeš računati, npr. »90-14,5«.
+
+Kjer krivulja trči ob vogal ali se steka več kot dve črti, kota ni. Gumb {{ui:sketch.showMeasurements}} v stranski vrstici skrije kot skupaj z dolžinami.
+
+## Zaokroževanje ali posnetje vogalov
+
+Klikni oglišče in izberi {{ui:sketch.filletCorner}} ali {{ui:sketch.chamferCorner}}. Pokaže se majhno polje za {{ui:sketch.filletRadius}} oziroma {{ui:sketch.chamferDistance}}. Vpiši mero in potrdi s kljukico. To gre za vogale med dvema ravnima črtama.
+
+![Vogal zgoraj levo se zaobli s polmerom 12 mm.](shot:sketch-fillet)
+
+## Pomožne črte
+
+Pomožna črta ti pomaga pri postavljanju točk, ne da bi spadala k telesu. Narisana je črtkano in nikoli ne šteje k obrisu: lahko jo povlečeš poljubno daleč čez obliko, ne da bi telo postalo večje.
+
+- Vklopi {{ui:sketch.construction}} v skupini {{ui:sketch.group.draw}}. Nove črte, tudi tiste po meri, so potem pomožne črte. Z gumbom se spet vrneš na običajne črte.
+- Že narisano črto spremeniš v pomožno tako, da jo klikneš in izbereš {{ui:sketch.makeConstruction}}. {{ui:sketch.makeSolid}} jo spet naredi za običajno črto.
+- Nove točke se zaskočijo tam, kjer pomožna črta seka drugo črto, modri obroč to pokaže, in na koncih pomožne črte. Tako vogal položiš na sredino, v stalno razdaljo od roba ali na presečišče, ne da bi računal.
+- Pomožna črta obrisa tam, kjer ga seka, ne razreže. Pri vrtenju sme ležati tudi desno od osi.
+
+## Iz tega narediti telo
+
+Klikni {{ui:sketch.finishSketch}}. Obris stoji kot telo na delovni ravnini in nosi ime »Skicirano telo«. V njegovih nastavitvah spreminjaš višino, barvo in vse drugo kot pri vsaki drugi obliki. Če spremeniš njegovo velikost, ga layerling kmalu zatem znova zgradi iz skice, skica pa raste z njim. Tako ostane natančno telo, na katerem gresta posnetje in zaokrožitev, in ob naslednjem urejanju ima skica velikost, ki jo ima telo.
+
+Če delovna ravnina leži na strani telesa, riši tako, kot gledaš na to stran: zgoraj v skici je zgoraj tudi na končnem telesu. Bledi obris telesa v pogledu skice kaže, kje stoji. Če delovna ravnina seka telo, pogled skice namesto tega pokaže obris tega preseka: izdolbeno telo se pokaže kot obroč in skico lahko poravnaš ob njegove stene. Točka, ki jo postaviš ali povlečeš blizu vogala teh obrisov, se tam natanko zaskoči; majhen modri obroč to pokaže. Tako v skico prevzameš robove drugih teles, tudi če delovna ravnina ne leži natanko na njih.
+
+![Iz obrisa je nastalo telo. Vogal je zaobljen.](shot:sketch-result)
+
+Z {{ui:inspector.editSketch}} se kadarkoli vrneš v skico, da jo spremeniš. Dvoklik na telo naredi isto, kot v Tinkercadu (zaklenjeno telo ostane zaprto); v nastavitvah to izklopiš z {{ui:workspace.doubleClickOpensSketch}}. Obdelave robov, ki si jih na telesu že naredil, se pri tem izgubijo, ker robovi nastanejo znova.
+
+### Vrtenje
+
+Pri vrtenju narišeš pol preseka **levo od osi**, ki je vrisana v skici. Poleg vidiš 3D-predogled vrtenja. Takoj pokaže, kako telo izgleda. Obris mora biti sklenjen. Na koncu klikneš {{ui:sketch.finishRevolve}}.
+
+Zavrteno telo je natančno telo kot izvlečeno: sprejme posnetja in zaokrožitve ter ga lahko izdolbeš, za kozarec ali vazo. Telo, ki je bilo zavrteno s starejšo različico programa layerling, je mreža; odpri {{ui:inspector.editSketch}} in ga znova zaključi, pa bo natančno. Obris, ki sega čez os, ni mogoče zgraditi natančno in postane kot doslej mreža.
+
+## Gradnja kot kontura
+
+Običajno ploskev znotraj sklenjenega obrisa postane telo. Z {{ui:sketch.stroke}} v razdelku {{ui:sketch.group.finish}} namesto tega zgradiš samo črto, s širino, ki jo nastaviš. V ta namen v plošči označi {{ui:sketch.strokeOn}}. Skica potem takoj pokaže, kaj nastaja.
+
+- **Sklenjen obris** postane okvir. {{ui:sketch.strokeAlign}} pove, kje leži stena: {{ui:sketch.strokeAlign.center}} na narisani črti, {{ui:sketch.strokeAlign.inside}} znotraj ali {{ui:sketch.strokeAlign.outside}} zunaj. Zunaj je praktično za toleranco: nariši obris luknje, na primer lastovičjega repa, in mu daj 0,2 mm konture zunaj. Tako nastane reža, ki jo tisk potrebuje.
+- **Odprta črta** postane trak, sredinsko na črti. Pod {{ui:sketch.strokeCap}} izbereš, kako izgledata njena konca: {{ui:sketch.strokeCap.flat}}, {{ui:sketch.strokeCap.square}} (podaljšan za pol širine) ali {{ui:sketch.strokeCap.round}}.
+- {{ui:sketch.strokeJoin}} velja za oboje: {{ui:sketch.strokeJoin.miter}}, {{ui:sketch.strokeJoin.round}} ali {{ui:sketch.strokeJoin.bevel}}.
+
+Skica obdrži narisano črto. Ko jo spet odpreš, črto in konturo spreminjaš naprej, brez kljukice pa se spet zgradi ploskev. Krivulje se pri tem razstavijo na kratke ravne kose. Pri vrtenju konture ni.
+
+## Polnilo in silhueta
+
+Konturo nastaviš tudi, ne da bi odprl skico: v lastnostih skiciranega telesa pod {{ui:prop.sketchFill}} izbereš {{ui:prop.sketchFill.area}}, {{ui:prop.sketchFill.outside}}, {{ui:prop.sketchFill.inside}} ali {{ui:prop.sketchFill.center}}, zraven {{ui:prop.sketchLineWidth}} in {{ui:sketch.strokeJoin}}. Telo se takoj znova zgradi, na svojem mestu. To ustreza vrstam polnila pri uvozu SVG v Tinkercadu: privzeto, zunanja črta in notranja črta. {{ui:prop.sketchFill.grow}} pusti ploskev napolnjeno in jo poveča povsod za širino črte, s koničastimi, zaobljenimi ali posnetimi vogali: osnovna plast pod logotipom za večbarvni tisk, ki bi jo zunanja kontura sama dala samo kot obroč.
+
+{{ui:prop.sketchSilhouette}} izpusti vse obrise, ki ležijo v drugem: luknje in kar je v njih. Ostane samo zunanji obris. Skupaj z {{ui:prop.sketchFill.outside}} iz tega nastane modelček za izrezovanje: uvozi SVG dvakrat, enkrat s silhueto kot ploskev za dno in enkrat s silhueto in 1 do 2 mm konture zunaj kot steno. Stikalo je tudi v plošči {{ui:sketch.stroke}} v skicirnem načinu.
+
+Zaokrožitve in posnetja na robovih se pri ponovni gradnji izgubijo, kot pri urejanju skice.
+
+## Slika kot predloga
+
+Z {{ui:sketch.addImage}} položiš fotografijo ali risbo pod skico in jo obrišeš. Nastaviš lahko velikost, prekrivnost in lego. Ko slika leži prav, jo zakleneš s [[L]], da je pri risanju nehote ne premakneš. Zaklenjena slika je iz poti: kliki gredo skozi njo, torej na njej izbiraš črte in točke ter čez njo povlečeš okvir. Da jo spet izbereš, na primer za odklep, klikneš nanjo z [[Alt]]. Če njene nastavitve ob desnem robu zakrivajo sliko, jih povlečeš stran za naslovno vrstico; dvoklik nanjo jih spet zasidra.
+
+Pod {{ui:sketch.imageAlign}} poravnaš fotografijo, ki ni bila posneta naravnost:
+
+- **{{ui:sketch.imageRotation}}:** Zavrti sliko okoli njene sredine, z okroglo ročico nad okvirjem ali kot številka v stopinjah. S [[Shift]] se ročica zaskoči v korakih po 15°.
+- **{{ui:sketch.centreImageX}}** in **{{ui:sketch.centreImageY}}:** postavita središče slike na X = 0 oziroma Y = 0. Pri vrtenini je X = 0 os vrtenja, slika potem leži simetrično nad njo.
+- **{{ui:sketch.calibrateImage}}:** Klikni dve točki v sliki, katerih razdaljo poznaš, na primer konca ravnila ali znan premer, in vpiši resnično razdaljo. Slika se enakomerno poveča tako, da razdalja ustreza; prva točka ostane, kjer je bila.
+- **{{ui:sketch.cropImage}}:** Ročice na okvirju sliko obrežejo namesto da bi jo povečale; kar odpade, ostane shranjeno in se vrne z {{ui:sketch.uncropImage}} ali ob izvlečenju ročice.
+
+Vsa štiri delujejo samo na predlogo, nikoli na skico.
+
+## Tipke v skicirnem načinu
+
+| Tipka | Učinek |
+| --- | --- |
+| [[Esc]] | končaj črtni potek, prekliči izbor |
+| [[Del]] | izbriši izbrani element |
+| [[Ctrl]]+[[C]] | kopiraj izbor |
+| [[Ctrl]]+[[X]] | izreži izbor |
+| [[Ctrl]]+[[V]] | prilepi |
+| [[Ctrl]]+[[D]] | podvoji izbor |
+| [[Ctrl]]+[[Z]] | razveljavi |
+| [[Shift]] | pri risanju: črta se zaskoči v korakih po 15°; pri vlečenju: gibanje omejeno na eno os |
+| številka, [[<]], [[Tab]], [[Enter]] | pri risanju: vpiši dolžino in kot naslednje črte in jo postavi |
+| [[R]] | zavrti sklenjeno skico za 45° |
+| [[L]] | zakleni ali odkleni sliko predloge |
+
+> **Namig:** Nariši čim manj točk. Obris z malo, čisto postavljenimi točkami da bolj gladko telo kot kopica mnogih.

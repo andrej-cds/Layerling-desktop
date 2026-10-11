@@ -205,7 +205,7 @@ export const MESSAGES_DE = {
   "welcome.videosHint": "Jih ustvarjajo drugi, ne ta projekt. Povezave odprejo YouTube v novem zavihku; dokler ne klikneš, se od tam ne naloži nič.",
   "welcome.help": "V urejevalniku skupina Pomoč vsebuje kratek vodnik in seznam vseh bližnjic. V nogi strani »Prijava napake« shrani projekt z vsem, kar je potrebno za prijavo na forumu ali na GitHubu.",
   "welcome.guideLink": "Preberi celoten uporabniški priročnik s slikami",
-  "welcome.guideUrl": "/guide/index.html",
+  "welcome.guideUrl": "/navodila/index.html",
   "guide.helpLink": "Preberi o tem v uporabniškem priročniku",
   "guide.fullGuide": "Odpri celoten uporabniški priročnik s slikami",
   "guide.videos": "Videi drugih:",
