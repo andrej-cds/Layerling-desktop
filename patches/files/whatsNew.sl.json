@@ -1,4 +1,22 @@
 {
+  "1.63.0": [
+    [
+      "Velikost orodne vrstice",
+      "V Nastavitvah → Videz lahko gumbe v orodni vrstici na vrhu in upravljanje kamere na levi nastaviš na majhno, srednjo ali veliko velikost: več prostora na prenosniku, večji gumbi na velikem zaslonu."
+    ],
+    [
+      "Bližnjice v namigih, B za zaokrožitev",
+      "Namigi v orodni vrstici zdaj prikažejo bližnjico na tipkovnici, kjer obstaja, na primer »Zrcali (M)«. Novo: B za zaokrožitev in Shift+B za posnetje, oboje za izbrano telo."
+    ],
+    [
+      "Tanke črte mreže",
+      "Nastavitve → Delovna ravnina imajo novo stikalo »Črte mreže se debelijo ob povečavi«. Če je izklopljeno, ostanejo črte pri vsaki povečavi široke en piksel, kot pri skici. Privzeto ostane vse tako, kot je bilo."
+    ],
+    [
+      "Zaobljena kocka s posnetimi robovi",
+      "Kakovost zaobljene kocke zdaj gre vse do 1. Vsako oglišče je takrat en raven rez namesto loka, kar daje posnetje na navpičnih robovih."
+    ]
+  ],
   "1.62.2": [
     [
       "Raztegnjen sveženj reže tam, kjer stoji",

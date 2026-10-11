@@ -2225,4 +2225,12 @@ export const MESSAGES_DE = {
   "nameTag.edge.round": "Zaobljen",
   "nameTag.edge.chamfer": "Posnet",
   "nameTag.letterEdgeSize": "Velikost roba",
+  "workspace.gridLinesGrow": "Črte mreže se debelijo ob povečavi",
+  "workspace.gridLinesGrowHint": "Črte mreže ležijo na plošči tudi kot pasovi, ki so ob povečavi vse debelejši, kot v Tinkercadu. Če je izklopljeno, ostanejo pri vsaki povečavi široke en piksel, kot pri skici.",
+  "shortcuts.fillet": "Orodje za zaokrožitev izbranega telesa (še enkrat: zapre ga)",
+  "shortcuts.chamfer": "Orodje za posnetje izbranega telesa (še enkrat: zapre ga)",
+  "workspace.toolbarSize": "Velikost orodne vrstice",
+  "workspace.toolbarSizeSmall": "Majhna",
+  "workspace.toolbarSizeMedium": "Srednja",
+  "workspace.toolbarSizeLarge": "Velika",
 } as unknown as Record<MessageKey, string>;
