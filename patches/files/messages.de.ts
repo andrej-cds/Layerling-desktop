@@ -2297,4 +2297,8 @@ export const MESSAGES_DE = {
   "prop.threadChamferBottom": "Posnetje, spodnji konec",
   "thread.clearanceHint": "Dodaten prostor čez ves premer. Natisnjen navoj potrebuje več, kot bi mislil: razmak med bočnicama je le približno polovica tega. Okoli 0,3 je tesno, 0,4 običajno, 0,5 ohlapno. Najprej natisni preizkusni par.",
   "thread.boltClearanceHint": "Vijak naredi za toliko tanjši, za kovinsko matico, ki sama nima zračnosti (0,3 do 0,4, toliko kot bi je imela natisnjena matica). Pri natisnjeni matici pusti 0 in daj prostor matici.",
+  "status.exportFileFailed": "V {name} ni bilo mogoče pisati. Morda je odprta v drugem programu; naslednji izvoz STL spet vpraša za datoteko.",
+  "status.stlSavedToFile": "STL shranjen v {name}. Tudi poznejši izvozi STL tega načrta gredo v to datoteko; Shrani kot v oknu za izvoz izbere drugo.",
+  "export.stlLinkedFile": "Shrani v {name}",
+  "export.stlSaveAs": "Shrani kot …",
 } as unknown as Record<MessageKey, string>;

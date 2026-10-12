@@ -37,6 +37,8 @@ Zgoraj je ime datoteke, pod njim izbereš obliko. Če je kaj označeno, se izvoz
 | **PNG** | Prispevki na forumih, tiskarski portali, povpraševanja | Slika pogleda, kakršen je ravno zdaj, v dvojni ločljivosti in brez ročic, okvirja izbora in mer. {{ui:export.png.plate}} in {{ui:export.png.transparent}} izbereš v oknu. Prej zavrti in zumiraj, dokler izrez ne ustreza; izbor tu ne igra vloge. |
 | **LYL** | layerling sam | Urejljiv načrt z vsem, kar spada zraven. |
 
+**STL v lastno mapo (Chrome in Edge).** Tam prvi izvoz STL načrta odpre sistemsko okno za shranjevanje, tako da mapo in ime izbereš sam in lahko nadomestiš obstoječo datoteko. Potem vsak izvoz STL tega načrta zapiše v isto datoteko brez okna; okno za izvoz pokaže, katera je, **Shrani kot …** ob gumbu za izvoz pa izbere drugo. Okno si zapomni svojo mapo, ločeno od tiste za načrte, zato lahko datoteke za rezalnik ostanejo pri rezalniku. Po ponovnem nalaganju strani načrt pozabi svojo datoteko STL in naslednji izvoz spet vpraša. Firefox in Safari datoteko prenesejo kot prej.
+
 Luknjo, ki je nisi združil v skupino, izvoz odšteje od vsakega telesa, ki se je dotika, tako kot kaže pogled. Pred vsakim izvozom torej ni treba združevati. Pri izboru štejejo samo izbrane luknje. Samo za sebe luknje ni mogoče izvoziti; na to te opozori layerling.
 
 STEP vsebuje samo natančna telesa CAD. Kar ni mogoče natančno prikazati, na primer mreža, uvožena kot STL, ostane zunaj. Sporočilo po izvozu ta telesa imenuje po imenu in pove, zakaj. Za tiskalnik potem vzameš STL ali 3MF, ki prenesta vse.

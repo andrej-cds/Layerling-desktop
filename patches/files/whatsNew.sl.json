@@ -1,4 +1,14 @@
 {
+  "1.66.5": [
+    [
+      "Previsi: posnetje 45 stopinj ni več označeno",
+      "Ploskev natanko na nastavljenem kotu previsa, recimo posnetje 45 stopinj pri privzetem, je bila označena ali ne po naključju. Zdaj ostane neoznačena; vse strmejše je še vedno označeno."
+    ],
+    [
+      "STL v svojo mapo",
+      "V Chromu in Edgeu prvi izvoz STL načrta zdaj odpre sistemsko okno za shranjevanje: izbereš mapo in ime. Poznejši izvozi STL pišejo v isto datoteko brez vprašanja; Shrani kot … v oknu za izvoz izbere drugo. Drugi brskalniki datoteko prenesejo kot prej."
+    ]
+  ],
   "1.66.4": [
     [
       "Izbiranje v stranskem pogledu",

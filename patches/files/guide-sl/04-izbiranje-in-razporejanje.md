@@ -56,7 +56,7 @@ Tipka za to je [[L]]. [[Esc]] prekine.
 
 ## Vrtenje in postavitev vrtišča
 
-Vrti se z zakrivljenimi puščicami na obliki, s številkami v nastavitvah ali s [[R]] v korakih po 45°. Običajno se izbor vrti okoli svoje sredine. Včasih to ni zaželeno, na primer če se nagnjena cev vrti naprej okoli svojega konca. Za to je {{ui:editor.tool.rotationPivot}}: potem klikni na ploskev. Ravna ploskev poda svoje središče, na primer os konca cevi. Izbor se zdaj vrti okoli te točke. Drugi klik na orodje jo spet odpravi.
+Vrti se z zakrivljenimi puščicami na obliki, s številkami v nastavitvah ali s [[R]] v korakih po 45°. Ko vlečeš po krogu za vrtenje, se zasuk zaskoči na vsako črtico, to je na vsakih 22,5°; s pridržano tipko [[Shift]] so koraki finejši, dodatne črtice se pokažejo na vsakih 11,25°. Vleci zunaj kroga, da se vrtiš prosto v korakih po 1°, ali v korakih po 45° s tipko [[Shift]]. Običajno se izbor vrti okoli svoje sredine. Včasih to ni zaželeno, na primer če se nagnjena cev vrti naprej okoli svojega konca. Za to je {{ui:editor.tool.rotationPivot}}: potem klikni na ploskev. Ravna ploskev poda svoje središče, na primer os konca cevi. Izbor se zdaj vrti okoli te točke. Drugi klik na orodje jo spet odpravi.
 
 Koti ostanejo na telesu. V njegovih nastavitvah jih {{ui:inspector.rotation}} kaže kot {{ui:prop.rotateX}}, {{ui:prop.rotateY}} in {{ui:prop.rotateZ}}, poimenovane kot lega: Y teče prečno čez ploščo, Z navzgor. Če tam vpišeš kot, se telo zavrti na ta kot – okoli svoje sredine ali okoli svojega lastnega vrtišča, če ga ima. Dokler je zavrteno telo izbrano, so njegovi koti prikazani tudi pod njim na delovni površini; {{ui:workspace.showRotationAngles}} v nastavitvah to izklopi.
 
@@ -112,7 +112,7 @@ Umetna inteligenca lahko isto naredi prek vmesnika MCP, z `layerling_perforate_f
 
 ## Sprememba več delov naenkrat
 
-Če je izbranih več delov, polje z lastnostmi desno pokaže, koliko jih je, in ponudi, kar velja za vse hkrati: {{ui:inspector.solid}} ali {{ui:inspector.hole}}, barvo za vse (klik na {{ui:inspector.solid}} odpre barve) in ključavnico za zaklep. Če je izbor mešan, klik vse spremeni v telesa ali vse v luknje. Zaklenjeni deli ostanejo, kot so. Mere spreminjaš na posameznem delu, z ročicami ali z {{ui:scalePercent.title}}. Telo in luknja gresta tudi z desnim klikom ali s [[S]] in [[H]].
+Če je izbranih več delov, polje z lastnostmi desno pokaže, koliko jih je, in ponudi, kar velja za vse hkrati: {{ui:inspector.solid}} ali {{ui:inspector.hole}}, barvo za vse (klik na {{ui:inspector.solid}} odpre barve) in ključavnico za zaklep. Če je izbor mešan, klik vse spremeni v telesa ali vse v luknje. Zaklenjeni deli ostanejo, kot so. Mere spreminjaš z ročicami, z {{ui:scalePercent.title}} ali tako, da v oznako mere vpišeš število. Pri več delih je število mera celotnega izbora: vsak del zrase z njim, tudi razmiki med deli, kot ko povlečeš ročico. Telo in luknja gresta tudi z desnim klikom ali s [[S]] in [[H]].
 
 ## Povečava v odstotkih
 
