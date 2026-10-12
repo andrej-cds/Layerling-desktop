@@ -110,7 +110,7 @@ export const edits = [
   {
     name: "Slovenščina: oblika števil (urejevalnik, števila)",
     stage: "jezik",
-    file: "apps/web/src/components/LayerlingEditor.tsx",
+    file: "apps/web/src/lib/editorMeshCore.ts",
     marker: 'getLanguage() === "de" ? "sl-SI" : "en-US");',
     find: 'return count.toLocaleString(getLanguage() === "de" ? "de-DE" : "en-US");',
     replace: 'return count.toLocaleString(getLanguage() === "de" ? "sl-SI" : "en-US");',
@@ -118,7 +118,7 @@ export const edits = [
   {
     name: "Slovenščina: oblika števil (urejevalnik, decimalke)",
     stage: "jezik",
-    file: "apps/web/src/components/LayerlingEditor.tsx",
+    file: "apps/web/src/lib/editorBooleans.ts",
     marker: 'getLanguage() === "de" ? "sl-SI" : "en-US", {',
     find: 'return value.toLocaleString(getLanguage() === "de" ? "de-DE" : "en-US", {',
     replace: 'return value.toLocaleString(getLanguage() === "de" ? "sl-SI" : "en-US", {',

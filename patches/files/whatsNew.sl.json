@@ -1,4 +1,24 @@
 {
+  "1.66.1": [
+    [
+      "Posnetje in zaokrožitev po Razdeli",
+      "Robove vogala, odrezanega z orodjem Razdeli, je zdaj mogoče posneti in zaobliti. Prej je to odpovedalo z »ni mogoče zaobliti skupaj pri tej velikosti«, ker je rez pustil ravne strani v drobnih trikotnikih, ki jih jedro ni spet združilo v eno ploskev."
+    ],
+    [
+      "Obvestilo o novih različicah",
+      "Ko se layerling med delom posodobi, se odprta stran zdaj oglasi: kartica spodaj desno pove, kaj je novega, Shrani in naloži znova pa zapiše odprt načrt v brskalnik in naloži novo različico, ne da bi kaj izgubil."
+    ]
+  ],
+  "1.66.0": [
+    [
+      "Izbriši zgodovino",
+      "Pogled zgodovine ima nov gumb levo spodaj, Izbriši zgodovino. Po vprašanju za vedno odstrani vse prejšnje korake; načrt ohrani trenutno stanje. Priročno za deljenje načrta brez njegove preteklosti."
+    ],
+    [
+      "Shrani v svojo datoteko",
+      "V Chromu in Edgeu Shrani načrt layerling zdaj odpre sistemsko okno za shranjevanje: izbereš mapo in ime in lahko nadomestiš obstoječo datoteko. Potem Ctrl+S načrt spet shrani v isto datoteko, tudi načrt, odprt iz datoteke .lyl. Drugi brskalniki datoteko prenesejo kot prej."
+    ]
+  ],
   "1.65.0": [
     [
       "Zaobljenje na robovih napisa z imenom",
