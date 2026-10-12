@@ -63,6 +63,7 @@ jobs:
             dist/*.dmg
             dist/*.zip
           if-no-files-found: warn
+          retention-days: 1
 
   preizkus-v-oknu:
     # Pravi program v Electronu na navideznem zaslonu: zagon, urejevalnik, MCP, samodejno shranjevanje na disk, nastavitve, posodobitve.
