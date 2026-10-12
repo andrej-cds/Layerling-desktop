@@ -123,7 +123,7 @@ Mapa `Custom shapes` se pokaže tudi na začetni strani. Tam obliko odpreš kot 
 
 ## Ovijanje okoli valja
 
-Vzorec, logotip ali napis naj pride na kozarec, škatlo ali cev? Najprej ga položi ravno na ploščo, na primer kot uvožen SVG ali kot besedilo, tako kot naj izgleda od zgoraj. Potem ga v nastavitvah oblike pod {{ui:inspector.wrapCylinder}} ovijеš okoli valja:
+Vzorec, logotip ali napis naj pride na kozarec, škatlo ali cev? Najprej ga položi ravno na ploščo, na primer kot uvožen SVG ali kot besedilo, tako kot naj izgleda od zgoraj. Potem ga v nastavitvah oblike pod {{ui:inspector.wrapCylinder}} oviješ okoli valja:
 
 1. Razpri {{ui:inspector.wrapCylinder}} in vpiši {{ui:inspector.wrapDiameter}} stene valja, na primer zunanji premer tvojega kozarca.
 2. Klikni {{ui:inspector.wrapApply}}. Kar je ležalo od leve proti desni, zdaj teče okoli valja, zadnji rob postane zgoraj, debelina pa štrli navzven.

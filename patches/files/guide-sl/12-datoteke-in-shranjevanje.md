@@ -75,7 +75,7 @@ Rezanje, združevanje in preseki z uvoženo mrežo se izračunajo v tvojem brska
 
 ## Skupni načrti na strežniku
 
-Če layerling teče na lastnem računalniku ali spletnem strežniku, lahko ponudi skupno mapo, v kateri vsi uporabniki odlagajo načrte. Na začetni strani se potem pokaže kot {{ui:dashboard.sharedProjects}}. Tam ustvarjaš mape, načrte premikaš z vlečenjem in iščeš po celotni mapi. Načrt, ki tam leži, se sam shrani nazaj tja. Lastne oblike na strežniku ležijo tam v mapi `Custom shapes`, glej [Oblike](chapter:oblike).
+Če layerling teče na lastnem računalniku ali spletnem strežniku, lahko ponudi skupno mapo, v kateri vsi uporabniki odlagajo načrte. Na začetni strani se potem pokaže kot {{ui:dashboard.sharedProjects}}. Tam ustvarjaš mape, načrte premikaš z vlečenjem in iščeš po celotni mapi. Načrt, ki tam leži, se sam shrani nazaj tja. Načrt iz tega brskalnika pride na strežnik tako, da povlečeš njegovo kartico na ploščico strežnika ali z {{ui:dashboard.sendToServer}} v meniju kartice. Varnostna kopija, ki jo odpreš, najprej pristane v tem brskalniku, kot vsak načrt, ki ga odpreš; od tam jih daš na strežnik. Začetna stran prikaže načrt po imenu datoteke, zato preimenovanje načrta, na njegovi kartici ali na vrhu urejevalnika, preimenuje tudi datoteko na strežniku. Brisanje načrta ali mape ju odstrani za vedno, skupaj z delovno kopijo v tem brskalniku. Lastne oblike na strežniku ležijo tam v mapi `Custom shapes`, glej [Oblike](chapter:oblike).
 
 To ni hkratno urejanje: kdor odpre datoteko, dela na lastni kopiji. Če je medtem kdo drug datoteko spremenil, layerling prepiše zavrne.
 

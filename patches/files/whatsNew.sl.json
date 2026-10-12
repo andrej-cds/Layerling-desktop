@@ -1,4 +1,20 @@
 {
+  "1.66.7": [
+    [
+      "Strežniški načrti: preimenovanje, brisanje, prenos na strežnik",
+      "Preimenuj načrt v mapi na strežniku in preimenuje se tudi njegova datoteka na strežniku, zato pregled pokaže novo ime. Izbriši načrt ali mapo na strežniku in z njima odide tudi delovna kopija v tem brskalniku, namesto da bi se pozneje spet pojavila brez sličice. Izvoz pod drugim imenom nosi to ime tudi znotraj načrta. V meniju načrta iz tega brskalnika pa »Daj na strežnik« postavi načrt v odprto mapo na strežniku."
+    ]
+  ],
+  "1.66.6": [
+    [
+      "Posnetje in zaokrožitev pokažeta rob, ki ne gre",
+      "Kadar izbranih robov pri tej meri ni mogoče skupaj posneti ali zaobliti, se rob, ki je to pokvaril, nariše rdeče in širše, da veš, katerega odstraniti."
+    ],
+    [
+      "Samo vidni robovi",
+      "Novo stikalo v plošči za posnetje in zaokrožitev skrije robove za telesom, da vidiš in izbiraš samo tiste, ki so obrnjeni proti tebi, namesto vseh naenkrat kot z rentgenom."
+    ]
+  ],
   "1.66.5": [
     [
       "Previsi: posnetje 45 stopinj ni več označeno",

@@ -2301,4 +2301,8 @@ export const MESSAGES_DE = {
   "status.stlSavedToFile": "STL shranjen v {name}. Tudi poznejši izvozi STL tega načrta gredo v to datoteko; Shrani kot v oknu za izvoz izbere drugo.",
   "export.stlLinkedFile": "Shrani v {name}",
   "export.stlSaveAs": "Shrani kot …",
+  "dashboard.sendToServer": "Daj na strežnik",
+  "edge.onlyVisibleEdges": "Samo vidni robovi",
+  "edge.onlyVisibleEdgesHint": "Skrije robove za telesom, gledano iz tega pogleda, tako da se vidijo in izberejo samo tisti, ki so obrnjeni proti tebi.",
+  "notice.renameSharedFailed": "Datoteke strežniškega načrta ni bilo mogoče preimenovati, obdrži staro ime",
 } as unknown as Record<MessageKey, string>;

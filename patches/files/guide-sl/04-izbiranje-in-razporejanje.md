@@ -52,7 +52,7 @@ Tipka za to je [[L]]. [[Esc]] prekine.
 
 ## Zrcaljenje
 
-{{ui:editor.tool.mirror}} ([[M]]) prevrne izbor ob ravnini: {{ui:mirror.leftRight}}, {{ui:mirror.frontBack}} ali {{ui:mirror.topBottom}}. Za to klikni na ustrezno puščico osi. To je praktično za simetrične dele: zgradi eno polovico, jo kopiraj in kopijo zrcali.
+{{ui:editor.tool.mirror}} ([[M]] ali desni klik na izbor in izbira ukaza) prevrne izbor ob ravnini: {{ui:mirror.leftRight}}, {{ui:mirror.frontBack}} ali {{ui:mirror.topBottom}}. Za to klikni na ustrezno puščico osi. To je praktično za simetrične dele: zgradi eno polovico, jo kopiraj in kopijo zrcali.
 
 ## Vrtenje in postavitev vrtišča
 
