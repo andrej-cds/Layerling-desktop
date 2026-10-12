@@ -1,4 +1,26 @@
 {
+  "1.66.4": [
+    [
+      "Izbiranje v stranskem pogledu",
+      "Ko gledaš ploščo naravnost s strani, lahko zdaj izbereš telo kjerkoli na njej, ne le pod črto obzorja."
+    ]
+  ],
+  "1.66.3": [
+    [
+      "Luknje točno v nastavljeni velikosti",
+      "Luknja je bila prej izrezana okoli 0,1 mm širše, kot je povedala njena velikost: luknja 7,9 mm je izšla 8,0 mm. Zdaj je premer pravi, zato tesni nasedek, na primer za palico 8 mm, sedi, kot si ga vnesel."
+    ]
+  ],
+  "1.66.2": [
+    [
+      "Navoji: posnetje na vsakem koncu, stožec do jedra",
+      "Palica, matica ali navojna luknja ima zdaj svoje posnetje zgoraj in spodaj. Pri matici ali navojni luknji stožec posnetja poteka naprej do jedra navoja, brez stopnice na zunanjem premeru. Preklop med navojno palico in navojno luknjo ohrani dolžino."
+    ],
+    [
+      "Skica: več oglišč naenkrat",
+      "Izberi več oglišč s Shiftom ali okvirjem in jih zaokroži ali posnemi z eno vrednostjo naenkrat. Kjer si dve oglišči delita stranico, vsako dobi enak delež."
+    ]
+  ],
   "1.66.1": [
     [
       "Posnetje in zaokrožitev po Razdeli",

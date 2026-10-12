@@ -31,8 +31,13 @@ Dodatne nastavitve:
 
 - **{{ui:prop.threadHand}}:** {{ui:thread.right}} ali {{ui:thread.left}}.
 - **{{ui:prop.threadProfile}}:** {{ui:thread.profileV}} je standardni profil metričnih in palčnih navojev, {{ui:thread.profileWhitworth}} profil cevnih navojev G: 55° z zaobljenimi vrhovi in dolinami. {{ui:thread.profileTrapezoidal}} in {{ui:thread.profileRound}} imata ploske vrhove in doline. To se običajno natisne zanesljiveje, ker ne nastanejo tanki vrhovi.
-- **{{ui:prop.clearance}}:** Pri matici in navojni luknji zračnost, ki poskrbi, da se natisnjen par res vrti. Bolj grobo kot dela tvoj tiskalnik, več zračnosti par potrebuje. Pri navojni palici in vijaku je tu lastna zračnost, ki čep v premeru zmanjša za to vrednost. Nastavljena je na 0. Če jo potrebuješ, ker naj natisnjen čep gre v kovinsko matico, ki sama nima zračnosti, so 0,2 do 0,3 mm dobro izhodišče.
-- **{{ui:prop.chamfer}}, {{ui:prop.headChamfer}} in {{ui:prop.rimChamfer}}:** Posnetja na koncih, da navoj čisto zaide in glava nima ostrega roba.
+- **{{ui:prop.clearance}}:** Pri matici in navojni luknji zračnost, ki poskrbi, da se natisnjen par res vrti. Bolj grobo kot dela tvoj tiskalnik, več zračnosti par potrebuje. To je dodaten prostor čez ves premer, razmak med bočnicama navoja V pa je le približno polovica tega, zato natisnjen par potrebuje več, kot bi pričakoval: nove matice se začnejo pri 0,4 mm, 0,3 je tesno, 0,5 ohlapno. Najprej natisni preizkusni par. Pri navojni palici in vijaku je tu lastna zračnost, ki čep v premeru zmanjša za to vrednost. Nastavljena je na 0. Katera stran dobi prostor, je odvisno od tega, kaj paraš:
+  - **Natisnjen vijak in natisnjena matica:** vijak pusti na 0, matici daj prostor (0,4 mm, s katerimi se začne).
+  - **Pravi vijak v natisnjeni matici ali navojni luknji:** natisnjena stran vzame vse, zato matica obdrži svojih 0,4 mm. Če se vijak maje, je vredno preizkusiti tesnejših 0,3 mm.
+  - **Natisnjen vijak v pravi matici:** prava matica nima zračnosti, zato mora biti vijak tanjši: tu 0,3 do 0,4 mm, toliko kot bi je imela natisnjena matica.
+- **{{ui:prop.threadChamferTop}}, {{ui:prop.threadChamferBottom}}, {{ui:prop.headChamfer}} in {{ui:prop.rimChamfer}}:** Posnetja na koncih, da navoj čisto zaide in glava nima ostrega roba. Vsak konec palice, matice ali navojne luknje ima svoje posnetje, zato je zgornje lahko dolgo, spodnje pa kratko ali ga sploh ni. Vijak ima samo eno, na konici, z oznako {{ui:prop.chamfer}}. Pri matici ali navojni luknji je posnetje prostor, za katerega se ustje odpre čez zunanji premer; stožec poteka pod 45 stopinj naprej do jedra navoja, zato na zunanjem premeru ne ostane stopnice.
+
+Preklop navoja med {{ui:thread.rod}} in {{ui:thread.bore}} ohrani njegovo dolžino. Matica in vijak se začneta pri svojih standardnih merah.
 - **{{ui:prop.quality}}:** Kako fino se navoj izračuna. Višje je natančneje, a počasneje.
 
 Natisnjeni navoji so poglavje zase. Pare vijaka in matice najprej naredi kot preizkus, preden natisneš velik del, in zračnost prilagodi svojemu tiskalniku.
