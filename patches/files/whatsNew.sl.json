@@ -1,4 +1,22 @@
 {
+  "1.65.0": [
+    [
+      "Zaobljenje na robovih napisa z imenom",
+      "Širše plasti napisa z imenom – rob in plošča – je zdaj v večini primerov mogoče zaobliti ali posneti. Prej je orodje za robove tam odpovedalo ali vrnilo neveljavno telo. Majhne mere od 0,2 do 0,3 mm delujejo pri mnogih besedah."
+    ],
+    [
+      "Ravnila ostanejo po skici",
+      "Kotno ravnilo ali merilni trak, ki si ga postavil, po skici in vrnitvi v 3D pogled ne izgine več. Ostaneta, dokler strani ne naložiš znova."
+    ],
+    [
+      "Umetna inteligenca sama odpre urejevalnik",
+      "Če layerling uporabljaš z umetno inteligenco, kot je Claude, ti urejevalnika ni več treba odpreti vnaprej: ko nobeden ni odprt, umetna inteligenca zažene brskalnik z urejevalnikom in se loti dela. To velja za layerling na tvojem računalniku."
+    ],
+    [
+      "Deli načrt brez zgodovine",
+      "Pri izvozu LYL ima drsnik »Shranjena zgodovina dejanj« zdaj zadnjo postajo, Brez. Datoteka potem vsebuje samo trenutno stanje, brez korakov razveljavitve – priročno za deljenje načrta na Printables ali Makerworld."
+    ]
+  ],
   "1.64.0": [
     [
       "Razveljavi že med drsnikom",

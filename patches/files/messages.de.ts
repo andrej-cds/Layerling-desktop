@@ -2265,4 +2265,5 @@ export const MESSAGES_DE = {
   "status.iconLayersUpdated": "Plasti posodobljene",
   "status.iconTagsMade": "Narejenih oznak: {count}",
   "status.iconTagAdded": "Simbolna oznaka »{name}« dodana",
+  "export.historyNone": "Brez",
 } as unknown as Record<MessageKey, string>;

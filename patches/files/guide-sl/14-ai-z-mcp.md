@@ -12,7 +12,7 @@ Most med odjemalcem z umetno inteligenco in urejevalnikom teče **lokalno na tvo
 ## Nastavitev
 
 1. Prenesi layerling z [GitHuba](https://github.com/henmedia/layerling) in ga v mapi projekta zaženi z `npm run dev`. Nameščen mora biti Node.js. V Windowsih to opravi hitra vrstica za začetek v README.
-2. Odpri zavihek urejevalnika, na primer `http://127.0.0.1:3000/?editor=1`.
+2. Odpri zavihek urejevalnika, na primer `http://127.0.0.1:3000/?editor=1`. To lahko prepustiš umetni inteligenci: ko urejevalnik ni odprt, prvo orodje, ki ga potrebuje, zažene brskalnik z urejevalnikom in počaka, da se poveže. To velja za layerling na tvojem računalniku; kopija na NAS-u ali strežniku zahteva, da urejevalnik odpreš sam. Z `LAYERLING_MCP_OPEN_EDITOR=0` za strežnik MCP to izklopiš.
 3. Poveži svojega odjemalca z umetno inteligenco s strežnikom MCP. Odjemalec ga zažene sam z `node scripts/layerling-mcp-server.mjs`.
 
 ### Claude Code
@@ -41,6 +41,7 @@ Umetna inteligenca dela z istimi funkcijami kot ti, teče po isti poti kot tvoje
 
 | Orodje | Kaj naredi |
 | --- | --- |
+| `layerling_open_editor` | odpre nov zavihek urejevalnika v privzetem brskalniku in počaka, da se poveže (samo na tvojem računalniku) |
 | `layerling_list_editors` | našteje odprte zavihke urejevalnika |
 | `layerling_read_scene` | prebere prizor, izbor, enote in natančne mere vseh objektov |
 | `layerling_list_objects` | našteje vse objekte z merami, lego, zasukom in oznako |
@@ -72,6 +73,7 @@ Umetna inteligenca dela z istimi funkcijami kot ti, teče po isti poti kot tvoje
 | `layerling_array_objects` | pomnoži v vrsti ali na krogu |
 | `layerling_bundle_objects` | poveže objekte v sveženj kot Ctrl+B: premikajo se skupaj, obdržijo barvo in vrsto ter gredo posamezno v izvoz |
 | `layerling_layer_text` | iz besedila naredi sklad plasti za večbarvni tisk (črke, širši robovi, plošča brez lukenj) ali sklad zgradi znova, z luknjo za obesek za ključe, vogali za vsako plast in zaobljenim ali poševno odrezanim robom črk; s seznamom imen en napis na ime |
+| `layerling_layer_icon` | iz simbola SVG (besedilo datoteke ali iztisnjeno telo skice) naredi simbolno oznako v plasteh za večbarvni tisk – simbol, širši robovi, plošča brez lukenj – ali jo zgradi znova z novo širino ali plastmi; s številom napolni ploščo s kopijami |
 | `layerling_measure_section` | meri na ravnini prereza med dvema točkama, ki se zaskočita na obris – debeline sten, reže, prileganja |
 | `layerling_show_overhangs` | vklopi ali izklopi šrafuro previsov, nastavi kot in za vsako telo navede ploskev, ki bi potrebovala podpore |
 | `layerling_estimate_print` | oceni prostornino, težo in filament za izbor ali celoten načrt, računano polno kot v oknu za izvoz |
