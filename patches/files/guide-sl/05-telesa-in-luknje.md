@@ -7,7 +7,7 @@ To je najpomembnejša zamisel v programu layerling in se je hitro naučiš: **Vs
 
 ## Telo ali luknja
 
-Izberi obliko in v njenih nastavitvah klikni {{ui:inspector.solid}} ali {{ui:inspector.hole}}. Hitreje gre s tipkovnico: [[H]] naredi izbor za luknjo, [[S]] spet za telo. Oboje je tudi v meniju, ki ga odpre desni klik na telo. Luknja je prosojna, da vidiš, kje sedi.
+Izberi obliko in v njenih nastavitvah klikni {{ui:inspector.solid}} ali {{ui:inspector.hole}}. Hitreje gre s tipkovnico: [[H]] naredi izbor za luknjo, [[S]] spet za telo. Oboje je tudi v meniju, ki ga odpre desni klik na telo. Luknja je prosojna, da vidiš, kje sedi. [[T]] naredi telo prosojno, na primer da pogledaš v ohišje; drugi pritisk ga spet naredi neprosojnega. Deluje na celoten izbor: če je katero telo že prosojno, postanejo vsa neprosojna, sicer vsa prosojna.
 
 Dokler ni nič združeno v skupino, se z luknjo ne zgodi nič. Samo leži tam in kaže, kje naj pozneje nekaj odpade.
 

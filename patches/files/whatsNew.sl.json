@@ -1,4 +1,38 @@
 {
+  "1.67.0": [
+    [
+      "Torus: nastavljive stranice in koraki",
+      "Torus ima zdaj v lastnostih dva drsnika: »Stranice obroča« in »Koraki cevi«. Brez lastne vrednosti sledita velikosti, zato velik torus sam postane gladek. Če ju nastaviš nizko, layerling nariše torus oglato, v pogledu in v izvozu."
+    ],
+    [
+      "T naredi izbor prosojen",
+      "S tipko T naredi izbrana telesa prosojna, z drugim pritiskom spet neprosojna. Če je v mešanem izboru eno telo že prosojno, najprej postanejo vsa neprosojna. Luknje in zaklenjena telesa ostanejo, kakršna so."
+    ],
+    [
+      "Polje lukenj: stena med luknjami",
+      "Polje lukenj ima nov drsnik »Stena med luknjami«. Pokaže pregrado, ki ostane med dvema sosednjima luknjama, torej debelino stene v tisku, in jo nastavi: razmik od središča do središča ji sledi, in obratno. Velja za vse oblike lukenj in obe razporeditvi."
+    ],
+    [
+      "Zaobljena škatla: kakovost 1 je prava posnetost",
+      "S kakovostjo 1 dobi zaobljena škatla pravo posnetost, zdaj tudi takrat, ko sta zgornji in spodnji rob zaobljena. Prej sta nastala dva kosa namesto ene ravne ploskve."
+    ],
+    [
+      "Skica: oblike čez drugo",
+      "Dve obliki, ki ju v skici potisneš čez drugo, na prekrivanju ne kažeta več luknje, ker telo postane njuna združitev. In nista več zataknjeni: pri premikanju na presečiščih ne nastanejo skupne točke, zato ju lahko spet razmakneš."
+    ],
+    [
+      "Navoji: zračnost v osi",
+      "Matica in navojna luknja imata novo polje »Zračnost v osi«. Zobe naredi tanjše, ne da bi razširila premer, da natisnjen navoj teče zlahka in se ne maje vstran. V navodilih je nov razdelek s nasveti za natisnjene navoje."
+    ],
+    [
+      "Puščični zobnik",
+      "Zobnik zdaj obstaja tudi kot puščični zobnik: dve polovici poševnega zobnika, ki se vrtita v nasprotni smeri. Sam se središči na gredi in ne potiska vstran, zato je prijeten za 3D-tisk. Kot in kakovost nastaviš kot pri poševnem zobniku."
+    ],
+    [
+      "Uvoz SVG: manjkale so črke",
+      "SVG, katerega obris ne konča natanko v začetni točki, na primer ponovno narisan logotip iz Affinityja, je prišel brez te oblike ali pa je bila datoteka zavrnjena. Takšni obrisi se zdaj čisto zaprejo. Oblike, ki se jih ne da sestaviti v telo, uvoz zdaj javi, namesto da bi jih tiho izpustil."
+    ]
+  ],
   "1.66.7": [
     [
       "Strežniški načrti: preimenovanje, brisanje, prenos na strežnik",

@@ -54,7 +54,7 @@ Vpisovanje je natančnejše od vlečenja. Vsa številska polja sprejemajo milime
 
 ## Kako okroglo je okroglo? Število stranic
 
-Okrogle oblike, kot so valj, stožec, cev, elipsa ali izvrtine, imajo v lastnostih stikalo {{ui:prop.sidesFollowSize}} in drsnik {{ui:prop.sides}}. Ozadje: za prikaz ter za STL, 3MF in OBJ layerling krog nariše kot večkotnik iz mnogo majhnih stranic. Več stranic, bolj gladko, a več trikotnikov.
+Okrogle oblike, kot so valj, stožec, cev, elipsa ali izvrtine, imajo v lastnostih stikalo {{ui:prop.sidesFollowSize}} in drsnik {{ui:prop.sides}}. {{ui:shape.torus}} ima dva drsnika: {{ui:prop.torusSides}} okoli obroča in {{ui:prop.torusSteps}} okoli cevi. Tudi tam sledita velikosti, dokler ju ne primeš, zato velik torus ne kaže robov. Ozadje: za prikaz ter za STL, 3MF in OBJ layerling krog nariše kot večkotnik iz mnogo majhnih stranic. Več stranic, bolj gladko, a več trikotnikov.
 
 **Kje je število stranic pomembno**
 
@@ -65,7 +65,7 @@ Okrogle oblike, kot so valj, stožec, cev, elipsa ali izvrtine, imajo v lastnost
 **Kje ni pomembno**
 
 - **Pri izvozu STEP.** Zapiše okroglo obliko, ne večkotnika.
-- **Pri posnetjih in zaokrožitvah** ({{ui:editor.tool.chamfer}}, {{ui:editor.tool.fillet}}), dokler oblika ostane okrogla. To je tako, če nisi nastavil števila stranic, če je število vsaj tako visoko kot privzeta vrednost oblike ali če se večkotnik od kroga razlikuje za največ {{value:EXACT_ROUND_TOLERANCE}} mm. Privzeta vrednost je {{value:ROUND_FROM_SIDES}} stranic pri valju, elipsi, cevi in stožcu, {{value:ROUND_FROM_ROOF_SIDES}} pri {{ui:shape.roundRoof}}, {{value:ROUND_FROM_SPHERE_STEPS}} korakov pri {{ui:shape.sphere}}, {{value:ROUND_FROM_HALF_SPHERE_STEPS}} pri {{ui:shape.halfSphere}} in {{ui:prop.quality}} {{value:ROUND_FROM_BENT_TUBE_QUALITY}} pri okrogli {{ui:shape.bentTube}}.
+- **Pri posnetjih in zaokrožitvah** ({{ui:editor.tool.chamfer}}, {{ui:editor.tool.fillet}}), dokler oblika ostane okrogla. To je tako, če nisi nastavil števila stranic, če je število vsaj tako visoko kot privzeta vrednost oblike ali če se večkotnik od kroga razlikuje za največ {{value:EXACT_ROUND_TOLERANCE}} mm. Privzeta vrednost je {{value:ROUND_FROM_SIDES}} stranic pri valju, elipsi, cevi in stožcu, {{value:ROUND_FROM_ROOF_SIDES}} pri {{ui:shape.roundRoof}}, {{value:ROUND_FROM_SPHERE_STEPS}} korakov pri {{ui:shape.sphere}}, {{value:ROUND_FROM_HALF_SPHERE_STEPS}} pri {{ui:shape.halfSphere}}, {{value:ROUND_FROM_TORUS_SIDES}} stranic in {{value:ROUND_FROM_TORUS_STEPS}} korakov pri {{ui:shape.torus}} in {{ui:prop.quality}} {{value:ROUND_FROM_BENT_TUBE_QUALITY}} pri okrogli {{ui:shape.bentTube}}.
 - **Pri navoju, vzmeti ali poševnem zobniku.** Robno orodje in izvoz STEP vzameta natančno telo; {{ui:prop.quality}} določa samo, kako fino je oblika narisana.
 
 **Kje spet postane pomembno**

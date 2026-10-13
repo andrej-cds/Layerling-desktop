@@ -71,6 +71,8 @@ Stene rastejo navznoter. Zunaj ostane vse, kot je.
 
 Za vsako odprto stran telo potrebuje čisto na zunaj na tej strani ravno ploskev. Krogel in prostih oblik zato na ta način ni mogoče izdolbiti. Če je stena predebela za telo, layerling to javi in prosi za tanjšo.
 
+**Telesa, ki se končajo v konici,** na primer stožec ali zasukan trikotnik, zgoraj nimajo ravne ploskve, ki bi ostala odprta. Tudi povsem zaprta votlina tam ne gre, ker se konice ne da odmakniti navznoter: tudi pri 1 mm stene dobiš sporočilo, da stene ne smejo biti tako debele. Steno raje nariši v profil, preden ga zasukaš: podvoji obris, kopijo enakomerno pomanjšaj, postavi jo v sredino velikega obrisa in z njo izreži velikega, nato zasukaj celoto (poglavje Skice, razdelek Vrtenje). Razdalja med obema obrisoma je debelina stene.
+
 Če pozneje spremeniš velikost izdolbenega telesa, ga layerling takoj znova izdolbe v novi velikosti. Stena ostane tako debela, kot si jo izbral, tudi pri okroglih telesih. Valj, ki ga pri tem v eno smer povlečeš bolj kot v drugo, postane elipsa.
 
 > **Namig:** Pri šobi 0,4 mm je dobro izhodišče debelina stene od 1,2 do 2 mm: dovolj tanka, da prihraniš material, dovolj debela za stabilen del.
