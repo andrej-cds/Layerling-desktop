@@ -2,6 +2,8 @@ SLOVENSKA VERZIJA:
 
 # Layerling Desktop
 
+![GitHub Downloads (all assets)](https://shields.io)
+
 Samostojen program za **Windows** in **macOS** okrog 3D-CAD programa [Layerling](https://github.com/henmedia/layerling).
 Namesti se kot običajen program, deluje brez brskalnika in brez interneta, vaši projekti pa so navadne datoteke `.lyl` na disku.
 
