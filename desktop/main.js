@@ -174,11 +174,15 @@ function createMainWindow() {
       spellcheck: false,
     },
   });
-  if (bounds.maximized) mainWindow.maximize();
   // Naslovna vrstica: fiksen naslov brez »in your browser«, ki ga stran sicer nastavi sama.
   mainWindow.on("page-title-updated", (event) => event.preventDefault());
   mainWindow.setTitle(windowTitle());
-  mainWindow.once("ready-to-show", () => mainWindow.show());
+  // maximize() na skritem oknu ga takoj pokaže, še preden je kaj izrisano (bel okvir, črn pravokotnik v kotu);
+  // zato se okno poveča šele, ko je prva slika pripravljena.
+  mainWindow.once("ready-to-show", () => {
+    if (bounds.maximized) mainWindow.maximize();
+    else mainWindow.show();
+  });
   // Stran je pripravljena šele, ko jo program sam sporoči; ob pravi navigaciji (ne ob spremembi naslova v isti strani) se to ponastavi.
   mainWindow.webContents.on("did-start-navigation", (details) => {
     if (details && details.isMainFrame && !details.isSameDocument) rendererReady = false;
