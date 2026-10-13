@@ -2319,4 +2319,8 @@ export const MESSAGES_DE = {
   "loft.smoothHint": "0 je raven zožitev, kot pri stožcu. 100 da krivuljo v obliki črke S: stranice zapustijo oba konca naravnost navzgor, vmes pa spreminjajo velikost, kot pri adapterju za cev, ki se mehko razširi iz ozke v široko cev.",
   "camera.sectionWorkplane": "Delovna ravnina tukaj",
   "camera.sectionWorkplaneHint": "Postavi delovno ravnino na prerez, da skica začne natanko tam in pokaže obris prereza",
+  "sketch.polygon": "Večkotnik",
+  "sketch.star": "Zvezda",
+  "sketch.polygonSides": "Stranice / kraki",
+  "sketch.starInner": "Notranja velikost zvezde",
 } as unknown as Record<MessageKey, string>;

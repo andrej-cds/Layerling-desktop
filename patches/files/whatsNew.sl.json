@@ -1,4 +1,14 @@
 {
+  "1.67.3": [
+    [
+      "Iskanje v navodilih",
+      "Vsaka stran navodil ima zdaj na vrhu iskalno polje. Vpiši eno ali dve besedi in pokaže razdelke, v katerih se pojavita, z izrezkom besedila. Klik te popelje naravnost tja."
+    ],
+    [
+      "Večkotnik in zvezda v skici",
+      "Meni skicirnih oblik ima dve novi obliki: večkotnik in zvezdo. Spodaj v meniju nastaviš število stranic ali krakov in pri zvezdi, kako globoko segajo doline. Potem so to čisto navadne oglišča, ki jih lahko naprej urejaš."
+    ]
+  ],
   "1.67.2": [
     [
       "Delovna ravnina na prerezu",

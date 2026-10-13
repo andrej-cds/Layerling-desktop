@@ -38,6 +38,8 @@ run("npm", [existsSync(join(upstreamDir, "package-lock.json")) ? "ci" : "install
 
 if (args.has("--test")) {
   console.log("Preverjam tipe in teste originalnega programa …");
+  // Nekateri testi (guideTheme) berejo že zgrajena navodila; po čistem stanju jih je treba najprej zgraditi.
+  run("npm", ["run", "guide"], { cwd: upstreamDir });
   run("npm", ["run", "typecheck"], { cwd: upstreamDir });
   run("npm", ["test"], { cwd: upstreamDir });
 }
