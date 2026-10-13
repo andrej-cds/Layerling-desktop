@@ -125,7 +125,7 @@ Mapa `Custom shapes` se pokaže tudi na začetni strani. Tam obliko odpreš kot 
 
 Vzorec, logotip ali napis naj pride na kozarec, škatlo ali cev? Najprej ga položi ravno na ploščo, na primer kot uvožen SVG ali kot besedilo, tako kot naj izgleda od zgoraj. Potem ga v nastavitvah oblike pod {{ui:inspector.wrapCylinder}} oviješ okoli valja:
 
-1. Razpri {{ui:inspector.wrapCylinder}} in vpiši {{ui:inspector.wrapDiameter}} stene valja, na primer zunanji premer tvojega kozarca.
+1. Razpri {{ui:inspector.wrapCylinder}} in vpiši {{ui:inspector.wrapDiameter}} stene valja, na primer zunanji premer tvojega kozarca. Deluje tudi z desetinkami milimetra, na primer 63,5.
 2. Klikni {{ui:inspector.wrapApply}}. Kar je ležalo od leve proti desni, zdaj teče okoli valja, zadnji rob postane zgoraj, debelina pa štrli navzven.
 3. Označi ovito obliko in valj ter ju poravnaj na sredino, levo-desno in spredaj-zadaj. Sredina ovite oblike je os valja, zato potem sedi natanko na njegovi steni.
 

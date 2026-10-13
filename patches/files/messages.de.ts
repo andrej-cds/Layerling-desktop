@@ -2315,4 +2315,8 @@ export const MESSAGES_DE = {
   "prop.torusSteps": "Koraki cevi",
   "thread.axialClearanceHint": "Dodatna zračnost vzdolž navoja, v mm, povrh zračnosti: vsak zob matice je za toliko tanjši, premer pa ostane. Za navoj, ki se vrti zlahka in ne ropota vstran: zračnost naj bo okoli 0,2 do 0,3, tukaj pa nastavi 0,2. Pri 0 zračnost prihaja samo iz zračnosti v premeru, ki bočnici odpre le približno za polovico.",
   "prop.axialClearance": "Zračnost v osi",
+  "prop.loftSmooth": "Mehak prehod (%)",
+  "loft.smoothHint": "0 je raven zožitev, kot pri stožcu. 100 da krivuljo v obliki črke S: stranice zapustijo oba konca naravnost navzgor, vmes pa spreminjajo velikost, kot pri adapterju za cev, ki se mehko razširi iz ozke v široko cev.",
+  "camera.sectionWorkplane": "Delovna ravnina tukaj",
+  "camera.sectionWorkplaneHint": "Postavi delovno ravnino na prerez, da skica začne natanko tam in pokaže obris prereza",
 } as unknown as Record<MessageKey, string>;

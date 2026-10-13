@@ -1,4 +1,24 @@
 {
+  "1.67.2": [
+    [
+      "Delovna ravnina na prerezu",
+      "V prerezni pogled je prišel nov gumb »Delovna ravnina tukaj«. Postavi delovno ravnino na prerez, da skica začne natanko tam in pokaže obris prereza, na primer za pokrov, ki se prilega votlini, ki jo je odprl prerez."
+    ],
+    [
+      "Privzeta barvna tema za strežnik",
+      "Kdor poganja layerling na lastnem strežniku ali v Dockerju, lahko s spremenljivko okolja LAYERLING_DEFAULT_THEME določi, katero barvno temo obiskovalci dobijo ob prvem obisku: system, light, dark ali graphite. Kdor je temo že izbral, jo obdrži."
+    ]
+  ],
+  "1.67.1": [
+    [
+      "Loft: mehak prehod",
+      "Oblika Loft ima nov drsnik »Mehak prehod«. Pri 0 stranice tečejo naravnost kot pri stožcu, pri 100 po krivulji S: idealno za adapter za cev, ki se mehko razširi iz ozke v široko cev. S steno ostane odprt na obeh koncih."
+    ],
+    [
+      "Ovijanje okoli valja: desetinke milimetra",
+      "Premer pri ovijanju okoli valja je zdaj mogoče nastaviti v desetinkah milimetra, na primer 63,5 mm za kozarec. Drsnik skače po 0,1 mm, polje pa sprejme decimalke."
+    ]
+  ],
   "1.67.0": [
     [
       "Torus: nastavljive stranice in koraki",

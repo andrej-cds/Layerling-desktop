@@ -106,6 +106,8 @@ Robno orodje in izvoz STEP vzameta vzmet kot natančno telo: okrogla žica vzdol
 
 {{ui:prop.loftWall}} naredi iz polnega telesa cev, ki je zgoraj in spodaj odprta. Odprtina je na obeh koncih manjša za debelino stene, merjeno vodoravno; kjer stena stoji poševno, je torej malo tanjša. Če okvir povečaš, rasteta oba konca, polmer vogala in stena ostaneta enaka.
 
+{{ui:prop.loftSmooth}} naredi prehod mehak. Pri 0 stranice tečejo naravnost od dna do vrha, kot pri stožcu. Pri 100 zapustijo oba konca naravnost navzgor, vmes pa spreminjajo velikost po krivulji S: adapter za cev, ki se mehko razširi iz ozke v široko cev, namesto da bi tekel kot lijak. Vmes drsnik oba mešata. Mehak prehod deluje skupaj z {{ui:prop.loftWall}}, zasukom, nagibom in bočnim zamikom; cev s steno ostane odprta na obeh koncih. Je natančno telo kot raven, zato lahko robove posnameš in zaokrožiš, a je zgrajen prek več prerezov in se računa malo dlje.
+
 {{ui:prop.loftTwist}} enakomerno zavrti presek na poti navzgor okoli navpične osi, do 360° v obe smeri; stranice se potem vijejo. {{ui:prop.loftTiltX}} in {{ui:prop.loftTiltZ}} nagneta zgornji konec, do 45°: pozitivna vrednost dvigne njegov sprednji rob oziroma njegovo desno stran. Preseki vmes se nagnejo sorazmerno, tako da stena mehko teče v poševnino. Najvišja točka ostane na nastavljeni višini. Če višina pozneje postane tako majhna, da bi poševni konec segal pod ploščo, se nagib toliko umakne, da ustreza. Loka vzdolž poti, na primer cevnega kolena, prehod ne naredi.
 
 Prehod je natančno telo, tudi zasukan in nagnjen: njegove robove lahko posnameš in zaobliš, izvoz STEP ga ohrani. Prirobnico z luknjami za vijake dodaš kot običajno in združiš v skupino.

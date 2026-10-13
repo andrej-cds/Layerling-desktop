@@ -137,14 +137,18 @@ try {
   await page.waitForFunction(() => /Desktop \d+\.\d+\.\d+/.test(document.body.innerText), null, { timeout: 15000 });
   ok("različica lupine je vidna tudi v nogi strani");
 
+    const pickLanguage = async (name) => {
+    await page.locator(".language-switch > button").first().click();
+    await page.getByRole("menuitemradio", { name }).first().click();
+  };
   // Slovenščina nadomešča nemščino: preklopnik jezika pokaže SL, vmesnik se prevede in se da vrniti na EN.
-  assert.equal(await page.locator(".language-switch button").count(), 2);
-  await page.locator(".language-switch button", { hasText: "SL" }).first().click();
+  assert.equal(await page.locator(".language-switch > button").first().innerText(), "EN");
+  await pickLanguage("Slovenščina");
   await page.getByText("Ustvari nov 3D projekt").first().waitFor({ timeout: 15000 });
   assert.equal(await page.evaluate(() => document.documentElement.lang), "sl");
   ok("slovenski prevod: preklopnik EN/SL in prevedeni vmesnik");
   await eventually("lupina (meni) sledi slovenščini", () => menuHas(app, "Datoteka"), 15000);
-  await page.locator(".language-switch button", { hasText: "EN" }).first().click();
+  await pickLanguage("English");
   await page.getByText("Create new 3D design").first().waitFor({ timeout: 15000 });
   await eventually("lupina (meni) sledi angleščini", () => menuHas(app, "File"), 15000);
   assert.equal(await menuHas(app, "Datoteka"), false);
