@@ -430,6 +430,22 @@ export const edits = [
     find: 'hreflang="${language === "de" ? "en" : "de"}"',
     replace: 'hreflang="${language === "de" ? "en" : "sl"}"',
   },
+  {
+    name: "Podpora: povezava na slovensko stran namizne različice",
+    stage: "jezik",
+    file: "apps/web/src/lib/supportLink.ts",
+    marker: "/podpri/index.html",
+    find: "return { href: `${DEFAULT_SUPPORT_URL}?lang=${language}`, label };",
+    replace: "void language;\n  void DEFAULT_SUPPORT_URL;\n  return { href: `${process.env.NEXT_PUBLIC_LAYERLING_BASE ?? \"\"}/podpri/index.html`, label };",
+  },
+  {
+    name: "Podpora: noga navodil",
+    stage: "jezik",
+    file: "scripts/build-guide.mjs",
+    marker: "\"/podpri/index.html\"",
+    find: "\"https://layerling.com/support.html\"",
+    replace: "\"/podpri/index.html\"",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
@@ -438,6 +454,7 @@ export const additions = [
   { stage: "jezik", from: "patches/files/DesktopVersion.tsx", to: "apps/web/src/components/DesktopVersion.tsx" },
   { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
   // Slovenski katalog nadomesti nemškega (notranja oznaka jezika ostane "de").
+  { from: "patches/files/podpri.html", to: "apps/web/public/podpri/index.html", stage: "jezik" },
   { from: "patches/files/guideSl.ts", to: "apps/web/src/lib/guideSl.ts", stage: "jezik" },
   { from: "patches/files/messages.de.ts", to: "apps/web/src/lib/messages.de.ts", stage: "jezik" },
   { from: "patches/files/assets/cds-round.png", to: "apps/web/public/assets/cds/cds-round.png", stage: "jezik" },
