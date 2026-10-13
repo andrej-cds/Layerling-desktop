@@ -75,7 +75,8 @@ rmSync(join(webDist, "node_modules", "sharp"), { recursive: true, force: true })
 const support = join(webDist, "_desktop");
 mkdirSync(join(support, "mcp"), { recursive: true });
 cpSync(join(projectRoot, "desktop", "server-runner.js"), join(support, "server-runner.js"));
-for (const file of ["layerling-mcp-server.mjs", "layerling-mcp-tools.mjs"]) {
+// Vse datoteke layerling-mcp-*.mjs (strežnik uvaža tudi pomožne, npr. layerling-mcp-open.mjs).
+for (const file of readdirSync(join(upstreamDir, "scripts")).filter((n) => /^layerling-mcp-.*\.mjs$/.test(n))) {
   cpSync(join(upstreamDir, "scripts", file), join(support, "mcp", file));
 }
 const upstreamPackage = JSON.parse(readFileSync(join(upstreamDir, "package.json"), "utf8"));
