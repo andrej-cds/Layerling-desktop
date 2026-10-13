@@ -43,8 +43,14 @@ a{color:var(--accent)}
 
 <div class="card">
   <h2>Podpri prek PayPala</h2>
-  <p>Dar lahko pošlješ na PayPal naslov:</p>
-  <p><code>info@cassettedeck-service.com</code></p>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener">
+    <input type="hidden" name="cmd" value="_donations">
+    <input type="hidden" name="business" value="info@cassettedeck-service.com">
+    <input type="hidden" name="item_name" value="Podpora Layerling Desktop">
+    <input type="hidden" name="currency_code" value="EUR">
+    <button type="submit" class="btn" style="border:0;cursor:pointer;font:inherit;font-weight:600">Podpri prek PayPala</button>
+  </form>
+  <p class="small">Ali pošlji na PayPal naslov: <code>info@cassettedeck-service.com</code></p>
 </div>
 
 <p class="small">Hvala, da uporabljaš Layerling Desktop. Podpora ni obvezna: program ostaja povsem brezplačen.</p>
