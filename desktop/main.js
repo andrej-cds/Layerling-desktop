@@ -10,7 +10,7 @@ const { buildMenu } = require("./menu");
 const { tr, setLanguage, getLanguage, normalizeLanguage, languageFromLocale, STRINGS } = require("./strings");
 const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
-const { isFusionFile, openInFusion } = require("./fusion");
+const { isStepFile, openInFusion } = require("./fusion");
 
 const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
@@ -677,7 +677,7 @@ function hardenSession() {
       if (state !== "completed") return;
       const saved = item.getSavePath();
       const fusion = config.get().fusion;
-      if (!fusion.openAfterStepExport || !isFusionFile(saved)) return;
+      if (!fusion.openAfterStepExport || !isStepFile(saved)) return;
       const error = await openInFusion(saved, fusion.exePath, { openPath: (file) => shell.openPath(file) });
       if (error) {
         log(`Fusion: ${error}`);

@@ -1,11 +1,11 @@
 "use strict";
-// Odpiranje izvoženih datotek (STEP, STL, OBJ, 3MF) v Fusionu.
+// Odpiranje izvoženih datotek STEP v Fusionu.
 const fs = require("node:fs");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
 
-function isFusionFile(file) {
-  return typeof file === "string" && /\.(step|stp|stl|obj|3mf)$/i.test(file);
+function isStepFile(file) {
+  return typeof file === "string" && /\.(step|stp)$/i.test(file);
 }
 
 /**
@@ -14,7 +14,7 @@ function isFusionFile(file) {
  * Vrne prazen niz ob uspehu ali sporočilo o napaki.
  */
 async function openInFusion(file, exePath, { openPath, spawnFn = spawn } = {}) {
-  if (!isFusionFile(file) || !fs.existsSync(file)) return "datoteka ne obstaja";
+  if (!isStepFile(file) || !fs.existsSync(file)) return "datoteka ne obstaja";
   if (exePath) {
     if (!fs.existsSync(exePath)) return `program ne obstaja: ${exePath}`;
     try {
@@ -29,4 +29,4 @@ async function openInFusion(file, exePath, { openPath, spawnFn = spawn } = {}) {
   return openPath ? await openPath(file) : "ni načina odpiranja";
 }
 
-module.exports = { isFusionFile, openInFusion };
+module.exports = { isStepFile, openInFusion };

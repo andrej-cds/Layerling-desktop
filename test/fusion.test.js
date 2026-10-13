@@ -4,15 +4,14 @@ const assert = require("node:assert");
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { isFusionFile, openInFusion } = require("../desktop/fusion");
+const { isStepFile, openInFusion } = require("../desktop/fusion");
 const { normalize } = require("../desktop/config");
 
 test("prepozna datoteke STEP", () => {
-  assert.ok(isFusionFile("C:\\a\\skatla.STEP"));
-  assert.ok(isFusionFile("/x/y.stp"));
-  assert.ok(isFusionFile("/x/y.stl"));
-  assert.ok(!isFusionFile("/x/y.png"));
-  assert.ok(!isFusionFile(null));
+  assert.ok(isStepFile("C:\\a\\skatla.STEP"));
+  assert.ok(isStepFile("/x/y.stp"));
+  assert.ok(!isStepFile("/x/y.stl"));
+  assert.ok(!isStepFile(null));
 });
 
 test("nastavitve Fusiona: privzeto izklopljeno, pot se ohrani", () => {
