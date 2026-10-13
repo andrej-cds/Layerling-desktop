@@ -234,7 +234,7 @@ function showLoadError(message) {
 async function startServerAndLoad() {
   const c = config.get();
   try {
-    const url = await server.start({ port: c.port, sharedFolder: c.sharedFolder, mcpToken: c.mcpToken });
+    const url = await server.start({ port: c.port, sharedFolder: c.sharedFolder, mcpToken: c.mcpToken, thumbnailDir: path.join(app.getPath("userData"), "project-thumbnails") });
     log(`Strežnik teče na ${url}`);
     if (mainWindow) await mainWindow.loadURL(url);
     return true;

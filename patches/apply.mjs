@@ -20,6 +20,13 @@ export const edits = [
     replace: '  ...(process.env.LAYERLING_DESKTOP === "true" && !isStaticExport ? { output: "standalone" as const } : {}),\n  ...(isStaticExport\n    ? {',
   },
   {
+    name: "Sličice projektov: mapa v uporabniških podatkih (preživi posodobitev)",
+    file: "apps/web/src/app/api/project-thumbnail/route.ts",
+    marker: "LAYERLING_THUMBNAIL_DIR",
+    find: 'const THUMBNAIL_DIR = path.join(process.cwd(), ".codex", "project-thumbnails");',
+    replace: 'const THUMBNAIL_DIR = process.env.LAYERLING_THUMBNAIL_DIR || path.join(process.cwd(), ".codex", "project-thumbnails");',
+  },
+  {
     name: "Nadzorna plošča: uvoz mostu",
     file: "apps/web/src/app/page.tsx",
     marker: 'from "@/lib/desktopBridge"',

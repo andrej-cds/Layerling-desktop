@@ -49,7 +49,7 @@ class EmbeddedServer {
     this.port = null;
   }
 
-  async start({ port, sharedFolder, mcpToken }) {
+  async start({ port, sharedFolder, mcpToken, thumbnailDir }) {
     const entry = findServerEntry(this.webDir);
     if (!entry) throw new Error(`Manjka zgrajen program (${this.webDir}). Zaženite "npm run build:web".`);
     if (!(await portIsFree(port))) {
@@ -68,6 +68,8 @@ class EmbeddedServer {
       LAYERLING_MCP_REMOTE: "true",
       LAYERLING_MCP_TOKEN: mcpToken,
     };
+    // Sličice projektov morajo preživeti posodobitev, zato niso v mapi namestitve.
+    if (thumbnailDir) env.LAYERLING_THUMBNAIL_DIR = thumbnailDir;
     if (sharedFolder) env.LAYERLING_SHARED_PROJECTS_DIR = sharedFolder;
     else delete env.LAYERLING_SHARED_PROJECTS_DIR;
 
