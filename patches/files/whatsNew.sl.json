@@ -1,4 +1,14 @@
 {
+  "1.67.6": [
+    [
+      "Ena mreža za skico in 3D-pogled",
+      "Mreža za pripenjanje, ki jo izbereš v skici, zdaj velja tudi v 3D-pogledu in obratno. Prej je imela skica svojo mrežo, ki se je ob preklopu izgubila. Shrani se skupaj z načrtom."
+    ],
+    [
+      "Smerne tipke v drobnih korakih, ko je mreža izklopljena",
+      "Ko je mreža za pripenjanje izklopljena, smerne tipke zdaj premaknejo obliko za 0,1 mm (s Shift za 0,5 mm), v 3D-pogledu in v skici. Prej so tudi takrat premikale cele milimetre."
+    ]
+  ],
   "1.67.5": [
     [
       "Pisanje opomb z Enter in Esc",
