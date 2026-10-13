@@ -1,4 +1,10 @@
 {
+  "1.68.0": [
+    [
+      "Arabščina in hebrejščina od desne proti levi",
+      "Besedilo v arabščini, perzijščini, urdujščini ali hebrejščini zdaj teče od desne proti levi, arabske črke pa se povezujejo s sosednjimi, kot zahteva pisava. Za to potrebuješ lastno pisavo s temi črkami, na primer Arial ali Noto Naskh Arabic."
+    ]
+  ],
   "1.67.6": [
     [
       "Ena mreža za skico in 3D-pogled",

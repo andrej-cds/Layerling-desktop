@@ -120,7 +120,7 @@ export const MESSAGES_DE = {
   "welcome.moreSketchTitle": "Skice",
   "welcome.moreSketchBody": "nariši konture (dvojni klik na telo znova odpre njegovo skico), vnesi črte z natančno dolžino in kote z natančnim kotom, zaoblji ali posneti oglišča ter jih iztisni ali zavrti okoli osi.",
   "welcome.moreLibraryTitle": "Knjižnica oblik",
-  "welcome.moreLibraryBody": "navoji (metrični, UNC/UNF in cevni G), vijaki in matice, zobniki, vzmeti, ukrivljene cevi, besedilo (tudi ukrivljeno vzdolž loka), satovje, tiskani tečaji, narebričeni oprijemi (ravni ali križni), lastovičji repi, solzne luknje za vodoravne izvrtine, ugrezi in vrtine za glave vijakov in več – vse naknadno nastavljivo. Telesa, ki jih potrebuješ znova in znova, se hranijo kot lastne oblike – in jih z enim klikom vstaviš v kateri koli projekt.",
+  "welcome.moreLibraryBody": "navoji (metrični, UNC/UNF in cevni G), vijaki in matice, zobniki, vzmeti, ukrivljene cevi, besedilo (tudi ukrivljeno vzdolž loka, v lastnih pisavah, arabsko in hebrejsko tudi od desne proti levi), satovje, tiskani tečaji, narebričeni oprijemi (ravni ali križni), lastovičji repi, solzne luknje za vodoravne izvrtine, ugrezi in vrtine za glave vijakov in več – vse naknadno nastavljivo. Telesa, ki jih potrebuješ znova in znova, se hranijo kot lastne oblike – in jih z enim klikom vstaviš v kateri koli projekt.",
   "welcome.morePatternTitle": "Polja",
   "welcome.morePatternBody": "ponovi obliko n-krat v vrsti ali okoli kroga, za mreže lukenj ali zobate obroče.",
   "welcome.moreBundleTitle": "Sveženj",

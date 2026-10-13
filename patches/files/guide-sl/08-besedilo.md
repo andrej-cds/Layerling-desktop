@@ -27,6 +27,10 @@ Poleg sedmih priloženih pisav lahko vzameš katerokoli lastno pisavo: datoteko 
 
 Če je ravno izbrano besedilo, takoj dobi novo pisavo. Sicer je potem pod {{ui:prop.font}} v skupini {{ui:font.customGroup}}, z {{ui:font.use}} v oknu pa jo nastaviš na izbrana besedila. Lastne pisave se obnašajo kot priložene: besedilo na krožnem loku, posnetja in zaokrožitve na robovih ter izvoz STEP delujejo enako. Črke, ki jih pisava nima, layerling vzame iz Sans.
 
+### Arabščina in hebrejščina
+
+Arabščina, perzijščina, urdujščina in hebrejščina se pišejo od desne proti levi: prva črka stoji na desni, pri mešanem besedilu, kot je »Name عربي«, pa teče nazaj samo arabska beseda, števke ostanejo kot običajno. Arabske črke se povezujejo s sosednjimi, kot zahteva pisava, lam-alef pa postane ligatura. Za to je potrebna pisava, ki te črke ima; vgrajene je nimajo. Dodaj svojo, na primer Arial, Tahoma ali Segoe UI v Windowsih, ali prosto pisavo, kot so Noto Naskh Arabic, Noto Sans Arabic ali Amiri. Samoglasniški znaki sedijo na črki, ki jim pripada. Besedilo na krožnem loku, kontura, silhueta, plasti in napisi z imenom delujejo z njo kot z vsakim drugim besedilom.
+
 ### Kaj gre v katerem brskalniku
 
 | Brskalnik | Izbira datoteke pisave | Pisava z računalnika |
