@@ -1,4 +1,14 @@
 {
+  "1.67.4": [
+    [
+      "Skica: zaobli ali ukrivi celotno obliko naenkrat",
+      "Če v skici izbereš celotno obliko, z okvirjem ali klikom vanjo, vrstica zdaj za vsa njena oglišča ponudi Zaokroži in Posnemi, za vse njene črte pa Ukrivi in Ravna črta. Prej so ta orodja delovala samo pri posamezni izbiri."
+    ],
+    [
+      "Uvoz SVG: ohrani mesto na risalni strani",
+      "V oknu za uvoz je novo polje »SVG: ohrani mesto na risalni strani«. Z njim vsaka risba obdrži svoje mesto na strani, na kateri je bila narisana. Če plasti dokumenta izvoziš kot ločene datoteke SVG, ležijo po uvozu spet natančno druga na drugi, kot poznaš iz Tinkercada."
+    ]
+  ],
   "1.67.3": [
     [
       "Iskanje v navodilih",

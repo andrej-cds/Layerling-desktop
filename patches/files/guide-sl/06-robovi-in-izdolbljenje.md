@@ -63,7 +63,7 @@ Del, uvožen kot STEP, prav tako obdrži svojo geometrijo CAD: posnetja, zaokro�
 
 Stene rastejo navznoter. Zunaj ostane vse, kot je.
 
-{{ui:shell.edges}} štejejo samo tam, kjer se notranje stene razmaknejo: pri stopnici v telesu ali okoli odprtine. Vogali votline preproste škatle so z obema nastavitvama vedno ostri. Za zaobljeno notranjost najprej zaobli zunanje robove telesa (glej zgoraj), nato ga izdolbi: notranjost sledi z radijem, zmanjšanim za debelino stene.
+{{ui:shell.edges}} štejejo samo tam, kjer se notranje stene razmaknejo: pri stopnici v telesu ali okoli odprtine. Vogali votline preproste škatle so z obema nastavitvama vedno ostri. Za zaobljeno notranjost najprej zaobli zunanje robove telesa (glej zgoraj), nato ga izdolbi: notranjost sledi z radijem, zmanjšanim za debelino stene. Če zaobljene notranjosti ni mogoče zgraditi, kar se lahko zgodi pri obrisu iz zelo veliko kratkih ravnih koščkov, na primer pri izrisani sliki, layerling zgradi isto izdolbeno telo z ostrimi notranjimi vogali.
 
 ![Rezultat: lupina s steno 3 mm, zgoraj odprta.](shot:hollow-result)
 

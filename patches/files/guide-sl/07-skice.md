@@ -54,7 +54,7 @@ Kjer krivulja trči ob vogal ali se steka več kot dve črti, kota ni. Gumb {{ui
 
 Klikni oglišče in izberi {{ui:sketch.filletCorner}} ali {{ui:sketch.chamferCorner}}. Pokaže se majhno polje za {{ui:sketch.filletRadius}} oziroma {{ui:sketch.chamferDistance}}. Vpiši mero in potrdi s kljukico. To gre za vogale med dvema ravnima črtama.
 
-Tudi več oglišč naenkrat deluje: izberi jih s [[Shift]] in klikom na vsako ali jih obkroži z okvirjem ter v vrstici, ki se pokaže, izberi {{ui:sketch.filletCorner}} ali {{ui:sketch.chamferCorner}}. Vsa dobijo isti polmer ali razdaljo. Kjer si dve izbrani oglišči delita stranico, vsako vzame največ 45 % nje, zato pravokotnik, zaokrožen povsod, na vseh ogliščih izpade enako. Točke, ki niso oglišče med dvema ravnima črtama, se izpustijo, sporočilo pa pove, koliko jih je.
+Tudi več oglišč naenkrat deluje: izberi jih s [[Shift]] in klikom na vsako ali jih obkroži z okvirjem ter v vrstici, ki se pokaže, izberi {{ui:sketch.filletCorner}} ali {{ui:sketch.chamferCorner}}. Vsa dobijo isti polmer ali razdaljo. Kjer si dve izbrani oglišči delita stranico, vsako vzame največ 45 % nje, zato pravokotnik, zaokrožen povsod, na vseh ogliščih izpade enako. Točke, ki niso oglišče med dvema ravnima črtama, se izpustijo, sporočilo pa pove, koliko jih je. Okvir okoli cele oblike ali klik vanjo izbere njena oglišča in črte skupaj, vrstica pa poleg orodij za oglišča ponudi še {{ui:sketch.curveLine}} in {{ui:sketch.straightenLine}} za vse izbrane črte.
 
 ![Vogal zgoraj levo se zaobli s polmerom 12 mm.](shot:sketch-fillet)
 
