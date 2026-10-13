@@ -58,6 +58,7 @@ Opomba zabeleži, česar geometrija ne pove: »Tu je vijak 0,3 mm preozek«, »P
 - Če jo postaviš **zraven**, ostane na delovni ravnini ({{ui:note.free}}).
 - {{ui:note.detach}} prikovano opombo loči od telesa.
 - Vlečenje opombo premakne, klik jo odpre za urejanje.
+- Med pisanjem [[Enter]] obdrži besedilo, [[Esc]] ga vrne, kot je bilo pred začetkom, [[Shift]]+[[Enter]] pa začne novo vrstico.
 
 Opombe se shranijo v načrtu, ne pojavijo se v nobenem izvozu in jih lahko prikažeš ali skriješ prek {{ui:visibility.notes}}.
 

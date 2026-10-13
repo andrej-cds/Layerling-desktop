@@ -1,4 +1,10 @@
 {
+  "1.67.5": [
+    [
+      "Pisanje opomb z Enter in Esc",
+      "Ko pišeš opombo, Enter zdaj obdrži besedilo, Esc ga vrne, kot je bilo prej, Shift+Enter pa začne novo vrstico. In če tipkaš sredi besedila, kazalec ostane tam, namesto da skoči na konec."
+    ]
+  ],
   "1.67.4": [
     [
       "Skica: zaobli ali ukrivi celotno obliko naenkrat",

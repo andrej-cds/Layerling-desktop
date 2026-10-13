@@ -24,7 +24,7 @@ Orodna vrstica skicirnega načina je razdeljena v področja:
 - **Izbor:** {{ui:sketch.select}} premika točke in črte. Klik v sklenjen obris izbere celotni obris, tako da ga lahko takoj premakneš ali mu spremeniš velikost; v luknji se izbere luknja. Okvir okoli izbora ima osem ročic: tiste v vogalih spreminjajo širino in višino hkrati, s pridržano tipko [[Shift]] v enakem razmerju. Tiste ob straneh spreminjajo samo eno smer. Mehurčke mer za širino in višino lahko klikneš; tam vpišeš novo mero, tudi kot račun (»60+12,5«) ali v odstotkih (»150%«). S [[Shift]] s klikom dodaš še druge točke in črte ali jih odvzameš, tako da jih lahko več naenkrat premakneš. Okvir čez prosto površino izbere vse v njem. Tudi črto lahko vlečeš (premakne se na obeh koncih ali pa celoten izbor, če sodi k njemu). Smerne tipke premaknejo izbor za en korak mreže, s [[Shift]] za večji, [[Shift]] med vlečenjem pa drži gibanje na eni osi. {{ui:sketch.refine}}: klik na odsek postavi točko, klik na točko jo odstrani. Zraven sta še {{ui:sketch.erase}} in vstavljanje slike predloge ({{ui:sketch.addImage}}).
 - **Odložišče:** {{ui:editor.tool.copy}}, {{ui:editor.tool.paste}}, {{ui:editor.tool.duplicate}} in {{ui:editor.tool.delete}} delujejo na izbrane točke, črte in slike, kot v 3D-urejevalniku; [[Ctrl]]+[[X]] izreže. Prilepljeno in podvojeno pristane z 10 mm razmika ob originalu, na prostem mestu, kjer se ne dotika nobene obstoječe črte, tako da se nikoli ne poveže z obstoječim. Ostane izbrano, tako da ga lahko takoj povlečeš na mesto.
 - **Zgodovina:** {{ui:sketch.undo}} in {{ui:sketch.redo}}.
-- **Pogled:** Premikaš ga s srednjim gumbom miške ali s [[Shift]] oziroma [[Ctrl]] in desnim gumbom miške, kot v 3D-urejevalniku. [[F]] spet postavi celotno skico v sliko, [[Shift]]+[[F]] se približa izboru, kot v 3D-urejevalniku. {{ui:camera.tapeTools}} v stranski vrstici meri razdaljo med dvema točkama. Poleg tega skica pokaže mere, takoj ko kaj klikneš: pri črti njeno dolžino, pri točki dolžine črt, ki se tam srečajo. Gumb {{ui:sketch.showMeasurements}} v stranski vrstici te mere skrije in spet pokaže, če motijo, na primer pri oblikovanju krivulj; merilni trak še naprej deluje. Pri ravni črti lahko klikneš mehurček mere in vpišeš dolžino v milimetrih; [[Enter]] jo sprejme, [[Esc]] prekine. Črta obdrži svojo smer, njena začetna točka ostane in črte na drugem koncu gredo zraven. Če je označena končna točka, se premakne ta. Z [[Alt]]+[[Enter]] črta raste na obe strani in obdrži svojo sredino. Pri krivuljah mehurček kaže samo dolžino.
+- **Pogled:** Premikaš ga s srednjim gumbom miške ali s [[Shift]] oziroma [[Ctrl]] in desnim gumbom miške, kot v 3D-urejevalniku. [[F]] spet postavi celotno skico v sliko, [[Shift]]+[[F]] se približa izboru, [[+]] in [[−]] pa približata in oddaljita, kot v 3D-urejevalniku. {{ui:camera.tapeTools}} v stranski vrstici meri razdaljo med dvema točkama. Poleg tega skica pokaže mere, takoj ko kaj klikneš: pri črti njeno dolžino, pri točki dolžine črt, ki se tam srečajo. Gumb {{ui:sketch.showMeasurements}} v stranski vrstici te mere skrije in spet pokaže, če motijo, na primer pri oblikovanju krivulj; merilni trak še naprej deluje. Pri ravni črti lahko klikneš mehurček mere in vpišeš dolžino v milimetrih; [[Enter]] jo sprejme, [[Esc]] prekine. Črta obdrži svojo smer, njena začetna točka ostane in črte na drugem koncu gredo zraven. Če je označena končna točka, se premakne ta. Z [[Alt]]+[[Enter]] črta raste na obe strani in obdrži svojo sredino. Pri krivuljah mehurček kaže samo dolžino.
 
 Telo nastane samo iz **sklenjenega** obrisa.
 
@@ -100,6 +100,17 @@ Konturo nastaviš tudi, ne da bi odprl skico: v lastnostih skiciranega telesa po
 {{ui:prop.sketchSilhouette}} izpusti vse obrise, ki ležijo v drugem: luknje in kar je v njih. Ostane samo zunanji obris. Skupaj z {{ui:prop.sketchFill.outside}} iz tega nastane modelček za izrezovanje: uvozi SVG dvakrat, enkrat s silhueto kot ploskev za dno in enkrat s silhueto in 1 do 2 mm konture zunaj kot steno. Stikalo je tudi v plošči {{ui:sketch.stroke}} v skicirnem načinu.
 
 Zaokrožitve in posnetja na robovih se pri ponovni gradnji izgubijo, kot pri urejanju skice.
+
+## Poševne stene, za štampiljke
+
+Izvlečena skica ima navpične stene. Štampiljka, matrica za vtiskovanje ali prebijalo pa zahteva poševne, zunaj in znotraj, z enako debelino stene po vsej višini. Layerling za izvlek nima kota nagiba, pri preprostih obrisih pa pridemo do cilja z {{ui:inspector.taper}}. En način, ki deluje:
+
+1. Nariši obris z luknjo, ki jo potrebuje, in iz njega naredi telo. Telo podvoji ([[Ctrl]]+[[D]]).
+2. Pri prvem telesu vklopi {{ui:prop.sketchSilhouette}}, da je luknja zapolnjena, in z {{ui:inspector.taper}} mu daj širše dno kot vrh.
+3. Pri kopiji znova odpri njeno skico in izbriši zunanji obris, da ostane samo obris luknje. Zaključi skico, telo preklopi na {{ui:inspector.hole}} in mu z {{ui:inspector.taper}} daj ožje dno kot vrh.
+4. Luknjo premakni v prvo telo, na mesto, kjer je bila luknja, in obe telesi združi v skupino.
+
+Stene so zdaj poševne zunaj in znotraj. Zožitev spremeni merilo celotnega obrisa, zato je to pri preprostih oblikah natančno, saj velikosti izbereš tako, da so stene vzporedne, pri drobnih podrobnostih, na primer pri črkah, pa je samo približek.
 
 ## Slika kot predloga
 
