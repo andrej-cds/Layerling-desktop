@@ -40,6 +40,8 @@ function defaults(documentsDir) {
     graphicsMode: "auto",
     graphicsFlags: "",
     windowBounds: null,
+    // Fusion: po izvozu STEP ga odpri v Fusionu. exePath je neobvezen (prazno = privzeti program za .step).
+    fusion: { openAfterStepExport: false, exePath: "" },
   };
 }
 
@@ -72,6 +74,10 @@ function normalize(raw, documentsDir) {
     graphicsMode: GRAPHICS_MODES.includes(input.graphicsMode) ? input.graphicsMode : "auto",
     graphicsFlags: cleanGraphicsFlags(input.graphicsFlags),
     windowBounds: input.windowBounds && typeof input.windowBounds === "object" ? input.windowBounds : null,
+    fusion: {
+      openAfterStepExport: !!(input.fusion && input.fusion.openAfterStepExport),
+      exePath: input.fusion && typeof input.fusion.exePath === "string" ? input.fusion.exePath.trim() : "",
+    },
   };
 }
 
@@ -99,6 +105,7 @@ class ConfigStore {
       ...this.data,
       ...patch,
       autosave: { ...this.data.autosave, ...(patch && patch.autosave ? patch.autosave : {}) },
+      fusion: { ...this.data.fusion, ...(patch && patch.fusion ? patch.fusion : {}) },
     };
     this.data = normalize(merged, this.documentsDir);
     this.save();

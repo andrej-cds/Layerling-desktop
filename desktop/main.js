@@ -10,6 +10,7 @@ const { buildMenu } = require("./menu");
 const { tr, setLanguage, getLanguage, normalizeLanguage, languageFromLocale, STRINGS } = require("./strings");
 const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
+const { isStepFile, openInFusion } = require("./fusion");
 
 const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
@@ -626,11 +627,23 @@ async function openProjectDialog() {
   if (!result.canceled) result.filePaths.forEach(queueFile);
 }
 
+async function chooseFusionPath() {
+  const result = await dialog.showOpenDialog(mainWindow || undefined, {
+    title: tr("dlg.fusionPathTitle"),
+    properties: ["openFile"],
+    filters: isMac ? [] : [{ name: "Fusion", extensions: ["exe"] }, { name: tr("dlg.allFiles"), extensions: ["*"] }],
+  });
+  if (!result.canceled && result.filePaths[0]) config.update({ fusion: { exePath: result.filePaths[0] } });
+}
+
 function installMenu() {
   Menu.setApplicationMenu(buildMenu({
     isMac,
     isDev,
+    state: { fusionAfterStep: config.get().fusion.openAfterStepExport },
     actions: {
+      toggleFusionAfterStep: (item) => config.update({ fusion: { openAfterStepExport: !!item.checked } }),
+      chooseFusionPath,
       about: showAbout,
       settings: openSettings,
       settingsAi: openSettings,
@@ -658,6 +671,20 @@ function hardenSession() {
   const allowed = new Set(["clipboard-read", "clipboard-sanitized-write", "fullscreen"]);
   session.defaultSession.setPermissionRequestHandler((_wc, permission, callback) => callback(allowed.has(permission)));
   session.defaultSession.setPermissionCheckHandler((_wc, permission) => allowed.has(permission));
+  // Po izvozu STEP ga (če je tako nastavljeno) odpri v Fusionu.
+  session.defaultSession.on("will-download", (_event, item) => {
+    item.once("done", async (_doneEvent, state) => {
+      if (state !== "completed") return;
+      const saved = item.getSavePath();
+      const fusion = config.get().fusion;
+      if (!fusion.openAfterStepExport || !isStepFile(saved)) return;
+      const error = await openInFusion(saved, fusion.exePath, { openPath: (file) => shell.openPath(file) });
+      if (error) {
+        log(`Fusion: ${error}`);
+        dialog.showErrorBox(tr("dlg.fusionOpenFailed"), error);
+      }
+    });
+  });
 }
 
 app.whenReady().then(async () => {

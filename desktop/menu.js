@@ -6,7 +6,7 @@ const { tr } = require("./strings");
  * Meni. Urejevalnik ima lastne bližnjice (Ctrl+Z, Ctrl+C, Ctrl+V, Ctrl+K …), zato jih meni ne sme prestreči:
  * v Windowsih Urejanje sploh ni v meniju, na Macu so postavke prikazane brez registracije bližnjice.
  */
-function buildMenu({ isMac, isDev, actions }) {
+function buildMenu({ isMac, isDev, actions, state }) {
   const noGrab = isMac ? { registerAccelerator: false } : {};
   const template = [
     ...(isMac ? [{
@@ -31,6 +31,9 @@ function buildMenu({ isMac, isDev, actions }) {
         { label: tr("menu.openAutosaveFolder"), click: actions.openAutosaveFolder },
         { id: "restore", label: tr("menu.restore"), click: actions.restoreFromAutosave },
         { id: "fonts", label: tr("menu.openFontsFolder"), click: actions.openFontsFolder },
+        { type: "separator" },
+        { id: "fusionAfterStep", type: "checkbox", label: tr("menu.fusionAfterStep"), checked: !!(state && state.fusionAfterStep), click: actions.toggleFusionAfterStep },
+        { label: tr("menu.fusionPath"), click: actions.chooseFusionPath },
         { type: "separator" },
         ...(isMac ? [{ role: "close", label: tr("menu.closeWindow") }] : [
           { id: "settings", label: tr("menu.settings"), accelerator: "CmdOrCtrl+,", click: actions.settings },

@@ -60,6 +60,10 @@ Nastavite na **vsakem** računalniku:
 - Pred odpiranjem počakajte, da iCloud dokonča sinhronizacijo (oblaček ob datoteki). Na Macu mora biti datoteka prenesena (*Download Now*).
 - Samodejno shranjevanje (zgoraj) naj ostane v **lokalni** mapi, ne v iCloudu, sicer bi sinhronizacija vsakih 30 s povzročala konflikte.
 
+## Odpri v Fusionu
+
+*Datoteka → Po izvozu STEP odpri v Fusionu* (kljukica). Ko nato v urejevalniku izvoziš **STEP**, se datoteka samodejno odpre v Fusionu kot pravo telo (B-Rep), ki ga lahko tam naprej urejaš. Privzeto jo odpre program, ki je v Windowsih nastavljen za `.step`; če to ni Fusion, izberi *Datoteka → Izberi program Fusion …* in pokaži `Fusion360.exe`.
+
 ## Povezava z AI (MCP)
 
 *Datoteka → Nastavitve → Povezava z AI (MCP)* pokaže nastavitev. Kopirajte jo v nastavitve odjemalca (Claude Desktop: *Settings → Developer → Edit Config*), ga znova zaženite, program Layerling pa naj bo odprt z odprtim urejevalnikom. Nato lahko rečete npr. *"V Layerlingu naredi škatlo 40×30×20 z zaobljenimi robovi."*
