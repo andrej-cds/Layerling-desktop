@@ -62,7 +62,7 @@ Nastavite na **vsakem** računalniku:
 
 ## Odpri v Fusionu
 
-*Datoteka → Po izvozu STEP odpri v Fusionu* (kljukica). Ko nato v urejevalniku izvoziš **STEP**, se datoteka samodejno odpre v Fusionu kot pravo telo (B-Rep), ki ga lahko tam naprej urejaš. Privzeto jo odpre program, ki je v Windowsih nastavljen za `.step`; če to ni Fusion, izberi *Datoteka → Izberi program Fusion …* in pokaži `Fusion360.exe`.
+*Datoteka → Po izvozu (STEP, STL, OBJ, 3MF) odpri v Fusionu* (kljukica). Ko nato v urejevalniku izvoziš **STEP**, se datoteka samodejno odpre v Fusionu kot pravo telo (B-Rep), ki ga lahko tam naprej urejaš. Uvožene mreže (STL) STEP ne zmore, zato jih izvozi kot **STL, OBJ ali 3MF**: v Fusionu se odprejo kot mreža. Za ti dve vrsti datotek je običajno nastavljen drug program, zato izberi *Izberi program Fusion …*. Privzeto jo odpre program, ki je v Windowsih nastavljen za `.step`; če to ni Fusion, izberi *Datoteka → Izberi program Fusion …* in pokaži `Fusion360.exe`.
 
 ## Povezava z AI (MCP)
 
