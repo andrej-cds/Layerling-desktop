@@ -672,7 +672,7 @@ function installMenu() {
 
 // ---------- zagon ----------
 function hardenSession() {
-  const allowed = new Set(["clipboard-read", "clipboard-sanitized-write", "fullscreen"]);
+  const allowed = new Set(["clipboard-read", "clipboard-sanitized-write", "fullscreen", "fileSystem"]);
   session.defaultSession.setPermissionRequestHandler((_wc, permission, callback) => callback(allowed.has(permission)));
   session.defaultSession.setPermissionCheckHandler((_wc, permission) => allowed.has(permission));
   // Po izvozu STEP ga (če je tako nastavljeno) odpri v Fusionu.
