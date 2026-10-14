@@ -156,6 +156,14 @@ export const edits = [
     replace: "      if (event.pointerType !== \"touch\" && event.button === 0 && touchRotateRef.current && !event.ctrlKey && !event.metaKey) {\n        return;\n      }\n      // The right button turns the view; only a press that is let go where it\n      // started opens the menu (finishDrag).",
   },
   {
+    name: "Pogled: en prst na praznem prostoru vedno vrti pogled",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "touch-orbit-samodejno",
+    find: "        marquee.hasMoved = marquee.hasMoved || Math.hypot(marquee.currentX - marquee.startX, marquee.currentY - marquee.startY) > 5;\n        setMarqueeFromState(marquee);\n        return;",
+    replace: "        marquee.hasMoved = marquee.hasMoved || Math.hypot(marquee.currentX - marquee.startX, marquee.currentY - marquee.startY) > 5;\n        // touch-orbit-samodejno: en prst, ki se z praznega prostora premakne, vrti pogled (izbirni okvir je za miško).\n        // Prst na telesu ali ročaju dela po starem, zato stikalo za vrtenje ni več potrebno.\n        if (marquee.hasMoved && event.pointerType === \"touch\" && !marquee.additive) {\n          if (event.currentTarget.hasPointerCapture(marquee.pointerId)) event.currentTarget.releasePointerCapture(marquee.pointerId);\n          cancelGestureForCamera();\n          cameraTouchRef.current = true;\n          handOverTouchToCamera();\n          return;\n        }\n        setMarqueeFromState(marquee);\n        return;",
+  },
+  {
     name: "Pisave: uvoz nalagalnika lastnih pisav",
     stage: "jezik",
     file: "apps/web/src/lib/textFonts.ts",
