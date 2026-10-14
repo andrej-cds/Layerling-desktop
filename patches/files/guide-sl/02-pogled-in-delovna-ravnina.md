@@ -21,6 +21,8 @@ Na tablici ali telefonu dva prsta (razmikanje in približevanje) zumirata, skupn
 
 Grafična tablica s pisalom se obnaša kot miška: konica je levi gumb, stranska tipka na pisalu pa desni, za vrtenje pogleda in za meni. Hitre tipke tablice v njenem gonilniku povežeš z [bližnjicami na tipkovnici](chapter:bliznjice) programa layerling.
 
+**Na tabličnem računalniku delaj s pisalom, če lahko.** Njegova konica je veliko tanjša od konice prsta in ne zakriva tistega, na kar ciljaš, zato majhne točke, tanke črte in ročaje v skici, merilne točke in robove zadeneš natančno, daljše delo pa je manj utrujajoče. layerling prstu že pusti, da seže malo dlje do točk, črt, ročajev in robov kot kazalec miške, vendar pisalo ostaja natančnejša pot.
+
 ### Orientacijska kocka
 
 Kocka zgoraj levo kaže, kam trenutno gledaš. Klik na eno od njenih stranic skoči v ravni pogled od zgoraj, spodaj, spredaj, zadaj, z leve ali z desne. Klik na oglišče kocke pogleda poševno od tega oglišča na model, klik blizu roba od tega roba, torej med dvema stranicama; mesto se obarva, ko kazalec stoji nad njim. Ravni pogledi gredo tudi s številskimi tipkami [[1]] do [[6]]. Če pri tem držiš [[Shift]], se pogled hkrati približa izboru, kot pri [[Shift]]+[[F]].

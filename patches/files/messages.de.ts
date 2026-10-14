@@ -226,6 +226,7 @@ export const MESSAGES_DE = {
   "dashboard.minutesAgo": "pred {count} min",
   "shared.title": "Projekti na strežniku",
   "shared.refresh": "Osveži",
+  "shared.backToLocal": "Nazaj na projekte v tem brskalniku",
   "shared.trailLabel": "Pot znotraj mape na strežniku",
   "shared.trailRoot": "Strežnik",
   "shared.newFolder": "Nova mapa",

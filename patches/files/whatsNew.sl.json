@@ -1,4 +1,22 @@
 {
+  "1.73.0": [
+    [
+      "Merilni trak se zaskoči na referenčne točke",
+      "Sredino kroga ali sredino črte označi kot referenčno točko (gumb s križcem pod meritvijo ali meni z desnim klikom), nato to točko klikni z merilnim trakom: meriš od tam. Merilni trak se zaskoči na referenčne točke kakor na oglišča."
+    ],
+    [
+      "Na dotik: prst seže dlje",
+      "Na zaslonu na dotik prst zdaj lažje zadene majhne cilje. V skici pritisk ob točki, ročaju ali tanki črti gre na ta del. Merilni trak, merjenje preseka in robovi pri orodjih za posnetje in zaokrožitev ujamejo prst z večje razdalje. Miška in pisalo obdržita dosedanji doseg. Na tabličnem računalniku ostane pisalo natančnejša izbira."
+    ],
+    [
+      "Podrobne datoteke SVG se spet uvozijo",
+      "SVG z zelo podrobnim obrisom, na primer sledena risba, se je ustavil z napako »Maximum call stack size exceeded« in se ni naložil. Pri gradnji telesa so bili vsi trikotniki predani v enem klicu, ta pa ima omejitev velikosti, ki jo tisoči točk presežejo. Zdaj se dodajajo posamično in datoteka se uvozi."
+    ],
+    [
+      "Kotni ravnilnik: ni več šopa črt",
+      "Ko kamera lebdi tik nad kotnim ravnilnikom, se je del kraka za kamero narisal zrcaljeno in naredil šop tankih črt čez sliko. Črte, delilne črtice, številke in puščice mer ravnilnika se zdaj odrežejo pri kameri, nariše se samo tisto, kar je pred njo."
+    ]
+  ],
   "1.72.3": [
     [
       "Skica: poljubno vrtenje izbora",
