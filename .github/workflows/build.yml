@@ -18,12 +18,17 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
-      - name: Ustvari izdajo, če še ne obstaja
+      - uses: actions/checkout@v4
+      - name: Ustvari izdajo, če še ne obstaja (opis angleško in slovensko, če je pripravljen)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
-            || gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --verify-tag --title "$GITHUB_REF_NAME" --generate-notes
+          gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 && exit 0
+          if [ -f "release-notes/$GITHUB_REF_NAME.md" ]; then
+            gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --verify-tag --title "$GITHUB_REF_NAME" --notes-file "release-notes/$GITHUB_REF_NAME.md"
+          else
+            gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --verify-tag --title "$GITHUB_REF_NAME" --generate-notes
+          fi
 
   gradnja:
     needs: priprava

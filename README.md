@@ -105,6 +105,8 @@ upstream.json  pripeta različica originalnega programa
 3. `git commit -am "Posodobitev osnove na vX.Y.Z"` → `git push`
 4. `git tag v1.0.1` → `git push origin v1.0.1`. GitHub Actions zgradi Windows in Mac in ju objavi pod *Releases*. Programi, ki jih imate nameščene, jo ob naslednjem preverjanju ponudijo.
 
+**Opis izdaje (angleško, nato slovensko):** pred 3. korakom zaženite `node scripts/release-notes.mjs vX.Y.Z`. Ustvari `release-notes/vX.Y.Z.md` iz novosti originalnega programa in slovenskega prevoda; postopek izdaje ga uporabi kot opis izdaje (brez datoteke se uporabi samodejni opis GitHuba).
+
 **Samodejno:** če je v 3. koraku spremenjena pripeta različica v `upstream.json`, postopek *Samodejna oznaka različice* sam postavi oznako z istim imenom (male črke, npr. `v1.72.3`) in zažene gradnjo ter objavo. Ročna oznaka (4. korak) je potrebna le za izdajo brez nove različice originala; če oznaka že obstaja, se samodejno ne zgodi nič.
 
 Številka različice programa (`v1.0.1`) je **neodvisna** od številke originalnega programa; ta je zapisana v *O programu*.
