@@ -1378,6 +1378,7 @@ export const MESSAGES_DE = {
   "camera.moveMeasurement": "Premakni merilne točke",
   "camera.deleteMeasurement": "Izbriši del meritve",
   "camera.deleteAllMeasurements": "Izbriši vse meritve",
+  "camera.tapeMarkMiddle": "Označi sredino kot referenčno točko",
   "camera.sectionView": "Prerez",
   "camera.sectionViewHint": "Prereži model vzdolž ravnine za pregled notranje geometrije",
   "camera.sectionActive": "Prerez je vklopljen",

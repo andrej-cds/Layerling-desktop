@@ -1,4 +1,14 @@
 {
+  "1.72.1": [
+    [
+      "Referenčna točka na sredini meritve",
+      "Pod številko vsake meritve z merilnim trakom je zdaj majhen gumb s križcem. Postavi referenčno točko na sredino meritve: po kliku na rob okrogle luknje v njeno središče, tudi pri uvoženi mreži. Oblika, ki jo vlečeš, se s sredino zaskoči na točko, zato nova vdolbina sede natanko na obstoječo luknjo, ne da bi vpisoval številke."
+    ],
+    [
+      "Skica: vlečenje za okvir zadene cele vrednosti",
+      "Ko v skici obris povečaš ali pomanjšaš z ročaji njegovega okvirja, se zdaj na mrežo zaskoči sam rob. Prej so izšle krive mere, na primer 24,83, ker ročaj stoji malo ob robu in ta razmik ni ležal na mreži."
+    ]
+  ],
   "1.72.0": [
     [
       "Načrti kar na strežnik",

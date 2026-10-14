@@ -16,6 +16,7 @@ Merilni trak je na spodnjem koncu vrstice kamere ob levem robu ({{ui:camera.tape
 3. **{{ui:camera.deleteMeasurement}}:** Potem klikneš mero, da jo odstraniš.
 4. **{{ui:camera.tapeWholeEdges}}:** Klik na rob izmeri ves rob, na primer obseg kroga. Ko je to stikalo izklopljeno, klik namesto tega postavi točko na rob, druga točka pa je lahko kjer koli, tako da lahko izmeriš premer ali katero koli drugo razdaljo. [[Alt]] stikalo obrne za en klik. Pri krogu se točka čez, nasproti prve, pripne, ko se kazalec približa, točki pa ležita na pravem krogu, zato je premer natančen.
 5. **{{ui:camera.deleteAllMeasurements}}:** Odstrani vse mere naenkrat. Ker se tega ne da razveljaviti, layerling prej vpraša; če mer ni, se nič ne zgodi.
+6. **{{ui:camera.tapeMarkMiddle}}:** Pod številko vsake meritve je majhen gumb s križcem. Na sredino meritve postavi [referenčno točko](#referencne-tocke): po kliku na okrogli rob, na primer rob luknje, v središče tega kroga – tudi pri uvoženi mreži, kjer sicer nič ne označuje sredine luknje –, pri premeru ali kateri koli ravni meritvi pa na sredino poti. Oblika, ki jo potem vlečeš, se s sredino zaskoči na točko. Točke, ki že obstaja, ne naredi dvakrat.
 
 S [[Esc]] zapustiš način merjenja.
 
@@ -69,5 +70,6 @@ Referenčna točka je zgolj oznaka v prostoru, kot svinčnikova črta ali točka
 
 - Povleci točko, da jo premakneš, ali jo klikni, da vidiš njene koordinate in vpišeš nove; veljajo v nastavljeni enoti. Kartico lahko za naslov povlečeš stran, če kaj zakriva, dvoklik na naslov jo vrne nazaj. {{ui:common.delete}} jo odstrani.
 - Ko vlečeš obliko, se njeni robovi in sredina zaskočijo na točko, kot se zaskočijo na druge oblike ({{ui:workspace.objectSnap}}). Tudi kotno ravnilo se zaskoči na točke.
+- Tudi merilni trak lahko označi točko: {{ui:camera.tapeMarkMiddle}}, gumb s križcem pod meritvijo, jo postavi na njeno sredino, na primer v središče okrogle luknje.
 - Točke se shranijo v načrtu, ne pojavijo se v nobenem izvozu in se skupaj z opombami prikažejo ali skrijejo prek {{ui:visibility.notes}}.
 - Umetna inteligenca jih lahko postavi, našteje in odstrani z `layerling_add_reference_points`, `layerling_list_reference_points` in `layerling_remove_reference_points`.
