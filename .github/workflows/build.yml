@@ -12,7 +12,22 @@ permissions:
   contents: write
 
 jobs:
+  priprava:
+    # Izdajo ustvari ta opravilo, preden se začnejo vzporedne gradnje. Brez tega so gradnje za Windows in Mac
+    # včasih hkrati ustvarile vsaka svojo izdajo z isto oznako in so se datoteke razdelile na dve izdaji.
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ustvari izdajo, če še ne obstaja
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --verify-tag --title "$GITHUB_REF_NAME" --generate-notes
+
   gradnja:
+    needs: priprava
+    if: ${{ !cancelled() && (needs.priprava.result == 'success' || needs.priprava.result == 'skipped') }}
     strategy:
       fail-fast: false
       matrix:

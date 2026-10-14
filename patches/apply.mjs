@@ -20,6 +20,13 @@ export const edits = [
     replace: '  ...(process.env.LAYERLING_DESKTOP === "true" && !isStaticExport ? { output: "standalone" as const } : {}),\n  ...(isStaticExport\n    ? {',
   },
   {
+    name: "Preizkusi: daljši čas za posamezen test (počasen strežnik za gradnjo)",
+    file: "tests/vitest.config.ts",
+    marker: "testTimeout",
+    find: '    include: ["tests/unit/**/*.test.ts"],\n',
+    replace: '    include: ["tests/unit/**/*.test.ts"],\n    testTimeout: 30000,\n',
+  },
+  {
     name: "Sličice projektov: mapa v uporabniških podatkih (preživi posodobitev)",
     file: "apps/web/src/app/api/project-thumbnail/route.ts",
     marker: "LAYERLING_THUMBNAIL_DIR",
