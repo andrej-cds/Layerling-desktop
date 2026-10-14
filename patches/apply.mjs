@@ -494,6 +494,14 @@ export const edits = [
     replace: "  \"camera.sectionConfirm\": \"Confirm\",\n  \"camera.sectionBack\": \"Back\",\n  \"camera.sectionMeasureHelp\":",
   },
   {
+    name: "Prerez: nizozemska besedila za gumba Potrdi in Nazaj",
+    stage: "jezik",
+    file: "apps/web/src/lib/messages.nl.ts",
+    marker: "\"camera.sectionConfirm\"",
+    find: "  \"camera.sectionMeasureHelp\":",
+    replace: "  \"camera.sectionConfirm\": \"Bevestigen\",\n  \"camera.sectionBack\": \"Terug\",\n  \"camera.sectionMeasureHelp\":",
+  },
+  {
     name: "Prerez: sredina ravnine po izbiri (uvoz)",
     stage: "jezik",
     file: "apps/web/src/components/WorkplaneViewport.tsx",

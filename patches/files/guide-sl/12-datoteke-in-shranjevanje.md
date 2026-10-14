@@ -56,7 +56,7 @@ Projekcija temelji na risarskem delu programa Cadverix-3D avtorja WC3D.
 
 ### Koliko filamenta to potrebuje?
 
-Pri STL, 3MF, OBJ in STEP polje {{ui:export.estimateTitle}} pokaže prostornino, težo in dolžino filamenta (1,75 mm) tistega, kar se izvaža. Šteje se kot v datoteki: samo vidna telesa, luknje odštete, prekrivanja samo enkrat. Desno izbereš filament – PLA, PETG, ABS, ASA, TPU ali PA (najlon) –, teža sledi njegovi gostoti. Računano je polno, torej kot s 100 % polnila. S stenami in polnilom rezalnik pokaže manj; številka je zgornja meja in dobro služi za primerjavo ter za to, ali kolut še zadošča.
+Pri STL, 3MF, OBJ in STEP polje {{ui:export.estimateTitle}} pokaže prostornino, težo in dolžino filamenta (1,75 mm) tistega, kar se izvaža. Šteje se kot v datoteki: samo vidna telesa, luknje odštete, prekrivanja samo enkrat. Desno izbereš filament – PLA, PETG, ABS, ASA, TPU ali PA (najlon) –, teža sledi njegovi gostoti. Računano je polno, torej kot s 100 % polnila, in polje to pod številkami tudi pove. S stenami in polnilom rezalnik pokaže manj, pri masivnem telesu pogosto precej manj; številka je zgornja meja in dobro služi za primerjavo ter za to, ali kolut še zadošča.
 
 ## Uvoz
 

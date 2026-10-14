@@ -1,4 +1,10 @@
 {
+  "1.71.0": [
+    [
+      "layerling zdaj govori nizozemsko",
+      "Vmesnik in celotna navodila so na voljo v nizozemščini (Nederlands). Jezik se izbere po brskalniku in ga lahko spremeniš na seznamu jezikov. Kdor najde napačno besedo, jo popravi z majhnim pull requestom."
+    ]
+  ],
   "1.70.0": [
     [
       "Urejanje skice ne premika več telesa",
