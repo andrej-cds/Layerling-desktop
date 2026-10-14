@@ -7,7 +7,7 @@ summary: Izbiranje oblik, iskanje v seznamu objektov, poravnava, zrcaljenje, vrt
 
 Klik na obliko jo izbere. S [[Shift]] dodaš še druge ali jih spet odvzameš. Klik v prazno izbor prekliče, prav tako [[Esc]]. Če na prazni delovni ravnini povlečeš okvir, izbereš vse, česar se dotakne; s pridržanim [[Shift]] okvir doda, česar ni bilo izbranega, in odvzame, kar je bilo. [[Ctrl]]+[[A]] pa izbere vsa vidna telesa.
 
-Kar ti je v napoto, skriješ ({{ui:editor.tool.hideSelected}}, [[Ctrl]]+[[H]]). Skrite oblike ostanejo v načrtu, samo niso vidne in ne pridejo v izvoz; okno izvoza vnaprej pove, koliko jih je. S [[Ctrl]]+[[Shift]]+[[H]] vrneš vse nazaj. Kar naj ostane na mestu, zakleneš s ključavnico zgoraj v nastavitvah ali s [[Ctrl]]+[[L]]. Zaklenjenih oblik ni mogoče premikati niti nehote izbrisati.
+Kar ti je v napoto, skriješ ({{ui:editor.tool.hideSelected}}, [[Ctrl]]+[[H]]). Skrite oblike ostanejo v načrtu, samo niso vidne in ne pridejo v izvoz; okno izvoza vnaprej pove, koliko jih je. S [[Ctrl]]+[[Shift]]+[[H]] vrneš vse nazaj. Kar naj ostane na mestu, zakleneš s ključavnico zgoraj v nastavitvah ali s [[Ctrl]]+[[L]]. Zaklenjene oblike ni mogoče premikati, spreminjati velikosti, vrteti, barvati ali izbrisati: njene ročice posivijo, ob puščici zgoraj se pokaže ključavnica, orodja, ki bi jo spremenila, pa so zatemnjena. Ko miško pelješ čez ročico, se mere še vedno pokažejo, tipka, ki bi jo spremenila, pa pove »Objekt zaklenjen«. Dokler je v izboru ena zaklenjena oblika, se tudi pri drugih nič ne spremeni. Skrivanje, preimenovanje, kopiranje in podvajanje še delujejo.
 
 ## Seznam objektov
 
@@ -42,7 +42,7 @@ Obliko lahko povlečeš čez rob plošče in jo pustiš tam, približno za širi
 
 ## Poravnava
 
-Dve ali več izbranih oblik poravnaš med seboj z {{ui:editor.tool.align}}: na robu izbora se pokažejo točke za levo, sredino in desno, spredaj, sredino in zadaj ter zgoraj, sredino in spodaj. Klik na točko premakne vse oblike tja. Če najprej klikneš eno od izbranih oblik, ta ostane na mestu in se druge ravnajo po njej.
+Dve ali več izbranih oblik poravnaš med seboj z {{ui:editor.tool.align}}: na robu izbora se pokažejo točke za levo, sredino in desno, spredaj, sredino in zadaj ter zgoraj, sredino in spodaj. Klik na točko premakne vse oblike tja. Če najprej klikneš eno od izbranih oblik, ta ostane na mestu in se druge ravnajo po njej. Zaklenjena oblika v izboru je sama ta nepremična oblika.
 
 Poševno zavrtena oblika, na primer za 45°, ima za izhodišče okvir okoli sebe, ne svojih lastnih robov. Za poravnavo po robovih najprej postaviš delovno ravnino na ploskev te oblike ({{ui:camera.placeWorkplane}}, nato klik na ploskev): točke potem stojijo na oseh te ravnine, oblike pa se merijo in premikajo vzdolž njih, kot v Tinkercadu. Če delovno ravnino ponastaviš, spet poravnavaš po plošči.
 
@@ -113,7 +113,7 @@ Umetna inteligenca lahko isto naredi prek vmesnika MCP, z `layerling_perforate_f
 
 ## Sprememba več delov naenkrat
 
-Če je izbranih več delov, polje z lastnostmi desno pokaže, koliko jih je, in ponudi, kar velja za vse hkrati: {{ui:inspector.solid}} ali {{ui:inspector.hole}}, barvo za vse (klik na {{ui:inspector.solid}} odpre barve) in ključavnico za zaklep. Če je izbor mešan, klik vse spremeni v telesa ali vse v luknje. Zaklenjeni deli ostanejo, kot so. Mere spreminjaš z ročicami, z {{ui:scalePercent.title}} ali tako, da v oznako mere vpišeš število. Pri več delih je število mera celotnega izbora: vsak del zrase z njim, tudi razmiki med deli, kot ko povlečeš ročico. Telo in luknja gresta tudi z desnim klikom ali s [[S]] in [[H]].
+Če je izbranih več delov, polje z lastnostmi desno pokaže, koliko jih je, in ponudi, kar velja za vse hkrati: {{ui:inspector.solid}} ali {{ui:inspector.hole}}, barvo za vse (klik na {{ui:inspector.solid}} odpre barve) in ključavnico za zaklep. Če je izbor mešan, klik vse spremeni v telesa ali vse v luknje. Če je kateri od delov zaklenjen, je mogoče uporabiti samo ključavnico. Mere spreminjaš z ročicami, z {{ui:scalePercent.title}} ali tako, da v oznako mere vpišeš število. Pri več delih je število mera celotnega izbora: vsak del zrase z njim, tudi razmiki med deli, kot ko povlečeš ročico. Telo in luknja gresta tudi z desnim klikom ali s [[S]] in [[H]].
 
 ## Povečava v odstotkih
 
@@ -126,7 +126,7 @@ Pri več delih izbereš, kako rastejo:
 - **{{ui:scalePercent.mode.together}}:** Deli rastejo okoli skupne sredine, razdalje rastejo z njimi. Celota postane večja, kot da bi bila en del.
 - **{{ui:scalePercent.mode.each}}:** Vsak del raste na svojem mestu, razdalje vmes ostanejo enake.
 
-Šele {{ui:scalePercent.apply}} spremeni načrt, korak nazaj pa ga spet razveljavi. Zaklenjeni deli ostanejo, kot so.
+Šele {{ui:scalePercent.apply}} spremeni načrt, korak nazaj pa ga spet razveljavi. Če je v izboru zaklenjen del, se ne odpre.
 
 ## Razveljavitev
 

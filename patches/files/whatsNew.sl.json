@@ -1,4 +1,10 @@
 {
+  "1.68.1": [
+    [
+      "Zaklenjeni predmeti to pokažejo in ostanejo pri miru",
+      "Zaklenjen predmet kaže sive ročice in ključavnico ob puščici Z; mere še vedno vidiš, ko miško pelješ čez ročico. Orodja in tipke, ki bi ga spremenila, so zatemnjena ali sporočijo »Objekt zaklenjen«, brisati pa ga ni več mogoče. Če je v izboru zaklenjen predmet, se tudi pri drugih nič ne spremeni."
+    ]
+  ],
   "1.68.0": [
     [
       "Arabščina in hebrejščina od desne proti levi",

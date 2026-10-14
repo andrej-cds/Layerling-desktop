@@ -732,6 +732,8 @@ export const MESSAGES_DE = {
   "status.measured": "Izmerjeno: {value} mm",
   "status.preparingEdges": "Priprava robov ({kind}) v delavcu CAD",
   "status.removedFeature": "Odstranjeno: {label}",
+  "status.objectLocked": "Objekt zaklenjen",
+  "status.selectOneSolid": "Izberi eno trdno telo: {kind}",
   "status.selectOneUnlocked": "Izberi eno odklenjeno trdno telo: {kind}",
   "status.validatingFile": "Preverjanje datoteke {name} pred odpiranjem kot nov projekt",
   "status.importCancelled": "Uvoz datotek ({count}) preklican, ker se je projekt spremenil",
