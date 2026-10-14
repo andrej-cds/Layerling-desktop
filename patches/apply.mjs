@@ -525,6 +525,38 @@ export const edits = [
     find: "  const handleToggleShowSectionPlane = useCallback((showPlane: boolean) => {",
     replace: "  // section-izbira: ko ob vklopljenem prerezu izbereš drug objekt, ravnina skoči na njegovo sredino.\n  const sectionSelectionKey = selectedIds.join(\"|\");\n  useEffect(() => {\n    if (!sectionSettingsRef.current.enabled || selectedIdsRef.current.length === 0) return;\n    const bounds = getSectionBounds(shapesRef.current, sectionSettingsRef.current.axis, workspaceRef.current.width, workspaceRef.current.depth);\n    setSectionSettings((prev) => (prev.enabled ? { ...prev, offset: bounds.center } : prev));\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [sectionSelectionKey]);\n\n  const handleToggleShowSectionPlane = useCallback((showPlane: boolean) => {",
   },
+  {
+    name: "Puščica za premik: stalna razdalja nad kocko (konstanta)",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "LIFT_HANDLE_FIXED_OFFSET = 6",
+    find: "const LIFT_HANDLE_HEIGHT_OFFSET_FRACTION = 0.30;",
+    replace: "const LIFT_HANDLE_HEIGHT_OFFSET_FRACTION = 0.30;\n/** lift-stalna-razdalja: razdalja puščice od kocke za višino je stalna (3 x najmanjša prejšnja, 2 mm), ne raste z višino telesa. */\nconst LIFT_HANDLE_FIXED_OFFSET = 6;",
+  },
+  {
+    name: "Puščica za premik: stalna razdalja (vlečenje 1)",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "kind === \"lift\" ? LIFT_HANDLE_FIXED_OFFSET",
+    find: "const liftOffset = kind === \"lift\" ? Math.max(2, lift.height * LIFT_HANDLE_HEIGHT_OFFSET_FRACTION)",
+    replace: "const liftOffset = kind === \"lift\" ? LIFT_HANDLE_FIXED_OFFSET",
+  },
+  {
+    name: "Puščica za premik: stalna razdalja (vlečenje 2)",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "handle.kind === \"lift\" ? LIFT_HANDLE_FIXED_OFFSET",
+    find: "const liftOffset = handle.kind === \"lift\" ? Math.max(2, lift.height * LIFT_HANDLE_HEIGHT_OFFSET_FRACTION)",
+    replace: "const liftOffset = handle.kind === \"lift\" ? LIFT_HANDLE_FIXED_OFFSET",
+  },
+  {
+    name: "Puščica za premik: stalna razdalja (prikaz)",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "const liftOffset = LIFT_HANDLE_FIXED_OFFSET;",
+    find: "const liftOffset = Math.max(2, lift.height * LIFT_HANDLE_HEIGHT_OFFSET_FRACTION);",
+    replace: "const liftOffset = LIFT_HANDLE_FIXED_OFFSET;",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
