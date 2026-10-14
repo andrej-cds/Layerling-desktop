@@ -1,4 +1,22 @@
 {
+  "1.72.0": [
+    [
+      "Načrti kar na strežnik",
+      "Kjer je nastavljena skupna mapa na strežniku, ima začetna stran dva nova elementa: »Vse na strežnik« prestavi vse načrte tega brskalnika naenkrat tja, s kljukico »Novi načrti na strežniku« pa se vsak nov načrt začne kar v mapi na strežniku. Tako se ob zamenjavi naprave ali brisanju podatkov brskalnika nič ne izgubi."
+    ],
+    [
+      "Poravnava pravilno centrira tudi trikotnike in zvezde",
+      "Luknja, ki si jo s »Poravnaj« postavil na sredino trikotnika, petkotnika ali zvezde, je ležala ob sredini oblike, ker je poravnava vzela sredino okvirja okoli oblike. Zdaj šteje prava sredina oblike; robovi levo, desno, spredaj in zadaj ostanejo na okvirju."
+    ],
+    [
+      "Ocena materiala blizu resničnosti",
+      "V oknu za izvoz zdaj nastaviš polnilo (na začetku 15 %) in stene (2). Teža in filament se ocenita iz tega, namesto da bi se del štel kot poln, zato sta običajno blizu temu, kar pokaže rezalnik. Prostornina ostane prostornina telesa, pri 100 % polnila pa polje računa polno kot doslej."
+    ],
+    [
+      "Celotna navodila za tiskanje",
+      "V navodilih je pod seznamom poglavij povezava »Celotna navodila za tiskanje«: vsa poglavja eno za drugim, s kazalom in slikami, vsako poglavje na novi strani. S Ctrl+P jih natisneš ali shraniš kot PDF; če potrebuješ le del, v pogovornem oknu za tiskanje izbereš številke strani."
+    ]
+  ],
   "1.71.0": [
     [
       "layerling zdaj govori nizozemsko",

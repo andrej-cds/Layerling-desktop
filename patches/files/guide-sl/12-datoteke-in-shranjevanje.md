@@ -56,7 +56,7 @@ Projekcija temelji na risarskem delu programa Cadverix-3D avtorja WC3D.
 
 ### Koliko filamenta to potrebuje?
 
-Pri STL, 3MF, OBJ in STEP polje {{ui:export.estimateTitle}} pokaže prostornino, težo in dolžino filamenta (1,75 mm) tistega, kar se izvaža. Šteje se kot v datoteki: samo vidna telesa, luknje odštete, prekrivanja samo enkrat. Desno izbereš filament – PLA, PETG, ABS, ASA, TPU ali PA (najlon) –, teža sledi njegovi gostoti. Računano je polno, torej kot s 100 % polnila, in polje to pod številkami tudi pove. S stenami in polnilom rezalnik pokaže manj, pri masivnem telesu pogosto precej manj; številka je zgornja meja in dobro služi za primerjavo ter za to, ali kolut še zadošča.
+Pri STL, 3MF, OBJ in STEP polje {{ui:export.estimateTitle}} pokaže prostornino, težo in dolžino filamenta (1,75 mm) tistega, kar se izvaža. Šteje se kot v datoteki: samo vidna telesa, luknje odštete, prekrivanja samo enkrat. Desno izbereš filament – PLA, PETG, ABS, ASA, TPU ali PA (najlon) –, teža sledi njegovi gostoti. Prostornina je prostornina samega telesa. Teža in filament sta groba ocena za tisk s stenami in polnilom: pod naslovom nastaviš {{ui:export.estimateInfillLabel}} (na začetku 15 %) in {{ui:export.estimateWallsLabel}} (2), polje pa pove, kaj je štelo in koliko bi tehtal isti del kot poln. Pravo številko določajo nastavitve tvojega rezalnika, zato jo vzemi kot vodilo: dobro je za primerjavo načrtov in za to, ali kolut še zadošča. Pri 100 % polnila polje šteje del kot polnega, kar je zgornja meja.
 
 ## Uvoz
 
@@ -87,6 +87,8 @@ Rezanje, združevanje in preseki z uvoženo mrežo se izračunajo v tvojem brska
 ## Skupni načrti na strežniku
 
 Če layerling teče na lastnem računalniku ali spletnem strežniku, lahko ponudi skupno mapo, v kateri vsi uporabniki odlagajo načrte. Na začetni strani se potem pokaže kot {{ui:dashboard.sharedProjects}}. Tam ustvarjaš mape, načrte premikaš z vlečenjem in iščeš po celotni mapi. Načrt, ki tam leži, se sam shrani nazaj tja. Načrt iz tega brskalnika pride na strežnik tako, da povlečeš njegovo kartico na ploščico strežnika ali z {{ui:dashboard.sendToServer}} v meniju kartice. Varnostna kopija, ki jo odpreš, najprej pristane v tem brskalniku, kot vsak načrt, ki ga odpreš; od tam jih daš na strežnik. Začetna stran prikaže načrt po imenu datoteke, zato preimenovanje načrta, na njegovi kartici ali na vrhu urejevalnika, preimenuje tudi datoteko na strežniku. Brisanje načrta ali mape ju odstrani za vedno, skupaj z delovno kopijo v tem brskalniku. Lastne oblike na strežniku ležijo tam v mapi `Custom shapes`, glej [Oblike](chapter:oblike).
+
+Dve stvari to pospešita: {{ui:dashboard.sendAllToServer}} na začetni strani prestavi vse načrte tega brskalnika na strežnik naenkrat, s kljukico {{ui:dashboard.newOnServer}} pa se vsak nov načrt začne v mapi na strežniku in se tam shranjuje od prve spremembe naprej. Kljukica se ohrani v tem brskalniku. Načrt, ki ne more na strežnik – na primer ker je ime tam že zasedeno –, ostane v brskalniku, sporočilo pa pove, koliko jih je.
 
 To ni hkratno urejanje: kdor odpre datoteko, dela na lastni kopiji. Če je medtem kdo drug datoteko spremenil, layerling prepiše zavrne.
 

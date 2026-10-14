@@ -76,7 +76,7 @@ Umetna inteligenca dela z istimi funkcijami kot ti, teče po isti poti kot tvoje
 | `layerling_layer_icon` | iz simbola SVG (besedilo datoteke ali iztisnjeno telo skice) naredi simbolno oznako v plasteh za večbarvni tisk – simbol, širši robovi, plošča brez lukenj – ali jo zgradi znova z novo širino ali plastmi; s številom napolni ploščo s kopijami |
 | `layerling_measure_section` | meri na ravnini prereza med dvema točkama, ki se zaskočita na obris – debeline sten, reže, prileganja |
 | `layerling_show_overhangs` | vklopi ali izklopi šrafuro previsov, nastavi kot in za vsako telo navede ploskev, ki bi potrebovala podpore |
-| `layerling_estimate_print` | oceni prostornino, težo in filament za izbor ali celoten načrt, računano polno kot v oknu za izvoz |
+| `layerling_estimate_print` | oceni prostornino, težo in filament za izbor ali celoten načrt: za polno telo in kot grobo oceno s stenami in polnilom kot v oknu za izvoz |
 | `layerling_add_reference_points` | postavi referenčne točke - na sredine, vogale ali sredine robov objektov ali na natančna mesta -, na katere se oblike zaskočijo |
 | `layerling_list_reference_points` | našteje referenčne točke z oznako in lego |
 | `layerling_remove_reference_points` | izbriše referenčne točke po oznaki ali vse |
