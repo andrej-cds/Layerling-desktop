@@ -493,6 +493,38 @@ export const edits = [
     find: "  \"camera.sectionMeasureHelp\":",
     replace: "  \"camera.sectionConfirm\": \"Confirm\",\n  \"camera.sectionBack\": \"Back\",\n  \"camera.sectionMeasureHelp\":",
   },
+  {
+    name: "Prerez: sredina ravnine po izbiri (uvoz)",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "getSectionBounds as getSectionBoundsAll",
+    find: "DEFAULT_SECTION_SETTINGS, getSectionBounds, SECTION_AXES_SHOWN,",
+    replace: "DEFAULT_SECTION_SETTINGS, getSectionBounds as getSectionBoundsAll, SECTION_AXES_SHOWN,",
+  },
+  {
+    name: "Prerez: sredina ravnine po izbiri (funkcija)",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "sectionSelectionIds",
+    find: "/** The parts of a measurement that lie in the cutting plane, named like the position fields. */",
+    replace: "// section-izbira: doseg drsnika ostane cel načrt, sredina pa je sredina izbranih objektov (če je kaj izbrano), da ravnina prereže tistega, ki ga izbereš.\nlet sectionSelectionIds: readonly string[] = [];\nfunction getSectionBounds(shapes: WorkplaneShape[], axis: SectionPlaneAxis, workspaceWidth?: number, workspaceDepth?: number) {\n  const all = getSectionBoundsAll(shapes, axis, workspaceWidth, workspaceDepth);\n  if (sectionSelectionIds.length === 0) return all;\n  const picked = shapes.filter((shape) => sectionSelectionIds.includes(shape.id) && !shape.hidden);\n  if (picked.length === 0) return all;\n  return { ...all, center: getSectionBoundsAll(picked, axis, workspaceWidth, workspaceDepth).center };\n}\n\n/** The parts of a measurement that lie in the cutting plane, named like the position fields. */",
+  },
+  {
+    name: "Prerez: izbira v zadnji izbiri za sredino",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "sectionSelectionIds = selectedIds",
+    find: "  sectionMeasureModeRef.current = sectionMeasureMode;\n",
+    replace: "  sectionMeasureModeRef.current = sectionMeasureMode;\n  sectionSelectionIds = selectedIds; // section-izbira\n",
+  },
+  {
+    name: "Prerez: ravnina skoči na izbrani objekt",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "sectionSelectionKey",
+    find: "  const handleToggleShowSectionPlane = useCallback((showPlane: boolean) => {",
+    replace: "  // section-izbira: ko ob vklopljenem prerezu izbereš drug objekt, ravnina skoči na njegovo sredino.\n  const sectionSelectionKey = selectedIds.join(\"|\");\n  useEffect(() => {\n    if (!sectionSettingsRef.current.enabled || selectedIdsRef.current.length === 0) return;\n    const bounds = getSectionBounds(shapesRef.current, sectionSettingsRef.current.axis, workspaceRef.current.width, workspaceRef.current.depth);\n    setSectionSettings((prev) => (prev.enabled ? { ...prev, offset: bounds.center } : prev));\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [sectionSelectionKey]);\n\n  const handleToggleShowSectionPlane = useCallback((showPlane: boolean) => {",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
