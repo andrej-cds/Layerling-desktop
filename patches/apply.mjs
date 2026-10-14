@@ -453,6 +453,46 @@ export const edits = [
     find: "\"https://layerling.com/support.html\"",
     replace: "\"/podpri/index.html\"",
   },
+  {
+    name: "Prerez: uvoz ikon Potrdi in Nazaj",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "Check, ChevronLeft",
+    find: "import { ArrowDownToLine, ChevronLeft,",
+    replace: "import { ArrowDownToLine, Check, ChevronLeft,",
+  },
+  {
+    name: "Prerez: uvoz ikone Nazaj",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "Trash2, Undo2, X }",
+    find: "Trash2, X } from \"lucide-react\";",
+    replace: "Trash2, Undo2, X } from \"lucide-react\";",
+  },
+  {
+    name: "Prerez: gumb Potrdi (Enter) ob Izmeri, za zaslon na dotik",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "section-confirm-btn",
+    find: "                            <span className=\"section-measure-help\">{t(\"camera.sectionMeasureHelp\")}</span>\n                          )\n                        ) : null}\n                      </div>",
+    replace: "                            <span className=\"section-measure-help\">{t(\"camera.sectionMeasureHelp\")}</span>\n                          )\n                        ) : null}\n                        {/* section-confirm-btn: na zaslonu na dotik ni tipke Enter; gumb potrdi položaj, konča merjenje in zapre ploščo (prerez ostane). */}\n                        <button\n                          type=\"button\"\n                          className=\"section-action-btn section-confirm-btn\"\n                          style={{ marginLeft: \"auto\", height: 36, minHeight: 36, color: \"#fff\", background: \"#c86a12\", borderColor: \"#b05c0e\", fontWeight: 700 }}\n                          onClick={() => {\n                            setSectionMeasureMode(false);\n                            setSectionViewOpen(false);\n                          }}\n                          title={`${t(\"camera.sectionConfirm\")} (Enter)`}\n                          aria-label={t(\"camera.sectionConfirm\")}\n                        >\n                          <Check size={16} strokeWidth={2.6} aria-hidden=\"true\" />\n                          <span>{t(\"camera.sectionConfirm\")}</span>\n                        </button>\n                      </div>",
+  },
+  {
+    name: "Prerez: gumb Nazaj (Esc) ob Delovna ravnina tukaj, za zaslon na dotik",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "section-back-btn",
+    find: "                          <span>{t(\"camera.sectionWorkplane\")}</span>\n                        </button>\n                      </div>",
+    replace: "                          <span>{t(\"camera.sectionWorkplane\")}</span>\n                        </button>\n                        {/* section-back-btn: na zaslonu na dotik ni tipke Esc; gumb dela kot Esc (najprej konča merjenje, nato zapre ploščo). */}\n                        <button\n                          type=\"button\"\n                          className=\"section-action-btn section-back-btn\"\n                          style={{ marginLeft: \"auto\", height: 36, minHeight: 36, fontWeight: 700 }}\n                          onClick={() => {\n                            if (sectionMeasureModeRef.current) setSectionMeasureMode(false);\n                            else setSectionViewOpen(false);\n                          }}\n                          title={`${t(\"camera.sectionBack\")} (Esc)`}\n                          aria-label={t(\"camera.sectionBack\")}\n                        >\n                          <Undo2 size={16} strokeWidth={2.4} aria-hidden=\"true\" />\n                          <span>{t(\"camera.sectionBack\")}</span>\n                        </button>\n                      </div>",
+  },
+  {
+    name: "Prerez: angleška besedila za gumba Potrdi in Nazaj",
+    stage: "jezik",
+    file: "apps/web/src/lib/messages.en.ts",
+    marker: "\"camera.sectionConfirm\"",
+    find: "  \"camera.sectionMeasureHelp\":",
+    replace: "  \"camera.sectionConfirm\": \"Confirm\",\n  \"camera.sectionBack\": \"Back\",\n  \"camera.sectionMeasureHelp\":",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */

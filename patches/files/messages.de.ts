@@ -1379,6 +1379,8 @@ export const MESSAGES_DE = {
   "camera.sectionFineHint": "Fini drsnik: ±{span} okoli grobega položaja",
   "camera.sectionMeasure": "Izmeri",
   "camera.sectionMeasureHint": "Izmeri debelino sten, reže in zračnosti kar na rezu",
+  "camera.sectionConfirm": "Potrdi",
+  "camera.sectionBack": "Nazaj",
   "camera.sectionMeasureHelp": "Klikni dve točki na konturi. Druga se pripne pravokotno na svojo steno.",
   "camera.sectionShowPlane": "Prikaži rezalno ravnino",
   "panel.moveHint": "Povleci za premik; dvoklik ali spust na prejšnje mesto ga vrne nazaj",
