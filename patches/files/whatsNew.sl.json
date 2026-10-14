@@ -1,4 +1,26 @@
 {
+  "1.69.0": [
+    [
+      "Profil navoja po tvoji meri",
+      "Pri »Profilu« navoja je zdaj »Lasten (trapez)«: kot bočnice, globino navoja in premer jedra nastaviš sam. Pri 90° ali manj nobena bočnica ni položnejša od 45°, zato se navoj natisne brez podpor. Globina in premer jedra sta ena mera, povedana na dva načina."
+    ],
+    [
+      "Blok z žepom je mogoče izdolbiti",
+      "Blok z luknjo, ki ne gre skozi do konca, se z odprtim vrhom ni dal izdolbiti. Zdaj gre, tudi z odprtim dnom, z obema koncema odprtima in z luknjo skozi vse."
+    ],
+    [
+      "Besedilo iz LightBurna pride celotno",
+      "SVG z besedilom iz LightBurna je pri uvozu izgubil polovico črk. Točke na ravnih robovih zdaj ne motijo več. Črko, katere obris teče sam ob sebi, je treba v risalnem programu še vedno združiti."
+    ],
+    [
+      "200 tiskalnikov, po abecedi",
+      "Dodanih je deset tiskalnikov (Creality, Elegoo, Anycubic, Sovol, Flashforge), seznam v nastavitvah delovnega prostora pa je urejen po abecedi, števila pa se štejejo kot števila."
+    ],
+    [
+      "Drsniki se pripenjajo na mrežo, zoom ob robu ne skače več",
+      "Drsnik za dolžino, na primer višino, se pri vlečenju z miško pripne na mrežo za pripenjanje, tako da izidejo celi milimetri. Kolesce miške pa blizu zgornjega roba pogleda spet približa, namesto da bi daleč skočilo ven."
+    ]
+  ],
   "1.68.1": [
     [
       "Zaklenjeni predmeti to pokažejo in ostanejo pri miru",
