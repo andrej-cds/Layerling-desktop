@@ -6,9 +6,13 @@
 // Uporaba: node patches/apply.mjs <pot do mape z originalno kodo>
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
+
+// Neobvezna lokalna razširitev (patches/local/apply-local.mjs). Če je ni, se ne zgodi nič.
+const localFile = join(here, "local", "apply-local.mjs");
+const local = existsSync(localFile) ? await import(pathToFileURL(localFile).href) : null;
 
 /** Vsak popravek: v `file` zamenja natanko eno pojavitev `find` z `replace`. `marker` pove, da je že uporabljen. */
 export const edits = [
@@ -587,6 +591,8 @@ export const additions = [
 ];
 
 /** `stage`: "osnova" (namizni most, brez jezika), "jezik" (slovenščina) ali neopredeljeno = vse. Testi originalnega programa tečejo po fazi "osnova". */
+if (local?.extendPatches) local.extendPatches({ edits, additions });
+
 export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
   const root = resolve(upstreamDir);
   const projectRoot = resolve(here, "..");
@@ -671,6 +677,7 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
       log("  navodila: slovenska poglavja");
     } else problems.push("docs/guide: mape ni več");
   }
+  if (local?.applyExtra) local.applyExtra({ root, projectRoot, wanted, log, problems });
   if (problems.length) {
     const error = new Error(`Popravkov ni bilo mogoče uporabiti:\n - ${problems.join("\n - ")}`);
     error.problems = problems;
