@@ -1,0 +1,38 @@
+name: Samodejna oznaka različice
+
+# Ko se v upstream.json spremeni pripeta različica originalnega programa (npr. v1.72.3), se samodejno postavi
+# oznaka z istim imenom (male črke) in požene gradnja ter objava izdaje (Gradnja in izdaja).
+# Če oznaka že obstaja, se ne zgodi nič. Izdajo lahko še vedno objavite ročno z oznako, kot doslej.
+on:
+  push:
+    branches: [main]
+    paths: ["upstream.json"]
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  oznaka:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Postavi oznako in zaženi gradnjo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ref="$(node -p "require('./upstream.json').ref")"
+          tag="$(echo "$ref" | tr 'A-Z' 'a-z')"
+          case "$tag" in
+            v[0-9]*.[0-9]*.[0-9]*) ;;
+            *) echo "Pripeta različica '$ref' ni v obliki vX.Y.Z - oznaka se ne postavi."; exit 0 ;;
+          esac
+          if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1; then
+            echo "Oznaka $tag že obstaja - nič ni treba storiti."
+            exit 0
+          fi
+          git tag "$tag"
+          git push origin "$tag"
+          # Oznaka, ki jo postavi ta opravilo, sama ne zažene gradnje, zato jo zaženemo izrecno na oznaki.
+          gh workflow run build.yml --ref "$tag"
+          echo "Postavljena oznaka $tag, gradnja zagnana."
