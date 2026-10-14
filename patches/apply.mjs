@@ -172,6 +172,14 @@ export const edits = [
     replace: "        // touch-primary-reset: prvi prst novega dotika vedno začne s čistim stanjem (če je kak konec dotika izostal, kamera ne ostane zaklenjena).\n        if (event.isPrimary) {\n          touchPointersRef.current.clear();\n          cameraTouchRef.current = false;\n        }\n        touchPointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });\n        if (cameraTouchRef.current) return;",
   },
   {
+    name: "Izbira: dotik na drugo telo ga doda izbiri",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "touch-dodaj-izbiri",
+    find: "      const id = pickShape(event.clientX, event.clientY, event.pointerType);\n      const additive = event.shiftKey;",
+    replace: "      const id = pickShape(event.clientX, event.clientY, event.pointerType);\n      // touch-dodaj-izbiri: na zaslonu na dotik ni Shifta; ko je že kaj označeno, dotik na drugo telo doda izbiri (dotik na označeno telo brez premika ga odvzame).\n      const additive = event.shiftKey || (event.pointerType === \"touch\" && Boolean(id) && selectedIdsRef.current.length > 0);",
+  },
+  {
     name: "Pisave: uvoz nalagalnika lastnih pisav",
     stage: "jezik",
     file: "apps/web/src/lib/textFonts.ts",
