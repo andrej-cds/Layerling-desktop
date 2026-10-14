@@ -164,6 +164,14 @@ export const edits = [
     replace: "        marquee.hasMoved = marquee.hasMoved || Math.hypot(marquee.currentX - marquee.startX, marquee.currentY - marquee.startY) > 5;\n        // touch-orbit-samodejno: en prst, ki se z praznega prostora premakne, vrti pogled (izbirni okvir je za miško).\n        // Prst na telesu ali ročaju dela po starem, zato stikalo za vrtenje ni več potrebno.\n        if (marquee.hasMoved && event.pointerType === \"touch\" && !marquee.additive) {\n          if (event.currentTarget.hasPointerCapture(marquee.pointerId)) event.currentTarget.releasePointerCapture(marquee.pointerId);\n          cancelGestureForCamera();\n          cameraTouchRef.current = true;\n          handOverTouchToCamera();\n          return;\n        }\n        setMarqueeFromState(marquee);\n        return;",
   },
   {
+    name: "Pogled: prvi prst novega dotika ponastavi stanje kamere",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "touch-primary-reset",
+    find: "        touchPointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });\n        if (cameraTouchRef.current) return;",
+    replace: "        // touch-primary-reset: prvi prst novega dotika vedno začne s čistim stanjem (če je kak konec dotika izostal, kamera ne ostane zaklenjena).\n        if (event.isPrimary) {\n          touchPointersRef.current.clear();\n          cameraTouchRef.current = false;\n        }\n        touchPointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });\n        if (cameraTouchRef.current) return;",
+  },
+  {
     name: "Pisave: uvoz nalagalnika lastnih pisav",
     stage: "jezik",
     file: "apps/web/src/lib/textFonts.ts",
