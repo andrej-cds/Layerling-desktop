@@ -137,6 +137,8 @@ Luknja, ki leži vodoravno v delu, dobi pri tiskanju zgoraj most, ta pa se poves
 
 Kapljično izvrtino naredi za luknjo in jo združi v skupino z delom. Z dolžino leži v smeri globine, konica kaže navzgor. Za luknjo v drugi smeri jo zavrtiš za 90° okoli navpične osi.
 
+**Navojna luknja** na boku se zgoraj povesi na enak način. Daj ji lastno kapljico: dodaj luknjo {{ui:shape.teardrop}}, katere {{ui:prop.teardropDiameter}} je jedro navoja, premer, ki ga zobci pustijo prostega (za M10 približno 8,4 mm), z enako dolžino kot navojna luknja, in izberi obe. Klikni {{ui:editor.tool.align}} in ju poravnaj po sredini – sredina kapljice je sredina njenega okroglega dela, ne njenega okvirja s konico, zato se krožnici prekrivata – ter obe skupaj z delom združi v skupino. Navoj se izreže kot običajno, konica pa odpre vrh luknje, zato se natisne brez podpor.
+
 ## Stopničasta in udirna izvrtina
 
 Glava vijaka pogosto ne sme štrleti. {{ui:shape.counterbore}} za to izreže okroglo žep za valjasto glavo (DIN 912), {{ui:shape.countersink}} stožec za vijak z udirno glavo (DIN 7991). Obe stojita z glavo navzgor: {{ui:prop.screwHoleHead}} je premer žepa ali stožca, {{ui:prop.screwHoleShaft}} izvrtina pod njim, {{ui:prop.screwHoleLength}} celotna dolžina. Pri stopničasti izvrtini nastaviš {{ui:prop.screwHoleHeadDepth}}, pri udirni {{ui:prop.screwHoleAngle}} (90° ustreza vijakom z udirno glavo). Privzete vrednosti ustrezajo vijaku M3.

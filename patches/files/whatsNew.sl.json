@@ -1,4 +1,22 @@
 {
+  "1.72.2": [
+    [
+      "Navojna luknja na boku brez podpor",
+      "Pri poravnavi je sredina kapljične izvrtine zdaj sredina njenega okroglega dela, ne njenega okvirja s konico. Kapljica s premerom jedra navoja tako leži natanko na navojni luknji: skupaj dasta navoj, ki ima zgoraj konico in se natisne brez podpor. Navodila v poglavju o navojih opisujejo korake."
+    ],
+    [
+      "Od valja do elipse",
+      "Valj je namenoma okrogel, z enim premerom. Kdor pozneje vendarle želi oval, pri valju klikne »Spremeni v elipso«: oblika postane elipsa, isto telo, katere dolžino in širino nastaviš vsako posebej. Pri valju s posnetjem, zaokrožitvijo ali steno to ne gre, ker bi izgubil svoje točno telo."
+    ],
+    [
+      "Alt+Enter: velikost okoli sredine",
+      "Če vpišeš mero v eno od številk ob obliki, oblika raste od nasprotnega roba. Z Alt+Enter namesto Enter zdaj raste okoli svoje sredine, za širino in dolžino. Tako oblika, ki je bila poravnana z drugo, ostane poravnana, tudi če poskusiš večkrat."
+    ],
+    [
+      "Povečava v prazno in drsniki v Firefoxu",
+      "Če pri približevanju kazalec zdrsne mimo plošče na ozadje, kamera ne obtiči več pri najbližji razdalji, ampak gre naprej. V Firefoxu pa drsnik dolžine ob spustu ne skoči več na krivo vrednost, ampak ostane na mreži."
+    ]
+  ],
   "1.72.1": [
     [
       "Referenčna točka na sredini meritve",
