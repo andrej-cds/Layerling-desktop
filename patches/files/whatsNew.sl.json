@@ -1,4 +1,18 @@
 {
+  "1.72.3": [
+    [
+      "Skica: poljubno vrtenje izbora",
+      "Nad okvirjem okoli izbora v skici je zdaj okrogel ročaj. Povlečeš ga in vse izbrano se zavrti okoli svoje sredine, nad ročajem pa je izpisana vrednost zasuka; s tipko Shift skače po 15°. To velja tudi za posamezne črte, krivulje in več obrisov skupaj. R še vedno zavrti sklenjen obris za 45°."
+    ],
+    [
+      "Povečava v prazno ne nagiba več pogleda",
+      "Od zadnje različice kamera pri približevanju na ozadje drsi naprej. Blizu zadnjega roba plošče je pri tem nenadoma gledala strmo navzdol. Smer pogleda zdaj ostane taka, kot je bila."
+    ],
+    [
+      "Referenčne točke: izbriši vse, kartice posebej",
+      "Kartica referenčne točke in meni z desnim klikom zdaj imata »Izbriši vse«, ki odstrani vse točke naenkrat. Kartice lahko povlečeš stran ena za drugo namesto vseh skupaj, kartica, ki si se je nazadnje dotaknil, pa stoji spredaj, tako da nobena ne izgine za drugo. Poleg tega oblike, ki je že ovita okoli valja, ni mogoče ovijati še drugič."
+    ]
+  ],
   "1.72.2": [
     [
       "Navojna luknja na boku brez podpor",
