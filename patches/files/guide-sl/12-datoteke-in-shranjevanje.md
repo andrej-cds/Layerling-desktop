@@ -23,7 +23,7 @@ Posamezen načrt shraniš v urejevalniku: {{ui:editor.export}}, nato izberi obli
 
 Klikni {{ui:editor.export}} ali pritisni [[Ctrl]]+[[E]].
 
-![Okno za izvoz z oblikami STL, 3MF, OBJ, STEP, SVG, PNG in LYL.](shot:export-panel)
+![Okno za izvoz z oblikami STL, 3MF, OBJ, STEP, SVG, PNG, LYL in 2D.](shot:export-panel)
 
 Zgoraj je ime datoteke, pod njim izbereš obliko. Če je kaj označeno, se izvozi samo izbor, sicer celoten načrt. Če izbor izpusti vidne dele, to jasno pove opomba v oknu, {{ui:export.selectAll}} pa z enim klikom označi vse vidno. Ko je datoteka zapisana, se okno samo zapre; če izvoz ne uspe, ostane odprto s sporočilom.
 
@@ -36,12 +36,23 @@ Zgoraj je ime datoteke, pod njim izbereš obliko. Če je kaj označeno, se izvoz
 | **SVG** | Laserski rezalniki in ploterji | Čist tloris v milimetrih, z luknjami in ukrivljenimi obrisi. |
 | **PNG** | Prispevki na forumih, tiskarski portali, povpraševanja | Slika pogleda, kakršen je ravno zdaj, v dvojni ločljivosti in brez ročic, okvirja izbora in mer. {{ui:export.png.plate}} in {{ui:export.png.transparent}} izbereš v oknu. Prej zavrti in zumiraj, dokler izrez ne ustreza; izbor tu ne igra vloge. |
 | **LYL** | layerling sam | Urejljiv načrt z vsem, kar spada zraven. |
+| **2D** | delavnica, stružnica in rezkalnik, dokumentacija | Risba v merilu 1:1 kot PDF ali SVG: pogled od spredaj, od zgoraj in z desne na listu ISO. Glej spodaj. |
 
 **STL v lastno mapo (Chrome in Edge).** Tam prvi izvoz STL načrta odpre sistemsko okno za shranjevanje, tako da mapo in ime izbereš sam in lahko nadomestiš obstoječo datoteko. Potem vsak izvoz STL tega načrta zapiše v isto datoteko brez okna; okno za izvoz pokaže, katera je, **Shrani kot …** ob gumbu za izvoz pa izbere drugo. Okno si zapomni svojo mapo, ločeno od tiste za načrte, zato lahko datoteke za rezalnik ostanejo pri rezalniku. Po ponovnem nalaganju strani načrt pozabi svojo datoteko STL in naslednji izvoz spet vpraša. Firefox in Safari datoteko prenesejo kot prej.
 
 Luknjo, ki je nisi združil v skupino, izvoz odšteje od vsakega telesa, ki se je dotika, tako kot kaže pogled. Pred vsakim izvozom torej ni treba združevati. Pri izboru štejejo samo izbrane luknje. Samo za sebe luknje ni mogoče izvoziti; na to te opozori layerling.
 
 STEP vsebuje samo natančna telesa CAD. Kar ni mogoče natančno prikazati, na primer mreža, uvožena kot STL, ostane zunaj. Sporočilo po izvozu ta telesa imenuje po imenu in pove, zakaj. Za tiskalnik potem vzameš STL ali 3MF, ki prenesta vse.
+
+### Risba za delavnico
+
+Izberi obliko **2D** (ko miško zadržiš nad njo, piše Risba) in pod imenom datoteke PDF ali SVG. Če je kaj izbrano, se nariše samo izbor, sicer pa ves viden načrt; luknje, ki jih nisi združil v skupino, še vedno izrežejo dele, ki jih zadenejo.
+
+layerling nariše pogled od spredaj, od zgoraj in z desne v prvem kotu projekcije (desni pogled levo od sprednjega, zgornji pod njim) na najmanjšem listu ISO, ki zadošča, od A4 do A0, ali na večjem, če ga del potrebuje. Merilo je vedno 1:1. Vsak pogled ima svojo skupno širino in višino, robovi, ki jih ne vidiš, pa so črtkani. Okrogle izvrtine, ki tečejo vzporedno s smerjo pogleda, dobijo središčni križ in oznako (F1, T1, R1), tabela spodaj pa našteje njihov premer in položaj, merjen od spodnjega levega kota pogleda. Naslovni blok v spodnjem desnem kotu vsebuje ime, merilo, enote, datum in številko lista. Besede na listu sledijo jeziku vmesnika.
+
+Natisni pri 100 % ali »dejanski velikosti«, sicer dolžine ne bodo ustrezale. Risba ne naredi tega: navoji, globine, tolerance in poševne izvrtine niso kotirani, mere pa izhajajo iz modela kot mreže, zato so nazivne. Zelo podroben del (nad 100.000 trikotnikov) ali več kot 200 izvrtin se zavrne s sporočilom; takrat izberi manj predmetov.
+
+Projekcija temelji na risarskem delu programa Cadverix-3D avtorja WC3D.
 
 ### Koliko filamenta to potrebuje?
 

@@ -33,7 +33,7 @@ Jezik nastaviš zgoraj desno, slovenščina ali angleščina. Barvna shema ob nj
 layerling je prosta programska oprema (AGPL-3.0) in ga lahko upravljaš na lastnem računalniku ali strežniku, na primer v delavnici, društvu ali šoli. Za to je več poti, opisanih v [README na GitHubu](https://github.com/henmedia/layerling/blob/main/README.de.md#loslegen):
 
 - **Hitri začetek v Windowsih:** Ena sama vrstica v PowerShellu vse namesti in ustvari bližnjico na namizju. Če layerling že teče, nov dvoklik ne zažene drugega strežnika, ampak samo odpre stran.
-- **Docker:** Za naprave NAS in domače strežnike, ne da bi moral biti nameščen Node.js. Vsaka izdaja obstaja kot gotova slika `ghcr.io/henmedia/layerling` za amd64 in arm64; `docker run -d -p 3000:3000 ghcr.io/henmedia/layerling:latest` jo zažene, na NAS sliko vpišeš v upravljanje vsebnikov.
+- **Docker:** Za naprave NAS in domače strežnike, ne da bi moral biti nameščen Node.js. Vsaka izdaja obstaja kot gotova slika `henmedia/layerling` na Docker Hubu (tudi `ghcr.io/henmedia/layerling`) za amd64 in arm64; `docker run -d -p 3000:3000 henmedia/layerling:latest` jo zažene, na NAS jo poiščeš v registru upravljanja vsebnikov.
 - **Statični izvoz:** Rezultat sestoji iz samih datotek, ki jih lahko dostavi vsak spletni strežnik. Sodijo na koren naslova (`https://layerling.example.com/` ali `http://192.168.0.5:8080/`), ne v podmapo in ne odprte z diska; koraki so v README. Z zapisljivo mapo `store` ob `index.html` in PHP na strežniku iz tega nastane tudi skupno odlagališče za načrte.
 
 Most MCP za pomočnike z umetno inteligenco obstaja samo pri razvojnem strežniku, glej [Gradnja z umetno inteligenco](chapter:ai-z-mcp).

@@ -1,4 +1,22 @@
 {
+  "1.70.0": [
+    [
+      "Urejanje skice ne premika več telesa",
+      "Kdor je odprl skico, povlekel točko ali ročaj krivulje navzven in zaključil, je videl, da je telo zdrsnilo vstran, ob naslednjem odpiranju pa je skica ležala poleg. Zdaj vse, česar nisi prijel, ostane na mestu, skica pa leži natanko nad telesom, tudi pri krivuljah."
+    ],
+    [
+      "Risba za delavnico",
+      "Izvoz → 2D naredi iz načrta risbo v merilu 1:1: pogled od spredaj, od zgoraj in s strani na listu ISO, s skupnimi merami, skritimi robovi in tabelo okroglih izvrtin, kot PDF ali SVG. Za tisk ali za stružnico in rezkalnik."
+    ],
+    [
+      "Merilni trak izmeri tudi premer",
+      "V meniju merilnega traku je stikalo »Meri cele robove«. Ko je izklopljeno, klik na okrogel rob, na primer izvrtino, postavi točko nanj, nasprotna točka pa se pripne: premer izide natančen. Z Alt stikalo obrneš za en klik."
+    ],
+    [
+      "21 tiskalnikov več, skupaj 221",
+      "Novi na seznamu tiskalnikov so Goofoo in veliki stroji, kot je Elegoo OrangeStorm Giga, poleg njih RatRig, Volumic, Wanhao, Vivedino in Tronxy, vsak s tiskalno ploščo in višino iz OrcaSlicerja."
+    ]
+  ],
   "1.69.0": [
     [
       "Profil navoja po tvoji meri",

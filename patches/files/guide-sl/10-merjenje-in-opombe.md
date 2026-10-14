@@ -7,14 +7,15 @@ Kdor želi del zgraditi natančno, mora znati meriti. layerling ima za to več o
 
 ## Merilni trak
 
-Merilni trak je na spodnjem koncu vrstice kamere ob levem robu ({{ui:camera.tapeTools}}). Meri razdalje med vogali, robovi in ploskvami. Klik nanj odpre štiri gumbe. Če zakrivajo tisto, kar želiš izmeriti, jih za ročaj levo prosto povlečeš po delovni površini; dvoklik na ročaj jih vrne nazaj:
+Merilni trak je na spodnjem koncu vrstice kamere ob levem robu ({{ui:camera.tapeTools}}). Meri razdalje med vogali, robovi in ploskvami. Klik nanj odpre pet gumbov. Če zakrivajo tisto, kar želiš izmeriti, jih za ročaj levo prosto povlečeš po delovni površini; dvoklik na ročaj jih vrne nazaj:
 
-![Merilni trak s štirimi gumbi: Dodaj mero, Premakni merilne točke, Odstrani mero, Odstrani vse mere.](shot:tape-menu)
+![Merilni trak z gumbi: Dodaj mero, Premakni merilne točke, Odstrani mero, Cele robove, Odstrani vse mere.](shot:tape-menu)
 
 1. **{{ui:camera.addMeasurement}}:** Klikni točko, povleci do naslednje in jo klikni. Razdalja se označi.
 2. **{{ui:camera.moveMeasurement}}:** Primi točke in jih premakni, številka sledi.
 3. **{{ui:camera.deleteMeasurement}}:** Potem klikneš mero, da jo odstraniš.
-4. **{{ui:camera.deleteAllMeasurements}}:** Odstrani vse mere naenkrat. Ker se tega ne da razveljaviti, layerling prej vpraša; če mer ni, se nič ne zgodi.
+4. **{{ui:camera.tapeWholeEdges}}:** Klik na rob izmeri ves rob, na primer obseg kroga. Ko je to stikalo izklopljeno, klik namesto tega postavi točko na rob, druga točka pa je lahko kjer koli, tako da lahko izmeriš premer ali katero koli drugo razdaljo. [[Alt]] stikalo obrne za en klik. Pri krogu se točka čez, nasproti prve, pripne, ko se kazalec približa, točki pa ležita na pravem krogu, zato je premer natančen.
+5. **{{ui:camera.deleteAllMeasurements}}:** Odstrani vse mere naenkrat. Ker se tega ne da razveljaviti, layerling prej vpraša; če mer ni, se nič ne zgodi.
 
 S [[Esc]] zapustiš način merjenja.
 
