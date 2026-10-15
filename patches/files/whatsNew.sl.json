@@ -1,4 +1,22 @@
 {
+  "1.77.0": [
+    [
+      "Madžarščina kot jezik",
+      "layerling zdaj govori madžarsko (Magyar): ves vmesnik in 16 poglavij navodil. Jezik se izbere samodejno za brskalnik, nastavljen na madžarščino, spremeniš pa ga lahko na seznamu jezikov. Prevedel ga je pomočnik z umetno inteligenco; napačne besede se popravijo z majhnim pull requestom na GitHubu."
+    ],
+    [
+      "Miškino kolesce povečuje povsod enako",
+      "Zarez miškinega kolesca je v Safariju na Macu z navadno miško povečal le okoli osmino toliko kot v Chromu na Windowsih, tudi pri hitrosti približevanja 10. Zdaj en majhen korak šteje kot cel zarez. Sledilna ploščica, gladko kolesce in stisk na sledilni ploščici ostanejo, kot so bili."
+    ],
+    [
+      "Raztegni črke na okvir",
+      "Raven tekst je obdržal razmerja črk in ostal na sredini okvirja, tudi ko si okvir razširil ali poglobil. Novo stikalo »Raztegni črke na okvir« v nastavitvah besedila zapolni ves okvir v obeh smereh: veliko črko je mogoče narediti nižjo ali ožjo, kot v Tinkercadu. Obrisi za orodje za robove in načini polnila sledijo."
+    ],
+    [
+      "Cev in obroč z notranjim premerom",
+      "Cev in obroč sta imela samo debelino stene. Zdaj je ob njej še notranji premer: vpiši velikost gredi in stena sledi iz širine, kar je priročno za puš. Najprej nastavi širino; če jo pozneje spremeniš, stena ostane, notranji premer pa se spremeni z njo."
+    ]
+  ],
   "1.76.1": [
     [
       "Datoteke OBJ z barvnim prehodom se odprejo",
