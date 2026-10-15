@@ -1,4 +1,26 @@
 {
+  "1.76.0": [
+    [
+      "Presek s predogledom",
+      "Ob Boolovem preseku je nov gumb »Pokaži skupni del«: izbrane oblike naredi prosojne in v zeleni barvi nariše, kar imajo skupnega. Vsako obliko lahko izbereš in premakneš posebej, zeleni del pa ji sledi. Presek ga uveljavi, Esc predogled zapre. Če oblike nimajo nič skupnega, zdaj ostanejo, namesto da izginejo, sporočilo pa to pove."
+    ],
+    [
+      "Merjenje kroga v prerezu",
+      "V prerezu majhen križec označuje središče okroglih obrisov, središče pa se pri merjenju tudi zaskoči. Klikni točko na krogu in pojdi na nasprotno točko: drugi klik pristane natanko čez središče, število pa nosi znak Ø, premer. Od središča do točke na krogu prebereš R, polmer."
+    ],
+    [
+      "Češčina kot jezik",
+      "layerling zdaj govori češko: ves vmesnik, 16 poglavij navodil in opombe ob izdaji. Jezik se izbere samodejno za brskalnik, nastavljen na češčino, spremeniš pa ga lahko na seznamu jezikov. Prevedel ga je pomočnik z umetno inteligenco; napačne besede se popravijo z majhnim pull requestom na GitHubu."
+    ],
+    [
+      "Slovenščina kot jezik",
+      "layerling zdaj govori slovensko: ves vmesnik in 16 poglavij navodil. Jezik se izbere samodejno za brskalnik, nastavljen na slovenščino, spremeniš pa ga lahko na seznamu jezikov. Prevedel ga je pomočnik z umetno inteligenco; napačne besede se popravijo z majhnim pull requestom na GitHubu."
+    ],
+    [
+      "Smerne tipke: en korak v zgodovini",
+      "Niz pritiskov smernih tipk, od katerih vsak premakne za en korak, je zdaj en korak v zgodovini, v 3D-urejevalniku in v skici. Če naslednji pritisk sledi v sekundi in pol, Razveljavi prekliče ves niz. Zgodovina se ne polni več z vnosom za vsak pritisk tipke."
+    ]
+  ],
   "1.75.0": [
     [
       "Simbolna oznaka iz slike (PNG, JPG)",

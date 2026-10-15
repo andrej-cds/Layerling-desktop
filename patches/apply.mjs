@@ -7,7 +7,6 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { applySlovenian } from "./slovenian.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -450,6 +449,22 @@ export const edits = [
     replace: "  \"camera.sectionConfirm\": \"Bevestigen\",\n  \"camera.sectionBack\": \"Terug\",\n  \"camera.sectionMeasureHelp\":",
   },
   {
+    name: "Prerez: slovenska besedila za gumba Potrdi in Nazaj",
+    stage: "jezik",
+    file: "apps/web/src/lib/messages.sl.ts",
+    marker: "\"camera.sectionConfirm\"",
+    find: "  \"camera.sectionMeasureHelp\":",
+    replace: "  \"camera.sectionConfirm\": \"Potrdi\",\n  \"camera.sectionBack\": \"Nazaj\",\n  \"camera.sectionMeasureHelp\":",
+  },
+  {
+    name: "Prerez: češka besedila za gumba Potrdi in Nazaj",
+    stage: "jezik",
+    file: "apps/web/src/lib/messages.cs.ts",
+    marker: "\"camera.sectionConfirm\"",
+    find: "  \"camera.sectionMeasureHelp\":",
+    replace: "  \"camera.sectionConfirm\": \"Potvrdit\",\n  \"camera.sectionBack\": \"Zpět\",\n  \"camera.sectionMeasureHelp\":",
+  },
+  {
     name: "Prerez: nemška besedila za gumba Potrdi in Nazaj",
     stage: "jezik",
     file: "apps/web/src/lib/messages.de.ts",
@@ -567,16 +582,6 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
     log(`  dodano: ${add.to}`);
   }
   if (wanted({ stage: "jezik" })) {
-    // Slovenščina kot samostojen jezik "sl" (nemščina ostane izvirna), glej patches/slovenian.mjs.
-    applySlovenian({ root, projectRoot, log, problems });
-    // Dva ključa, ki ju dodaja namizna različica (gumba Potrdi in Nazaj pri prerezu).
-    const slFile = join(root, "apps/web/src/lib/messages.sl.ts");
-    const slText = readFileSync(slFile, "utf8");
-    if (!slText.includes('"camera.sectionConfirm"')) {
-      const anchor = '  "camera.sectionMeasureHelp":';
-      if (slText.split(anchor).length !== 2) problems.push("messages.sl.ts: sidra za Potrdi in Nazaj ni");
-      else writeFileSync(slFile, slText.replace(anchor, () => '  "camera.sectionConfirm": "Potrdi",\n  "camera.sectionBack": "Nazaj",\n' + anchor));
-    }
     // Novosti: prevod za nedavne različice v ključu "sl", starejše ostanejo v angleščini.
     const file = join(root, "apps/web/src/lib/whatsNew.json");
     if (existsSync(file)) {

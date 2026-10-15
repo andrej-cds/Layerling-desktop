@@ -121,7 +121,7 @@ upstream.json  pripeta različica originalnega programa
 4. `git tag v1.0.0`, `git push origin v1.0.0`
 
 ## Znane omejitve
-- Slovenščina je **samostojen jezik »SL«** poleg izvirnih (angleščina, nemščina, nizozemščina, francoščina, poljščina, ruščina); v preklopniku jezika zgoraj desno izbereš SL, pri prvem zagonu pa se uporabi jezik sistema. Prevedeni so vmesnik (`patches/sl/messages.sl.ts`) in vseh 16 poglavij navodil (`patches/sl/guide/`); besedila, ki jih proizvajalec doda pozneje, se do prevoda prikažejo v angleščini. Novosti so prevedene v `patches/files/whatsNew.sl.json`. Lupina (meniji, nastavitve, okno posodobitev, sporočila) sledi izbranemu jeziku (SL ali EN). Isti paket je pripravljen kot predlog za originalni program: `node scripts/make-sl-pr.mjs <čista kopija originala> <mapa>`.
+- Slovenščina je **samostojen jezik »SL«** (od različice 1.76.0 je v originalnem programu; prevod je Andrejev). V preklopniku jezika zgoraj desno izbereš SL, pri prvem zagonu pa se uporabi jezik sistema. Novosti (»Kaj je novega«) so v namizni različici prevedene v `patches/files/whatsNew.sl.json`. Lupina (meniji, nastavitve, okno posodobitev, sporočila) sledi izbranemu jeziku (SL ali EN).
 - Vrata **47615** morajo biti prosta. Če jih zaseda drug program, se Layerling ne more zagnati in to tudi pove. Vrata lahko spremenite v `settings.json` (ključ `port`), vendar potem projekti iz prejšnjih vrat v programu niso vidni (obnovite jih iz mape samodejnega shranjevanja).
 - Brez plačljivih podpisov (Microsoft/Apple) se ob prvem zagonu pokažejo opozorila. Delovanje ni omejeno.
 - Hkratnega urejanja istega projekta ni (glejte Deljenje).
