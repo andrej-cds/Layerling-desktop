@@ -1,4 +1,22 @@
 {
+  "1.78.0": [
+    [
+      "Skica: tipke 1 do 4 in smerne tipke na ročaju",
+      "V skici in vrtilni skici tipke 1, 2, 3 in 4 izberejo črto, Bézierjevo krivuljo, gladko krivuljo ter dodajanje ali odstranjevanje točk, kot v Tinkercadu. Med risanjem črte številke ostanejo njena dolžina. Ročaj krivulje, na katerega klikneš, zasveti, smerne tipke pa ga premaknejo za en korak mreže (Shift: večji korak), pri gladki točki se premakne tudi drugi ročaj. Tako lahko krivuljo nastaviš natančno."
+    ],
+    [
+      "Dvojno grezenje",
+      "Nova oblika v seznamu oblik, za grezenjem: luknja z posnetjem na obeh straneh, za ploščo, ki mora biti lepa spredaj in zadaj. Na vsakem koncu se stožec odpre na premer glave, vmes je steblo. Nastaviš premer glave, premer stebla, kot stožca in skupno dolžino. Če je luknja prekratka za dva cela stožca, se srečata na sredini in steblo ostane širše, kot je nastavljeno. Kot natančno telo deluje z orodji za robove in izvozom STEP. Kot vzorec lukenj je še ni."
+    ],
+    [
+      "Luknja za obesek na ploščici s simbolom",
+      "Ploščica s simbolom ima zdaj, tako kot ploščica z imenom, luknjo za obesek za ključe: vklopiš jo v kartici ploščice, izbereš premer in stran. Luknja gre skozi vse plasti, jeziček je na spodnji plasti zunaj simbola, plasti pa ostanejo poravnane."
+    ],
+    [
+      "Preimenovanje in skrivanje zaklenjenega predmeta",
+      "Zaklenjen predmet si lahko preimenoval ali skril v seznamu predmetov in s tipkami, v oknu z lastnostmi pa je to tiho zavrnilo. Zdaj deluje tudi tam."
+    ]
+  ],
   "1.77.0": [
     [
       "Madžarščina kot jezik",
