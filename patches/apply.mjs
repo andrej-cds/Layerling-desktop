@@ -7,6 +7,7 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { applySlovenian } from "./slovenian.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -377,70 +378,6 @@ export const edits = [
       '            <span className="toolbar-brand-tagline">{t("brand.tagline")}</span>\n          </span>\n          <img className="cds-badge-editor" src="/assets/cds/cds-round.png" alt="Cassette Deck Service" title="Layerling Desktop · Cassette Deck Service" width={26} height={26} style={{ borderRadius: "50%", marginLeft: 4 }} />\n        </div>',
   },
   {
-    name: "Navodila: slovenske črke v sidrih",
-    stage: "jezik",
-    file: "scripts/build-guide.mjs",
-    marker: '.replace(/č/g, "c")',
-    find: '.replace(/ß/g, "ss")',
-    replace: '.replace(/ß/g, "ss").replace(/č/g, "c").replace(/š/g, "s").replace(/ž/g, "z").replace(/đ/g, "d")',
-  },
-  {
-    name: "Slovenščina: tabela jezikov (slovenščina v mestu nemščine)",
-    stage: "jezik",
-    file: "apps/web/src/lib/languages.ts",
-    marker: "Slovenščina v mestu nemščine",
-    find: "  de: {\n    name: \"Deutsch\",\n    htmlLang: \"de\",\n    numberLocale: \"de-DE\",\n    quotes: [\"„\", \"“\"],\n    guideDir: \"anleitung\",\n    communityUrl: DRUCKTIPPS_FORUM,\n    readme: \"README.de.md\",\n    quickstartAnchor: \"schnellstart-unter-windows\",\n    legal: { imprint: \"Impressum\", privacy: \"Datenschutz\" },\n    keyNames: { Ctrl: \"Strg\", Shift: \"Umschalt\", Delete: \"Entf\", Backspace: \"Rücktaste\", Home: \"Pos1\", Click: \"Klick\", RightClick: \"Rechtsklick\", Drag: \"Ziehen\" },\n    asciiUmlauts: true,\n    complete: true,\n    guide: {\n      site: \"layerling Anleitung\",\n      home: \"Anleitung\",\n      openEditor: \"Zum Editor\",\n      backToEditor: \"Zurück zum Editor\",\n      editorElsewhere: \"Der Editor ist schon in einem anderen Tab offen - wechsle einfach dorthin.\",\n      chapters: \"Kapitel\",\n      onThisPage: \"Auf dieser Seite\",\n      previous: \"Vorheriges Kapitel\",\n      next: \"Nächstes Kapitel\",\n      overviewLead: \"Alles, was layerling kann, Schritt für Schritt. Die Bilder entstehen aus dem laufenden Programm und werden mit jeder Fassung neu aufgenommen.\",\n      sourceNote: \"Diese Anleitung wächst mit dem Programm. Fehlt dir etwas oder stimmt etwas nicht, sag es im\",\n      forum: \"Forum\",\n      notTranslated: \"Dieses Kapitel ist noch nicht in deine Sprache übersetzt. Es folgt der englische Text.\",\n      languageMenu: \"Sprache\",\n      search: \"Anleitung durchsuchen\",\n      searchNothing: \"Nichts gefunden.\",\n      printAll: \"Ganze Anleitung zum Drucken\",\n      printAllTitle: \"Die ganze Anleitung auf einer Seite\",\n      printAllLead: \"Alle Kapitel hintereinander, zum Drucken oder zum Speichern als PDF: Drücke Strg+P und schalte in den Druckeinstellungen „Kopf- und Fußzeilen“ aus. Möchtest du nur einen Teil drucken, wähle dort die Seitenzahlen.\",\n      printContents: \"Inhalt\",\n      printButton: \"Drucken\",\n    },",
-    replace: "  de: {\n    // Slovenščina v mestu nemščine: notranja oznaka jezika ostane \"de\".\n    name: \"Slovenščina\",\n    htmlLang: \"sl\",\n    numberLocale: \"sl-SI\",\n    quotes: [\"„\", \"“\"],\n    guideDir: \"navodila\",\n    communityUrl: GITHUB_DISCUSSIONS,\n    readme: \"README.md\",\n    quickstartAnchor: \"windows-quickstart\",\n    legal: { imprint: \"Odtis\", privacy: \"Zasebnost\" },\n    keyNames: { Click: \"Klik\", RightClick: \"Desni klik\", Drag: \"Vlečenje\" },\n    asciiUmlauts: false,\n    complete: false,\n    guide: {\n      site: \"layerling navodila\",\n      home: \"Navodila\",\n      openEditor: \"V urejevalnik\",\n      backToEditor: \"Nazaj v urejevalnik\",\n      editorElsewhere: \"Urejevalnik je že odprt v drugem zavihku – preprosto preklopi nanj.\",\n      chapters: \"Poglavja\",\n      onThisPage: \"Na tej strani\",\n      previous: \"Prejšnje poglavje\",\n      next: \"Naslednje poglavje\",\n      overviewLead: \"Vse, kar zmore layerling, korak za korakom. Slike so posnete iz delujočega programa (v angleškem vmesniku).\",\n      sourceNote: \"Ta navodila rastejo skupaj s programom. Če kaj manjka ali ne drži, sporoči v\",\n      forum: \"razpravah\",\n      notTranslated: \"To poglavje še ni prevedeno v tvoj jezik. Sledi angleško besedilo.\",\n      languageMenu: \"Jezik\",\n      search: \"Išči po navodilih\",\n      searchNothing: \"Nič ni najdeno.\",\n      printAll: \"Celotna navodila za tiskanje\",\n      printAllTitle: \"Celotna navodila na eni strani\",\n      printAllLead: \"Vsa poglavja eno za drugim, za tiskanje ali shranjevanje kot PDF: pritisni Ctrl+P in v nastavitvah tiskanja izklopi »Glave in noge«. Če želiš natisniti le del, tam izberi številke strani.\",\n      printContents: \"Kazalo\",\n      printButton: \"Natisni\",\n    },",
-  },
-  {
-    name: "Slovenščina: jezik brskalnika sl -> notranja oznaka de",
-    stage: "jezik",
-    file: "apps/web/src/lib/languages.ts",
-    marker: 'primary === "sl"',
-    find: "  return isLanguage(primary) ? primary : null;",
-    replace: '  const mapped = primary === "sl" ? "de" : primary === "de" ? "en" : primary;\n  return isLanguage(mapped) ? mapped : null;',
-  },
-  {
-    name: "Slovenščina: oznaka SL v preklopniku",
-    stage: "jezik",
-    file: "apps/web/src/components/LanguageSwitch.tsx",
-    marker: '"SL"',
-    find: "<span className=\"theme-switch-label\">{language.toUpperCase()}</span>",
-    replace: '<span className="theme-switch-label">{language === "de" ? "SL" : language.toUpperCase()}</span>',
-  },
-  {
-    name: "Slovenščina: oznaka jezika v seznamu",
-    stage: "jezik",
-    file: "apps/web/src/components/LanguageSwitch.tsx",
-    marker: 'lang={option === "de" ? "sl"',
-    find: "                lang={option}",
-    replace: '                lang={option === "de" ? "sl" : option}',
-  },
-  {
-    name: "Slovenščina: skriti uvodni odstavek (lang)",
-    stage: "jezik",
-    file: "apps/web/src/app/page.tsx",
-    marker: '<section lang="sl">',
-    find: '<section lang="de">',
-    replace: '<section lang="sl">',
-  },
-  {
-    name: "Slovenščina: uvoz preglednic poglavij vodnika",
-    stage: "jezik",
-    file: "apps/web/src/lib/guideLinks.ts",
-    marker: 'from "@/lib/guideSl"',
-    find: 'import type { ShapeKind } from "@/types/layerling";',
-    replace: 'import type { ShapeKind } from "@/types/layerling";\nimport { SL_GUIDE_CHAPTERS, SL_GUIDE_SECTIONS } from "@/lib/guideSl";',
-  },
-  {
-    name: "Slovenščina: poti poglavij in razdelkov navodil",
-    stage: "jezik",
-    file: "apps/web/src/lib/guideLinks.ts",
-    marker: "SL_GUIDE_CHAPTERS[page]",
-    find: "  const chapterSlug = (GUIDE_CHAPTERS[page] as { en: string } & Partial<Record<Language, string>>)[language] ?? GUIDE_CHAPTERS[page].en;\n  const anchor = target ? (target as { en: string } & Partial<Record<Language, string>>)[language] ?? target.en : null;\n  return `/${directory}/${chapterSlug}.html${anchor ? `#${anchor}` : \"\"}`;",
-    replace: "  const chapterSlug = language === \"de\" ? SL_GUIDE_CHAPTERS[page] : (GUIDE_CHAPTERS[page] as { en: string } & Partial<Record<Language, string>>)[language] ?? GUIDE_CHAPTERS[page].en;\n  const anchor = target ? (language === \"de\" ? SL_GUIDE_SECTIONS[section as GuideSection] : (target as { en: string } & Partial<Record<Language, string>>)[language] ?? target.en) : null;\n  const base = process.env.NEXT_PUBLIC_LAYERLING_BASE ?? \"\";\n  return `${base}/${directory}/${chapterSlug}.html${anchor ? `#${anchor}` : \"\"}`;",
-  },
-  {
     name: "Podmapa: povezava na pregled navodil",
     stage: "jezik",
     file: "apps/web/src/lib/guideLinks.ts",
@@ -513,6 +450,14 @@ export const edits = [
     replace: "  \"camera.sectionConfirm\": \"Bevestigen\",\n  \"camera.sectionBack\": \"Terug\",\n  \"camera.sectionMeasureHelp\":",
   },
   {
+    name: "Prerez: nemška besedila za gumba Potrdi in Nazaj",
+    stage: "jezik",
+    file: "apps/web/src/lib/messages.de.ts",
+    marker: "\"camera.sectionConfirm\"",
+    find: "  \"camera.sectionMeasureHelp\":",
+    replace: "  \"camera.sectionConfirm\": \"Bestätigen\",\n  \"camera.sectionBack\": \"Zurück\",\n  \"camera.sectionMeasureHelp\":",
+  },
+  {
     name: "Prerez: sredina ravnine po izbiri (uvoz)",
     stage: "jezik",
     file: "apps/web/src/components/WorkplaneViewport.tsx",
@@ -583,10 +528,7 @@ export const additions = [
   { stage: "jezik", from: "patches/files/userFonts.ts", to: "apps/web/src/lib/userFonts.ts" },
   { stage: "jezik", from: "patches/files/DesktopVersion.tsx", to: "apps/web/src/components/DesktopVersion.tsx" },
   { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
-  // Slovenski katalog nadomesti nemškega (notranja oznaka jezika ostane "de").
   { from: "patches/files/podpri.html", to: "apps/web/public/podpri/index.html", stage: "jezik" },
-  { from: "patches/files/guideSl.ts", to: "apps/web/src/lib/guideSl.ts", stage: "jezik" },
-  { from: "patches/files/messages.de.ts", to: "apps/web/src/lib/messages.de.ts", stage: "jezik" },
   { from: "patches/files/assets/cds-round.png", to: "apps/web/public/assets/cds/cds-round.png", stage: "jezik" },
 ];
 
@@ -625,57 +567,32 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
     log(`  dodano: ${add.to}`);
   }
   if (wanted({ stage: "jezik" })) {
-    // Ključi, ki jih je original dodal pozneje in jih slovenski katalog še nima, dobijo angleško besedilo
-    // (sicer gradnja vodnika pade na neznanem besedilu vmesnika).
-    const enFile = join(root, "apps/web/src/lib/messages.en.ts");
-    const deFile = join(root, "apps/web/src/lib/messages.de.ts");
-    if (existsSync(enFile) && existsSync(deFile)) {
-      const keyLine = /^\s*"([^"]+)":\s*.*,\s*$/gm;
-      const de = readFileSync(deFile, "utf8");
-      const have = new Set([...de.matchAll(keyLine)].map((m) => m[1]));
-      const missing = [...readFileSync(enFile, "utf8").matchAll(keyLine)].filter((m) => !have.has(m[1]));
-      if (missing.length) {
-        const marker = "} as unknown as Record<MessageKey, string>;";
-        writeFileSync(deFile, de.replace(marker, () => missing.map((m) => m[0].replace(/\s+$/, "")).join("\n") + "\n" + marker));
-        log(`  neprevedeni ključi (angleško): ${missing.length}`);
-      }
+    // Slovenščina kot samostojen jezik "sl" (nemščina ostane izvirna), glej patches/slovenian.mjs.
+    applySlovenian({ root, projectRoot, log, problems });
+    // Dva ključa, ki ju dodaja namizna različica (gumba Potrdi in Nazaj pri prerezu).
+    const slFile = join(root, "apps/web/src/lib/messages.sl.ts");
+    const slText = readFileSync(slFile, "utf8");
+    if (!slText.includes('"camera.sectionConfirm"')) {
+      const anchor = '  "camera.sectionMeasureHelp":';
+      if (slText.split(anchor).length !== 2) problems.push("messages.sl.ts: sidra za Potrdi in Nazaj ni");
+      else writeFileSync(slFile, slText.replace(anchor, () => '  "camera.sectionConfirm": "Potrdi",\n  "camera.sectionBack": "Nazaj",\n' + anchor));
     }
-  }
-  if (wanted({ stage: "jezik" })) {
-    // Novosti: prevod za zadnji različici, starejše ostanejo v angleščini (ključ "de" nosi slovenščino).
+    // Novosti: prevod za nedavne različice v ključu "sl", starejše ostanejo v angleščini.
     const file = join(root, "apps/web/src/lib/whatsNew.json");
     if (existsSync(file)) {
       const sl = JSON.parse(readFileSync(join(projectRoot, "patches/files/whatsNew.sl.json"), "utf8"));
       const data = JSON.parse(readFileSync(file, "utf8"));
       for (const entry of data) {
         const translated = sl[entry.version];
+        if (!translated || translated.length !== entry.items.length) continue;
         entry.items.forEach((item, index) => {
-          const t = translated && translated.length === entry.items.length ? translated[index] : null;
-          item.title.de = t ? t[0] : item.title.en;
-          item.body.de = t ? t[1] : item.body.en;
+          item.title.sl = translated[index][0];
+          item.body.sl = translated[index][1];
         });
       }
       writeFileSync(file, JSON.stringify(data, null, 2) + "\n");
       log("  prevedene novosti (whatsNew.json)");
     } else problems.push("apps/web/src/lib/whatsNew.json: datoteke ni več");
-  }
-  if (wanted({ stage: "jezik" })) {
-    // Navodila: slovenski prevod nadomesti nemška poglavja (jezik "de"), slike so angleške.
-    const docs = join(root, "docs/guide");
-    const src = join(projectRoot, "patches/files/guide-sl");
-    if (existsSync(docs) && existsSync(src)) {
-      const deDir = join(docs, "de");
-      mkdirSync(deDir, { recursive: true });
-      for (const f of readdirSync(deDir)) if (/\.md$/.test(f)) rmSync(join(deDir, f));
-      for (const f of readdirSync(src)) copyFileSync(join(src, f), join(deDir, f));
-      const enImg = join(docs, "images/en");
-      const deImg = join(docs, "images/de");
-      if (existsSync(enImg)) {
-        mkdirSync(deImg, { recursive: true });
-        for (const f of readdirSync(enImg)) copyFileSync(join(enImg, f), join(deImg, f));
-      }
-      log("  navodila: slovenska poglavja");
-    } else problems.push("docs/guide: mape ni več");
   }
   if (local?.applyExtra) local.applyExtra({ root, projectRoot, wanted, log, problems });
   if (problems.length) {

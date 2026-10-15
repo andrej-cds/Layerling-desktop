@@ -68,7 +68,7 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
   useEffect(() => {
     const api = typeof window !== "undefined" ? window.layerlingDesktop : undefined;
     if (!api || !api.reportLanguage) return;
-    const report = () => api.reportLanguage?.(getLanguage() === "de" ? "sl" : "en");
+    const report = () => api.reportLanguage?.(getLanguage() === "sl" ? "sl" : "en");
     // Shranjeni jezik se v urejevalniku uveljavi tik po zagonu; prvo poročilo počaka nanj.
     const first = window.setTimeout(report, 1500);
     const unsubscribe = subscribeToLanguage(report);
