@@ -158,6 +158,14 @@ export const edits = [
     replace: "      if (event.pointerType !== \"touch\" && event.button === 0 && touchRotateRef.current && !event.ctrlKey && !event.metaKey) {\n        return;\n      }\n      // The right button turns the view; only a press that is let go where it\n      // started opens the menu (finishDrag).",
   },
   {
+    name: "Slovenščina: prva v seznamu jezikov",
+    stage: "jezik",
+    file: "apps/web/src/components/LanguageSwitch.tsx",
+    marker: 'a === "sl" ? -1',
+    find: "          {LANGUAGES.map((option) => {",
+    replace: '          {[...LANGUAGES].sort((a, b) => (a === "sl" ? -1 : b === "sl" ? 1 : 0)).map((option) => {',
+  },
+  {
     name: "Izbira: dotik na drugo telo ga doda izbiri",
     stage: "jezik",
     file: "apps/web/src/components/WorkplaneViewport.tsx",
