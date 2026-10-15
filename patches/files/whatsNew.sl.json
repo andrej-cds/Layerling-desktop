@@ -1,4 +1,26 @@
 {
+  "1.79.0": [
+    [
+      "Kotno ravnilo se lahko skrije, vodilne črte na tleh",
+      "Kotno ravnilo je zdaj sestavljeno iz črt v prostoru: telo pred njim ga zakrije, številke na krakih tam zbledijo. Majhno oko pod ročajem to preklopi, da ostane ravnilo vidno čez vse. Vodilne črte zelenih številk tečejo po tleh, stikalo vsake številke pa je v njenem okvirju."
+    ],
+    [
+      "Skica vzdolž poti",
+      "Poleg »Izvleči skico« in »Zavrti skico« je zdaj tretja možnost: nova **Skica vzdolž poti** potegne presek vzdolž poti, na primer kabelski kanal z vogalom, cev ali obroč okoli šestkotnika. Presek narišeš kot sklenjen obris (drugi obris znotraj ga naredi votlega), pot pa kot pomožno črto, verigo črt ali krivulj, odprto ali sklenjeno. Vogal iz ravnih kosov postane poševni spoj. Telo je natančno, zato delujejo zaobljenje, posnetje in izvoz STEP. Most MCP ga zgradi iz številk z `layerling_sweep_sketch`."
+    ],
+    [
+      "Prerez: Nazaj in Zapri samo na tablici",
+      "Gumba »Nazaj« in »Zapri« (prej »Potrdi«) na oknu prereza sta za tablico brez tipke Esc. Na računalniku ju ne vidiš več, ker tam okno zaprejo X in Esc. Navodila zapiranje opisujejo podrobneje."
+    ],
+    [
+      "Zaobljenje na telesih z združenimi luknjami",
+      "Če več lukenj najprej združiš v skupino in to nato združiš s telesom, lahko robove zdaj zaobliš ali posnameš. Prej je sporočilo govorilo, da je mreža odprta. Luknje ostanejo natančne oblike, njihov rob je prava krivulja."
+    ],
+    [
+      "Izdolbljenje: sporočilo navede razlog",
+      "Zaobljeno škatlo, katere zgornji in spodnji rob sta prav tako zaobljena, lahko izdolbeš le z občutno tanjšo steno. Okno je prej samo napisalo, da stene ne morejo biti tako debele. Zdaj pove, zakaj in kaj lahko storiš: izberi tanjšo steno ali pa zaobljenje prej nastavi na 0. Opozori tudi na gumb »Poročilo o napaki« v nogi."
+    ]
+  ],
   "1.78.0": [
     [
       "Skica: tipke 1 do 4 in smerne tipke na ročaju",
