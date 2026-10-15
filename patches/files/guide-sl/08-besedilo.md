@@ -108,17 +108,19 @@ Imena vpiši v {{ui:textLayers.names}}, eno na vrstico, do sto. Gumb pod njim po
 
 Simbolna oznaka je ista oznaka s simbolom SVG namesto črk: srček, oblak, logotip društva. Zgoraj simbol, pod njim isti obris malo širši v drugi barvi, čisto spodaj plošča brez lukenj.
 
-- **Nova simbolna oznaka:** v knjižnici oblik izberi {{ui:shape.iconTag}}. Odpre se majhno okno: klikni {{ui:iconTag.browse}}, izberi datoteko SVG, preveri sliko, vpiši {{ui:iconTag.width}} simbola in klikni {{ui:iconTag.ok}}. Oznaka stoji na sredini plošče, v enakih plasteh kot nov napis z imenom.
+- **Nova simbolna oznaka:** v knjižnici oblik izberi {{ui:shape.iconTag}}. Odpre se majhno okno: klikni {{ui:iconTag.browse}}, izberi datoteko SVG, PNG ali JPG, preveri sliko, vpiši {{ui:iconTag.width}} simbola in klikni {{ui:iconTag.ok}}. Oznaka stoji na sredini plošče, v enakih plasteh kot nov napis z imenom.
 - **Iz telesa skice:** uvožena datoteka SVG ali skica, ki si jo narisal, ima na vrhu nastavitev {{ui:nameTag.makeLayers}}.
 
 Kartica {{ui:iconTag.title}} na vrhu nastavitev vsebuje:
 
-- **{{ui:iconTag.replace}}:** na oznako postavi simbol druge datoteke SVG; plasti in širina ostanejo, kot so.
+- **{{ui:iconTag.replace}}:** na oznako postavi simbol druge datoteke (SVG, PNG ali JPG); plasti in širina ostanejo, kot so.
 - **{{ui:iconTag.iconWidth}}:** kako širok je simbol zgoraj, v mm. Vse plasti sledijo in ostanejo poravnane.
 - **{{ui:nameTag.layers}}:** vrstice kot pri napisu z imenom – barva, za koliko širše, {{ui:nameTag.corners}}, višina in {{ui:nameTag.noHoles}}, **+** in **–**, od dve do šest plasti. Zgornja vrstica je simbol sam.
 - **{{ui:iconTag.count}}:** koliko oznak želiš, od 1 do 100. {{ui:iconTag.fill}} izračuna število iz plošče tiskalnika, izbranega v nastavitvah; pri majhnih logotipih polna plošča. Gumb spodaj jih naredi, 5 mm narazen, razporejene na sredini plošče; prva je oznaka sama.
 
 SVG potrebuje sklenjene obrise; risba samo iz odprtih črt ne more postati oznaka. Telo skice, katerega polnilo je črta, jo obdrži: ploščina te črte je simbol.
+
+**Slika (PNG ali JPG)** se izsledi v obris in predogled pokaže obris. Pod {{ui:iconTag.part}} izbereš, ali simbol postane {{ui:iconTag.part.dark}} ali {{ui:iconTag.part.light}}; na začetku je to del, ki ni ozadje. Prozorne točke nikoli ne spadajo k simbolu. SVG, ki vsebuje samo eno sliko, kot ga shrani Inkscape po uvozu bitne slike, se izsledi enako. Obris sledi točkam, zato majhna slika da hrapav rob: najbolje delujejo slike z nekaj sto točkami ali več. {{ui:iconTag.replace}} vzame del slike, ki ni njeno ozadje.
 
 ## Besedilo na krožnem loku
 

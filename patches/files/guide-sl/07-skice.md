@@ -7,7 +7,7 @@ Vsega ni mogoče sestaviti iz osnovnih oblik. Za dele z lastnim obrisom, na prim
 
 ## Začetek skice
 
-Zgoraj preklopi z {{ui:editor.modeGeometry}} na {{ui:editor.modeSketch}}. V orodni vrstici klikni {{ui:sketch.to3d}} in izberi, kaj naj postane obris:
+Zgoraj preklopi z {{ui:editor.modeGeometry}} na {{ui:editor.modeSketch}}. V skupini {{ui:sketch.group.create}} traku stojita drug ob drugem dva gumba za to, kaj naj postane obris:
 
 - **{{ui:sketch.extrude}}:** Obris se potegne v višino, kot modelček za piškote.
 - **{{ui:sketch.revolve}}:** Obris se zavrti okoli osi, kot na stružnici. Tako nastanejo vaze, kozarci, stožci in vse, kar je okroglo.
@@ -71,7 +71,7 @@ Pomožna črta ti pomaga pri postavljanju točk, ne da bi spadala k telesu. Nari
 
 Klikni {{ui:sketch.finishSketch}}. Obris stoji kot telo na delovni ravnini in nosi ime »Skicirano telo«. V njegovih nastavitvah spreminjaš višino, barvo in vse drugo kot pri vsaki drugi obliki. Če spremeniš njegovo velikost, ga layerling kmalu zatem znova zgradi iz skice, skica pa raste z njim. Tako ostane natančno telo, na katerem gresta posnetje in zaokrožitev, in ob naslednjem urejanju ima skica velikost, ki jo ima telo.
 
-Če delovna ravnina leži na strani telesa, riši tako, kot gledaš na to stran: zgoraj v skici je zgoraj tudi na končnem telesu. Bledi obris telesa v pogledu skice kaže, kje stoji. Če delovna ravnina seka telo, pogled skice namesto tega pokaže obris tega preseka: izdolbeno telo se pokaže kot obroč in skico lahko poravnaš ob njegove stene. Točka, ki jo postaviš ali povlečeš blizu vogala teh obrisov, se tam natanko zaskoči; majhen modri obroč to pokaže. Tako v skico prevzameš robove drugih teles, tudi če delovna ravnina ne leži natanko na njih.
+Če delovna ravnina leži na strani telesa, riši tako, kot gledaš na to stran: zgoraj v skici je zgoraj tudi na končnem telesu. Bledi obris telesa v pogledu skice kaže, kje stoji. Če delovna ravnina seka telo, pogled skice namesto tega pokaže obris tega preseka: izdolbeno telo se pokaže kot obroč in skico lahko poravnaš ob njegove stene. Točka, ki jo postaviš ali povlečeš blizu vogala teh obrisov, se tam natanko zaskoči; majhen modri obroč to pokaže. Tako v skico prevzameš robove drugih teles, tudi če delovna ravnina ne leži natanko na njih. Če želiš slediti obstoječemu delu, vklopi {{ui:sketch.showPartEdges}} (gumb s plastmi med gumbi pogleda na levi): vsi robovi teles so potem narisani na ravnini skice, tanki in bledi, kot da bi gledal skozi, ne glede na to, na kateri višini ležijo. Pokončna ravnina, postavljena na primer na sprednjo ploskev, tako pokaže pogled od spredaj. Izbira se shrani v brskalniku.
 
 ![Iz obrisa je nastalo telo. Vogal je zaobljen.](shot:sketch-result)
 
