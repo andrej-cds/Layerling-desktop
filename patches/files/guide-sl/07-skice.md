@@ -79,7 +79,7 @@ Z {{ui:inspector.editSketch}} se kadarkoli vrneš v skico, da jo spremeniš. Dvo
 
 ### Vrtenje
 
-Pri vrtenju narišeš pol preseka **levo od osi**, ki je vrisana v skici. Poleg vidiš 3D-predogled vrtenja. Takoj pokaže, kako telo izgleda. Obris mora biti sklenjen. Na koncu klikneš {{ui:sketch.finishRevolve}}.
+Pri vrtenju narišeš pol preseka **levo od osi**, ki je vrisana v skici. Poleg vidiš 3D-predogled vrtenja. Takoj pokaže, kako telo izgleda. Obris mora biti sklenjen, ali pa odprto črto zgradiš kot potezo, glej spodaj. Na koncu klikneš {{ui:sketch.finishRevolve}}.
 
 Zavrteno telo je natančno telo kot izvlečeno: sprejme posnetja in zaokrožitve ter ga lahko izdolbeš, za kozarec ali vazo. Telo, ki je bilo zavrteno s starejšo različico programa layerling, je mreža; odpri {{ui:inspector.editSketch}} in ga znova zaključi, pa bo natančno. Obris, ki sega čez os, ni mogoče zgraditi natančno in postane kot doslej mreža.
 
@@ -91,7 +91,9 @@ Običajno ploskev znotraj sklenjenega obrisa postane telo. Z {{ui:sketch.stroke}
 - **Odprta črta** postane trak, sredinsko na črti. Pod {{ui:sketch.strokeCap}} izbereš, kako izgledata njena konca: {{ui:sketch.strokeCap.flat}}, {{ui:sketch.strokeCap.square}} (podaljšan za pol širine) ali {{ui:sketch.strokeCap.round}}.
 - {{ui:sketch.strokeJoin}} velja za oboje: {{ui:sketch.strokeJoin.miter}}, {{ui:sketch.strokeJoin.round}} ali {{ui:sketch.strokeJoin.bevel}}.
 
-Skica obdrži narisano črto. Ko jo spet odpreš, črto in konturo spreminjaš naprej, brez kljukice pa se spet zgradi ploskev. Krivulje se pri tem razstavijo na kratke ravne kose. Pri vrtenju konture ni.
+Skica obdrži narisano črto. Ko jo spet odpreš, črto in konturo spreminjaš naprej, brez kljukice pa se spet zgradi ploskev. Krivulje se pri tem razstavijo na kratke ravne kose.
+
+Pri vrtenju je poteza tanka stena: steno vaze ali skodelice nariši kot **eno odprto črto** levo od osi, obkljukaj {{ui:sketch.stroke}} in nastavi debelino, vrtenje pa zavrti ta trak. Kar sega čez os, se pri njej odreže.
 
 ## Polnilo in silhueta
 

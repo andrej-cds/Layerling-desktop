@@ -11,7 +11,7 @@ Kar ti je v napoto, skriješ ({{ui:editor.tool.hideSelected}}, [[Ctrl]]+[[H]]). 
 
 ## Seznam objektov
 
-Pri mnogih delih v pogledu zlahka izgubiš pregled. Seznam objektov ({{ui:editor.tool.showOutliner}} ali [[Ctrl]]+[[Shift]]+[[O]]) pokaže vse oblike kot seznam.
+Pri mnogih delih v pogledu zlahka izgubiš pregled. Seznam objektov ({{ui:editor.tool.showOutliner}} ali [[Ctrl]]+[[Shift]]+[[O]]) pokaže vse oblike kot seznam. Ostane odprt ali zaprt, kakor si ga pustil, za vse načrte, dokler ga ne zapreš; izbira se shrani v brskalniku.
 
 ![Seznam objektov: skupina »Skupina« z dvema delama in ob njej krogla. Ikona mape odpre skupino.](shot:object-list)
 
@@ -71,6 +71,8 @@ Del naj za tisk leži na svoji najboljši strani? Izberi ga, klikni {{ui:editor.
 Dva dela naj ležita ploskev ob ploskvi ali naj se končata poravnano? Izberi del, ki naj se premakne, klikni {{ui:editor.tool.mateFaces}}, nato njegovo ploskev in zatem ploskev drugega dela. V plošči {{ui:mate.mode.against}} položi ploskvi druga ob drugo (hrbet ob hrbet, dotikanje), {{ui:mate.mode.flush}} ju položi poleg druga druge v isto ravnino; {{ui:mate.gap}} pusti prostor vmes, na primer kot zračnost. {{ui:mate.apply}} del premakne: zavrti se po najkrajši poti, dokler nista ploskvi vzporedni – sploh ne, če že sta – in se potem samo pomakne proti drugi ploskvi, zato obdrži svojo stransko lego. Drugi del ostane, kjer je, »Razveljavi« pa vse vrne.
 
 ![Okno »Poravnaj ploskve«: del, ki se premakne, je izbran, naslednja je ploskev drugega dela, nato »Drugo proti drugemu« ali »Poravnano« in razmik, če želiš.](shot:mate-faces)
+
+**Natančen kot med dvema ploskvama:** {{ui:editor.tool.mateFaces}} pusti ploskvi vzporedni; za kot med njima ni posebnega orodja, a do njega prideš tako. Najprej ploskvi združi z {{ui:editor.tool.mateFaces}}, da sta vzporedni. Nato nastavi središče vrtenja na rob, kjer se stikata ({{ui:editor.tool.rotationPivot}}, klikni rob ali oglišče) in v kartici {{ui:inspector.rotation}} dela vpiši kot, na primer 15 ali 30. Del se zavrti okoli tega središča. Osi kartice so osi plošče, zato to deluje, kadar rob poteka vzdolž X, Y ali Z.
 
 Podobno preprosta sta {{ui:editor.tool.dropToWorkplane}} ([[D]]), ki izbor odloži na delovno ravnino, in {{ui:editor.tool.centerOnWorkplane}}.
 

@@ -227,8 +227,8 @@ export const edits = [
     stage: "jezik",
     file: "apps/web/src/components/WorkplaneViewport.tsx",
     marker: "visina-prek-nic-poteza",
-    find: "        const nextFrameHeight = clamp(\n          transform.selectionFrame.height + snapValue(rawFrameHeight - transform.selectionFrame.height, step),\n          MIN_SHAPE_SIZE,\n          maxHeight,\n        );",
-    replace: "        // visina-prek-nic-poteza: negativna višina = telo je prestopilo sidro in se nadaljuje na drugi strani.\n        const snappedFrameHeight = transform.selectionFrame.height + snapValue(rawFrameHeight - transform.selectionFrame.height, step);\n        const nextFrameHeightMagnitude = clamp(Math.abs(snappedFrameHeight), MIN_SHAPE_SIZE, maxHeight);\n        const nextFrameHeight = snappedFrameHeight < 0 ? -nextFrameHeightMagnitude : nextFrameHeightMagnitude;",
+    find: "        const nextFrameHeight = clamp(\n          upright\n            ? heightWithFaceOnGrid(startLift.low, transform.selectionFrame.height, rawFrameHeight, resizingFromBottom, step)\n            : transform.selectionFrame.height + snapValue(rawFrameHeight - transform.selectionFrame.height, step),\n          MIN_SHAPE_SIZE,\n          maxHeight,\n        );",
+    replace: "        // visina-prek-nic-poteza: negativna višina = telo je prestopilo sidro in se nadaljuje na drugi strani.\n        const snappedFrameHeight = upright ? heightWithFaceOnGrid(startLift.low, transform.selectionFrame.height, rawFrameHeight, resizingFromBottom, step) : transform.selectionFrame.height + snapValue(rawFrameHeight - transform.selectionFrame.height, step);\n        const nextFrameHeightMagnitude = clamp(Math.abs(snappedFrameHeight), MIN_SHAPE_SIZE, maxHeight);\n        const nextFrameHeight = snappedFrameHeight < 0 ? -nextFrameHeightMagnitude : nextFrameHeightMagnitude;",
   },
   {
     name: "Višina: uvožena telesa dobijo vedno pozitivno višino",

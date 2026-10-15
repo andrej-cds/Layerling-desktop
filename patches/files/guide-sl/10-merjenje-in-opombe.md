@@ -33,7 +33,7 @@ Kotno ravnilo se položi na delovno ravnino. Če leži na strani telesa, torej l
 - **Vlečenje za ročaj** ga premakne.
 - **Kratek klik na ročaj** ga zavrti za 90°.
 - **×** ob njem ga odstrani.
-- **Majhen gumb levo od ročaja** preklopi, od kod se meri: od zunanjega roba telesa (oglišče, simbol s črtami) ali od njegove sredine (središče, nitni križ).
+- **Majhen gumb levo od ročaja** preklopi, od kod se meri: od zunanjega roba telesa (oglišče, simbol s črtami) ali od njegove sredine (središče, nitni križ). Majhno stikalo iste vrste je ob vsaki zeleni številki in nastavi samo to številko: pri stoječem valju sredino v obeh krakih in dno po višini, pri ležečem sredino počez in konec po dolžini. Ko se vse tri spet ujemajo, gumb pri ročaju pokaže skupni način.
 
 Če ob enem od krakov stojijo telesa, kotno ravnilo samodejno pokaže njihove mere. To gre samo na osnovni plošči, ne na strani telesa.
 

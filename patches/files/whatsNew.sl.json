@@ -1,4 +1,42 @@
 {
+  "1.74.0": [
+    [
+      "Ruščina kot jezik",
+      "layerling zdaj govori rusko: ves vmesnik in 16 poglavij navodil. Jezik se izbere samodejno za brskalnik, nastavljen na ruščino, spremeniš pa ga lahko na seznamu jezikov. Prevedel ga je pomočnik z umetno inteligenco; napačne besede se popravijo z majhnim pull requestom na GitHubu."
+    ],
+    [
+      "Vrtenje iz črte z debelino",
+      "Skica za vrtenje ima spet gumb Poteza. Steno vaze ali skodelice nariši kot eno odprto črto levo od osi, obkljukaj potezo in nastavi debelino: vrtenje spremeni ta trak v tanko steno, kot v Tinkercadu. Kar sega čez os, se odreže. Telo obdrži narisano črto, zato Uredi skico nadaljuje od tam."
+    ],
+    [
+      "Seznam predmetov ostane odprt",
+      "Seznam predmetov (Ctrl+Shift+O) se je ob vsakem načrtu in po vsakem ponovnem nalaganju začel zaprt. Zdaj ostane odprt ali zaprt, kakor si ga pustil, za vse načrte v tem brskalniku."
+    ],
+    [
+      "Poravnaj in Pripni na mrežo pod Razporedi",
+      "Poravnaj in Pripni na mrežo sta bila v traku pod Spremeni, ob Posnetju, Zaokrožitvi in Votli obliki. Oblik ne spreminjata, ampak jih postavita, zato zdaj vodita skupino Razporedi, ob Spusti na delovno ravnino, Položi in Središči na delovno ravnino."
+    ],
+    [
+      "Odprt rez se sporoči",
+      "Kadar ima površina uvoženega dela vrzeli, na primer del STEP z nekaj razpokami v mreži, ostane prerezna ploskev odprta, ko ga združiš z luknjo, del pa je znotraj votel. Sporočilo zdaj to pove, skupaj s številom odprtih robov, in predlaga uvoz dela kot STL ali 3MF."
+    ],
+    [
+      "Okvirni kotnik: vsaka številka zase",
+      "Ob vsaki zeleni številki okvirnega kotnika je majhno stikalo: številka šteje do roba ali do sredine telesa, vsaka zase. Stoječ valj se postavi s sredino v obeh krakih in dnom po višini, ležeč s sredino počez in koncem po dolžini. Gumb pri ročaju še vedno preklopi vse tri naenkrat. Mera višine zdaj stoji zunaj telesa, na robu, ki je na zaslonu najbolj desno."
+    ],
+    [
+      "Novo ime pri izvozu STL vpraša po novi datoteki",
+      "V Chromu in Edgeu je vsak izvoz STL pisal v datoteko, izbrano prvič, polje z imenom datoteke pa ni več delovalo. Če tam zdaj vtipkaš drugo ime, te layerling vpraša, kam naj gre nova datoteka. Vrstica pod oknom pove, ali se piše v staro datoteko ali te bo vprašal."
+    ],
+    [
+      "Dvoklik na drsnik ga ponastavi",
+      "Dvoklik na drsnik v nastavitvah oblike vrne vrednost na privzeto, kakor majhna puščica ob njegovem imenu. Deluje tudi pri sedmih drsnikih delovnih nastavitev, na primer hitrost približevanja in moč sence."
+    ],
+    [
+      "Mreža pripenjanja: vlečena ploskev pristane na mreži",
+      "Vlečenje ročaja višine je pripenjalo spremembo višine po celih korakih mreže: telo visoko 0,5 mm je na mreži 1 mm skočilo na 1,5 mm. Zdaj vlečena ploskev pristane na mreži delovne ravnine (zgornja, pri spodnjem ročaju pa spodnja), zato gre na 1,0 mm. Puščica za dvig na enak način postavi dno telesa na mrežo. Nagnjen izbor obdrži star korak."
+    ]
+  ],
   "1.73.0": [
     [
       "Merilni trak se zaskoči na referenčne točke",
