@@ -1,4 +1,22 @@
 {
+  "1.80.0": [
+    [
+      "Potisni ploskev ven ali noter",
+      "Odebelitev stene ali izrez žepa v dokončan kos je zahteval delovno ravnino, obrisano skico in skupino, pri uvoženem STL pa druge poti ni bilo. Novo orodje »Ploskev« ob vzorcu lukenj doda material na ravni ploskvi ali vanjo izreže žep, zamaknjen od roba in po želji z zaobljenimi vogali. Kar doda, ostane navadno telo skice v skupini."
+    ],
+    [
+      "Dvakratna obnovitev varnostne kopije ne podvoji načrtov",
+      "Če varnostno kopijo obnoviš v brskalnik, ki že ima enega od njenih načrtov, se ta preskoči, obvestilo pa pove, koliko jih je že bilo. Namig pri »Varnostna kopija vsega« zdaj imenuje tudi gumb, ki kopijo vrne nazaj."
+    ],
+    [
+      "Koraki razveljavitve preživijo ponovno nalaganje",
+      "Če je bil zadnji korak narejen z delovno ravnino na ploskvi, se je ob ponovnem nalaganju načrta, na primer po posodobitvi z »Shrani in znova naloži«, izgubila vsa zgodovina razveljavitve. Načrt se je vrnil v celoti, vendar so bili Razveljavi, Uveljavi in pogled zgodovine zatemnjeni. To je popravljeno, zgodovina ostane."
+    ],
+    [
+      "Danščina kot jezik",
+      "layerling zdaj govori danski (Dansk): ves vmesnik in 16 poglavij navodil. Jezik se izbere samodejno za brskalnik, nastavljen na danščino, spremeniš pa ga lahko na seznamu jezikov. Prevedel ga je pomočnik z umetno inteligenco, prebral pa ga je govorec danščine; napačne besede se popravijo z majhnim pull requestom na GitHubu."
+    ]
+  ],
   "1.79.0": [
     [
       "Kotno ravnilo se lahko skrije, vodilne črte na tleh",

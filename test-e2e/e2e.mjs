@@ -269,9 +269,12 @@ try {
   ok("dvojni klik na .lyl odpre projekt v obstoječem oknu (ena kopija programa)");
 
   // ---------- Obnovitev iz samodejnega shranjevanja ----------
+  // Od 1.80.0 program pri obnovitvi preskoči načrte, ki so že na seznamu (isto ime in čas nastanka), zato seznam najprej izpraznimo.
+  await page.evaluate(() => window.localStorage.removeItem("layerling.projects"));
   await page.goto(BASE);
   await page.getByText("Create new 3D design").first().waitFor({ timeout: 30000 });
   const countBeforeRestore = (await storedProjects(page)).length;
+  assert.equal(countBeforeRestore, 0, "seznam projektov je pred obnovitvijo prazen");
   await menuClick(app, "restore");
   await eventually("projekti se obnovijo", async () => (await storedProjects(page)).length > countBeforeRestore, 30000);
   ok("obnovitev iz mape samodejnega shranjevanja vrne projekte");

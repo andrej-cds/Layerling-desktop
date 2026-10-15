@@ -41,9 +41,9 @@ export const edits = [
     name: "Nadzorna plošča: uvoz mostu",
     file: "apps/web/src/app/page.tsx",
     marker: 'from "@/lib/desktopBridge"',
-    find: 'import { backupEntryNames, backupFileName, isBackupFileName, packBackup, unpackBackup, zipHoldsDesigns } from "@/lib/projectBackup";',
+    find: 'zipHoldsDesigns } from "@/lib/projectBackup";',
     replace:
-      'import { backupEntryNames, backupFileName, isBackupFileName, packBackup, unpackBackup, zipHoldsDesigns } from "@/lib/projectBackup";\nimport { useDesktopBridge } from "@/lib/desktopBridge";',
+      'zipHoldsDesigns } from "@/lib/projectBackup";\nimport { useDesktopBridge } from "@/lib/desktopBridge";',
   },
   {
     name: "Nadzorna plošča: kavelj mostu",
