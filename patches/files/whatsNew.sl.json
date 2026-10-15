@@ -1,4 +1,18 @@
 {
+  "1.76.1": [
+    [
+      "Datoteke OBJ z barvnim prehodom se odprejo",
+      "Datoteka OBJ z lastno barvo v vsaki točki, kot jo imajo skeniranja in modeli, narejeni z umetno inteligenco (na primer iz Tripa), je postala eno telo na barvo, pogosto na stotisoče teles. Urejevalnik se je ob tem sesul. Take datoteke zdaj pridejo kot eno telo v eni barvi, z opombo, da barvni prehod ni ohranjen. Datoteke z le nekaj barvami ostanejo eno telo na barvo, kot doslej."
+    ],
+    [
+      "Povleci ročaj čez drugo stran",
+      "Povleci stranski ali kotni ročaj oblike ali izbora, ali puščico na vrhu, čez nasprotno stran in velikost se tam ne ustavi več: oblika raste naprej na drugi strani tistega roba, kot v Tinkercadu. Izbor se pri tem prezrcali. Telo iz mreže se še vedno ustavi pri najmanjši višini."
+    ],
+    [
+      "Lažje na tabličnem računalniku",
+      "En prst na praznem prostoru zdaj vrti pogled, dotik tam pa počisti izbor, zato stikalo za vrtenje za to ni več potrebno; stikalo se pokaže tudi na iPadu, ki se ne javi kot naprava na dotik. Prerez ima gumba »Potrdi« in »Nazaj«, ker tablični računalnik nima tipk Enter ali Esc. Prst na obliki ali ročaju deluje kot doslej."
+    ]
+  ],
   "1.76.0": [
     [
       "Presek s predogledom",
