@@ -1,4 +1,26 @@
 {
+  "1.85.0": [
+    [
+      "»Loči dele« z desnim klikom",
+      "Če je oblika sestavljena iz več ločenih kosov, na primer STL iz ločenih delov ali besedilo iz posameznih črk, zdaj najdeš »Loči dele« tudi v meniju, ki se odpre z desnim klikom na obliko."
+    ],
+    [
+      "Tipka Tab skače po poljih z merami na obliki",
+      "Če klikneš mero na obliki in pritisneš Tab, layerling obdrži številko in odpre naslednje polje: širina, globina, višina. Shift+Tab gre nazaj. Prej je Tab skočil na kotne ročaje."
+    ],
+    [
+      "Tablični računalnik: izbira več teles",
+      "Meni dolgega pritiska ima zdaj »Izberi več«: vsak dotik telesa ga doda izboru ali ga spet odvzame, dokler se ne dotakneš praznega polja ali pritisneš Esc. Tako deluje to, kar je na računalniku Shift+klik, tudi brez tipke."
+    ],
+    [
+      "Predmeti nazaj iz zgodovine",
+      "V pogledu zgodovine klikneš predmet (s Shiftom več) in pritisneš »Vrni v načrt«: vrne se kot kopija, takšen in na mestu, kot je bil v tem stanju, in se imenuje na primer »Škatla (12:32)«. To je en korak, ki ga Razveljavi spet prekliče."
+    ],
+    [
+      "Širina za SVG in slike ob uvozu",
+      "Okno za uvoz ima novo polje »SVG in slika: širina v mm«. Vpiši širino, izberi datoteko in risba pride na delovno ploščo v tej velikosti, kot v Tinkercadu. Prazno polje obdrži njeno velikost. Širina velja le za naslednji uvoz."
+    ]
+  ],
   "1.84.0": [
     [
       "Povečava s ščipanjem na sledilni ploščici v Safariju",

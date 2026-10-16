@@ -182,14 +182,6 @@ export const edits = [
     replace: '          {[...LANGUAGES].sort((a, b) => (a === "sl" ? -1 : b === "sl" ? 1 : 0)).map((option) => {',
   },
   {
-    name: "Izbira: dotik na drugo telo ga doda izbiri",
-    stage: "jezik",
-    file: "apps/web/src/components/WorkplaneViewport.tsx",
-    marker: "touch-dodaj-izbiri",
-    find: "      const id = pickShape(event.clientX, event.clientY, event.pointerType);\n      const additive = event.shiftKey;",
-    replace: "      const id = pickShape(event.clientX, event.clientY, event.pointerType);\n      // touch-dodaj-izbiri: na zaslonu na dotik ni Shifta; ko je že kaj označeno, dotik na drugo telo doda izbiri (dotik na označeno telo brez premika ga odvzame).\n      const additive = event.shiftKey || (event.pointerType === \"touch\" && Boolean(id) && selectedIdsRef.current.length > 0);",
-  },
-  {
     name: "Pisave: uvoz nalagalnika lastnih pisav",
     stage: "jezik",
     file: "apps/web/src/lib/textFonts.ts",
