@@ -678,6 +678,9 @@ function hardenSession() {
   // Po izvozu STEP ga (če je tako nastavljeno) odpri v Fusionu.
   session.defaultSession.on("will-download", (_event, item) => {
     item.once("done", async (_doneEvent, state) => {
+      // Preklicano okno »Shrani kot«: spletni program mora vedeti, da ni bilo nič shranjeno
+      // (sicer obvestilo »Varnostna kopija shranjena …« ostane, čeprav datoteke ni).
+      if (state === "cancelled" && mainWindow && !mainWindow.isDestroyed()) mainWindow.webContents.send("app:download-cancelled");
       if (state !== "completed") return;
       const saved = item.getSavePath();
       const fusion = config.get().fusion;

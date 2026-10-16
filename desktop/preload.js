@@ -17,6 +17,7 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   onFlushRequest: (callback) => listen("mirror:flush-request", callback),
   flushDone: () => ipcRenderer.send("mirror:flush-done"),
   onOpenFile: (callback) => listen("app:open-file", callback),
+  onDownloadCancelled: (callback) => listen("app:download-cancelled", callback),
   ready: () => ipcRenderer.send("renderer:ready"),
   reportProjectCount: (count) => ipcRenderer.send("renderer:project-count", count),
   listFonts: () => ipcRenderer.invoke("fonts:list"),

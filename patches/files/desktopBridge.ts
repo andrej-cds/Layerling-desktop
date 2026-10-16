@@ -29,6 +29,7 @@ type DesktopApi = {
   onFlushRequest: (callback: () => void) => () => void;
   flushDone: () => void;
   onOpenFile: (callback: (file: OpenedFile) => void) => () => void;
+  onDownloadCancelled?: (callback: () => void) => () => void;
   ready: () => void;
   reportProjectCount: (count: number) => void;
   reportLanguage?: (language: "sl" | "en") => void;
@@ -50,10 +51,14 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
   projects: P[];
   getBytes: (project: P) => Promise<Uint8Array>;
   openFiles: (files: File[]) => Promise<void> | void;
+  /** Uporabnik je preklical okno »Shrani kot«: obvestilo o uspešnem shranjevanju ni več res. */
+  onDownloadCancelled?: () => void;
 }) {
   const projectsRef = useRef(options.projects);
   const getBytesRef = useRef(options.getBytes);
   const openFilesRef = useRef(options.openFiles);
+  const downloadCancelledRef = useRef(options.onDownloadCancelled);
+  downloadCancelledRef.current = options.onDownloadCancelled;
   projectsRef.current = options.projects;
   getBytesRef.current = options.getBytes;
   openFilesRef.current = options.openFiles;
@@ -65,6 +70,11 @@ export function useDesktopBridge<P extends ProjectLike>(options: {
   const lastActivity = useRef(0);
 
   // Jezik urejevalnika ("de" je v tej gradnji slovenščina) se sporoča lupini, da so meniji in okna v istem jeziku.
+  useEffect(() => {
+    const api = typeof window !== "undefined" ? window.layerlingDesktop : undefined;
+    return api?.onDownloadCancelled?.(() => downloadCancelledRef.current?.());
+  }, []);
+
   useEffect(() => {
     const api = typeof window !== "undefined" ? window.layerlingDesktop : undefined;
     if (!api || !api.reportLanguage) return;

@@ -140,6 +140,13 @@ try {
     return !!el && getComputedStyle(el).display !== "none";
   });
   assert.equal(noticeShown, false, "pasica o shranjevanju v brskalniku se v namiznem programu ne sme videti");
+  // Preklic okna »Shrani kot«: lupina to sporoči strani (da obvestilo »shranjeno« ne ostane).
+  await page.evaluate(() => {
+    window.__downloadCancelled = 0;
+    window.layerlingDesktop.onDownloadCancelled(() => { window.__downloadCancelled += 1; });
+  });
+  await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].webContents.send("app:download-cancelled"));
+  await eventually("stran dobi sporočilo o preklicu prenosa", async () => (await page.evaluate(() => window.__downloadCancelled)) === 1, 5000);
   ok("različica lupine je vidna tudi v nogi strani; pasice »načrti so v brskalniku« ni");
 
     const pickLanguage = async (name) => {

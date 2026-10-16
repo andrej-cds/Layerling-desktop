@@ -51,7 +51,7 @@ export const edits = [
     marker: "useDesktopBridge({",
     find: "  const openLatestProject = () => {",
     replace:
-      "  // Namizna različica: samodejno shranjevanje na disk in odpiranje datotek iz lupine (v brskalniku brez učinka).\n  useDesktopBridge({ projects, getBytes: projectPackageBytes, openFiles: importFilesFromDashboard });\n\n  const openLatestProject = () => {",
+      "  // Namizna različica: samodejno shranjevanje na disk in odpiranje datotek iz lupine (v brskalniku brez učinka).\n  useDesktopBridge({ projects, getBytes: projectPackageBytes, openFiles: importFilesFromDashboard, onDownloadCancelled: () => setDashboardNotice(\"\") });\n\n  const openLatestProject = () => {",
   },
   {
     name: "Nadzorna plošča: pasica o shranjevanju v brskalniku ne spada v namizni program (oznaka)",
