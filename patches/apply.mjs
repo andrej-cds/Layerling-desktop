@@ -54,6 +54,21 @@ export const edits = [
       "  // Namizna različica: samodejno shranjevanje na disk in odpiranje datotek iz lupine (v brskalniku brez učinka).\n  useDesktopBridge({ projects, getBytes: projectPackageBytes, openFiles: importFilesFromDashboard });\n\n  const openLatestProject = () => {",
   },
   {
+    name: "Nadzorna plošča: pasica o shranjevanju v brskalniku ne spada v namizni program (oznaka)",
+    file: "apps/web/src/app/page.tsx",
+    marker: "layerling-desktop-shell",
+    find: "  const openLatestProject = () => {",
+    replace:
+      '  // Namizni program ne hrani načrtov v brskalniku: pasica o shranjevanju v brskalniku bi zavajala (skrije jo CSS).\n  useEffect(() => {\n    if ((window as unknown as { layerlingDesktop?: unknown }).layerlingDesktop) document.documentElement.classList.add("layerling-desktop-shell");\n  }, []);\n\n  const openLatestProject = () => {',
+  },
+  {
+    name: "Nadzorna plošča: pasica o shranjevanju v brskalniku ne spada v namizni program (slog)",
+    file: "apps/web/src/app/globals.css",
+    marker: "layerling-desktop-shell",
+    find: "\n.storage-notice {\n",
+    replace: "\n.layerling-desktop-shell .storage-notice {\n  display: none !important;\n}\n\n.storage-notice {\n",
+  },
+  {
     name: "Posodobitve: namizni program jih ureja sam",
     file: "apps/web/src/lib/useAppUpdate.ts",
     marker: "layerlingDesktop",

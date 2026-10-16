@@ -135,7 +135,12 @@ try {
   ok("naslovna vrstica: »Layerling - Free 3D CAD for 3D printing - Desktop x.y.z« (brez »in your browser«)");
 
   await page.waitForFunction(() => /Desktop \d+\.\d+\.\d+/.test(document.body.innerText), null, { timeout: 15000 });
-  ok("različica lupine je vidna tudi v nogi strani");
+  const noticeShown = await page.evaluate(() => {
+    const el = document.querySelector(".storage-notice");
+    return !!el && getComputedStyle(el).display !== "none";
+  });
+  assert.equal(noticeShown, false, "pasica o shranjevanju v brskalniku se v namiznem programu ne sme videti");
+  ok("različica lupine je vidna tudi v nogi strani; pasice »načrti so v brskalniku« ni");
 
     const pickLanguage = async (name) => {
     await page.locator(".language-switch > button").first().click();
