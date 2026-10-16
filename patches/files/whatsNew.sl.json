@@ -1,4 +1,38 @@
 {
+  "1.84.0": [
+    [
+      "Povečava s ščipanjem na sledilni ploščici v Safariju",
+      "V Safariju na Macu razmikanje in ščipanje z dvema prstoma na sledilni ploščici ni naredilo ničesar. Zdaj pogled povečuje kot kolesce miške, s hitrostjo povečave iz nastavitev in proti kazalcu."
+    ],
+    [
+      "Dve barvi ostaneta pri združevanju z luknjo",
+      "Skupina rdečega in belega dela, ki si jo nato združil z luknjo, je prišla v eni barvi, »Večbarvno« pa je preklapljalo samo med dvema. Zdaj se skupina z več barvami ob združevanju razpre na dele, »Večbarvno« pa pokaže obe barvi."
+    ],
+    [
+      "Mreža ostane ob preklopu mm/in",
+      "Preklop z milimetrov na palce in nazaj je mrežo plošče spet nastavil na 5 mm, tudi če je bila prej 1 mm. Zdaj layerling zapomni mrežo merskega sistema, ki ga zapustiš, in jo ob vrnitvi obnovi."
+    ],
+    [
+      "Esc prekliče vlečenje",
+      "Če premikaš telo ali vlečeš ročaj in pritisneš Esc, medtem ko še držiš tipko miške, se vlečenje takoj prekliče: vse stoji kot prej, v zgodovino se ne doda noben korak, izbor ostane. Prej si moral spremembo razveljaviti."
+    ],
+    [
+      "SVG s stikajočimi se obrisi je mogoče uporabiti za rez",
+      "Risba iz plošč, ki si delijo robove, na primer nogometna žoga s ploskvami, je prišla kot telo, ki ni čisto zaprto: združeno kot luknja ni naredilo ničesar, po približno desetih sekundah. Zdaj telo zgradi natančno jedro, stikajoči se ali prekrivajoči se obrisi pa dajo eno čisto telo. SVG-je, ki so že v načrtu, uvozi znova."
+    ],
+    [
+      "Gridfinity zabojčki in osnovne plošče",
+      "Nova oblika »Gridfinity« v knjižnici oblik naredi zabojčke in osnovne plošče za odprti sistem shranjevanja na mreži 42 mm: enote v širino, globino in višino, rob za zlaganje in luknje za magnete po želji. Mere sledijo specifikaciji, zato deli ustrezajo zabojčkom in osnovnim ploščam iz drugih generatorjev."
+    ],
+    [
+      "Tečaj brez natisnjenega zatiča",
+      "Novo stikalo v nastavitvah tečaja: natisnjeni zatič se izpusti, izvrtina pa poteka skozi vse členke, tudi skrajna, za lasten zatič iz filamenta ali žice."
+    ],
+    [
+      "Tudi prazen načrt na strežniku se vpraša",
+      "Ko se z praznega načrta vrneš na začetno stran, layerling zdaj vpraša tudi o načrtu v skupni mapi na strežniku, kot je že pri načrtu v brskalniku. »Ne« izbriše prazno datoteko s strežnika."
+    ]
+  ],
   "1.83.0": [
     [
       "Kopiranje velikih modelov se ne zatakne več",
