@@ -66,7 +66,8 @@ export const edits = [
     file: "apps/web/src/app/globals.css",
     marker: "layerling-desktop-shell",
     find: "\n.storage-notice {\n",
-    replace: "\n.layerling-desktop-shell .storage-notice {\n  display: none !important;\n}\n\n.storage-notice {\n",
+    replace:
+      "\n.layerling-desktop-shell .storage-notice {\n  display: none !important;\n}\n\n/* Urejevalnik v namizni različici: besedila na strani se ne da po nesreči označiti (vlečenje prek spodnje vrstice, Ctrl+A). Polja za vnos ostanejo običajna. */\n.layerling-desktop-shell .layerling-editor,\n.layerling-desktop-shell .editor-legal {\n  -webkit-user-select: none;\n  user-select: none;\n}\n\n.layerling-desktop-shell .layerling-editor :is(input, textarea, [contenteditable=\"true\"]) {\n  -webkit-user-select: text;\n  user-select: text;\n}\n\n.storage-notice {\n",
   },
   {
     name: "Posodobitve: namizni program jih ureja sam",

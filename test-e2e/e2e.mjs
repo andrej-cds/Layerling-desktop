@@ -169,6 +169,8 @@ try {
   await page.getByText("Create new 3D design").first().click();
   await eventually("urejevalnik se odpre", () => /editor=1/.test(page.url()), 30000);
   await eventually("urejevalnik se registrira za MCP", async () => (await (await fetch(`${BASE}/api/layerling-mcp`, { headers: { Authorization: `Bearer ${token()}` } })).json()).editors.length > 0, 30000);
+  const selectable = await page.evaluate(() => getComputedStyle(document.querySelector(".layerling-editor")).userSelect);
+  assert.equal(selectable, "none", "besedila v urejevalniku se ne sme dati po nesreči označiti");
   ok("3D urejevalnik (WebGL) deluje in je povezan z MCP");
 
   await mcp("create_shape", { kind: "box", name: "Škatla-E2E", width: 40, depth: 30, height: 20 });
