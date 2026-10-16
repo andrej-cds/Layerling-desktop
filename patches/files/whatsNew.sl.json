@@ -1,4 +1,38 @@
 {
+  "1.83.0": [
+    [
+      "Kopiranje velikih modelov se ne zatakne več",
+      "Pri velikem uvoženem modelu se je stran ob kopiranju (Ctrl+C) ustavila za sekunde ali minute. Velike kopije zdaj gredo naravnost v odložišče: model s 245.000 trikotniki traja manj kot sekundo namesto 23 s."
+    ],
+    [
+      "Pomanjšano besedilo vzame okvir s seboj",
+      "Ko besedilo pomanjšaš prek okvirja, se okvir skrči skupaj s črkami: mere in ročaji stojijo pri črkah, ne daleč stran. Če okvir povečaš, vse ostane, kot je bilo."
+    ],
+    [
+      "Francoščina: popravljenih več imen oblik",
+      "V francoščini so navoj imenovali »Sujet«, matico »Noix« in klin »Coin«. Zdaj so »Filetage«, »Écrou« in »Prisme triangulaire«, popravljeni pa so tudi »Anneau«, »Moletage«, »Ellipse« in »Cœur«."
+    ],
+    [
+      "Način pomoči: kazalec pokaže, kje pomoči ni",
+      "V načinu pomoči se kazalec nad mesti, o katerih navodila nimajo ničesar, na primer nad praznimi deli traku, spremeni v znak »prepovedano« namesto vprašaja. To prihrani klike v prazno."
+    ],
+    [
+      "Okvir za izbiro: odloča smer",
+      "Novo stikalo v nastavitvah (področje Videz): okvir, povlečen z leve proti desni, izbere samo telesa, ki so v celoti znotraj njega, povlečen v levo pa vse, česar se dotakne (črtkano). Tako iz gruče izbereš en del. Privzeto je izklopljeno."
+    ],
+    [
+      "Italijanščina",
+      "Vmesnik je zdaj tudi v italijanščini (Italiano), brskalnik, nastavljen na italijanščino, pa jo izbere sam. Vse še ni prevedeno: kar manjka, se prikaže v angleščini, tudi navodila."
+    ],
+    [
+      "Arabščina",
+      "Vmesnik in navodila so zdaj tudi v arabščini (العربية), brskalnik, nastavljen na arabščino, pa jo izbere sam. Postavitev še ni zrcaljena od desne proti levi, besedil pa drugi bralec še ni preveril."
+    ],
+    [
+      "Cev in obroč: zunanji, notranji premer in stena",
+      "Okrogla cev ali obroč ima zdaj poleg notranjega premera in stene tudi zunanji premer. Poljubna dva dasta tretjega, ne glede na vrstni red vnosa; notranji premer, ki ne ustreza, zunanjega poveča. Dolžina cevi je njena višina."
+    ]
+  ],
   "1.82.0": [
     [
       "Brskalnik layerlinga ne prevaja več",
