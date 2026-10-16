@@ -1,4 +1,30 @@
 {
+  "1.82.0": [
+    [
+      "Brskalnik layerlinga ne prevaja več",
+      "Nemški Chrome je namestljivi program prevedel in »Hell« v meniju barv spremenil v »Hölle«. Stran zdaj brskalniku pove, naj je ne prevaja, ker layerling jezike prinese sam."
+    ],
+    [
+      "Stikalo za milimetre in palce",
+      "Majhno stikalo »mm | in« je zdaj ob mreži pripenjanja na dnu okna z lastnostmi. Enoto spremeni tako kot nastavitve: mreža plošče in korak pripenjanja ji sledita, in sicer za ta načrt."
+    ],
+    [
+      "Sporočila ostanejo, dokler jih ne prebereš",
+      "Sporočilo na vrhu delovne površine je izginilo po štirih sekundah, tudi dolga napaka. Zdaj se čas ravna po dolžini, sporočilo ostane, dokler je kazalec nad njim, majhen križec pa ga zapre takoj."
+    ],
+    [
+      "Tablica: ročaji držijo, dolg pritisk odpre meni",
+      "Vlečenje ročaja s prstom se ne konča več po nekaj pikslih, ročaje pa je mogoče ujeti tudi malo ob strani. Prst, držan pol sekunde na obliki ali na praznem prostoru, odpre meni desnega klika, v njem je tudi »Izberi vse«."
+    ],
+    [
+      "Navpični robovi v orodju za robove",
+      "Poleg »Vsi ostri robovi« in »Zgornji robovi« je zdaj še »Navpični robovi«. Izbere vse robove, ki stojijo navpično, na primer vogale škatle, tako da eno zaobljenje ali posnetje zajame vse navpične vogale naenkrat."
+    ],
+    [
+      "Interaktivna pomoč: klikni in preberi",
+      "Vprašaj v skupini Pomoč (ali Shift+F1) vklopi interaktivno pomoč: klik na gumb, polje ali okno odpre majhno okno z ustreznim delom navodil in te po želji pelje naravnost tja. Esc jo spet izklopi."
+    ]
+  ],
   "1.81.0": [
     [
       "Obnovitev varnostne kopije: svoj gumb",
