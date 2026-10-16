@@ -2,11 +2,13 @@ name: Samodejna oznaka različice
 
 # Ko se v upstream.json spremeni pripeta različica originalnega programa (npr. v1.72.3), se samodejno postavi
 # oznaka z istim imenom (male črke) in požene gradnja ter objava izdaje (Gradnja in izdaja).
+# Enako velja za izdajo samo namiznega dela (npr. v1.83.1): ko se doda release-notes/v1.83.1.md, ki je novejši od
+# pripete različice, se postavi oznaka po tej datoteki.
 # Če oznaka že obstaja, se ne zgodi nič. Izdajo lahko še vedno objavite ročno z oznako, kot doslej.
 on:
   push:
     branches: [main]
-    paths: ["upstream.json"]
+    paths: ["upstream.json", "release-notes/v*.md"]
 
 permissions:
   contents: write
@@ -23,6 +25,9 @@ jobs:
         run: |
           ref="$(node -p "require('./upstream.json').ref")"
           tag="$(echo "$ref" | tr 'A-Z' 'a-z')"
+          # Najnovejši opis izdaje (npr. samo za namizni del) lahko določi novejšo oznako od pripete različice.
+          newest="$(ls release-notes/ 2>/dev/null | sed -n 's/^\(v[0-9]*\.[0-9]*\.[0-9]*\)\.md$/\1/p' | sort -V | tail -1)"
+          if [ -n "$newest" ] && [ "$(printf '%s\n%s\n' "$tag" "$newest" | sort -V | tail -1)" = "$newest" ]; then tag="$newest"; fi
           case "$tag" in
             v[0-9]*.[0-9]*.[0-9]*) ;;
             *) echo "Pripeta različica '$ref' ni v obliki vX.Y.Z - oznaka se ne postavi."; exit 0 ;;
