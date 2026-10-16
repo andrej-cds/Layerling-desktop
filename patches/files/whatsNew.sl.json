@@ -1,4 +1,42 @@
 {
+  "1.81.0": [
+    [
+      "Obnovitev varnostne kopije: svoj gumb",
+      "Poleg »Varnostna kopija vsega« zdaj obstaja gumb »Obnovi varnostno kopijo«. Izbereš datoteko kopije in vsi načrti ter lastne oblike se vrnejo; kar že obstaja, se preskoči. Gumb je na voljo tudi na novem računalniku brez načrtov."
+    ],
+    [
+      "Veliki krogi iz SVG so okrogli",
+      "Velik krog ali dolga krivulja v uvoženem SVG je doslej prispela z vidnimi robovi, ker je bila vsaka krivulja razrezana na enako malo kosov. Zdaj število kosov sledi dolžini krivulje: veliki krogi so okrogli, majhne krivulje pa ostanejo tako lahke kot prej. Nastavitev ni potrebna."
+    ],
+    [
+      "Mere na zavrtenih telesih",
+      "Če je telo zavrteno za 90° in je delovna ravnina na ploskvi, je številka na dolgem robu spremenila drugo stran. Zdaj številka na robu spremeni stran, ob kateri stoji, zadržani rob pa ostane tam, kjer je bil."
+    ],
+    [
+      "Drobni ločeni koščki ne pridejo v izvoz",
+      "Rez in barvna ločitev pri izvozu 3MF lahko pustita za sabo veliko drobnih ločenih koščkov, majhnih zrnc v sloju ali na njem. V urejevalniku jih ne vidiš, v slicerju pa se prikažejo kot konice in lahko ploski načrt dvignejo s plošče. STL, 3MF in OBJ jih zdaj izpustijo, obvestilo pa pove, koliko jih je bilo. Telo samo in majhni deli, ki si jih narisal, ostanejo."
+    ],
+    [
+      "Višine nad 220 mm",
+      "Polje »Z (višina)« je pri 220 mm skočilo nazaj, tudi v načinu »Brez tiskalnika – poljubna velikost«. Zdaj lahko vpišeš poljubno število, navzgor in navzdol, enako za X in Y. Drsnik sega do roba plošče in višine tiskalnika."
+    ],
+    [
+      "STL, 3MF in OBJ prek povezave z umetno inteligenco",
+      "Povezava MCP zdaj lahko model zapiše tudi kot STL, 3MF ali OBJ, iz istih teles kot okno za izvoz. Umetna inteligenca lahko zgradi načrt in tiskalno datoteko zapiše neposredno na pot v računalniku."
+    ],
+    [
+      "2D risba gladkih, okroglih delov",
+      "2D risba je zavračala majhne dele z mnogo ukrivljenimi ploskvami, ker so imeli preveč trikotnikov. Omejitev je zdaj štirikrat višja, sporočilo pa pove, koliko trikotnikov pogledi res potrebujejo."
+    ],
+    [
+      "Združevanje pove, kdaj so deli samo položeni skupaj",
+      "Nad omejitvijo trikotnikov združevanje uvoženih teles ne zlije, ampak jih samo položi skupaj, slicer pa nato javi napačne robove. Statusna vrstica zdaj to pove, skupaj s številom trikotnikov in omejitvijo."
+    ],
+    [
+      "Slika s prosojnim robom se sledi kot lik",
+      "Črna nalepka na prosojnem ozadju je prišla kot ločeni koščki namesto kot en obris. Kadar je večina roba slike prosojna, prosojnost zdaj velja za ozadje in lik se sledi."
+    ]
+  ],
   "1.80.0": [
     [
       "Potisni ploskev ven ali noter",
