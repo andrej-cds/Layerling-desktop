@@ -1,4 +1,18 @@
 {
+  "1.86.2": [
+    [
+      "Število ob kazalcu miške šteje izbor",
+      "Ko z Shiftom izbereš več teles, pod kazalcem miške zdaj stoji majhno število, dokler držiš Shift in sta izbrani dve telesi ali več. Med klikanjem imaš seštevek pred očmi, ne da bi pogledal v ploščo Lastnosti. Samo z miško: prst bi število zakril."
+    ],
+    [
+      "Interaktivna pomoč odgovori tudi pri zatemnjenih gumbih",
+      "Pri zatemnjenem gumbu, na primer »Osredini pogled na izbor«, ko ni nič izbrano, je Interaktivna pomoč molčala. Zdaj odgovori tudi tam in vodi v ustrezen razdelek vodnika, da prebereš, čemu gumb služi in zakaj trenutno ne deluje."
+    ],
+    [
+      "Knjižnico oblik je mogoče premikati in imeti odprto",
+      "Knjižnica oblik je pokrivala mesto, na katero ciljaš pri postavljanju. Zdaj jo premakneš za naslovno vrstico, na primer čez ploščo Lastnosti; dvoklik na naslovno vrstico jo vrne pod njen gumb. Žebljiček v naslovni vrstici jo drži odprto, kadar želiš postaviti več oblik zapored. Brez žebljička se po vsaki obliki zapre, kot doslej. Enako velja za oblike v skici."
+    ]
+  ],
   "1.86.1": [
     [
       "Številka na robu telesa, ki leži na boku, spremeni pravo mero",
