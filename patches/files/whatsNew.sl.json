@@ -1,4 +1,58 @@
 {
+  "1.86.0": [
+    [
+      "Orodje »Ploskev« se začne s privzetimi vrednostmi",
+      "Orodje »Ploskev« se je odprlo z vrednostmi iz prejšnjič, tudi če ni nastalo nič, zato je bil odmik, ki je ustrezal eni ploskvi, lahko za naslednjo preširok. Zdaj se vsakič začne z odmikom 0, brez zaokrožitve vogalov, globino 2 mm in »Navzven: dodaj material«."
+    ],
+    [
+      "Poglavje za tablice",
+      "Hitri vodnik ima novo poglavje »Tablica in dotik«: kretnje, izbira več teles, meni dolgega pritiska, pisalo in kar je dobro vedeti na iPadu. Na napravi na dotik na to enkrat opozori namig na začetni strani."
+    ],
+    [
+      "Izbriši ploskev",
+      "Novo orodje »Izbriši ploskev« spet odstrani zaobljenje, luknjo ali izboklino s telesa: klikni njihove ploskve, nato »Izbriši« in sosednje ploskve zapolnijo vrzel. Telo ostane natančno, zato Zaobljenje, Posnetek in izvoz STEP še vedno delujejo na njem."
+    ],
+    [
+      "Lastne oblike visijo na kazalcu",
+      "Klik na lastno obliko jo je takoj postavil na sredino delovne plošče. Zdaj visi na kazalcu kot oblike iz knjižnice, ga spremlja tudi čez ploskve drugih teles, klik pa jo odloži. Esc jo odstrani."
+    ],
+    [
+      "Prevelik načrt se vseeno shrani",
+      "Načrt z zelo velikimi mrežami in dolgo zgodovino se je po skoraj vsaki spremembi nehal shranjevati, s samo obvestilom, da oblik ni mogoče shraniti. Zdaj sporočilo navede razlog (preveliko za datoteko projekta ali v brskalniku ni več prostora). Če je preveč le cela zgodovina, shranjena kopija obdrži najnovejše korake, ki gredo noter, in to enkrat pove. Razveljavi v odprti seji še vedno gre skozi vse korake."
+    ],
+    [
+      "Črta okrog vektorizirane skice ne povzroči več časovne omejitve",
+      "Skica iz SVG z veliko majhnimi krivuljami (vektorizirana risba) se je ustavila z napako »OpenCascade timed out while building the sketch«, takoj ko si okrog nje nastavil črto. Krivulje se zdaj režejo le tako drobno, kot zahteva 0,01 mm, preverjanje veljavnosti, ki je pri zelo veliko robovih trajalo minute, pa pri tako velikih skicah izpustimo. Tako telo se zdaj zgradi v nekaj sekundah namesto v minuti."
+    ],
+    [
+      "Interaktivna pomoč zadene več gumbov",
+      "Pri nekaterih gumbih Interaktivna pomoč ni našla ničesar ali je vodila v napačen razdelek: Prilepi, Izbriši, Razdruži, Nastavitve delovnega prostora, Tema, noga in drugi. Prvo poglavje vodnika ima zdaj razdelek »Gumbi okrog delovnega območja« in pomoč vodi tja."
+    ],
+    [
+      "F povečuje na izbor, kot v Tinkercadu",
+      "Tipka F zdaj poveča pogled na izbrano, ko pa ni nič izbrano, pokaže celoten prizor. Doslej je F vedno pokazal celoten prizor, za izbor pa je bil potreben Shift+F, ki še vedno deluje. Celoten prizor vedno pokažeta tipka Home in gumb s hišico. Skica deluje enako."
+    ],
+    [
+      "Zavrtena zvezda ostane ravna",
+      "Zvezda, ki jo zavrtiš po višini, se je vrtela okrog sredine svojega okvirja namesto okrog svoje sredine. Ker petkraka zvezda v okvirju ni na sredini, je njena sredina krožila okrog osi in konice so molele različno daleč. Zdaj se zvezda vrti okrog svoje sredine in os ostane ravna."
+    ],
+    [
+      "Pogled sledi telesom visoko nad ploščo",
+      "Odkar višina ni več omejena na 220 mm, pogled ni mogel vzeti telesa visoko nad ploščo v sredino: Povečaj izbor ga je spustil čez zgornji rob, vrtišče pa je obtičalo pri 120 mm. Vrtišče zdaj seže do vrha najvišjega telesa (in navzdol do vznožja najnižjega), tako da se pogled tudi tam povečuje, premika in vrti."
+    ],
+    [
+      "Namesti layerling kot aplikacijo",
+      "Začetna stran in urejevalnik (tam po pol minute dela) imata zdaj kartico, ki priporoča namestitev layerlinga kot aplikacije: hitreje se zažene, deluje brez interneta in ga ni treba vsakič nalagati. Nič ne izgubiš, saj te layerling o novih različicah še vedno obvesti. »Ne zdaj« skrije kartico za dva tedna."
+    ],
+    [
+      "Odprta črta v skici: sporočilo pove pot",
+      "Odprte črte v skici ni mogoče iztegniti, ker mora biti obris sklenjen. Sporočilo zdaj doda, da lahko črto zgradiš kot potezo: obkljukaj »Zgradi kot potezo« v razdelku Zaključi in dobi širino."
+    ],
+    [
+      "Francoščina: boljša imena za pet oblik",
+      "Grezila, upognjena cev in pol valj zdaj nosijo imena, kakršna imajo v francoski delavnici: Trou lamé, Trou fraisé, Trou doublement fraisé, Tube cintré in Demi-cylindre. »Poteza« je bila po pomoti imenovana tudi poteza v medicinskem smislu; zdaj je »Trait«."
+    ]
+  ],
   "1.85.0": [
     [
       "»Loči dele« z desnim klikom",
