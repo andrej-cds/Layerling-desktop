@@ -1,4 +1,94 @@
 {
+  "1.87.0": [
+    [
+      "Kopijo lahko premakneš z miško in jo znova podvojiš",
+      "Po podvajanju kopija leži natanko na izvirniku. Klik z miško nanjo je včasih zadel izvirnik namesto izbrane kopije in izvirnik se je premaknil. S tem se je prekinila veriga, ki naslednje podvajanje premakne za isti odmik (na primer za vrsto lukenj), in naslednja kopija je ostala na mestu. Zdaj pri telesih, ki ležijo natanko eno na drugem, prednost dobi že izbrano."
+    ],
+    [
+      "»Shrani kot privzeto« si zapomni tudi barvo",
+      "Obarvaj obliko, na primer valj, in v oknu z lastnostmi pritisni »Shrani kot privzeto«: vsak nov valj se bo začel s to barvo, druge vrste obdržijo svoje. »Ponastavi privzeto« vrne barvo programa. Popravljeno je tudi, da drugo shranjevanje ali ponastavitev v istem projektu pri novih oblikah ni imelo učinka."
+    ],
+    [
+      "Vtipkana mera velja tudi ob kliku mimo polja",
+      "Če si v polje z mero na telesu (ali v polje za kot) vtipkal število in z levim gumbom miške klikneš v prazno, ga layerling zdaj sprejme, tako kot je že pri desnem kliku. Prej se je ob levem kliku izgubilo. Esc še vedno prekliče."
+    ],
+    [
+      "Poravnaj: ročice ostanejo narazen",
+      "Pri majhnih delih so ročice orodja »Poravnaj« ležale tako blizu, da si jih ni bilo mogoče posamično klikniti, pri močnem približevanju pa so izginile. Zdaj tri ročice ene osi ohranjajo najmanjšo razdaljo, ročice, ki so še pred kamero, pa ostanejo vidne tudi pri približevanju."
+    ],
+    [
+      "Puščične tipke: pogled sledi samo, kadar je treba",
+      "Puščične tipke premikajo telo, pogled pa gre zraven, če bi telo sicer zapustilo sliko. Prej je sledil tudi, ko je bilo telo že na robu ali zunaj, na primer po močnem približevanju: telo je stalo, vse drugo pa je drselo mimo. Zdaj pogled sledi le, če je telo v sliki in bi jo zapustilo."
+    ],
+    [
+      "Zaobli in posnemi: »Spodnji robovi«",
+      "Ob »Zgornji robovi« imata orodji za zaobljenje in posnetje zdaj tudi »Spodnji robovi«: en klik izbere samo robove čisto na dnu telesa, na primer nožico dela. Tako zaobliš ali posnameš samo spodnji konec, ne da bi robove klikal posamično. Razume ga tudi povezava z umetno inteligenco (»bottom«)."
+    ],
+    [
+      "Vrednost višine je tudi ob ročici za višino",
+      "Ko si vlekel zgornjo srednjo ročico, je bila vrednost višine le ob navpičnem robu, pogosto daleč od ročice, pri približevanju pa je izginila. Zdaj je dodatno tudi tik ob ročici (nad njo, pri spodnji ročici pod njo), vedno v sliki, in jo lahko tam klikneš ter vtipkaš število. Mera ob robu ostane, kot je bila."
+    ],
+    [
+      "Gumb za skrivanje ostane pri več izbranih telesih",
+      "V oknu z lastnostmi je gumb z očesom izginil, takoj ko je bilo izbrano več kot eno telo, in bilo je treba uporabiti meni »Vidnost«. Zdaj je ob ključavnici tudi pri več telesih: skrije vsa izbrana, če pa so vsa že skrita, jih spet pokaže. Enako stori Ctrl+H."
+    ],
+    [
+      "Skrite oblike so zdaj opazne",
+      "Ko so oblike skrite, je na gumbu skupine »Vidnost« majhno število; klik nanj jih vse spet prikaže. Če odpreš projekt s skritimi oblikami, ti sporočilo to enkrat pove, z gumbom »Prikaži vse skrito«. Skrito pa ostane skrito, če ne narediš nič."
+    ],
+    [
+      "Polmesec je zaprt in ni več votel",
+      "Oba pokrova polmeseca sta bila glede na stene obrnjena narobe. Zato je razrezovalnik mesto, kjer se prekriva z drugim telesom, imel za luknjo, pri izvozu pa ga ni bilo mogoče združiti z drugimi telesi. Zdaj je mreža zaprta in se polmesec obnaša kot vsaka druga oblika."
+    ],
+    [
+      "Umetna inteligenca lahko projekt shrani kot .lyl",
+      "Prek povezave MCP je umetna inteligenca doslej lahko zapisala STL, 3MF in OBJ na pot, ne pa tudi urejljivega projekta. Novo orodje layerling_save_project shrani ves projekt kot datoteko .lyl na pot na računalniku strežnika MCP, brez pogovornega okna. Obstoječa datoteka se zamenja le, če to poveš, cilj Ctrl+S v urejevalniku pa ostane, kot je bil."
+    ],
+    [
+      "Vodnik je zdaj tudi v poljščini",
+      "Vseh 17 poglavij vodnika je prevedenih v poljščino, gumbi pa se v njem imenujejo natanko tako kot v poljskem vmesniku. Iskanje (Ctrl+K in iskanje po vodniku) zdaj najde besede z »ł« tudi, ko vtipkaš »l«. V dveh stavkih vodnika je bil v vsakem jeziku viden surov »{count}«; to je popravljeno."
+    ],
+    [
+      "Seznam bližnjic lahko natisneš",
+      "Okno z bližnjicami na tipkovnici, v urejevalniku in v skici, ima ob vprašaju gumb s tiskalnikom. Natisne samo seznam, črno na belem in z veliko pisavo. V pogovornem oknu tiskanja v brskalniku ga lahko shraniš tudi kot PDF. Enako stori Ctrl+P, ko je okno odprto."
+    ],
+    [
+      "Apple Pencil ob lebdenju pokaže imena gumbov",
+      "Na iPadu layerling zdaj v majhnem oblačku pokaže ime gumba ali polja, ko Apple Pencil za trenutek lebdi nad njim, tako kot miška pokaže namig. To velja za iPade, pri katerih Pencil zna lebdeti."
+    ],
+    [
+      "Zoženi, zasukani valji pri združevanju obdržijo zasuk",
+      "Valj z zožitvijo ali nagibom, ki si ga zasukal za 90 stopinj, je pri združevanju v skupino (in pri izvozu) prišel ven nezasukan, zato je imela skupina drugačne mere kot njeni deli. Zasuk se zdaj ohrani."
+    ],
+    [
+      "Mrežo lahko ponastaviš na standard",
+      "Če je bila barva mreže nastavljena tako, da mreže ni več videti, se zdaj vrneš z enim klikom: na koncu strani delovne ravnine v nastavitvah »Ponastavi mrežo« vrne vidnost, barve, razmik in debelino črt na standard, za projekt in za privzeto vrednost, shranjeno z »Nastavi kot privzeto«. Velikost in tiskalnik plošče ostaneta, kot sta."
+    ],
+    [
+      "Velikost knjižnice oblik lahko povlečeš",
+      "Robovi in vogali knjižnice oblik vlečejo njeno širino in višino, tako veliko ali majhno, kot jo potrebuje tvoj zaslon; velikost si brskalnik zapomni. Kadar je knjižnica ozka, pokaže samo slike brez imen, ime pa je v namigu."
+    ],
+    [
+      "Ravnilo lahko z ročicama povlečeš do 500 mm",
+      "Ročici ravnila sta se ustavili pri velikosti plošče, vsaj pri 220 mm, drsnik pa je šel do 500 mm. Zdaj segata tudi ročici tako daleč kot drsnik."
+    ],
+    [
+      "Lastne barve lahko obdržiš za stalno",
+      "Barve, ki jih zmešaš sam, so bile že pod »Nedavno uporabljeno«, vendar le osem, najstarejša pa je izpadla. S pripenjalko v novi vrsti »Shranjene« izbrano barvo zadržiš: stoji v svoji vrsti, novejše barve je nikoli ne izpodrinejo, ista pripenjalka pa jo spet sprosti. V tem brskalniku se ohrani do 21 barv."
+    ],
+    [
+      "Besedilo dobi rob črk",
+      "V lastnostih besedila zgornji rob črk zaobliš ali posnameš, z velikostjo do 5 mm, tako kot pri imenski tablici. Zaobljenje sega tako daleč, kot so široke črte, spodnja stran pa ostane ravna."
+    ],
+    [
+      "Pogled lahko zamakneš k delom ob plošči",
+      "Kdor je dele odložil daleč ob ploščo, z miško ni mogel do njih: točka, okoli katere se pogled premika in vrti, je ostala na plošči, razen po »Osredini pogled na izbor«. Zdaj sega do najbolj oddaljenega telesa v projektu."
+    ],
+    [
+      "Knjižnica oblik se pri premikanju ne zatika več ob nevidni rob",
+      "Pri majhni ali veliki orodni vrstici se je knjižnica oblik pri premikanju ustavila pred robom okna ali pa je desno in spodaj ušla iz okna. Zdaj pri vsaki velikosti orodne vrstice seže do roba okna."
+    ]
+  ],
   "1.86.2": [
     [
       "Število ob kazalcu miške šteje izbor",
