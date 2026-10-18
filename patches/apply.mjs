@@ -67,7 +67,7 @@ export const edits = [
     marker: "layerling-desktop-shell",
     find: "\n.storage-notice {\n",
     replace:
-      "\n.layerling-desktop-shell .storage-notice {\n  display: none !important;\n}\n\n/* Urejevalnik v namizni različici: besedila na strani se ne da po nesreči označiti (vlečenje prek spodnje vrstice, Ctrl+A). Polja za vnos ostanejo običajna. */\n.layerling-desktop-shell .layerling-editor,\n.layerling-desktop-shell .editor-legal {\n  -webkit-user-select: none;\n  user-select: none;\n}\n\n.layerling-desktop-shell .layerling-editor :is(input, textarea, [contenteditable=\"true\"]) {\n  -webkit-user-select: text;\n  user-select: text;\n}\n\n.storage-notice {\n",
+      "\n.layerling-desktop-shell .storage-notice {\n  display: none !important;\n}\n\n/* Urejevalnik v namizni različici: besedila na strani se ne da po nesreči označiti (vlečenje prek spodnje vrstice, Ctrl+A). Polja za vnos ostanejo običajna. */\n.layerling-desktop-shell .layerling-editor,\n.layerling-desktop-shell .editor-legal {\n  -webkit-user-select: none;\n  user-select: none;\n}\n\n.layerling-desktop-shell .layerling-editor :is(input, textarea, [contenteditable=\"true\"]) {\n  -webkit-user-select: text;\n  user-select: text;\n}\n\n/* Tablica: dolg pritisk na telo odpre meni; brez tega Safari na iPadu ob dolgem pritisku označi (modro) elemente vmesnika. */\n@media (pointer: coarse) {\n  .layerling-editor {\n    -webkit-user-select: none;\n    user-select: none;\n    -webkit-touch-callout: none;\n  }\n\n  .layerling-editor :is(input, textarea, [contenteditable=\"true\"]) {\n    -webkit-user-select: text;\n    user-select: text;\n  }\n}\n\n.storage-notice {\n",
   },
   {
     name: "Posodobitve: namizni program jih ureja sam",
@@ -318,6 +318,14 @@ export const edits = [
     marker: "\"/podpri/index.html\"",
     find: "\"https://layerling.com/support.html\"",
     replace: "\"/podpri/index.html\"",
+  },
+  {
+    name: "Izbira: dotik na drugo telo ga doda izbiri",
+    stage: "jezik",
+    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    marker: "touch-dodaj-izbiri",
+    find: "      const additive = event.shiftKey || multiSelectRef.current;",
+    replace: "      // touch-dodaj-izbiri: na zaslonu na dotik ni Shifta; ko je že kaj označeno, dotik na drugo telo doda izbiri (dotik na označeno telo brez premika ga odvzame), kot v Tinkercadu.\n      const additive = event.shiftKey || multiSelectRef.current || (event.pointerType === \"touch\" && Boolean(id) && selectedIdsRef.current.length > 0);",
   },
   {
     name: "Prerez: sredina ravnine po izbiri (uvoz)",
