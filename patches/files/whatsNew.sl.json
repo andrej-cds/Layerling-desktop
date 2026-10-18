@@ -1,4 +1,58 @@
 {
+  "1.89.0": [
+    [
+      "Izvožen OBJ v razrezovalniku stoji pokonci",
+      "STL in 3MF sta bila že zapisana z osjo Z navzgor, OBJ pa z osjo Y navzgor, zato so razrezovalniki, kot je Cura, tak del prikazali ležečega. Zdaj tudi OBJ zapiše Z navzgor. Layerlingov lasten uvoz take datoteke še vedno postavi pokonci."
+    ],
+    [
+      "Layerling zdaj govori japonsko",
+      "Ves vmesnik je na voljo v japonščini, napisan za otroke višjih razredov osnovne šole in njihove učitelje, z Tinkercadovimi japonskimi izrazi, kjer jih ta ima. Poglavja navodil so še v angleščini. Jezik izbereš v meniju jezikov."
+    ],
+    [
+      "Mape za tvoje osnutke",
+      "Na začetni strani »Nova mapa« ustvari mape, tudi mape v mapah. Osnutke povleci vanje ali uporabi »Premakni v …« v meniju osnutka. Brisanje mape ne izbriše nobenega osnutka, »Varnostno kopiraj vse« pa mape vzame zraven."
+    ],
+    [
+      "Pogled zgodovine: odpri skupino in vrni njene dele",
+      "V pogledu zgodovine zdaj lahko odpreš skupino (gumb »Odpri skupino« ali tipka E): njeni deli ležijo posamično in enega ali več jih vrneš, ne da bi vzel celotno skupino. Skupine v skupinah delujejo enako, »Nazaj« zapre eno raven."
+    ],
+    [
+      "iPad: izgubljen prst urejevalnika ne zaklene več",
+      "Na iPadu se je lahko zgodilo, da po dotiku dveh predmetov zapored nič več ni odzivalo, dokler nisi ponovno naložil strani: urejevalnik je mislil, da je en prst še na zaslonu, njegovega konca pa nikoli ni zaznal, in vsak naslednji dotik je štel za drugi prst. Zdaj se z vsakim novim prvim prstom štetje začne znova, ponastavi pa se tudi ob zapustitvi aplikacije."
+    ],
+    [
+      "Posnetek + zaobljenje: tiskljiva noga",
+      "V oknu za posnetje zdaj zgoraj izbereš med »Posnetek« in »Posnetek + zaobljenje«. Druga vrsta na spodnjih robovih naredi posnetek ob plošči, ki se tangentno prelije v zaobljenje proti steni: prve plasti ne potrebujejo podpor, rob pa se kljub temu konča mehko. »Spodnji robovi« izberejo celotno nogo z enim klikom; deluje tudi prek povezave z umetno inteligenco (kind »chamfillet«)."
+    ],
+    [
+      "Povečava z dvema prstoma na sledilni ploščici zdaj deluje tudi v skici",
+      "Na Macu s Safarijem je razmik in približevanje prstov na sledilni ploščici v skici povečal celotno stran namesto risalne plošče. Zdaj poveča skico, proti prstom, s hitrostjo iz nastavitev, kot v 3D oknu. Nato aplikacijo enkrat znova zaženi."
+    ],
+    [
+      "Posnetek in zaobljenje na skupini se drugič zaženeta hitreje",
+      "Skupino, ki že vsebuje zaobljene ali posnete dele, je bilo treba ob vsakem zagonu orodja za posnetek ali zaobljenje iz mreže spet preračunati v natančno telo, pri žepu v zaobljenem telesu okoli deset sekund. Zdaj si Layerling rezultat zapomni, dokler se mreža ne spremeni: prekinitev in ponovni zagon ali razveljavitev in uveljavitev trajata tretjino časa. Prvič traja enako dolgo kot prej."
+    ],
+    [
+      "Višina zavrtenega telesa ga ne premika več",
+      "Zavrteno telo, na primer vdolbina na nagnjeni delovni ravnini, je ob spremembi višine v oknu lastnosti zdrsnilo vzdolž ravnine, ker se je njegova sredina premaknila le navpično navzgor. Zdaj sredina njegove osnovne ploskve ostane, kjer je bila, telo pa raste ali se krči samo v svoji smeri. Enako velja za ukaz povezave z umetno inteligenco."
+    ],
+    [
+      "Na telefonu so tvoji osnutki takoj zgoraj",
+      "Na ozkem zaslonu so bili shranjeni osnutki na začetni strani več kot zaslon nižje, za tremi velikimi ploščicami in opozorilom o varnostnem kopiranju. Ko osnutki obstajajo, so tri ploščice zdaj ena kratka vrstica, opozorilo pa je za osnutki. Na računalniku in brez osnutkov ostane vse po starem."
+    ],
+    [
+      "Pripeta knjižnica oblik je ob naslednjem zagonu spet tam",
+      "Kdor je knjižnico oblik pripel, je ob naslednjem zagonu našel le buciko: še vedno je bila nastavljena, knjižnica sama pa zaprta. Zdaj se pripeta knjižnica ob zagonu urejevalnika odpre sama, tam, kjer si jo pustil."
+    ],
+    [
+      "Posnetek in zaobljenje: več hitrih gumbov, vodoravni robovi in okno ostane odprto",
+      "Okno za zaobljenje in posnetek ima nov gumb »Vodoravni robovi«. Z Shift ali Ctrl in klikom robove hitrega gumba dodaš izbiri, na primer zgornje in spodnje robove skupaj. Po »Uporabi« okno ostane odprto na novem telesu, z enako velikostjo in brez izbranih robov, da lahko takoj narediš naslednje zaobljenje z drugo mero. »Končano«, Esc ali križec ga zapre."
+    ],
+    [
+      "Skica vrtenja prikazuje druga telesa od spredaj in postavi telo tja, kamor si narisal profil",
+      "V skici vrtenja so bila druga telesa doslej prikazana od zgoraj, kot ploščati obrisi, profil pa je stranski pogled, zato obojega ni bilo mogoče poravnati. Zdaj jih vidiš od spredaj, v istem pogledu kot profil, z osjo na sredini. Telo nastane tam, kjer si narisal profil: vodoravna črta skozi sredino je tla, profil nad ploščo pa da telo, ki stoji na njej. To velja na osnovni plošči."
+    ]
+  ],
   "1.88.0": [
     [
       "Skupino z zaobljenjem ali posnetkom je spet mogoče razdružiti",
