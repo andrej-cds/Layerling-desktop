@@ -1,4 +1,50 @@
 {
+  "1.90.0": [
+    [
+      "Kode QR v knjižnici oblik",
+      "Nov vnos Koda QR iz besedila ali spletnega naslova naredi kodo za tiskanje: samostojno, privzdignjeno na plošči v dveh barvah ali vgravirano v ploščo. Popravljanje napak, širina in mirno območje so izbirni, predogled kodo pokaže vnaprej, opozorilo pa se pojavi, ko so moduli premajhni za berljiv tisk. Besedilo lahko pozneje spremeniš v lastnostih in kodo ustvariš znova."
+    ],
+    [
+      "Kolesce miške spreminja številke tudi v oknih orodij",
+      "Kar je že delovalo v lastnostih oblike, zdaj deluje tudi pri Posnetku, Zaobljenju, Izdolbi, Vzorcu, Vzorcu lukenj, Ploskvi, Prilagajanju ploskev, Razdelitvi in v meniju prereza: klikni v številčno polje, nato kolesce miške spreminja vrednost. S Shiftom desetkrat toliko, s Ctrl desetinko, z Alt stotinko."
+    ],
+    [
+      "Prerezana ploskev sledi ravnini",
+      "Zapolnjena prerezana ploskev pogleda prereza ne čaka več, da se ravnina ustavi: med premikanjem ravnine teče z njo, tako da telo ni več za trenutek videti votlo."
+    ],
+    [
+      "Opombe v skupinah ostanejo na svojih telesih",
+      "Združi v skupino prikovano opombo vzame v skupino, Razdruži jo preda vidnemu delu pod njo, in dokler je skupina odprta za urejanje, se njene opombe premikajo z delom, na katerem so. Opomba, katere telo izbrišeš, ostane, kjer je stala."
+    ],
+    [
+      "Žlebovi za prste pri posodah Gridfinity",
+      "Posoda Gridfinity z višino vsaj 2 enoti lahko zdaj dobi žleb za prste ob vsaki notranji steni, tudi ob več hkrati: dno se ob steni dvigne po četrtini kroga, da se majhni deli lažje potisnejo ven. Polmer nastaviš v oknu lastnosti."
+    ],
+    [
+      "Polovična mreža za posode Gridfinity",
+      "Posodo Gridfinity je zdaj mogoče zgraditi v celicah po 21 mm, vsaka s svojo nogo; štiri stojijo v enem ležišču običajne osnovne plošče. Tako se poleg celih posod prilegajo tudi posode velikosti 1½ ali 2½ enote. »Polovična mreža (21 mm)« vklopiš v oknu lastnosti."
+    ],
+    [
+      "Skica vrtenja ob ponovnem urejanju spet pokaže pogled od spredaj",
+      "Ko skico zavrtenega telesa znova odpreš za urejanje, druga telesa spet pokaže od spredaj, v istem pogledu kot profil, kot med risanjem. Prej se je pogled od zgoraj vrnil, takoj ko je telo stalo nad ploščo."
+    ],
+    [
+      "Koti z dvema decimalkama",
+      "Zasuk se zdaj shrani z dvema decimalkama in je tako prikazan v številčnem polju: 11,25° ostane 11,25°, tudi ko vrtiš s Shiftom na krogu vrtenja. Prej je postalo 11,3°, polje pa je kazalo cele stopinje."
+    ],
+    [
+      "Drsnik pri posnetku se premika po desetinkah milimetra",
+      "Drsnik za razdaljo ali polmer pri posnetku in zaobljenju zdaj skače po desetinkah milimetra do 10 mm, namesto da bi dajal nenavadne vrednosti, kot je 2,347. Večje ali natančnejše vrednosti vtipkaš v polje."
+    ],
+    [
+      "Žepe s polno globino je mogoče posneti",
+      "Kadar se vdolbina konča natanko na ploskvi telesa, na primer z višino 5,000, povlečeno skozi delovno ravnino na nagibu, posnetek na robu žepa ni uspel. Žep se zdaj ob združevanju v skupino čisto izreže, posnetek pa deluje."
+    ],
+    [
+      "Lastne oblike vzamejo opombe s seboj",
+      "Če telesa s prikovanimi opombami shraniš kot lastno obliko, opombe pridejo zraven, ko obliko vstaviš v osnutek. Pojavijo se zaprte, prikovane na nova telesa, z novimi številkami."
+    ]
+  ],
   "1.89.0": [
     [
       "Izvožen OBJ v razrezovalniku stoji pokonci",
