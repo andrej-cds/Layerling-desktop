@@ -1,4 +1,58 @@
 {
+  "1.88.0": [
+    [
+      "Skupino z zaobljenjem ali posnetkom je spet mogoče razdružiti",
+      "Gumb »Razdruži« je ostal siv, takoj ko je skupina dobila zaobljenje ali posnetek. Zdaj gumb najprej odstrani lastnosti robov in nato razdruži skupino, v enem koraku, ki ga Ctrl+Z razveljavi. Orodje za zaobljenje in posnetek ostane odprto, ko lastnost odstraniš."
+    ],
+    [
+      "Prerez zapolni prerezano ploskev",
+      "V prerezu je bil rez odprt, trdno telo in luknja pa sta znotraj izgledala enako. Kjer ravnina seka telo, je rez zdaj zapolnjen z njegovo barvo, malo temnejšo, luknja v njem pa ostane prazna. Zapolnjena ploskev se pokaže trenutek po tem, ko se ravnina neha premikati."
+    ],
+    [
+      "Okno za robove pokaže, kateri hitri gumb je naredil izbor",
+      "V oknu za zaobljenje in posnetek so bili hitri gumbi preširoki in so okno naredili z majhnim stranskim drsnikom; zdaj se prelomijo v novo vrstico. Gumbi se odzovejo, ko je kazalec nad njimi, hitri gumb, katerega robovi so zdaj izbrani (Vsi ostri robovi, Zgornji, Spodnji ali Navpični robovi), pa ostane poudarjen."
+    ],
+    [
+      "Japonske črke v besedilih in imenskih tablicah",
+      "Japonsko ime na besedilu ali imenski tablici je prej izpadlo kot vprašaji, ker vgrajene pisave nimajo kane in kanjija. Zdaj je na voljo japonska pisava, ki svoje znake posodi vsem drugim pisavam in tudi tvojim lastnim. Prenese se samo, ko ima besedilo japonske črke, potem pa je na voljo tudi brez povezave."
+    ],
+    [
+      "Dolg pritisk na iPadu ne začne več označevanja besedila",
+      "Na iPadu je dolg pritisk lahko začel sistemsko označevanje besedila, na primer pri besedi v meniju ali v orodni vrstici. Potem so dotiki šli v označevanje in ne več v layerling, videti pa je bilo, da predmet ostane v urejanju. Urejevalnika ni več mogoče označiti, polja za vnos pa še vedno."
+    ],
+    [
+      "Knjižnica oblik se odpre tam, kjer si jo pustil",
+      "Knjižnica oblik, ki si jo povlekel ozko in postavil ob desni rob, se je naslednjič odprla daleč na levi, kot da jo drži nevidni rob. Zdaj se odpre na zapomnjenem mestu, tudi v lastni velikosti."
+    ],
+    [
+      "Brisanje v skici: gumb zbriše izbor, orodje pa vzame okno",
+      "Pri več izbranih točkah in črtah gumb »Pobriši« ni brisal, samo spustil je izbor. Zdaj zbriše izbor. Z orodjem »Pobriši« pa lahko povlečeš okno čez več točk in črt: vse znotraj se zbriše."
+    ],
+    [
+      "Ravnilo ima merilo v palcih",
+      "Ko je enota nastavljena na palce (stikalo spodaj desno), ima ravnilo merilo v palcih: črto na vsako šestnajstino palca, cele palce pa označene s številkami. V milimetrih ostane vse, kot je bilo."
+    ],
+    [
+      "Verigo črt v skici je lažje končati",
+      "Pri risanju z orodjem »Daljica«, »Bézierova krivulja« ali »Gladka krivulja« desni klik brez premikanja zdaj konča verigo, prav tako dvoklik na zadnjo točko; orodje ostane izbrano. Desni klik, ki ga uporabiš za premikanje pogleda, je ne konča. Za zaprtje oblike še vedno klikneš prvo točko."
+    ],
+    [
+      "Miškino kolesce spremeni število v kliknjenem polju",
+      "Ko klikneš v številčno polje lastnosti, miškino kolesce spremeni vrednost: ena enota na klik, desetkrat toliko s Shiftom, desetinko s Ctrl in stotinko z Alt. Polje, v katero nisi kliknil, pusti, da se plošče drsijo kot prej."
+    ],
+    [
+      "Police za nalepke pri posodah Gridfinity",
+      "Posoda Gridfinity z višino 3 enote ali več lahko zdaj dobi polico za nalepko ob poljubni notranji steni, tudi več hkrati. Stoji tik pod obrobo za zlaganje, njeno širino, dolžino in zaobljene ali posnete vogale pa nastaviš v lastnostih."
+    ],
+    [
+      "Skico je mogoče zrcaliti",
+      "V skici izberi točke in črte ter v vrstici klikni »Zrcali«: čez navpično os (levo-desno), vodoravno (zgoraj-spodaj) ali čez ravno črto skice, ki jo klikneš. Kopija pristane na drugi strani in ni nič povezano. Točke na osi so skupne, zato je pol oblike eden sklenjen obris."
+    ],
+    [
+      "Interaktivna pomoč bolje zadene znotraj orodnih oken",
+      "»Prekliči«, »Uveljavi«, polja in drsniki v orodnem oknu zdaj sprašujejo po orodju samem, na primer »Posnemi robove«, namesto po besedi, ki jo vodnik napiše stokrat. Knjižnica oblik, seznam objektov in okno za izvoz odgovorijo s svojim razdelkom, prav tako kocka pogleda in vrstica kamere med svojimi gumbi."
+    ]
+  ],
   "1.87.0": [
     [
       "Kopijo lahko premakneš z miško in jo znova podvojiš",

@@ -195,7 +195,7 @@ export const edits = [
     file: "apps/web/src/lib/textFonts.ts",
     marker: "loadUserTextFonts",
     find: "export function loadTextFonts(): Promise<void> {\n  if (loadedFonts) return Promise.resolve();",
-    replace: "const BUILT_IN_FONT_NAMES = [\"Multilanguage\", \"Sans\", \"Serif\", \"Script\", \"Monospace\", \"Rounded\", \"Stencil\"];\nlet userFontNames: string[] = [];\nlet userFontsPromise: Promise<void> | null = null;\n\n/** Vse pisave za seznam: vgrajene in lastne iz mape s pisavami (namizna različica). */\nexport function textFontNames(): string[] {\n  return [...BUILT_IN_FONT_NAMES, ...userFontNames];\n}\n\nasync function loadUserTextFonts(): Promise<void> {\n  const extra = await readUserFontData();\n  if (!loadedFonts || extra.length === 0) return;\n  const sans = loadedFonts.Sans?.data as FontData | undefined;\n  const loader = new FontLoader();\n  for (const [name, data] of extra) {\n    if (BUILT_IN_FONT_NAMES.includes(name) || userFontNames.includes(name)) continue;\n    // Manjkajoče črke (npr. č, š, ž) si pisava izposodi iz pisave Sans.\n    loadedFonts[name] = loader.parse(sans ? withFallbackGlyphs(data, sans) : data);\n    userFontNames.push(name);\n  }\n}\n\nexport function loadTextFonts(): Promise<void> {\n  return loadBuiltInTextFonts().then(() => (userFontsPromise ??= loadUserTextFonts().catch(() => undefined)));\n}\n\nfunction loadBuiltInTextFonts(): Promise<void> {\n  if (loadedFonts) return Promise.resolve();",
+    replace: "const BUILT_IN_FONT_NAMES = [\"Multilanguage\", \"Sans\", \"Serif\", \"Script\", \"Monospace\", \"Rounded\", \"Stencil\", \"Japanese\"];\nlet userFontNames: string[] = [];\nlet userFontsPromise: Promise<void> | null = null;\n\n/** Vse pisave za seznam: vgrajene in lastne iz mape s pisavami (namizna različica). */\nexport function textFontNames(): string[] {\n  return [...BUILT_IN_FONT_NAMES, ...userFontNames];\n}\n\nasync function loadUserTextFonts(): Promise<void> {\n  const extra = await readUserFontData();\n  if (!loadedFonts || extra.length === 0) return;\n  const sans = loadedFonts.Sans?.data as FontData | undefined;\n  const loader = new FontLoader();\n  for (const [name, data] of extra) {\n    if (BUILT_IN_FONT_NAMES.includes(name) || userFontNames.includes(name)) continue;\n    // Manjkajoče črke (npr. č, š, ž) si pisava izposodi iz pisave Sans.\n    loadedFonts[name] = loader.parse(sans ? withFallbackGlyphs(data, sans) : data);\n    userFontNames.push(name);\n  }\n}\n\nexport function loadTextFonts(): Promise<void> {\n  return loadBuiltInTextFonts().then(() => (userFontsPromise ??= loadUserTextFonts().catch(() => undefined)));\n}\n\nfunction loadBuiltInTextFonts(): Promise<void> {\n  if (loadedFonts) return Promise.resolve();",
   },
   {
     name: "Pisave: seznam v urejevalniku lastnosti",
@@ -218,7 +218,7 @@ export const edits = [
     stage: "jezik",
     file: "apps/web/src/components/workplane/ShapeInspector.tsx",
     marker: "// seznam pisav je v textFonts",
-    find: "const TEXT_FONT_OPTIONS = [\"Multilanguage\", \"Sans\", \"Serif\", \"Script\", \"Monospace\", \"Rounded\", \"Stencil\"];",
+    find: "const TEXT_FONT_OPTIONS = [\"Multilanguage\", \"Sans\", \"Serif\", \"Script\", \"Monospace\", \"Rounded\", \"Stencil\", \"Japanese\"];",
     replace: "// seznam pisav je v textFonts",
   },
   {
@@ -242,7 +242,7 @@ export const edits = [
     stage: "jezik",
     file: "apps/web/src/components/workplane/WorkspaceSettingsModal.tsx",
     marker: "// seznam pisav je v textFonts",
-    find: "const TEXT_FONT_OPTIONS = [\"Multilanguage\", \"Sans\", \"Serif\", \"Script\", \"Monospace\", \"Rounded\", \"Stencil\"];",
+    find: "const TEXT_FONT_OPTIONS = [\"Multilanguage\", \"Sans\", \"Serif\", \"Script\", \"Monospace\", \"Rounded\", \"Stencil\", \"Japanese\"];",
     replace: "// seznam pisav je v textFonts",
   },
   {
