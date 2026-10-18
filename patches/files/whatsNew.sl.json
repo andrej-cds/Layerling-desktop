@@ -1,4 +1,26 @@
 {
+  "1.91.0": [
+    [
+      "Ctrl in smerne tipke premikajo pogled",
+      "Ko ni nič izbrano, drži Ctrl (Cmd na Macu) in pritiskaj smerne tipke, da pogled zdrsne po zaslonu: z vsakim pritiskom za desetino slike, s Shiftom še za polovico. Same smerne tipke pogled še vedno vrtijo."
+    ],
+    [
+      "Dvignjeno dno za posode Gridfinity",
+      "Posoda Gridfinity lahko zdaj dobi dvignjeno dno: v oknu lastnosti nastaviš »Višina dna« in posoda je do nje polna, kot surovec, v katerega izrežeš oblike svojih orodij."
+    ],
+    [
+      "Prerezana ploskev sledi ravnini brez zaostajanja",
+      "Zapolnjena prerezana ploskev pogleda prereza je med vlečenjem ravnine zaostajala in se je vrnila šele, ko je roka mirovala. Zdaj je ob vsakem koraku izrezana za najnovejši položaj ravnine."
+    ],
+    [
+      "Mape za lastne oblike",
+      "Lastne oblike je mogoče razvrstiti v mape, do tri ravni globoko, v brskalniku in na strežniku. Mapa ima števec, jo je mogoče preimenovati in izbrisati (po vprašanju), oblika pa gre v mapo ob shranjevanju ali pa jo pozneje premakneš v drugo."
+    ],
+    [
+      "Prosta luknja se ne izgubi več pri izvozu",
+      "Luknja, ki je nisi združil v skupino, je manjkala v datoteki STL, 3MF ali OBJ, kadar se je telo, iz katerega reže, dotikalo drugega telesa iste barve ali se z njim prekrivalo. Ocena materiala jo je zato štela kot polno. Luknja zdaj ostane."
+    ]
+  ],
   "1.90.0": [
     [
       "Kode QR v knjižnici oblik",
