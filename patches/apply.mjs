@@ -81,9 +81,9 @@ export const edits = [
     name: "Namig za namestitev PWA: v namizni različici ni smiseln",
     file: "apps/web/src/components/InstallAppHint.tsx",
     marker: "layerlingDesktop",
-    find: '    if (!window.isSecureContext || !("serviceWorker" in navigator)) return;\n    if (runsAsInstalledApp()) {',
+    find: '    if (!offlineAvailable()) return;\n    if (runsAsInstalledApp()) {',
     replace:
-      '    if ((window as unknown as { layerlingDesktop?: unknown }).layerlingDesktop) return;\n    if (!window.isSecureContext || !("serviceWorker" in navigator)) return;\n    if (runsAsInstalledApp()) {',
+      '    if ((window as unknown as { layerlingDesktop?: unknown }).layerlingDesktop) return;\n    if (!offlineAvailable()) return;\n    if (runsAsInstalledApp()) {',
   },
   {
     name: "Desktop: različica lupine v nogi",

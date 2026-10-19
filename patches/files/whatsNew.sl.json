@@ -1,4 +1,70 @@
 {
+  "1.92.0": [
+    [
+      "Vrtenje se lahko navije v eno neprekinjeno nit",
+      "Zavrteno telo ima zdaj v oknu lastnosti polje Korak. Nad 0 se obris ne navije v kolobarje, temveč v vijačnico, kot nit na kolutu, število ovojev pa nastaviš sam."
+    ],
+    [
+      "Alt obrne okvir izbire",
+      "Drži Alt med vlečenjem okvira izbire: za tisto vleko deluje obratno. Če je vklopljena nastavitev »Smer okvira odloča«, okvir, povlečen v desno, vzame vse, česar se dotakne, okvir, povlečen v levo, pa le tisto, kar leži povsem znotraj. Če je nastavitev izklopljena, Alt vzame samo tisto, kar leži povsem znotraj."
+    ],
+    [
+      "Gravura okoli valja prereže skozi in skozi",
+      "Logotip, ovit navznoter in izrezan iz valja kot luknja, je na mestih pustil lasasto tanko kožico. Ovito telo zdaj sega 0,05 mm čez steno, zato luknja prereže vse do konca."
+    ],
+    [
+      "Kolesce v polju velikosti se ustavi pri spodnji meji",
+      "Kolesce miške v polju velikosti v lastnostih ne zdrsne več pod najmanjšo vrednost (0,01 mm) v negativna števila: polje se ustavi pri meji."
+    ],
+    [
+      "Drobna telesa je na tablici spet mogoče premikati",
+      "Kadar je izbrano telo na zaslonu zelo majhno, prst ne zagrabi več ročice namesto telesa: široka področja ročic se takrat opustijo, sredina pa ostane prosta za vlečenje."
+    ],
+    [
+      "Prosojno telo ima prosojno prerezano ploskev",
+      "Ko v pogledu prereza prerežeš prosojno telo, je zapolnjena prerezana ploskev zdaj enako prosojna kot telo in ni več polna."
+    ],
+    [
+      "Okno oblik v skici: svoje mesto in velikost",
+      "Okno oblik v skici si zdaj samo zapomni svoje mesto, pripetost in velikost in jih ne deli več s 3D urejevalnikom. Robove in vogale lahko povlečeš na želeno velikost, kot pri oknu 3D urejevalnika."
+    ],
+    [
+      "Brez obljube delovanja brez povezave, kjer ne more delovati",
+      "Kartica »Namesti Layerling kot aplikacijo« in ploščica »Deluje brez povezave« na začetni strani se zdaj pokažeta samo tam, kjer se Layerling res lahko shrani za uporabo brez povezave. V sliki Docker, ki teče kot strežnik Node, in na navadnem naslovu http ju ni."
+    ],
+    [
+      "Kocka pogleda je lahko v katerem koli kotu",
+      "Nastavitve > Videz > Položaj kocke pogleda postavi kocko pogleda zgoraj levo, zgoraj desno, spodaj levo ali spodaj desno na delovni ravnini. V vseh kotih razen zgoraj levo se upravljanje kamere premakne navzgor na njeno mesto."
+    ],
+    [
+      "Posnete datoteke SVG ostanejo dovolj majhne za združevanje",
+      "Uvožen SVG z zelo veliko krivuljami, na primer posneta risba, je bil razrezan na več kot 350.000 trikotnikov, zato več kopij ni bilo mogoče več združiti. Zdaj jih je približno desetkrat manj, risba pa je v tej velikosti videti enako. Ročno narisane skice ostanejo enako fine kot prej."
+    ],
+    [
+      "Tanke, majhne črke se ne izgubijo več pri izvozu",
+      "Majhno, ploščato besedilo je pri izvozu STL, 3MF ali OBJ izgubilo posamezne črke, tanko besedilo večino: pičko na i-ju, opuščaj, male črke. Izvoz jih je imel za ostružke, ki jih je pustil rez. To zdaj velja samo za telesa, ki jih je spremenil rez, združitev več teles ali ločitev barv."
+    ],
+    [
+      "SVG z dotikajočimi se oblikami pride celoten",
+      "V narisani ali posneti sliki se dve obliki pogosto stikata v samo eni točki. Uvoz je takrat nekatere oblike izpustil, slika pa je prišla manjša in z luknjami. Take oblike se zdaj sestavijo skupaj in slika ostane cela."
+    ],
+    [
+      "Posnetek + zaobljenje na valju je spet pri nogi",
+      "Posnetek + zaobljenje na spodnjem robu valja je prišel napačno obrnjen: zaobljenje pri nogi, posnetek nad njim, zaobljen pa je bil tudi zgornji rob. Zdaj posnetek leži na plošči in se prelije v steno, zgornji rob ostane nedotaknjen."
+    ],
+    [
+      "Vnos japonščine in kitajščine v polje Besedilo",
+      "Z vnosno metodo (IME) v polje Besedilo pri besedilu ali imenski tablici ni bilo mogoče vtipkati ničesar smiselnega: »ishi« je postalo »いｓｈい« in ga ni bilo mogoče pretvoriti v kanji. Polje zdaj ohrani vtipkano in besedo prevzame, ko je končana. To velja za japonščino, kitajščino in korejščino."
+    ],
+    [
+      "Interaktivna pomoč razloži vsako nastavitev posebej",
+      "V nastavitvah delovnega prostora je klik z interaktivno pomočjo pogosto vodil le do dolgega razdelka ali nikamor. Zdaj ima navodilo za vsako skupino nastavitev svoj razdelek (angleško in nemško), poleg tega še »Izbira barv« za barvno kartico, polja, drsniki, barvni gumbi in seznami pa najdejo svoj razdelek, tudi stikalo Hitri način."
+    ],
+    [
+      "Pogled zgodovine pove, kaj puščici razveljavita in uveljavita",
+      "Pod drsnikom pogleda zgodovine vrstica zdaj poimenuje korak, ki bi ga razveljavila leva puščica (»Zadnji korak: Premaknjeno Škatla«), in tistega, ki bi ga uveljavila desna (»Naslednji korak: 2 predmeta združena v skupino«), pri najstarejšem in najnovejšem stanju pa »ni«. Deluje tudi za osnutke, shranjene prej."
+    ]
+  ],
   "1.91.0": [
     [
       "Ctrl in smerne tipke premikajo pogled",
