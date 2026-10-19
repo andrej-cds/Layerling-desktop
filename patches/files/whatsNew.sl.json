@@ -1,4 +1,38 @@
 {
+  "1.92.1": [
+    [
+      "Ožje: obris skice premakni navznoter",
+      "Ob »Širše« ima zapolnitev telesa skice zdaj tudi »Ožje«: ploskev ostane zapolnjena, njen rob se premakne navznoter za širino črte, luknje pa se povečajo. Ena skica da luknjo za prileganje in del, ki gre skozi njo, 0,5 mm manjši, ali notranjo steno."
+    ],
+    [
+      "Nastavi razmik med črkami",
+      "Besedila imajo zdaj razmik med črkami v odstotkih velikosti črke, tudi negativen in na ukrivljenem besedilu. To najbolj pomaga pri lastnih pisavah, ki stojijo pretesno ali preširoko. Črke obdržijo velikost, okvir pa sledi vrstici."
+    ],
+    [
+      "Telesa pod skico kažejo svoj pravi obris",
+      "V načinu skice se telesa na delovni ravnini v ozadju zdaj kažejo s pravim obrisom: mnogokotnik, zvezda, srce, klin in druge oblike so bile tam vse narisane kot kvadrat. Tudi pritrdilne točke skice sledijo temu obrisu."
+    ],
+    [
+      "Bližnjice se natisnejo na en list",
+      "Gumb tiskalnika v oknu bližnjic zdaj celoten seznam, v urejevalniku in v načinu skice, natisne na en list (A4 ali Letter): črno na belem, v treh stolpcih, kot hitra referenca pri roki."
+    ],
+    [
+      "Pravokotno pritrjevanje in hitro brisanje pri merilnem traku",
+      "Pri postavljanju druge točke meritve se merilni trak zdaj pritrdi pravokotno na nasprotni rob ali ploskev, ali kjer koli na njej, ko držiš Shift, zaradi česar je merjenje čiste širine luknje ali reže med dvema delovoma natančno. Med dodajanjem meritev klik s Shiftom ali Ctrl (Cmd na Macu) takoj izbriše točko ali črto, ne da bi menjal način."
+    ],
+    [
+      "Kotno ravnilo: X in Y sta spet prav obrnjena",
+      "Na kotnem ravnilu sta imeli zeleni števili namige »Položaj X« in »Položaj Y do ravnila« napačno obrnjena: ko se je telo premaknilo nazaj, se je spremenila številka z namigom X. Zdaj je vsaka številka poimenovana po smeri svojega kraka: X v desno, Y nazaj, Z navzgor, tudi ko ravnilo zavrtiš za četrtino."
+    ],
+    [
+      "Pritrdilna mreža dosegljiva ob izbranih več delih",
+      "Ob izbranih več delih je plošča na desni segala do dna in prekrila izbiro pritrdilne mreže v kotu. Pritrdilna mreža s stikalom za pritrjevanje na oblike zdaj stoji na dnu te plošče, kot pri enem delu. Ploščo odmakni in vrne se v kot."
+    ],
+    [
+      "Okvir izbire: zelen za »dotikanje«",
+      "Povleci okvir z desne na levo (ali obratno z Alt) in vzame vse, česar se dotakne. Takrat je zdaj zelen in črtkan, da takoj vidiš, kako izbira. Okvir, ki mora dele povsem zajeti, ostane oranžen."
+    ]
+  ],
   "1.92.0": [
     [
       "Vrtenje se lahko navije v eno neprekinjeno nit",
