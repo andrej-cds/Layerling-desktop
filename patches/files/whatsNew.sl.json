@@ -1,4 +1,66 @@
 {
+  "1.94.0": [
+    [
+      "Gumbi in tipke za povečavo imajo stalne korake",
+      "Hitrost povečave v nastavitvah zdaj velja samo za kolešček miške in sledilno ploščico. Gumbi ter tipki + in − vedno povečujejo za isti korak, tudi v skici, enako kot pri privzeti legi drsnika. Kdor drsnika ni nikoli premaknil, ne opazi spremembe."
+    ],
+    [
+      "Osnutki s izpraznjenim imenom se spet odprejo",
+      "Če si izbrisal ime objekta, se je osnutek ob naslednjem odpiranju odprl prazen, tudi različica, shranjena v brskalniku. Takšni osnutki se zdaj spet odprejo z vsemi objekti."
+    ],
+    [
+      "Krožni vzorec sledi vrtišču",
+      "Če pri odprtem orodju za vzorce povlečeš vrtišče na novo mesto, se središče kroga in predogled premakneta z njim. Ročno vpisano središče ostane, dokler vrtišča ne premakneš znova."
+    ],
+    [
+      "Postavi na ploskev, tudi brez tipkovnice",
+      "Tipka C položi izbor na ploskev pod kazalcem. Na iPadu za to ni bilo poti. Zdaj meni dolgega pritiska na telo vsebuje »Postavi na ploskev«, najde ga tudi iskanje ukazov. Dotik postavi telo na ploskev, ki se je dotakneš."
+    ],
+    [
+      "Bézierova krivulja: ročice tudi na obstoječih točkah",
+      "Z Bézierovim orodjem lahko zdaj začneš ali končaš tudi na že obstoječi točki in tam izvlečeš ročici. Stranica je potem vedno krivulja, zato ročica druge točke deluje tudi, če je prva že obstajala."
+    ],
+    [
+      "Bézier: ročice na točkah, ki jih samo klikneš",
+      "Točka, ki si jo z Bézierovim orodjem samo kliknil, je imela ročice brez dolžine, ki jih ni bilo mogoče videti ali prijeti. Zdaj ležijo vzdolž stranice, ki vodi do nje, krivulja pa je takoj ukrivljena. V starejših skicah izbrana točka pokaže take ročice tam, kjer jih lahko povlečeš."
+    ],
+    [
+      "Zobnika prilagodi razmaku",
+      "Ko izbereš dva zobnika, polje lastnosti zdaj navede tudi modul, pri katerem bi se tam, kjer stojita, zaskočila. Gumb obema zobnikoma da ta modul v enem koraku; zobje, višina in izvrtina ostanejo."
+    ],
+    [
+      "Opozorilo o prostoru za tiskanje lahko zapreš",
+      "Če odložiš dele poleg plošče, majhen križec v sporočilu zapre opozorilo za prav ta telesa. Če kasneje kakšno drugo telo štrli čez ali enega spet potisneš ven, se opozorilo vrne. Opozorilo prav tako ne leži več čez okna, kot so nastavitve."
+    ],
+    [
+      "Kopiranje v drug osnutek ohrani vse",
+      "Če si kopijo prilepil v drug osnutek, so se po poti izgubile nastavitve: prosojnost, zaobljeni in posneti robovi, zrcaljenje, kontura besedila in več. Zdaj oblika prispe natanko tako, kot si jo kopiral."
+    ],
+    [
+      "Skica: izbriši križišče, krog ostane",
+      "Če si izbrisal točko, kjer črta seka krog, so izginile vse štiri stranice ob njej. Zdaj se lok poveže z lokom in daljica z daljico, krog pa ostane okrogel. Samo en kos loka odstraniš z radirko."
+    ],
+    [
+      "Predogledne slike se vrnejo same",
+      "Če na kartici začetne strani manjka slika, nastane zdaj, ko odpreš osnutek, brez kakršne koli spremembe. Kdor Layerling poganja z Dockerjem, slike s pomočjo nosilca (volume) obdrži tudi čez posodobitev."
+    ],
+    [
+      "Skica: lok skozi tri točke",
+      "Novo orodje Lok nariše pravi krožni lok: klikni oba konca, nato tretjo točko, skozi katero naj poteka. Predogled ga pokaže vnaprej, sporočilo navede polmer, na obstoječe točke pa se pripne."
+    ],
+    [
+      "Šopi z luknjo režejo kot v Tinkercadu",
+      "Če združiš šop telesa in luknje z drugimi deli, luknja reže samo te dele. Telesa šopa ostanejo cela, tako lahko na primer čep z njegovo izvrtino poleg uporabljaš znova in znova."
+    ],
+    [
+      "Prerez in delitev ob delovni ravnini",
+      "Pogled prereza lahko zdaj osi vzame od delovne ravnine: Z potem reže vzporedno z njo, tudi na poševni ploskvi. Z »Pogled« je prerez obrnjen proti zaslonu in odvzame, kar leži spredaj, tako prideš do skritih delov. Pri delitvi se ravnina začne vzporedno z delovno ravnino, trije gumbi pa jo položijo nanjo ali pravokotno nanjo."
+    ],
+    [
+      "Seznam mrež za pripenjanje leži nad ploščo Oblike",
+      "Seznam mrež za pripenjanje se zdaj odpre nad vsemi ploščami, tudi nad pripeto ploščo Oblike ob njem. Vse vnose lahko klikneš, ne da bi ploščo zmanjšal."
+    ]
+  ],
   "1.93.1": [
     [
       "Več posnetih slik pride celih",
