@@ -1,4 +1,26 @@
 {
+  "1.96.0": [
+    [
+      "Skico pretvori v skico za vrtenje",
+      "Značka na vrhu skice je zdaj izbira: tam preklopi skico na »Skica za vrtenje«, tudi skico obstoječega telesa. Uvožen SVG tako postane vaza, ne da bi ga bilo treba risati po sledeh."
+    ],
+    [
+      "Kopija kot luknja odstrani del",
+      "Naredi kopijo uvoženega dela luknjo in obe združi, pa je del zdaj popolnoma izginil. Pri velikih SVG so prej ostali tanki trakovi stene."
+    ],
+    [
+      "Postavi na ploskev deluje na tablici",
+      "Po dolgem pritisku na telo je včasih po postavitvi ostalo na mestu, čeprav je prišlo sporočilo, na svojem mestu ga je pokazala šele razveljavitev. Zdaj pristane takoj na ploskvi, ki se je dotakneš."
+    ],
+    [
+      "Metrični navoji do M24",
+      "Seznam velikosti navoja zdaj sega čez M12: M14, M16, M18, M20, M22 in M24, vsak s standardnim korakom ter standardnima velikostma glave in matice."
+    ],
+    [
+      "Jasnejši prikaz lukenj",
+      "V nastavitvah pod videzom lahko luknje zdaj prikažeš temnejše, manj prosojne in z obrobo. Tako luknjo najdeš tudi med mnogimi prosojnimi telesi."
+    ]
+  ],
   "1.95.0": [
     [
       "Izginuli osnutki se vrnejo",
