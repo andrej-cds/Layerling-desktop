@@ -1,4 +1,30 @@
 {
+  "1.95.0": [
+    [
+      "Izginuli osnutki se vrnejo",
+      "Pri veliko osnutkih se je lahko shramba brskalnika napolnila in začetna stran je pokazala samo prazne mape. Osnutki sami niso izginili: začetna stran jih zdaj sama vrne, slike na karticah pa ne zasedajo več prostora na seznamu."
+    ],
+    [
+      "Varnostne kopije s slikami na karticah",
+      "»Varnostno kopiraj vse« zdaj vzame s seboj tudi slike na karticah. Po obnovi kopije so slike takoj spet tam, ne da bi bilo treba odpreti vsak osnutek."
+    ],
+    [
+      "Predali v Gridfinity posodah",
+      "Gridfinity posodo lahko zdaj razdeliš na predale: pod »Predali« nastavi »Stolpci« in »Vrste« ter vsako pregrado premakni tja, kjer jo potrebuješ. Žlebovi za prste se ponovijo v vsakem predalu, vsak predal pa ima lahko svojo poličko za nalepko."
+    ],
+    [
+      "Ctrl ali Cmd + vlečenje premakne pogled",
+      "Če držiš Ctrl (Cmd na Macu) in vlečeš z levim gumbom, se pogled premakne namesto da bi se vrtel. Na sledilni ploščici MacBooka: drži Cmd, pritisni in vleci."
+    ],
+    [
+      "Zaobljenja ne puščajo več lukenj",
+      "Zaobljenje je lahko v vogalu pustilo mrežo s finimi režami. Telo je v pogledu prereza videti votlo, naslednji rez ali delitev pa se je ustavil z »Not manifold«. Takšne mreže se zdaj zaprejo takoj."
+    ],
+    [
+      "Zakleni obrise v skici",
+      "Izberi obris v skici, »Zakleni« v vrstici ali tipka L ga zakleni: dokler ga ne odkleneš, ga ni mogoče več premikati, spreminjati velikosti ali oblike. Ob njem »Ohrani razmerja« drži razmerje stranic pri vlečenju ročic ali vpisu velikosti, brez Shifta."
+    ]
+  ],
   "1.94.0": [
     [
       "Gumbi in tipke za povečavo imajo stalne korake",

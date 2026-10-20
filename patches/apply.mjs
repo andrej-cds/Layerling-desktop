@@ -162,8 +162,8 @@ export const edits = [
     stage: "jezik",
     file: "apps/web/src/components/WorkplaneViewport.tsx",
     marker: "mouseRotateOn",
-    find: "    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    controls.mouseButtons.LEFT = event.button === 0 && (event.ctrlKey || event.metaKey) ? THREE.MOUSE.PAN : null;",
-    replace: "    const mouseRotateOn = event.pointerType !== \"touch\" && event.button === 0 && !event.ctrlKey && !event.metaKey && (window as unknown as { __lylMouseRotate?: boolean }).__lylMouseRotate === true;\n    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || mouseRotateOn || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    controls.mouseButtons.LEFT = event.button === 0 && (event.ctrlKey || event.metaKey) ? THREE.MOUSE.PAN : mouseRotateOn ? THREE.MOUSE.ROTATE : null;",
+    find: "    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    // Ctrl or Cmd with the left button moves the view (#654), see leftButtonCameraAction.\n    controls.mouseButtons.LEFT = leftButtonCameraAction(event);",
+    replace: "    const mouseRotateOn = event.pointerType !== \"touch\" && event.button === 0 && !event.ctrlKey && !event.metaKey && (window as unknown as { __lylMouseRotate?: boolean }).__lylMouseRotate === true;\n    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || mouseRotateOn || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    // Ctrl or Cmd with the left button moves the view (#654), see leftButtonCameraAction.\n    controls.mouseButtons.LEFT = mouseRotateOn ? THREE.MOUSE.ROTATE : leftButtonCameraAction(event);",
   },
   {
     name: "Pogled: leva tipka miške ne izbira, ko vrti",
