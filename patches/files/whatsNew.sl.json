@@ -1,4 +1,56 @@
 {
+  "1.93.1": [
+    [
+      "Več posnetih slik pride celih",
+      "Nekateri SVG-ji, posneti iz slike, so tudi po 1.93.0 še prišli v kosih. Uvoz zdaj pred gradnjo telesa uredi obrise, slike pa pridejo cele z vsemi obrisi."
+    ],
+    [
+      "Kartice nastavitev ostanejo odprte",
+      "Lastnosti, Položaj, Zasuk, Zožitev in Zvijanje si zapomnijo, ali si jih pustil odprte ali zaprte, za naslednjo obliko in naslednji obisk. Kar ne spremeniš, se začne kot prej."
+    ]
+  ],
+  "1.93.0": [
+    [
+      "Posnetek na zoženi zaobljeni škatli ostane raven",
+      "Zaobljena škatla, ki se proti vrhu oži, je po posnetku spodnjih robov ob ravnih stranicah kazala vidno ukrivljene črte. Ravne stranice so zdaj prave ravnine, vogali ostanejo zaobljeni, posnetek pa teče ravno ob njih."
+    ],
+    [
+      "SVG-šablona z veliko drobnimi luknjami se uvozi",
+      "SVG, ki je en sam list z veliko drobnimi luknjami (na primer šablona za barvanje z mostički), je bil zavrnjen z »SVG nima zapolnjenih obrisov«. Uvoz zdaj poskusi drugo pot in zgradi list z vsemi luknjami."
+    ],
+    [
+      "Skica: pripenjanje na sredine in središča, črta iz sredine",
+      "Točka v skici se zdaj pripne na sredino črte, središče kroga in sredine stranic telesa pod njo. Novo v skupini Riši: Daljica iz sredine. Klikni najprej sredino, nato konec, daljica pa teče enako dolgo na drugo stran."
+    ],
+    [
+      "Stožčasti vgrez in dvostranski vgrez v enem vnosu",
+      "Knjižnica oblik zdaj našteva samo stožčasti vgrez. V njegovih lastnostih stikalo »Obe strani« naredi dvostranski vgrez in nazaj, vse mere ostanejo. Telesa, ki so že dvostranski vgrez, ostanejo, kot so."
+    ],
+    [
+      "Interaktivna pomoč v lastnostih oblike",
+      "Klik na polje, drsnik ali gumb v karticah Lastnosti, Zasuk, Zožitev in Zvijanje zdaj vodi do ustreznega dela navodil: »Nastavitve oblike«, zasuk pa do »Vrtenje in nastavitev vrtišča«."
+    ],
+    [
+      "Meni mreže pripenjanja leži čez plošče",
+      "Meni za izbiro mreže pripenjanja je bil ob pripeti plošči Oblike delno skrit, zato zgornjih vnosov ni bilo mogoče klikniti. Zdaj leži čez plošče in se na nizkem oknu pomika."
+    ],
+    [
+      "Razdelitev pokaže linijo reza",
+      "Ko razdeliš, čez telesa teče bela črta, kjer ravnina seka telesa. Tako rez vidiš na telesu in ne le na prosojni ravnini. Sledi ravnini, ko jo premikaš ali vrtiš."
+    ],
+    [
+      "Narebričenje: zožitev, nagib in zvijanje",
+      "Narebričenje ima zdaj Zožitev ter Zvijanje in nagib kot kocka. Ravni in okrogli vzorec ostaneta natančno telo, posnetki na koncih pa gredo zraven."
+    ],
+    [
+      "Posnetek + zaobljenje na stožcu s koničastim vrhom",
+      "Na stožcu, ki se konča v konici, je Posnetek + zaobljenje zaobljal napačen rob: noga je tekla naravnost navzdol s pregibom, posnetka na plošči pa ni bilo. Zdaj posnetek leži na plošči, zaobljenje pa se gladko prelije v steno, kot pri valju."
+    ],
+    [
+      "Posneta slika z veliko stikajočimi se obrisi pride cela",
+      "SVG, posnet iz slike, z veliko obrisi, ki se stikajo v ogliščih, je prišel kot peščica kosov, približno petina površine. Uvoz zdaj take vogale zapre dovolj, da je telo čisto, slika pa pride cela z vsemi obrisi."
+    ]
+  ],
   "1.92.2": [
     [
       "OBJ iz Tinkercada pride pravilno obrnjen",
