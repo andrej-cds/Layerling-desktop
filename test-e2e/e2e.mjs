@@ -284,7 +284,12 @@ try {
 
   // ---------- Obnovitev iz samodejnega shranjevanja ----------
   // Od 1.80.0 program pri obnovitvi preskoči načrte, ki so že na seznamu (isto ime in čas nastanka), zato seznam najprej izpraznimo.
-  await page.evaluate(() => window.localStorage.removeItem("layerling.projects"));
+  // Od 1.95.0 začetna stran sama vrne načrte, ki jim je izginil vnos s seznama, če so še v shrambi brskalnika (IndexedDB), zato izbrišemo tudi to.
+  await page.evaluate(async () => {
+    window.localStorage.removeItem("layerling.projects");
+    const dbs = (await indexedDB.databases?.()) ?? [];
+    for (const db of dbs) if (db.name) indexedDB.deleteDatabase(db.name);
+  });
   await page.goto(BASE);
   await page.getByText("Create new 3D design").first().waitFor({ timeout: 30000 });
   const countBeforeRestore = (await storedProjects(page)).length;
