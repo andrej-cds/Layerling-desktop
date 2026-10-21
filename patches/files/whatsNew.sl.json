@@ -1,4 +1,50 @@
 {
+  "1.98.0": [
+    [
+      "Izdolbi navznoter z enim klikom",
+      "Pri izdolbljenju je »Zaprto (votlina znotraj)« zdaj pod stranmi: en klik zapre vse strani, votlina pa ostane zaprta okrog in okrog."
+    ],
+    [
+      "Tanka dna ostanejo pri rezanju",
+      "Luknja malo nad dnom telesa zdaj pusti toliko dna, kot ga je spodaj. Prej je dno do 0,05 mm povsem izginilo, debelejše pa je bilo 0,05 mm pretanko."
+    ],
+    [
+      "Luknja za obesek kjer želiš",
+      "Pri imenski ploščici in ploščici s simbolom je zdaj poleg Levo, Desno in Zgoraj tudi »Prosto«: samostojen jeziček z luknjo leži ob ploščici in ga premakneš in zavrtiš kot vsako obliko. »Pritrdi na napis« ga naredi del ploščice natanko tam, kjer je, z luknjo skozi vse plasti. »Prosto« ga spet izvleče ven."
+    ],
+    [
+      "Izbrisani osnutki ostanejo izbrisani",
+      "Če si po izgubi seznama obnovil varnostno kopijo, so se izbrisani osnutki ob naslednjem zagonu vrnili brez slike. Reševanje zdaj teče samo enkrat, brisanje osnutka pa odstrani tudi njegove skrite kopije."
+    ],
+    [
+      "Prevajanje brskalnika spet deluje",
+      "Če Layerling še ne govori tvojega jezika, lahko brskalnik stran spet prevede. Tvoja lastna imena osnutkov, map in oblik ostanejo, kot so."
+    ],
+    [
+      "Zobniki do 150 zob",
+      "Zobniki, notranji zobniki in zobate letve zdaj sprejmejo do 150 zob namesto 64, na primer za velika kolesa z majhnim modulom."
+    ],
+    [
+      "Po zgodovini s kolescem miške",
+      "V pogledu zgodovine kolesce miške nad drsnikom skoči za eno stanje na zarezo, do starejšega. Page Up in Page Down skočita za deset stanj, Home in End na najstarejše in na trenutno stanje."
+    ],
+    [
+      "Zaobljenje s spremenljivim polmerom",
+      "Zaobljenje ima zdaj »Spremenljiv polmer«: en rob je na enem koncu zaobljen majhno, na drugem veliko, vmes enakomerno. »Zamenjaj konca« ga obrne."
+    ],
+    [
+      "SVG samo z odtisom",
+      "Izvoz SVG ima zdaj pogled »Odtis na delovni ravnini«: zapiše samo obrise, s katerimi predmeti stojijo na delovni ravnini, kot črte v milimetrih. Silhueta od zgoraj ostane privzeta."
+    ],
+    [
+      "Preimenovano ostane preimenovano",
+      "Osnutek, preimenovan na začetni strani, zdaj obdrži novo ime v varnostni kopiji in ob prestavitvi v mapo na strežniku."
+    ],
+    [
+      "Tipka minus na telefonu in tablici",
+      "Polja, ki sprejmejo tudi negativne vrednosti, na primer položaj, vrtenje ali premik, zdaj na telefonih in tablicah pokažejo tipkovnico s tipko minus."
+    ]
+  ],
   "1.97.0": [
     [
       "Shrani štiri lastne poglede",
