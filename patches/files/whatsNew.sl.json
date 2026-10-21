@@ -1,4 +1,38 @@
 {
+  "1.97.0": [
+    [
+      "Shrani štiri lastne poglede",
+      "Shift+7, 8, 9 ali 0 shrani pogled natanko takšen, kot je: kot, položaj in povečavo. Sama tipka ga nato prikliče. Vsak osnutek hrani svoje štiri poglede, shranjena datoteka .lyl pa jih nosi s seboj."
+    ],
+    [
+      "Esc v skici odloži orodje",
+      "Tako kot v 3D urejevalniku Esc konča, kar rišeš, in preklopi nazaj na Izbiro. Drugi Esc počisti izbor."
+    ],
+    [
+      "Skico razstavi po obrisih",
+      "»Loči dele« zdaj razstavi telo iz skice na eno telo na obris, tudi prekrivajoče se obrise. Vsak del obdrži višino, barvo in mesto ter ima svojo skico s pomožnimi črtami, tako da dele lahko dvigaš ali spuščaš posamezno, nato pa jih združiš ali odrežeš."
+    ],
+    [
+      "Layerling govori brazilsko portugalščino",
+      "Celoten vmesnik je zdaj v brazilski portugalščini; izberi jo v meniju jezikov. Brskalnik, ki zahteva »pt-BR«, jo dobi sam. Poglavja vodnika sledijo, do takrat se prikazujejo v angleščini."
+    ],
+    [
+      "Ploščico za obesek premakni vzdolž stranice",
+      "Imenske ploščice in ploščice s simbolom imajo pod luknjo za obesek drsnik »Položaj vzdolž stranice«. Ploščico premakne gor ali dol oziroma levo ali desno vzdolž vrha. Če sredina stranice zadene na vrzel, kot ob črki J, ploščico postavi tja, kamor črka sega."
+    ],
+    [
+      "Velika telesa sledijo miški",
+      "Telo, ki ga primeš visoko zgoraj, zdaj med vlečenjem ostane tik pod kazalcem. Visoko ali nagnjeno telo v osnutku, večjem od plošče, se je prej ustavilo na eni strani in naprej so ga premikale samo smerne tipke."
+    ],
+    [
+      "Povečava s sledilno ploščico v Chromu",
+      "Razmik dveh prstov na sledilni ploščici spet poveča v polnih korakih v Chromu, Edgeu in drugih brskalnikih na osnovi Chroma, na Macu kot na Linuxu. Prej je tam prišla skozi samo desetina gibanja."
+    ],
+    [
+      "Lastnosti rastejo z njimi",
+      "Nastavitev velikosti orodne vrstice (Majhna, Srednja, Velika) zdaj spremeni velikost tudi plošče z lastnostmi na desni, ne samo traku na vrhu in kontrol kamere na levi."
+    ]
+  ],
   "1.96.0": [
     [
       "Skico pretvori v skico za vrtenje",
