@@ -1,4 +1,34 @@
 {
+  "1.102.0": [
+    [
+      "Brez zaplate pri zaokrožitvi uvoženega dela",
+      "Zaokrožitev uvoženega dela z ozko vdolbino je pri velikem polmeru lahko pustila tanek trak čez vdolbino. Zdaj layerling raje pove, da je polmer za ta rob prevelik, namesto da bi pokazal trak."
+    ],
+    [
+      "Odtis v SVG je prerezan na delovni ravnini",
+      "Pri »Odtis na delovni ravnini« v izvozu SVG je en del, ki sega pod delovno ravnino, lahko potegnil rez navzdol, deli, ki stojijo na delovni ravnini, pa so v datoteki manjkali. Rez zdaj leži tik nad delovno ravnino, kadar del sega skoznjo."
+    ],
+    [
+      "Referenčne slike, po katerih poravnaš dele",
+      "Okno za uvoz ima zdaj Referenčno sliko: sliko na plošči ali na ploskvi delovne ravnine, na primer fotografijo plošče pod ohišjem. Naredi jo prosojno, umeri z dvema točkama in njuno pravo razdaljo ter jo zakleni. Nikoli se ne natisne ali izvozi."
+    ],
+    [
+      "Zaokrožitve na nagnjenih telesih",
+      "Zaokrožitev ali posnetek na telesu z zožitvijo in nagibom ali zasukom ga ne premakne več: nagib se je po obdelavi roba uporabil drugič, zdaj telo ostane tako, kot je bilo pred robom."
+    ],
+    [
+      "Vidni robovi v SVG: zaobljeni robovi in zaprti obrisi",
+      "Pri »Vidni robovi od zgoraj« v izvozu SVG zaobljen zgornji rob zdaj dobi svoj zunanji obris, kjer zaobljenje preide v steno pod njim, enako pogled od zgoraj v 2D risbi. Obrisi ostanejo zaprti tudi na ostrih vogalih besedila in kjer vrtina poteka skozi dva dela, ki ležita drug na drugem, tako da laserski program lahko vgravira vsako površino."
+    ],
+    [
+      "Skica s potjo: rob preseka na poti",
+      "Pri skici s potjo presek ni več samo središčen na poti: v meniju ob znački načina lahko namesto tega postaviš njegov levi ali desni rob na pot. Tirnica tako sledi robu dela, ne da bi pot moral premakniti za polovico širine."
+    ],
+    [
+      "Izvoz 3MF in OBJ je precej hitrejši",
+      "Fino posnet model z veliko trikotniki je med pisanjem datoteke zaposlil stran, na počasnih računalnikih, dokler ni Chrome vprašal, ali naj počaka. Spajanje točk, največja posamezna postavka, je približno trideset krat hitrejše."
+    ]
+  ],
   "1.101.0": [
     [
       "Svoje načrte iz Tinkercada vzemi s sabo",
