@@ -188,7 +188,11 @@ function createMainWindow() {
     if (details && details.isMainFrame && !details.isSameDocument) rendererReady = false;
   });
 
-  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  mainWindow.webContents.setWindowOpenHandler(({ url, frameName }) => {
+    // Drugi pogled (1.101.0): urejevalnik odpre svoje okno z imenom layerling-second-view; to ostane v programu.
+    if (frameName === "layerling-second-view") {
+      return { action: "allow", overrideBrowserWindowOptions: { autoHideMenuBar: true, backgroundColor: "#f6f3ec" } };
+    }
     if (/^https?:\/\//i.test(url)) shell.openExternal(url);
     return { action: "deny" };
   });
@@ -209,7 +213,11 @@ function createMainWindow() {
       if (mainWindow && !mainWindow.isDestroyed()) mainWindow.close();
     });
   });
-  mainWindow.on("closed", () => { mainWindow = null; closeHandled = false; });
+  mainWindow.on("closed", () => {
+    // Drugi pogled se zapre skupaj z glavnim oknom.
+    for (const child of BrowserWindow.getAllWindows()) if (!child.isDestroyed()) child.destroy();
+    mainWindow = null; closeHandled = false;
+  });
 
   mainWindow.loadFile(path.join(__dirname, "loading.html"), { query: { lang: getLanguage() } });
 }
