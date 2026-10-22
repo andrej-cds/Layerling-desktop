@@ -1,4 +1,30 @@
 {
+  "1.100.0": [
+    [
+      "layerling govori kitajsko",
+      "Vmesnik in navodila so zdaj tudi v kitajščini, poenostavljeni in tradicionalni. Izbereš jo v meniju jezikov; kitajski brskalnik jo dobi sam. Kar še ni prevedeno, se prikaže v angleščini."
+    ],
+    [
+      "Odprte stranice za posode Gridfinity",
+      "Posoda Gridfinity je zdaj lahko odprta na kateri koli strani, brez stene in brez roba za zlaganje: v plošči Lastnosti vklopiš »Odprto spredaj« ali drugo stran, posode, odprte druga proti drugi, pa tvorijo eno neprekinjeno vrsto. Pri vseh štirih odprtih straneh je posoda pladenj."
+    ],
+    [
+      "Skupine v izvozu STEP",
+      "Skupine, na primer bloka z navojno luknjo, v STEP ni bilo in izšel je samo vijak. Zdaj skupina pride zraven kot natančna telesa, ki jih vsebuje, njene luknje pa režejo samo njena telesa."
+    ],
+    [
+      "Knjižnica oblik v barvi",
+      "Slike v knjižnici oblik zdaj nosijo barvo, v kateri oblika pride na prizorišče: rdeč kvader, oranžen valj, modra krogla. Če imaš raje sive slike, v nastavitvah delovnega prostora izklopi »Oblike v barvi«."
+    ],
+    [
+      "Kocka za usmerjanje se obrača gladko",
+      "Klik na ploskev, rob ali oglišče kocke za usmerjanje zdaj obrne kamero tja v približno tretjini sekunde namesto skoka. Vlečenje z miško ali prstom obračanje takoj prekine; če je sistem nastavljen na zmanjšano gibanje, še vedno dobiš skok."
+    ],
+    [
+      "Višina besedila ne upošteva »Ohrani razmerja«",
+      "Ko je »Ohrani razmerja« vklopljeno, je vpis višine besedila spremenil tudi širino in globino ter z njima velikost črk. Višina besedila je samo debelina črk in je zdaj izvzeta."
+    ]
+  ],
   "1.99.0": [
     [
       "Polmer zaobljenega kvadra na 0,01 mm",
