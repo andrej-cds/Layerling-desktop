@@ -1,4 +1,50 @@
 {
+  "1.103.0": [
+    [
+      "STL kot navaden prenos",
+      "V Chromu in Edgeu izvoz STL vsakič piše v isto datoteko. V nastavitvah pod Videz zdaj vklopiš »Shrani STL kot prenos«: dobiš navaden prenos, brskalnik pa datoteke oštevilči sam, ime (1).stl, ime (2).stl."
+    ],
+    [
+      "Nazaj na svoje nastavitve",
+      "Odprta datoteka prinese svoje barve, mrežo in ploščo. V nastavitvah je zdaj ob »Nastavi kot privzeto« tudi »Uporabi mojo privzeto«: na odprt osnutek uporabi tvoje shranjene barve, mrežo, sence, kamero in začetne vrednosti oblik. Velikost plošče, tiskalnik in enote ostanejo, kot so."
+    ],
+    [
+      "Pomanjšanje in povečanje v odstotkih s tipkovnico",
+      "Polje za odstotke ima ob odprtju fokus, Enter pa uporabi spremembo velikosti. Ctrl+K, odstotek, Enter: povsem brez miške."
+    ],
+    [
+      "Ocena materiala na klik",
+      "Polje Material v oknu za izvoz izračuna številke šele, ko klikneš Izračunaj. Pri fino posnetih večbarvnih modelih je gumb Izvozi tako takoj uporaben."
+    ],
+    [
+      "Polmer stožca ostane pri razdružitvi skupine",
+      "Stožec, ki je bil združen z drugimi deli in povečan, ob razdružitvi skupine obdrži tudi svoj večji polmer osnovne ploskve."
+    ],
+    [
+      "Predogled vrtenine se vrti z miško",
+      "V skici z vrtenjem majhen 3D-predogled ni več mirujoča slika: z levim ali desnim gumbom ga zavrtiš, s kolescem povečuješ, s sredinskim gumbom ga premakneš, tako vidiš tudi spodnjo stran. Nastavljen pogled ostane, medtem ko rišeš naprej."
+    ],
+    [
+      "Ploskev: nov del kot lastno telo",
+      "Okno Ploskev ima novo stikalo »Kot lastno telo (ne združeno)«. Ko je vklopljeno, izvlečeni del (ali luknja žepa) stoji ob telesu, ne v skupini z njim: takoj mu lahko spremeniš velikost, ga premakneš ali z njim rezeš."
+    ],
+    [
+      "Ctrl+puščice premikajo skico",
+      "Če v urejevalniku skic ni nič izbrano, Ctrl in puščice premikajo pogled kot v 3D-pogledu: desetino slike na pritisk, s Shiftom polovico. Skica se premakne v smeri puščice."
+    ],
+    [
+      "Pas za osnovne plošče Gridfinity",
+      "Osnovna plošča Gridfinity lahko zdaj dobi poln pas na kateri koli strani, da zapolni predal, ki ni celo število enot: v oknu Lastnosti nastavi »Pas desno« ali drugo stran. Mreža ostane v celih enotah, plošča pa se poveča za pas."
+    ],
+    [
+      "Loft: odsekov na krog",
+      "Krogi in zaobljeni vogali pri Loftu so bili vedno sestavljeni iz 96 kosov, zato so se pri velikih okroglih koncih videle fasete. Novo polje »Odsekov na krog« (16 do 360) to nastavi, v pogledu in v STL, OBJ in 3MF."
+    ],
+    [
+      "Povečana zvezda ohrani obliko",
+      "Pri spremembi velikosti zvezde je zrasel samo zunanji polmer, zato je bila manjša zvezda manj koničasta, večja pa bolj. Notranji polmer in zaobljenja zdaj rastejo z njim."
+    ]
+  ],
   "1.102.0": [
     [
       "Brez zaplate pri zaokrožitvi uvoženega dela",
