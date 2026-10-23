@@ -174,6 +174,14 @@ export const edits = [
     replace: "\"--shape-icon\": `url(${process.env.NEXT_PUBLIC_LAYERLING_BASE ?? \"\"}/${shape.menuIcon.replace(/^\\/+/, \"\")})`",
   },
   {
+    name: "Podmapa: brez klica na api.github.com (zasebnost obiskovalcev spletne različice)",
+    stage: "podmapa",
+    file: "apps/web/src/lib/appUpdate.ts",
+    marker: "NEXT_PUBLIC_LAYERLING_BASE) return null",
+    find: "export function githubReleasesLatestApiUrl(sourceCodeUrl: string = SOURCE_CODE_URL): string | null {\n  try {",
+    replace: "export function githubReleasesLatestApiUrl(sourceCodeUrl: string = SOURCE_CODE_URL): string | null {\n  if (process.env.NEXT_PUBLIC_LAYERLING_BASE) return null;\n  try {",
+  },
+  {
     name: "Podmapa: URL ostane v podmapi (1)",
     stage: "podmapa",
     file: "apps/web/src/app/page.tsx",
