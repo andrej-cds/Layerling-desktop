@@ -1,4 +1,34 @@
 {
+  "1.106.0": [
+    [
+      "Poravnava ploskev: luknje na isti osi",
+      "Poravnava ploskev ima zdaj »Ista os«: klikni okroglo notranjost luknje ali zunanjost čepa, nato okroglo ploskev drugega dela in del pristane natanko na njeni osi. Luknja nad luknjo, čep v luknjo, tudi na uvoženih mrežah."
+    ],
+    [
+      "Opombe pokaži ali skrij s Shift+N",
+      "Shift+N pokaže ali skrije opombe in referenčne točke, v 3D urejevalniku in v skici, tako kot »Pokaži opombe in točke« v meniju Prikaz. Samo N še vedno postavi opombo."
+    ],
+    [
+      "Referenčne točke se med vlečenjem pripnejo",
+      "Povleci referenčno točko in se pripne na oglišča, sredine robov in ploskev teles ter na druge točke. Z Alt jo pustiš prosto."
+    ],
+    [
+      "Ravnilo meri tudi postavljeno pokonci",
+      "Ravnilo postavi pokonci ali ga nagni in meri v svoji smeri: pokonci ob telesu pokaže višino telesa, namesto da bi merilo vzdolž plošče."
+    ],
+    [
+      "Puščične tipke spreminjajo število",
+      "V številčnem polju lastnosti, v katero si kliknil, tipki gor in dol zdaj spremenita vrednost za en korak, s Shift za večji in z Alt za manjši korak, kot je to že znalo kolesce miške. Doslej sta tipki le premikali kazalko v besedilu."
+    ],
+    [
+      "Posnetje na obrobi Gridfinity",
+      "Ostri zgornji rob obrobe za zlaganje posode Gridfinity je zdaj mogoče posneti kar na posodi: nastavi »Posnetje obrobe« v podoknu Lastnosti, do 1 mm. To je isto posnetje kot pri orodju za robove, brez izbiranja robov."
+    ],
+    [
+      "Centriranje na ploskvi",
+      "Ko je delovna ravnina na ploskvi, »Centriraj na delovni ravnini« zdaj centrira na točko, ki si jo izbral z W, in se premika samo po tej ploskvi. Doslej je centriral na osnovno ploščo in del na nagnjeni ploskvi je zdrsnil z nje."
+    ]
+  ],
   "1.105.0": [
     [
       "Sličice načrtov pokažejo vsa telesa, ne glede na povečavo",
