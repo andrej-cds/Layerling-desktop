@@ -61,4 +61,25 @@ if (base) {
   }
   console.log(`Poti do /assets/ popravljene v ${changed} datotekah.`);
 }
+// Storitveni delavec (sw.js) iz originala je napisan za koren naslova; za podmapo mu vse poti dobijo predpono.
+if (base) {
+  const swFile = join(out, "sw.js");
+  let sw = readFileSync(swFile, "utf8");
+  const before = sw;
+  sw = sw.replace(/const PRECACHE = (\[.*?\]);/s, (_m, json) => {
+    const list = JSON.parse(json).map((p) => (p === "/" ? `${base}/` : base + p));
+    return `const PRECACHE = ${JSON.stringify(list)};`;
+  });
+  const rep = (from, to) => {
+    if (!sw.includes(from)) throw new Error(`sw.js: ni najti "${from}" (original se je spremenil?)`);
+    sw = sw.split(from).join(to);
+  };
+  rep('path.startsWith("/_next/static/")', `path.startsWith("${base}/_next/static/")`);
+  rep("/^\\/occt\\/[^/]+\\//", `/^\\${base}\\/occt\\/[^/]+\\//`);
+  rep("/^\\/fonts\\/japanese\\/[^/]+\\/[^/]+$/", `/^\\${base}\\/fonts\\/japanese\\/[^/]+\\/[^/]+$/`);
+  rep('PRECACHED.has(url.pathname) ? url.pathname : "/"', `PRECACHED.has(url.pathname) ? url.pathname : "${base}/"`);
+  if (sw === before) throw new Error("sw.js ni bil spremenjen");
+  writeFileSync(swFile, sw);
+  console.log("sw.js prilagojen za podmapo.");
+}
 console.log(`Izvoz je v web-export/ (podmapa: ${base || "koren naslova"}).`);
