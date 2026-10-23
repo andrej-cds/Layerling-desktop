@@ -232,7 +232,7 @@ export const edits = [
   {
     name: "Pogled: leva tipka miške vrti, ko je preklopnik vklopljen (kamera)",
     stage: "jezik",
-    file: "apps/web/src/components/WorkplaneViewport.tsx",
+    file: "apps/web/src/components/workplane/viewportScene.ts",
     marker: "mouseRotateOn",
     find: "    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    // Ctrl or Cmd with the left button moves the view (#654), see leftButtonCameraAction.\n    controls.mouseButtons.LEFT = leftButtonCameraAction(event);",
     replace: "    const mouseRotateOn = event.pointerType !== \"touch\" && event.button === 0 && !event.ctrlKey && !event.metaKey && (window as unknown as { __lylMouseRotate?: boolean }).__lylMouseRotate === true;\n    if (event.pointerType !== \"touch\" && (event.button === 1 || event.button === 2 || mouseRotateOn || (event.button === 0 && (event.ctrlKey || event.metaKey)))) {\n      cameraPointers.set(event.pointerId, event);\n    }\n    // Ctrl or Cmd with the left button moves the view (#654), see leftButtonCameraAction.\n    controls.mouseButtons.LEFT = mouseRotateOn ? THREE.MOUSE.ROTATE : leftButtonCameraAction(event);",
@@ -361,7 +361,7 @@ export const edits = [
   {
     name: "CDS: znak ob logotipu v urejevalniku",
     stage: "jezik",
-    file: "apps/web/src/components/LayerlingEditor.tsx",
+    file: "apps/web/src/components/workplane/SecondaryToolbar.tsx",
     marker: "cds-badge-editor",
     find: '            <span className="toolbar-brand-tagline">{t("brand.tagline")}</span>\n          </span>\n        </div>',
     replace:
