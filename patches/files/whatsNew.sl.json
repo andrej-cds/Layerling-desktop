@@ -1,4 +1,30 @@
 {
+  "1.105.0": [
+    [
+      "Sličice načrtov pokažejo vsa telesa, ne glede na povečavo",
+      "Sličica načrta v pregledu je bila pomanjšan posnetek urejevalnika: kdor je imel pogled od blizu, je dobil odrezan izsek, kdor je bil močno oddaljen, drobna telesa v kotu plošče. Zdaj se pogled za sliko za hip prilagodi vsem telesom, iz smeri, iz katere gledaš. Tvoj zaslon ostane, kot je."
+    ],
+    [
+      "Načrte vstavi z vleko",
+      "Če eno ali več datotek layerling (.lyl) odložiš na polje za odlaganje v oknu za uvoz, njihova telesa pridejo v odprti načrt, tako kot pri »Vstavi v ta načrt«. Priročno, kadar je velik uvoz iz Tinkercada razdeljen na več datotek."
+    ],
+    [
+      "Odpiranje datotek DXF",
+      "DXF, na primer obris dela iz delavnice za lasersko rezanje ali od dobavitelja, zdaj pride kot deli za nadaljnje delo: vsak obris je telo, vsaka luknja v njem svoja luknja (okrogla kot valj), ki jo v 3D urejevalniku premikaš in ji spreminjaš velikost. V milimetrih, loki in krogi kot pravi loki. Besedilo, kote in nezaprte obrise izpusti, sporočilo pa pove, koliko jih je."
+    ],
+    [
+      "Vprašaj pred zapiranjem zavihka",
+      "Nastavitve imajo zdaj »Vprašaj pred zapiranjem zavihka«, privzeto izklopljeno. Ko je vklopljeno, brskalnik s svojim vprašanjem »Zapustim stran?« vpraša, če zapreš ali znova naložiš zavihek z odprtim načrtom. Načrti so tako ali tako shranjeni po vsaki spremembi, vprašanje je le opomnik, na primer proti nehotenemu Ctrl+W."
+    ],
+    [
+      "Brez zamrzovanja pri velikih mrežah",
+      "Rezanje, združevanje in deljenje velikih uvoženih mrež, ocena tiska in poenostavljanje zdaj tečejo v ozadju. Namesto da bi za sekundo ali dve obstal, ostane layerling uporaben, vrstica stanja pa pravi »Izračunavanje … lahko delaš naprej«. Tudi uvoz OBJ, izvoz 3MF in odpiranje načrtov z uvoženimi mrežami te manj zadržujejo. Rezultat je popolnoma enak kot prej."
+    ],
+    [
+      "Izvoz DXF prepozna kroge na neravnih obrisih",
+      "Obris, katerega oglišča so nekaj tisočink milimetra ob krivulji, na primer iz znova prebrane datoteke DXF, je pri izvozu DXF prišel ven kot veliko majhnih lokov. Zdaj iz njega spet nastane krog, ravni robovi pa ostanejo črte."
+    ]
+  ],
   "1.104.0": [
     [
       "Uvoz iz Tinkercada z globoko gnezdenimi skupinami se spet odpre",
