@@ -1,4 +1,38 @@
 {
+  "1.104.0": [
+    [
+      "Uvoz iz Tinkercada z globoko gnezdenimi skupinami se spet odpre",
+      "Načrt z veliko skupinami, ugnezdenimi druga v drugo, kot jih zna zapisati uvoznik iz Tinkercada, je ob odpiranju sesul zavihek brskalnika (»zmanjkalo pomnilnika«), tudi pri datoteki z 12 MB. Urejevalnik je za vsako skupino naredil ključ, ki se je z vsako stopnjo gnezdenja podvojil (346 MB pri 19 stopnjah). Zdaj ostane majhen in datoteke se odprejo."
+    ],
+    [
+      "DXF za delavnice za lasersko rezanje",
+      "Okno za izvoz ima zdaj DXF: pogled od zgoraj ali odtis kot en obris iz črt, pravih lokov in krogov na plasti 0 v beli barvi, v milimetrih – tako, kot datoteko zahtevajo delavnice za lasersko rezanje. Luknje in zaokrožitve postanejo pravi krogi in loki namesto številnih kratkih ravnih kosov, od katerih se reznik trese. Na laserskem rezalniku še ni preizkušeno: povratne informacije so dobrodošle."
+    ],
+    [
+      "Kotnik: polja z razdaljami se ne prekrivajo več",
+      "Ko je telo stalo tik ob kotu kotnika, so se tri zelena polja z razdaljami (X, Y, Z) znašla na istem mestu in prekrila drugo drugo ter gumbe kotnika. Zdaj se umaknejo tam, kjer bi se prekrivala, in ostanejo na sredini svojih puščic, kjer je prostor. Vsaka številka se zdaj začne z majhnim x, y ali z: osjo, ki ji pripada."
+    ],
+    [
+      "Shrani izvožene datoteke na strežnik",
+      "Ko je mapa na strežniku vklopljena, ima okno za izvoz zdaj »Shrani na strežnik« za STL, 3MF, OBJ, STEP, SVG, PNG in tudi za risbo. Datoteka pristane v mapi tvojega načrta, tako da jo lahko odpre program, ki mapo deli, na primer razrezovalnik v Dockerju. V seznamu načrtov se ne pokaže, datoteko z istim imenom pa zamenja šele drugi pritisk na gumb."
+    ],
+    [
+      "Iskanje po bližnjicah na tipkovnici",
+      "Okno z bližnjicami na tipkovnici ima na vrhu iskalno polje. Pokaže samo bližnjice, katerih opis, skupina ali tipke vsebujejo vse besede, ki jih vpišeš, na primer »ctrl+z« ali »zrcali«. X na koncu polja ga izprazni, s praznim poljem se vrne celoten seznam."
+    ],
+    [
+      "Opombe na skicah",
+      "V urejevalniku skic gumb Opomba pod Upravljanje ali tipka N zdaj postavi opombo na skico, kot v 3D urejevalniku. Opombe pripadajo telesu skice: v 3D pogledu ležijo na njem in se premikajo z njim, ob ponovnem odpiranju skice pa so spet na njej, tudi tiste, postavljene v 3D."
+    ],
+    [
+      "Alt s puščicami premika v drobnih korakih",
+      "Shift s puščico premakne telo za pet korakov mreže; Alt zdaj naredi nasprotno in ga premakne za petino koraka mreže, pri mreži 1 mm torej za 0,2 mm. Deluje na delovni ravnini in v skici (točke, črte, ročaji slik in krivulj), seznam bližnjic pa ga navaja."
+    ],
+    [
+      "Skupina pod skico pokaže pravi obris",
+      "Skupina teles, recimo okrogla plošča in zobnik, je bila pod skico narisana kot navaden kvader. Zdaj pokaže obris vsakega svojega dela, okrogle plošče in zobnika, skica pa se nanju pripenja."
+    ]
+  ],
   "1.103.1": [
     [
       "Več predmetov se vrti togo, tudi čez rob",
