@@ -168,7 +168,7 @@ export const edits = [
   {
     name: "Podmapa: ikone oblik v meniju (CSS spremenljivka)",
     stage: "podmapa",
-    file: "apps/web/src/components/LayerlingEditor.tsx",
+    file: "apps/web/src/components/workplane/SecondaryToolbar.tsx",
     marker: "--shape-icon\": `url(${process.env.NEXT_PUBLIC_LAYERLING_BASE",
     find: "\"--shape-icon\": `url(/${shape.menuIcon.replace(/^\\/+/, \"\")})`",
     replace: "\"--shape-icon\": `url(${process.env.NEXT_PUBLIC_LAYERLING_BASE ?? \"\"}/${shape.menuIcon.replace(/^\\/+/, \"\")})`",
