@@ -1,4 +1,18 @@
 {
+  "1.103.1": [
+    [
+      "Več predmetov se vrti togo, tudi čez rob",
+      "Ko si z vrtilnim ročajem vrtel več predmetov, se je središče vsakega zaokrožilo na mrežo in ostalo znotraj delovne ravnine, zato so predmeti ob robu obtičali in razporeditev se je podrla. Skupina se zdaj vrti natančno okoli svojega vrtišča in obdrži razmike, tudi ko deli zaidejo čez rob ravnine."
+    ],
+    [
+      "Skica: tipke 1 do 3 spremenijo tudi izbor",
+      "Z orodjem Izberi in izbranimi črtami ali točkami tipka 1 naredi črte ravne in točke oglišča, 2 spremeni črte v krivulje, 3 pa točke zgladi – vse izbrane naenkrat. Brez izbora tipke še naprej izberejo risalno orodje. Tipke so zapisane v namigih gumbov."
+    ],
+    [
+      "Podstavek Gridfinity po meri predala",
+      "Podstavek Gridfinity ima zdaj v oknu Lastnosti »Širina predala« in »Globina predala«: vpiši notranjo mero predala, podstavek vzame toliko enot, kolikor jih gre noter, preostanek pa enakomerno razdeli v pas, tako da je 0,5 mm manjši od predala."
+    ]
+  ],
   "1.103.0": [
     [
       "STL kot navaden prenos",
