@@ -102,6 +102,68 @@ function pathForFusion(file, { tmpdir = os.tmpdir(), copy = fs.copyFileSync, log
   return target;
 }
 
+const FUSION_MCP_URL = "http://127.0.0.1:27182/mcp";
+
+/** Python za Fusion: odpre datoteko STEP kot nov dokument. Pot je zapisana kot niz JSON, zato posebni znaki niso težava. */
+function importScript(file) {
+  return [
+    "import adsk.core",
+    "app = adsk.core.Application.get()",
+    // JSON je veljaven niz v Pythonu; posebne znake zapišemo kot \\uXXXX, da jih prenos besedila ne more pokvariti.
+    `path = ${JSON.stringify(path.resolve(file)).replace(/[\u007f-\uffff]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"))}`,
+    "options = app.importManager.createSTEPImportOptions(path)",
+    "doc = app.importManager.importToNewDocument(options)",
+    "print('odprto: ' + doc.name)",
+    "def run(context):",
+    "    pass",
+  ].join("\n");
+}
+
+/**
+ * Odpre datoteko prek Fusionovega lokalnega strežnika MCP (privzeta vrata 27182; vklopi se v nastavitvah
+ * Fusiona). Za razliko od zagona programa z datoteko v ukazni vrstici to deluje, ko je Fusion zagnan in
+ * pripravljen, in ne zahteva zagona. Vrže napako, če strežnik ne odgovori ali če uvoz ne uspe.
+ */
+async function importViaFusionMcp(file, { url = FUSION_MCP_URL, fetchFn = (...args) => globalThis.fetch(...args), timeoutMs = 90000, probeTimeoutMs = 5000 } = {}) {
+  const call = async (payload, extraHeaders = {}, limit = timeoutMs) => {
+    const response = await fetchFn(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json, text/event-stream", ...extraHeaders },
+      body: JSON.stringify(payload),
+      signal: typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(limit) : undefined,
+    });
+    if (!response.ok) throw new Error(`Fusion MCP: ${response.status}`);
+    const text = await response.text();
+    return { response, text };
+  };
+  const init = await call({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-03-26", capabilities: {}, clientInfo: { name: "layerling-desktop", version: "1" } } }, {}, probeTimeoutMs);
+  const session = init.response.headers && init.response.headers.get ? init.response.headers.get("MCP-Session-Id") : null;
+  const headers = session ? { "MCP-Session-Id": session } : {};
+  await call({ jsonrpc: "2.0", method: "notifications/initialized" }, headers).catch(() => undefined);
+  const result = await call(
+    { jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "fusion_mcp_execute", arguments: { featureType: "script", object: { script: importScript(file) } } } },
+    headers,
+  );
+  let body;
+  try {
+    body = JSON.parse(result.text);
+  } catch {
+    // odgovor v obliki SSE: vrstica »data: {...}«
+    const line = String(result.text).split(/\r?\n/).find((l) => l.startsWith("data:"));
+    body = line ? JSON.parse(line.slice(5)) : {};
+  }
+  if (body.error) throw new Error(`Fusion MCP: ${body.error.message || "napaka"}`);
+  const text = body.result && Array.isArray(body.result.content) ? body.result.content.map((c) => c.text || "").join("") : "";
+  if (body.result && body.result.isError) throw new Error(`Fusion MCP: ${text.slice(0, 200) || "napaka"}`);
+  let parsed = null;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    // brez strukture: štejemo za uspeh, če ni znaka napake
+  }
+  if (parsed && parsed.success === false) throw new Error(`Fusion: ${String(parsed.error || parsed.message || "uvoz ni uspel").slice(0, 200)}`);
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
@@ -123,6 +185,8 @@ async function openInFusion(file, exePath, opts = {}) {
     pollMs = 2000,
     settleMs = 4000,
     minColdWaitMs = 30000,
+    mcpGraceMs = 60000,
+    mcpImport = importViaFusionMcp,
     log = () => {},
   } = opts;
   if (!isStepFile(file) || !fs.existsSync(file)) return "datoteka ne obstaja";
@@ -137,10 +201,24 @@ async function openInFusion(file, exePath, opts = {}) {
     if (child && typeof child.on === "function") child.on("error", () => undefined);
     if (child && typeof child.unref === "function") child.unref();
   };
+  // Prvi poskus je Fusionov strežnik MCP; napaka ni usodna, sledi zagon z datoteko.
+  let lastMcpError = "";
+  const viaMcp = async ({ quiet = false } = {}) => {
+    try {
+      await mcpImport(file);
+      log(`Fusion: odprto prek strežnika MCP ${path.resolve(file)}`);
+      return true;
+    } catch (error) {
+      lastMcpError = error && error.message ? error.message : String(error);
+      if (!quiet) log(`Fusion: MCP ni uspel (${lastMcpError})`);
+      return false;
+    }
+  };
   try {
-    const target = pathForFusion(file, { log });
     const state = getState();
-    if (!state.running) {
+    if (state.running) {
+      if (await viaMcp()) return "";
+    } else {
       // Hladen zagon: najprej samo program, datoteka pride na vrsto, ko je Fusion pripravljen.
       log(`Fusion: zaganjam ${program}`);
       launch([]);
@@ -148,19 +226,22 @@ async function openInFusion(file, exePath, opts = {}) {
       let ready = false;
       while (Date.now() - started < readyTimeoutMs) {
         await wait(pollMs);
-        if (getState().ready) {
+        // Strežnik MCP odgovori šele, ko je Fusion zares pripravljen; uvoz tu uspe prvi.
+        if (getState().running && (await viaMcp({ quiet: true }))) return "";
+        if (getState().ready && Date.now() - started >= mcpGraceMs) {
           ready = true;
           break;
         }
       }
+      log(`Fusion: MCP ni odgovoril${lastMcpError ? ` (${lastMcpError})` : ""}; uporabim zaganjalnik`);
       if (ready) {
-        // Naslov okna se pokaže že v prvih sekundah, a Fusion se nalaga še pol minute: počakaj vsaj toliko.
+        // Rezerva brez MCP: naslov okna se pokaže že v prvih sekundah, a Fusion se nalaga še pol minute.
         const left = minColdWaitMs - (Date.now() - started);
         if (left > 0) await wait(left);
         await wait(settleMs);
-      }
-      else log("Fusion: ni bilo mogoče ugotoviti, da je pripravljen; datoteka se vseeno pošlje");
+      } else log("Fusion: ni bilo mogoče ugotoviti, da je pripravljen; datoteka se vseeno pošlje");
     }
+    const target = pathForFusion(file, { log });
     log(`Fusion: odpiram ${target}`);
     launch([target]);
     return "";
@@ -169,4 +250,4 @@ async function openInFusion(file, exePath, opts = {}) {
   }
 }
 
-module.exports = { asciiName, pathForFusion, isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState };
+module.exports = { importViaFusionMcp, importScript, asciiName, pathForFusion, isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState };
