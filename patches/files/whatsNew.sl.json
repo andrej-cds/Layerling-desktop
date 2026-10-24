@@ -1,4 +1,30 @@
 {
+  "1.109.0": [
+    [
+      "Svoj začetni pogled",
+      "V Nastavitvah → Videz »Uporabi trenutni pogled« shrani kot, s katerega gledaš: novi projekti se potem odprejo tako, Domov pa se vrne nanj. »Standardni« povrne običajni pogled."
+    ],
+    [
+      "Alt+W vrne delovno ravnino nazaj",
+      "Alt+W vrne delovno ravnino na osnovno ploščo, ne da bi izgubil izbor. Prej je bilo treba pritisniti Esc med postavljanjem, klikniti ob ploščo ali uporabiti gumb s puščico pod očesom. Seznam bližnjic jo našteva."
+    ],
+    [
+      "Raztegnjene skupine ohranijo ovalne dele",
+      "Skupina dveh valjev in kvadra, raztegnjena samo v eno smer, je ob izdolbljenju spremenila konca v kroga, v »kost za psa«. Konca se zdaj vrneta kot elipsi z obema merama."
+    ],
+    [
+      "»Uporabi moje privzeto« prinese tudi tiskalnik",
+      "Shranjeno privzeto zdaj poleg velikosti plošče prinese tudi tiskalnik. Uvoz iz Tinkercada ne ostane več na »Brez tiskalnika – poljubna velikost«."
+    ],
+    [
+      "Dotik: tapi bolje zadenejo",
+      "Na zaslonu na dotik pike za poravnavo zdaj ujamejo tap s prsta v širini prsta okoli njih. Polje z vrednostjo ob telesu odpre številsko polje šele z drugim tapom: prvi ga samo označi, tako da prst, ki ga po naključju zadene, ne dvigne tipkovnice."
+    ],
+    [
+      "Orodja UI za priloge",
+      "Pomočniki UI zdaj lahko prek petih orodij mosta UI naštejejo, preberejo, dodajo, preimenujejo in odstranijo datoteke projekta, kot to dela podokno Priloge. Seznam delov ali opombe za sestavo, ki jih napišejo, ostanejo pri projektu."
+    ]
+  ],
   "1.108.0": [
     [
       "Polja združijo svoje dele",
