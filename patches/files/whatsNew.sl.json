@@ -1,4 +1,42 @@
 {
+  "1.110.0": [
+    [
+      "Vse na strežniku",
+      "Ko novi projekti nastajajo na strežniku, vodijo tja zdaj vse poti: odpiranje ali uvoz datoteke, obnova varnostne kopije, podvajanje, stanje iz zgodovine in Nova mapa. Ko v brskalniku ne ostane nič, to pove začetna stran."
+    ],
+    [
+      "Stran posode Gridfinity odpri le delno",
+      "Odprta stran posode Gridfinity ni več nujno odprta v celoti: v podoknu Lastnosti ima vsaka odprta stran vrstice »Globina«, »Širina« in »Položaj« za svojo odprtino, za zarezo, v katero seže prst, ali nižjo steno. Oglišča in obroba ob odprtini ostanejo, zato se posode še vedno zlagajo. »Oglišča odprtine« in »Velikost oglišč odprtine« zaobljijo ali posnamejo oglišča odprtine."
+    ],
+    [
+      "Krivulja skozi točke",
+      "Izberi tri ali več točk obrisa v skici in v vrstici klikni »Krivulja skozi točke«: ena tekoča krivulja teče od prve do zadnje točke skozi vse vmesne, kar drugi programi imenujejo »Fit curve« ali »Fit point spline«. Črte onkraj obeh koncev ostanejo, kot so."
+    ],
+    [
+      "Ovojnica",
+      "Ovojnica v razdelku Združevanje ovije izbrane oblike v eno telo, kot da bi jih skrčil v folijo: polkrogla na valju postane kupola, štirje valji kvader z zaobljenimi oglišči. Deli ostanejo znotraj, Uredi skupino pa jih še vedno premika."
+    ],
+    [
+      "Branje prilog",
+      "Oko na seznamu prilog odpre datoteko .md ali .txt za branje brez prenosa: Markdown oblikovan, z naslovi, seznami, tabelami in kodo, besedilo natanko, kot je napisano. Esc ali klik ob oknu ga zapre."
+    ],
+    [
+      "Kopija navzgor",
+      "Povleci črno puščico za dvig z držanim Alt in oblika ostane, kjer je, kopija pa pristane tam, kjer spustiš. Tako zlagaš kopije naravnost navzgor, kot je Alt že omogočal vstran."
+    ],
+    [
+      "Sprememba besedila ohrani velikost",
+      "Ko vtipkaš drugo besedilo, velikost črk ostane enaka in okvir sledi črkam. Prej so se črke raztegnile v star okvir: samotni »a« je zrasel, širina pa je bila napačna."
+    ],
+    [
+      "Sveženj z ovitim besedilom se ne razteguje več",
+      "Sveženj (ali skupina) z besedilom, ovitim okoli valja, je bil izmerjen tako velik kot ves valj in je dele v njem razvlekel in naredil ovalne. Velikost zdaj sledi samim delom: nič se ne popači, sveženj pa leži v njihovi sredini."
+    ],
+    [
+      "Mac: Control in vlečenje spet vrti pogled",
+      "Na Macu se pogled spet vrti, ko držiš Control in vlečeš po sledilni ploščici (Control klik je tam desni klik). Cmd in vlečenje pogled še vedno premika."
+    ]
+  ],
   "1.109.0": [
     [
       "Svoj začetni pogled",
