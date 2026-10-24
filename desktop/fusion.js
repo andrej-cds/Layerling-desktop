@@ -149,6 +149,12 @@ function importScript(file) {
     "            d.close(False)",
     "    except:",
     "        pass",
+    // Uvoz prek skripte dokumentu ne da imena datoteke (ostane »Untitled«), zato ga nastavimo sami.
+    `docName = ${JSON.stringify(path.basename(file, path.extname(file))).replace(/[\u007f-\uffff]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"))}`,
+    "try:",
+    "    doc.name = docName",
+    "except:",
+    "    pass",
     "doc.activate()",
     "print('odprto: ' + doc.name)",
     "def run(context):",
