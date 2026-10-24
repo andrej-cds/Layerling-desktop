@@ -61,14 +61,18 @@ function findFusionLauncher(localAppData = process.env.LOCALAPPDATA) {
  * (npr. samo začetni zaslon), in zaganjalnik datoteko, podano v tem času, zavrže.
  */
 function fusionState({ platform = process.platform, run = (cmd, args) => require("node:child_process").execFileSync(cmd, args, { encoding: "utf8", windowsHide: true, timeout: 15000 }) } = {}) {
-  if (platform !== "win32") return { running: false, ready: false };
+  if (platform !== "win32") return { running: false, ready: false, settled: false };
   try {
     const out = run("tasklist", ["/v", "/fo", "csv", "/fi", "IMAGENAME eq Fusion360.exe"]);
     const lines = String(out).split(/\r?\n/).filter((line) => /Fusion360\.exe/i.test(line));
-    if (!lines.length) return { running: false, ready: false };
-    return { running: true, ready: lines.some((line) => /\s-\sAutodesk Fusion/i.test(line)) };
+    if (!lines.length) return { running: false, ready: false, settled: false };
+    // Med zagonom ima okno naslove »Autodesk Fusion«, »Connecting to your data - …«, »Preparing your experience - …«;
+    // šele ko se ti umaknejo (»Home - …« ali »<dokument> - …«), je zagon končan in Fusion ne bo več preklopil na Home.
+    const ready = lines.some((line) => /\s-\sAutodesk Fusion/i.test(line));
+    const loading = lines.some((line) => /(Connecting to your data|Preparing your experience|Signing in)\s-\sAutodesk Fusion/i.test(line) || !/\s-\sAutodesk Fusion/i.test(line));
+    return { running: true, ready, settled: ready && !loading };
   } catch {
-    return { running: false, ready: false };
+    return { running: false, ready: false, settled: false };
   }
 }
 
@@ -100,6 +104,22 @@ function pathForFusion(file, { tmpdir = os.tmpdir(), copy = fs.copyFileSync, log
   copy(resolved, target);
   log(`Fusion: ime ima posebne znake, odpiram kopijo ${target}`);
   return target;
+}
+
+/** Postavi v ospredje dokument z uvoženim modelom (po zagonu Fusion sicer prikaže domači zaslon čez). */
+function activateScript() {
+  return [
+    "import adsk.core, adsk.fusion",
+    "app = adsk.core.Application.get()",
+    "for d in app.documents:",
+    "    design = adsk.fusion.Design.cast(d.products.itemByProductType('DesignProductType'))",
+    "    if design and design.rootComponent.bRepBodies.count > 0:",
+    "        d.activate()",
+    "        print('ospredje: ' + d.name)",
+    "        break",
+    "def run(context):",
+    "    pass",
+  ].join("\n");
 }
 
 const FUSION_MCP_URL = "http://127.0.0.1:27182/mcp";
@@ -137,7 +157,7 @@ function importScript(file) {
  * Fusiona). Za razliko od zagona programa z datoteko v ukazni vrstici to deluje, ko je Fusion zagnan in
  * pripravljen, in ne zahteva zagona. Vrže napako, če strežnik ne odgovori ali če uvoz ne uspe.
  */
-async function importViaFusionMcp(file, { url = FUSION_MCP_URL, fetchFn = (...args) => globalThis.fetch(...args), timeoutMs = 90000, probeTimeoutMs = 5000 } = {}) {
+async function importViaFusionMcp(file, { script, url = FUSION_MCP_URL, fetchFn = (...args) => globalThis.fetch(...args), timeoutMs = 90000, probeTimeoutMs = 5000 } = {}) {
   const call = async (payload, extraHeaders = {}, limit = timeoutMs) => {
     const response = await fetchFn(url, {
       method: "POST",
@@ -154,7 +174,7 @@ async function importViaFusionMcp(file, { url = FUSION_MCP_URL, fetchFn = (...ar
   const headers = session ? { "MCP-Session-Id": session } : {};
   await call({ jsonrpc: "2.0", method: "notifications/initialized" }, headers).catch(() => undefined);
   const result = await call(
-    { jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "fusion_mcp_execute", arguments: { featureType: "script", object: { script: importScript(file) } } } },
+    { jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "fusion_mcp_execute", arguments: { featureType: "script", object: { script: script || importScript(file) } } } },
     headers,
   );
   let body;
@@ -240,7 +260,16 @@ async function openInFusion(file, exePath, opts = {}) {
       while (Date.now() - started < readyTimeoutMs) {
         await wait(pollMs);
         // Strežnik MCP odgovori šele, ko je Fusion zares pripravljen; uvoz tu uspe prvi.
-        if (getState().running && (await viaMcp({ quiet: true }))) return "";
+        const now = getState();
+        // Uvoz šele, ko se je Fusion nehal nalagati, sicer ga zaključek zagona prekrije z domačim zaslonom.
+        if (now.running && now.settled !== false && (await viaMcp({ quiet: true }))) {
+          // Domači zaslon se včasih vseeno naloži z zamikom: model čez nekaj sekund še enkrat postavimo v ospredje.
+          if (settleMs > 0) {
+            await wait(Math.min(10000, settleMs * 2.5));
+            await mcpImport(file, { script: activateScript() }).catch(() => undefined);
+          }
+          return "";
+        }
         if (getState().ready && Date.now() - started >= mcpGraceMs) {
           ready = true;
           break;
@@ -263,4 +292,4 @@ async function openInFusion(file, exePath, opts = {}) {
   }
 }
 
-module.exports = { importViaFusionMcp, importScript, asciiName, pathForFusion, isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState };
+module.exports = { importViaFusionMcp, importScript, activateScript, asciiName, pathForFusion, isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState };

@@ -96,11 +96,12 @@ test("findFusionLauncher: samo mapa z zaganjalnikom in njegovo nastavitveno dato
 test("fusionState: razbere seznam procesov", () => {
   const run = (out) => () => out;
   const head = '"Image Name","PID","Session Name","Session#","Mem Usage","Status","User Name","CPU Time","Window Title"\r\n';
-  assert.deepStrictEqual(fusionState({ platform: "win32", run: run('INFO: No tasks are running which match the specified criteria.\r\n') }), { running: false, ready: false });
-  assert.deepStrictEqual(fusionState({ platform: "win32", run: run(head + '"Fusion360.exe","1","Console","2","1 K","Running","a","0:01:00","N/A"\r\n') }), { running: true, ready: false });
-  assert.deepStrictEqual(fusionState({ platform: "win32", run: run(head + '"Fusion360.exe","1","Console","2","1 K","Running","a","0:01:00","Untitled - Autodesk Fusion (Education License)"\r\n') }), { running: true, ready: true });
-  assert.deepStrictEqual(fusionState({ platform: "linux" }), { running: false, ready: false });
-  assert.deepStrictEqual(fusionState({ platform: "win32", run: () => { throw new Error("x"); } }), { running: false, ready: false });
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: run('INFO: No tasks are running which match the specified criteria.\r\n') }), { running: false, ready: false, settled: false });
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: run(head + '"Fusion360.exe","1","Console","2","1 K","Running","a","0:01:00","N/A"\r\n') }), { running: true, ready: false, settled: false });
+  assert.strictEqual(fusionState({ platform: "win32", run: run(head + '"Fusion360.exe","1","Console","2","1 K","Running","a","0:01:00","Preparing your experience - Autodesk Fusion (Education License)"\r\n') }).settled, false);
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: run(head + '"Fusion360.exe","1","Console","2","1 K","Running","a","0:01:00","Untitled - Autodesk Fusion (Education License)"\r\n') }), { running: true, ready: true, settled: true });
+  assert.deepStrictEqual(fusionState({ platform: "linux" }), { running: false, ready: false, settled: false });
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: () => { throw new Error("x"); } }), { running: false, ready: false, settled: false });
 });
 
 test("openInFusion: hladen zagon - najprej program brez datoteke, datoteka ko je Fusion pripravljen", async () => {
@@ -224,6 +225,6 @@ test("openInFusion: hladen zagon - najprej program, uvoz prek MCP, ko Fusion odg
     mcpImport: async () => { attempts += 1; if (attempts < 3) throw new Error("še ne"); },
     wait: async () => {}, pollMs: 0,
   }), "");
-  assert.strictEqual(attempts, 3);
+  assert.strictEqual(attempts, 4); // 3 poskusi uvoza + ponovna postavitev v ospredje
   assert.deepStrictEqual(spawnedArgs, [[]]); // samo zagon, brez datoteke
 });
