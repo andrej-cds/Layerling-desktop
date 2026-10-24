@@ -107,14 +107,23 @@ function pathForFusion(file, { tmpdir = os.tmpdir(), copy = fs.copyFileSync, log
 }
 
 /** Postavi v ospredje dokument z uvoženim modelom (po zagonu Fusion sicer prikaže domači zaslon čez). */
-function activateScript() {
+function activateScript(file) {
+  // Uvoz prek skripte dokumentu ne da imena datoteke (ostane »Untitled«), zato ga nastavimo tu, ko je Fusion že miren.
+  const name = file ? path.basename(file, path.extname(file)) : "";
+  const docName = JSON.stringify(name).replace(/[\u007f-\uffff]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"));
   return [
     "import adsk.core, adsk.fusion",
     "app = adsk.core.Application.get()",
+    `docName = ${docName}`,
     "for d in app.documents:",
     "    design = adsk.fusion.Design.cast(d.products.itemByProductType('DesignProductType'))",
     "    if design and design.rootComponent.bRepBodies.count > 0:",
     "        d.activate()",
+    "        try:",
+    "            if docName and d.name == 'Untitled':",
+    "                d.name = docName",
+    "        except:",
+    "            pass",
     "        print('ospredje: ' + d.name)",
     "        break",
     "def run(context):",
@@ -149,12 +158,6 @@ function importScript(file) {
     "            d.close(False)",
     "    except:",
     "        pass",
-    // Uvoz prek skripte dokumentu ne da imena datoteke (ostane »Untitled«), zato ga nastavimo sami.
-    `docName = ${JSON.stringify(path.basename(file, path.extname(file))).replace(/[\u007f-\uffff]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"))}`,
-    "try:",
-    "    doc.name = docName",
-    "except:",
-    "    pass",
     "doc.activate()",
     "print('odprto: ' + doc.name)",
     "def run(context):",
@@ -276,7 +279,7 @@ async function openInFusion(file, exePath, opts = {}) {
           // Domači zaslon se včasih vseeno naloži z zamikom: model čez nekaj sekund še enkrat postavimo v ospredje.
           if (settleMs > 0) {
             await wait(Math.min(10000, settleMs * 2.5));
-            await mcpImport(file, { script: activateScript() }).catch(() => undefined);
+            await mcpImport(file, { script: activateScript(file) }).catch(() => undefined);
           }
           return "";
         }
