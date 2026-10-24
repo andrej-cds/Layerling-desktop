@@ -107,12 +107,25 @@ const FUSION_MCP_URL = "http://127.0.0.1:27182/mcp";
 /** Python za Fusion: odpre datoteko STEP kot nov dokument. Pot je zapisana kot niz JSON, zato posebni znaki niso težava. */
 function importScript(file) {
   return [
-    "import adsk.core",
+    "import adsk.core, adsk.fusion",
     "app = adsk.core.Application.get()",
     // JSON je veljaven niz v Pythonu; posebne znake zapišemo kot \\uXXXX, da jih prenos besedila ne more pokvariti.
     `path = ${JSON.stringify(path.resolve(file)).replace(/[\u007f-\uffff]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"))}`,
     "options = app.importManager.createSTEPImportOptions(path)",
-    "doc = app.importManager.importToNewDocument(options)",
+    // Fusion ob zagonu sam odpre prazen »Untitled«. Če je ta še prazen in neshranjen, uvozimo vanj (brez novega
+    // dokumenta, brez utripanja oken in brez skoka na domači zaslon); sicer ali ob napaki odpremo nov dokument.
+    "doc = None",
+    "try:",
+    "    active = app.activeDocument",
+    "    design = adsk.fusion.Design.cast(active.products.itemByProductType('DesignProductType')) if active else None",
+    "    if design and not active.isSaved and active.dataFile is None and design.rootComponent.bRepBodies.count == 0 and design.rootComponent.occurrences.count == 0:",
+    "        app.importManager.importToTarget(options, design.rootComponent)",
+    "        doc = active",
+    "except:",
+    "    doc = None",
+    "if doc is None:",
+    "    doc = app.importManager.importToNewDocument(options)",
+    "doc.activate()",
     "print('odprto: ' + doc.name)",
     "def run(context):",
     "    pass",
