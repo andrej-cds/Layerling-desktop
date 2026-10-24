@@ -1,4 +1,42 @@
 {
+  "1.107.0": [
+    [
+      "Zgladi poravna oglišče z dvema ročicama naenkrat",
+      "Kadar ima točka skice dve ločeni ročici, jo Zgladi (v meniju točke ali s tipko 3) naredi gladko naenkrat: obe ročici ležita na isti premici, vsaka ohrani svojo dolžino. Ni več ovinka prek Oglišča."
+    ],
+    [
+      "Mehka svetloba",
+      "Videz v nastavitvah ima zdaj »Mehko svetlobo«: večina svetlobe pride od tam, kamor gledaš, in se vrti s pogledom. Nobena ploskev ne ostane temna, zgornja stran temnega telesa pa ni več izžgana v belo."
+    ],
+    [
+      "Vstavljeni projekti prinesejo svoje opombe",
+      "»Vstavi v ta projekt« in spuščanje datotek .lyl v okno za uvoz zdaj prineseta tudi opombe in referenčne točke shranjenega projekta, na istem mestu. Doslej so prišla samo telesa."
+    ],
+    [
+      "Debelina stene posod Gridfinity",
+      "Stena posode Gridfinity ni več določena na 0,95 mm: v podoknu Lastnosti nastavi »Debelina stene«, od 0,8 mm do mesta, kjer se stene srečajo. Zunanjost ostane enaka, zato posoda še vedno pasi in se zlaga; če stene znotraj pustijo manj kot 1 mm, je posoda zgrajena polna."
+    ],
+    [
+      "Brskalnik je naprošen, naj ohrani tvoje projekte",
+      "layerling zdaj enkrat prosi brskalnik, naj pri pomanjkanju prostora najprej ne pobriše shrambe s tvojimi projekti. Safari izbriše podatke spletnega mesta, ki ga sedem dni nisi obiskal, podatkov nameščene aplikacije pa ne, in vodnik (Namestitev) to zdaj pove. Pomembne projekte vseeno shrani kot datoteko."
+    ],
+    [
+      "Večbarvni SVG: eno telo na barvo",
+      "SVG, narisan v več barvah, zdaj pride kot eno telo na barvo, vsako v svoji barvi in na svojem mestu v risbi, pripravljeno za večbarvni tisk. SVG ene same barve ostane eno telo, enako SVG z več kot 12 barvami, na primer posnetek slike."
+    ],
+    [
+      "Majhne luknje v mrežah se zaprejo",
+      "Uvožene mreže z odprtinami, na primer z odprtimi očmi figure, ni bilo mogoče razdeliti, združiti v skupino ali rezati. layerling take odprtine zdaj najprej zapre z ravnim pokrovom in pove, koliko jih je bilo. Če je odprtina prevelika in neravna, sporočilo pojasni, kaj storiti."
+    ],
+    [
+      "Merilni trak: vnos dolžine premakne telo",
+      "Kadar leži eno krajišče meritve na telesu, lahko klikneš njeno številko. Vnesi novo dolžino in telo pri drugi točki se premakne vzdolž merjene črte natanko na to razdaljo, kot z ravnilom v Tinkercadu."
+    ],
+    [
+      "Oblike se pripnejo na sredino ploskve",
+      "Ko novo obliko postaviš na ploskev, se pripne na sredino te ploskve, ko ji prideš blizu. Če jo povlečeš iz knjižnice oblik na ploskev, vedno pristane na sredini. Z Alt jo odložiš kamor koli."
+    ]
+  ],
   "1.106.1": [
     [
       "Varnejša mapa store na tvojem strežniku",
