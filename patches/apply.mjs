@@ -7,6 +7,7 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -557,6 +558,14 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
     } else problems.push("apps/web/src/lib/whatsNew.json: datoteke ni več");
   }
   if (local?.applyExtra) local.applyExtra({ root, projectRoot, wanted, log, problems });
+  // Izvedena grafitna tema (apps/web/src/app/graphite.generated.css ali podobno) mora ustrezati globals.css, sicer
+  // preizkus graphiteTheme odpove. Po naših dopolnitvah CSS jo zato ponovno ustvarimo.
+  const graphiteScript = join(root, "scripts/generate-graphite-theme.mjs");
+  if (wanted({ stage: "jezik" }) && existsSync(graphiteScript)) {
+    const run = spawnSync(process.execPath, [graphiteScript], { cwd: root, encoding: "utf8" });
+    if (run.status === 0) log("  grafitna tema ponovno ustvarjena");
+    else problems.push(`scripts/generate-graphite-theme.mjs: ${String(run.stderr || run.stdout).slice(0, 300)}`);
+  }
   if (problems.length) {
     const error = new Error(`Popravkov ni bilo mogoče uporabiti:\n - ${problems.join("\n - ")}`);
     error.problems = problems;
