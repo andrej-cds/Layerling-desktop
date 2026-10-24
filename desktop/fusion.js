@@ -232,6 +232,7 @@ async function openInFusion(file, exePath, opts = {}) {
     settleMs = 4000,
     minColdWaitMs = 30000,
     mcpGraceMs = 60000,
+    homeLoadMs = 15000,
     mcpImport = importViaFusionMcp,
     log = () => {},
   } = opts;
@@ -270,12 +271,17 @@ async function openInFusion(file, exePath, opts = {}) {
       launch([]);
       const started = Date.now();
       let ready = false;
+      let settledSince = null;
       while (Date.now() - started < readyTimeoutMs) {
         await wait(pollMs);
         // Strežnik MCP odgovori šele, ko je Fusion zares pripravljen; uvoz tu uspe prvi.
         const now = getState();
-        // Uvoz šele, ko se je Fusion nehal nalagati, sicer ga zaključek zagona prekrije z domačim zaslonom.
-        if (now.running && now.settled !== false && (await viaMcp({ quiet: true }))) {
+        if (now.settled === true) settledSince = settledSince || Date.now();
+        else settledSince = null;
+        // Uvoz šele, ko se je Fusion nehal nalagati, sicer ga zaključek zagona prekrije z domačim zaslonom; in še
+        // nekaj sekund pozneje, ker se domača stran nalaga še potem (sprememba dokumentov takrat včasih sesuje Fusion).
+        const quiet = now.settled !== true || Date.now() - settledSince >= homeLoadMs;
+        if (now.running && now.settled !== false && quiet && (await viaMcp({ quiet: true }))) {
           // Domači zaslon se včasih vseeno naloži z zamikom: model čez nekaj sekund še enkrat postavimo v ospredje.
           if (settleMs > 0) {
             await wait(Math.min(10000, settleMs * 2.5));
