@@ -561,7 +561,7 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
   // Izvedena grafitna tema (apps/web/src/app/graphite.generated.css ali podobno) mora ustrezati globals.css, sicer
   // preizkus graphiteTheme odpove. Po naših dopolnitvah CSS jo zato ponovno ustvarimo.
   const graphiteScript = join(root, "scripts/generate-graphite-theme.mjs");
-  if (wanted({ stage: "jezik" }) && existsSync(graphiteScript)) {
+  if (wanted({}) && existsSync(graphiteScript)) {
     const run = spawnSync(process.execPath, [graphiteScript], { cwd: root, encoding: "utf8" });
     if (run.status === 0) log("  grafitna tema ponovno ustvarjena");
     else problems.push(`scripts/generate-graphite-theme.mjs: ${String(run.stderr || run.stdout).slice(0, 300)}`);
