@@ -4,7 +4,7 @@ const assert = require("node:assert");
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { isStepFile, openInFusion } = require("../desktop/fusion");
+const { isStepFile, openInFusion, findInstalledFusion } = require("../desktop/fusion");
 const { normalize } = require("../desktop/config");
 
 test("prepozna datoteke STEP", () => {
@@ -37,5 +37,27 @@ test("openInFusion: privzeti program, nastavljen program in napake", async () =>
   assert.deepStrictEqual(spawned, [[exe, [path.resolve(step)]]]);
 
   assert.notStrictEqual(await openInFusion(path.join(dir, "ni.step"), "", { openPath: async () => "" }), "");
-  assert.notStrictEqual(await openInFusion(step, path.join(dir, "ni.exe"), {}), "");
+  // Stara pot (Fusion se je posodobil): uporabi novo ali privzeti program, ne javi napake.
+  const stale = path.join(dir, "stara", "Fusion360.exe");
+  spawned.length = 0;
+  assert.strictEqual(await openInFusion(step, stale, { spawnFn: fake, findFusion: () => exe }), "");
+  assert.deepStrictEqual(spawned, [[exe, [path.resolve(step)]]]);
+  opened.length = 0;
+  assert.strictEqual(await openInFusion(step, stale, { findFusion: () => "", openPath: async (f) => { opened.push(f); return ""; } }), "");
+  assert.deepStrictEqual(opened, [step]);
+});
+
+test("findInstalledFusion: izbere najnovejšo mapo webdeploy", () => {
+  const local = fs.mkdtempSync(path.join(os.tmpdir(), "lyl-local-"));
+  const prod = path.join(local, "Autodesk", "webdeploy", "production");
+  for (const [name, age] of [["aaa", 1000], ["bbb", 0], ["ccc", 2000]]) {
+    fs.mkdirSync(path.join(prod, name), { recursive: true });
+    if (name === "ccc") continue; // brez exe
+    const exe = path.join(prod, name, "Fusion360.exe");
+    fs.writeFileSync(exe, "");
+    const t = new Date(Date.now() - age * 1000);
+    fs.utimesSync(exe, t, t);
+  }
+  assert.strictEqual(findInstalledFusion(local), path.join(prod, "bbb", "Fusion360.exe"));
+  assert.strictEqual(findInstalledFusion(path.join(local, "ni")), "");
 });

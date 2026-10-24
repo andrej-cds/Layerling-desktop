@@ -423,6 +423,27 @@ export const edits = [
     find: "  const handleToggleShowSectionPlane = useCallback((showPlane: boolean) => {",
     replace: "  // section-izbira: ko ob vklopljenem prerezu izbereš drug objekt, ravnina skoči na njegovo sredino.\n  const sectionSelectionKey = selectedIds.join(\"|\");\n  useEffect(() => {\n    if (!sectionSettingsRef.current.enabled || selectedIdsRef.current.length === 0) return;\n    const bounds = getSectionBounds(shapesRef.current, sectionSettingsRef.current.axis, workspaceRef.current.width, workspaceRef.current.depth);\n    setSectionSettings((prev) => (prev.enabled ? { ...prev, offset: bounds.center } : prev));\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [sectionSelectionKey]);\n\n  const handleToggleShowSectionPlane = useCallback((showPlane: boolean) => {",
   },
+  {
+    name: "STEP: luknja iz telesa z lastnimi luknjami je en sam rezalnik",
+    file: "apps/web/src/lib/stepExport.ts",
+    marker: "Desktop: a hole made of a solid with holes of its own",
+    find: "/** The cutters among these shapes, a group of holes opened into the holes it holds. */\nfunction collectHoles(brep: Brep, shapes: WorkplaneShape[], skipped: SkippedShape[], holes: { box: Aabb; solid: BrepSolid }[]) {\n  for (const shape of shapes.filter((s) => s.hole)) {\n    const source = stepSourceForShape(shape);\n    if (source === \"unsupported\" && isOpenableGroup(shape)) {\n      collectHoles(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, holes);\n      continue;\n    }\n    if (source === \"unsupported\") {\n      skipped.push(describe(shape, `hole ${unsupportedReason()}; cut omitted`));\n      continue;\n    }\n    // Eine Aussparung wird hier nur aus dem gebaut, was ohne Warten geht; eine\n    // eingelesene STEP-Quelle als Bohrer ist kein Fall, der vorkommt.\n    const built = source === \"primitive\" ? buildExactSolid(brep, shape) : source === \"profile\" ? buildProfileBody(brep, shape) : source === \"thread\" ? buildThreadBody(brep, shape) : source === \"spring\" ? buildSpringBody(brep, shape) : source === \"helicalGear\" ? buildHelicalGearBody(brep, shape) : source === \"gridfinity\" ? buildGridfinityBody(brep, shape) : buildBakedBody(brep, shape);\n    if (\"skip\" in built) {\n      skipped.push(describe(shape, `hole ${built.skip}; cut omitted`));\n      continue;\n    }\n    holes.push({ box: worldAabb(shape), solid: built.solid });\n  }\n}\n\n",
+    replace: "/** The cutters among these shapes, a group of holes opened into the holes it holds. */\nasync function collectHoles(brep: Brep, shapes: WorkplaneShape[], skipped: SkippedShape[], holes: { box: Aabb; solid: BrepSolid }[]) {\n  for (const shape of shapes.filter((s) => s.hole)) {\n    const source = stepSourceForShape(shape);\n    if (source === \"unsupported\" && isOpenableGroup(shape)) {\n      const children = restoreGroupedChildren(shape).filter((child) => !child.hidden);\n      if (children.some((child) => !child.hole)) {\n        // Desktop: a hole made of a solid with holes of its own (e.g. a round pocket with scallops\n        // taken out of it) is one cutter, the solid minus its holes - not only the inner holes.\n        for (const part of await buildScope(brep, children, skipped)) holes.push({ box: part.box, solid: part.solid });\n      } else {\n        await collectHoles(brep, children, skipped, holes);\n      }\n      continue;\n    }\n    if (source === \"unsupported\") {\n      skipped.push(describe(shape, `hole ${unsupportedReason()}; cut omitted`));\n      continue;\n    }\n    // Eine Aussparung wird hier nur aus dem gebaut, was ohne Warten geht; eine\n    // eingelesene STEP-Quelle als Bohrer ist kein Fall, der vorkommt.\n    const built = source === \"primitive\" ? buildExactSolid(brep, shape) : source === \"profile\" ? buildProfileBody(brep, shape) : source === \"thread\" ? buildThreadBody(brep, shape) : source === \"spring\" ? buildSpringBody(brep, shape) : source === \"helicalGear\" ? buildHelicalGearBody(brep, shape) : source === \"gridfinity\" ? buildGridfinityBody(brep, shape) : buildBakedBody(brep, shape);\n    if (\"skip\" in built) {\n      skipped.push(describe(shape, `hole ${built.skip}; cut omitted`));\n      continue;\n    }\n    holes.push({ box: worldAabb(shape), solid: built.solid });\n  }\n}\n\n",
+  },
+  {
+    name: "STEP: čakanje na rezalnike",
+    file: "apps/web/src/lib/stepExport.ts",
+    marker: "  await collectHoles(brep, shapes, skipped, holes);",
+    find: "  collectHoles(brep, shapes, skipped, holes);\n\n  const parts: ScopePart[] = [];",
+    replace: "  await collectHoles(brep, shapes, skipped, holes);\n\n  const parts: ScopePart[] = [];",
+  },
+  {
+    name: "Strežnik: revizija na celo sekundo (sličice skupne mape in store.php)",
+    file: "apps/web/src/app/api/shared-projects/route.ts",
+    marker: "Math.floor(stat.mtimeMs / 1000) * 1000000",
+    find: "  return `${stat.size.toString(16)}-${Math.round(stat.mtimeMs * 1000).toString(16)}`;",
+    replace: "  // Namizna različica: čas na celo sekundo, enako kot store.php (PHP ne pozna delčkov sekunde); sicer sličice, ki jih zapiše eden, drugi ne najde.\n  return `${stat.size.toString(16)}-${(Math.floor(stat.mtimeMs / 1000) * 1000000).toString(16)}`;",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
