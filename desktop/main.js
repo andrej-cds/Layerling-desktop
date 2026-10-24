@@ -693,7 +693,7 @@ function hardenSession() {
       const saved = item.getSavePath();
       const fusion = config.get().fusion;
       if (!fusion.openAfterStepExport || !isStepFile(saved)) return;
-      const error = await openInFusion(saved, fusion.exePath, { openPath: (file) => shell.openPath(file) });
+      const error = await openInFusion(saved, fusion.exePath, { openPath: (file) => shell.openPath(file), log });
       if (error) {
         log(`Fusion: ${error}`);
         dialog.showErrorBox(tr("dlg.fusionOpenFailed"), error);

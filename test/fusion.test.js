@@ -4,7 +4,7 @@ const assert = require("node:assert");
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { isStepFile, openInFusion, findInstalledFusion, findFusionLauncher } = require("../desktop/fusion");
+const { isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState } = require("../desktop/fusion");
 const { normalize } = require("../desktop/config");
 
 test("prepozna datoteke STEP", () => {
@@ -26,17 +26,18 @@ test("openInFusion: privzeti program, nastavljen program in napake", async () =>
   const step = path.join(dir, "model.step");
   fs.writeFileSync(step, "ISO-10303-21;");
   const opened = [];
-  assert.strictEqual(await openInFusion(step, "", { openPath: async (f) => { opened.push(f); return ""; } }), "");
+  const up = () => ({ running: true, ready: true });
+  assert.strictEqual(await openInFusion(step, "", { getState: up, openPath: async (f) => { opened.push(f); return ""; } }), "");
   assert.deepStrictEqual(opened, [step]);
 
   const exe = path.join(dir, "Fusion360.exe");
   fs.writeFileSync(exe, "");
   const spawned = [];
   const fake = (cmd, args) => { spawned.push([cmd, args]); return { on() {}, unref() {} }; };
-  assert.strictEqual(await openInFusion(step, exe, { spawnFn: fake, findLauncher: () => "" }), "");
+  assert.strictEqual(await openInFusion(step, exe, { getState: up, spawnFn: fake, findLauncher: () => "" }), "");
   assert.deepStrictEqual(spawned, [[exe, [path.resolve(step)]]]);
 
-  assert.notStrictEqual(await openInFusion(path.join(dir, "ni.step"), "", { openPath: async () => "" }), "");
+  assert.notStrictEqual(await openInFusion(path.join(dir, "ni.step"), "", { getState: up, openPath: async () => "" }), "");
 
   // Zaganjalnik ima prednost pred Fusion360.exe iz webdeploy (ta datoteke ne odpre); lasten izbran program ima prednost pred obema.
   const launcher = path.join(dir, "FusionLauncher.exe");
@@ -44,24 +45,24 @@ test("openInFusion: privzeti program, nastavljen program in napake", async () =>
   fs.mkdirSync(path.dirname(webdeployExe), { recursive: true });
   fs.writeFileSync(webdeployExe, "");
   spawned.length = 0;
-  assert.strictEqual(await openInFusion(step, webdeployExe, { spawnFn: fake, findLauncher: () => launcher }), "");
+  assert.strictEqual(await openInFusion(step, webdeployExe, { getState: up, spawnFn: fake, findLauncher: () => launcher }), "");
   assert.strictEqual(spawned[0][0], launcher);
   spawned.length = 0;
-  assert.strictEqual(await openInFusion(step, "", { spawnFn: fake, findLauncher: () => launcher }), "");
+  assert.strictEqual(await openInFusion(step, "", { getState: up, spawnFn: fake, findLauncher: () => launcher }), "");
   assert.strictEqual(spawned[0][0], launcher);
   spawned.length = 0;
-  assert.strictEqual(await openInFusion(step, exe, { spawnFn: fake, findLauncher: () => launcher }), "");
+  assert.strictEqual(await openInFusion(step, exe, { getState: up, spawnFn: fake, findLauncher: () => launcher }), "");
   assert.strictEqual(spawned[0][0], exe);
   spawned.length = 0;
-  assert.strictEqual(await openInFusion(step, webdeployExe, { spawnFn: fake, findLauncher: () => "" }), "");
+  assert.strictEqual(await openInFusion(step, webdeployExe, { getState: up, spawnFn: fake, findLauncher: () => "" }), "");
   assert.strictEqual(spawned[0][0], webdeployExe);
   // Stara pot (Fusion se je posodobil): uporabi novo ali privzeti program, ne javi napake.
   const stale = path.join(dir, "stara", "Fusion360.exe");
   spawned.length = 0;
-  assert.strictEqual(await openInFusion(step, stale, { spawnFn: fake, findLauncher: () => "", findFusion: () => exe }), "");
+  assert.strictEqual(await openInFusion(step, stale, { getState: up, spawnFn: fake, findLauncher: () => "", findFusion: () => exe }), "");
   assert.deepStrictEqual(spawned, [[exe, [path.resolve(step)]]]);
   opened.length = 0;
-  assert.strictEqual(await openInFusion(step, stale, { findLauncher: () => "", findFusion: () => "", openPath: async (f) => { opened.push(f); return ""; } }), "");
+  assert.strictEqual(await openInFusion(step, stale, { getState: up, findLauncher: () => "", findFusion: () => "", openPath: async (f) => { opened.push(f); return ""; } }), "");
   assert.deepStrictEqual(opened, [step]);
 });
 
@@ -90,4 +91,40 @@ test("findFusionLauncher: samo mapa z zaganjalnikom in njegovo nastavitveno dato
   fs.writeFileSync(path.join(prod, "pravi", "FusionLauncher.exe.ini"), "");
   assert.strictEqual(findFusionLauncher(local), path.join(prod, "pravi", "FusionLauncher.exe"));
   assert.strictEqual(findFusionLauncher(path.join(local, "ni")), "");
+});
+
+test("fusionState: razbere seznam procesov", () => {
+  const run = (out) => () => out;
+  const head = '"Image Name","PID","Session Name","Session#","Mem Usage","Status","User Name","CPU Time","Window Title"\r\n';
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: run('INFO: No tasks are running which match the specified criteria.\r\n') }), { running: false, ready: false });
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: run(head + '"Fusion360.exe","1","Console","2","1 K","Running","a","0:01:00","N/A"\r\n') }), { running: true, ready: false });
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: run(head + '"Fusion360.exe","1","Console","2","1 K","Running","a","0:01:00","Untitled - Autodesk Fusion (Education License)"\r\n') }), { running: true, ready: true });
+  assert.deepStrictEqual(fusionState({ platform: "linux" }), { running: false, ready: false });
+  assert.deepStrictEqual(fusionState({ platform: "win32", run: () => { throw new Error("x"); } }), { running: false, ready: false });
+});
+
+test("openInFusion: hladen zagon - najprej program brez datoteke, datoteka ko je Fusion pripravljen", async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "lyl-cold-"));
+  const step = path.join(dir, "model.step");
+  fs.writeFileSync(step, "ISO-10303-21;");
+  const launcher = path.join(dir, "FusionLauncher.exe");
+  fs.writeFileSync(launcher, "");
+  const calls = [];
+  const fake = (cmd, args) => { calls.push(args.length ? "datoteka" : "zagon"); return { on() {}, unref() {} }; };
+  const states = [{ running: false, ready: false }, { running: true, ready: false }, { running: true, ready: false }, { running: true, ready: true }];
+  let waits = 0;
+  const result = await openInFusion(step, "", {
+    spawnFn: fake, findLauncher: () => launcher,
+    getState: () => states.shift() || { running: true, ready: true },
+    wait: async () => { waits += 1; }, settleMs: 0, pollMs: 0,
+  });
+  assert.strictEqual(result, "");
+  assert.deepStrictEqual(calls, ["zagon", "datoteka"]);
+  assert.ok(waits >= 3);
+
+  // Fusion se ne javi kot pripravljen: po izteku časa se datoteka vseeno pošlje.
+  calls.length = 0;
+  const lines = [];
+  assert.strictEqual(await openInFusion(step, "", { spawnFn: fake, findLauncher: () => launcher, getState: () => ({ running: true, ready: false }) , wait: async () => {}, readyTimeoutMs: -1, log: (t) => lines.push(t) }), "");
+  assert.deepStrictEqual(calls, ["datoteka"]);
 });
