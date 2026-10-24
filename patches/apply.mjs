@@ -444,6 +444,55 @@ export const edits = [
     find: "  return `${stat.size.toString(16)}-${Math.round(stat.mtimeMs * 1000).toString(16)}`;",
     replace: "  // Namizna različica: čas na celo sekundo, enako kot store.php (PHP ne pozna delčkov sekunde); sicer sličice, ki jih zapiše eden, drugi ne najde.\n  return `${stat.size.toString(16)}-${(Math.floor(stat.mtimeMs / 1000) * 1000000).toString(16)}`;",
   },
+  {
+    name: "Izvozno okno: stanje za gumb Fusion (namizna različica)",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInFusion",
+    find: "  const [exportFormat, setExportFormat] = useState<ExportFormat>(\"stl\");\n",
+    replace: "  const [exportFormat, setExportFormat] = useState<ExportFormat>(\"stl\");\n  const [openInFusion, setOpenInFusion] = useState(false);\n  const [isDesktopApp, setIsDesktopApp] = useState(false);\n  useEffect(() => setIsDesktopApp(!!(window as unknown as { layerlingDesktop?: unknown }).layerlingDesktop), []);\n",
+  },
+  {
+    name: "Izvozno okno: izvoz STEP pove namizni različici, ali naj ga odpre v Fusionu",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setStepToFusion",
+    find: "    else if (exportFormat === \"step\") onExportStep(exportName, toServer);",
+    replace: "    else if (exportFormat === \"step\") {\n      try { (window as unknown as { layerlingDesktop?: { setStepToFusion?: (on: boolean) => void } }).layerlingDesktop?.setStepToFusion?.(openInFusion && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExportStep(exportName, toServer);\n    }",
+  },
+  {
+    name: "Izvozno okno: izbira formata ugasne Fusion",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInFusion(false)",
+    find: "onClick={() => setExportFormat(format)}",
+    replace: "onClick={() => { setExportFormat(format); setOpenInFusion(false); }}",
+  },
+  {
+    name: "Izvozno okno: gumb STEP ni izbran, ko je izbran Fusion",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "!(format === \"step\" && openInFusion)",
+    find: "aria-checked={exportFormat === format}",
+    replace: "aria-checked={exportFormat === format && !(format === \"step\" && openInFusion)}",
+  },
+  {
+    name: "Izvozno okno: drsnik formatov ne označi nobenega, ko je izbran Fusion",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "\"fusion\" : exportFormat",
+    find: "data-format={exportFormat} role=\"radiogroup\"",
+    replace: "data-format={openInFusion && exportFormat === \"step\" ? \"fusion\" : exportFormat} role=\"radiogroup\"",
+  },
+  {
+    name: "Izvozno okno: vrstica »Program« z gumbom Fusion",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "export-program-button",
+    find: "          {exportFormat === \"drawing\" ? (\n            <section className=\"export-setting-section\">",
+    replace: "          {isDesktopApp ? (\n            <section className=\"export-setting-section\">\n              <div className=\"export-section-heading\">\n                <div>\n                  <strong>Program</strong>\n                </div>\n              </div>\n              <div role=\"radiogroup\" aria-label=\"Program\">\n                <button\n                  type=\"button\"\n                  role=\"radio\"\n                  className=\"export-program-button\"\n                  aria-checked={openInFusion && exportFormat === \"step\"}\n                  title=\"STEP\"\n                  onClick={() => { setExportFormat(\"step\"); setOpenInFusion(true); }}\n                >\n                  Fusion\n                </button>\n              </div>\n            </section>\n          ) : null}\n\n          {exportFormat === \"drawing\" ? (\n            <section className=\"export-setting-section\">",
+  },
+  {
+    name: "Izvozno okno: slog gumba Fusion",
+    file: "apps/web/src/app/globals.css",
+    marker: "export-program-button",
+    find: ".export-format-slider[data-format=\"drawing\"]::before {",
+    replace: ".export-format-slider[data-format=\"fusion\"]::before {\n  display: none;\n}\n\n.export-program-button {\n  height: 38px;\n  padding: 0 22px;\n  color: #94816c;\n  font-size: 12px;\n  font-weight: 850;\n  letter-spacing: 0.02em;\n  background: #f6f2ec;\n  border: 1px solid #ede6d9;\n  border-radius: 8px;\n  cursor: pointer;\n}\n\n.export-program-button:hover {\n  color: #6a4722;\n}\n\n.export-program-button[aria-checked=\"true\"] {\n  color: #9f5508;\n  background: #fff;\n  border-color: #ddab78;\n  box-shadow: 0 2px 7px rgba(89, 59, 27, 0.12);\n}\n\n.export-format-slider[data-format=\"drawing\"]::before {",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */

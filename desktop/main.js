@@ -431,6 +431,12 @@ ipcMain.handle("settings:load", () => settingsPayload());
 ipcMain.handle("settings:strings", () => ({ language: getLanguage(), strings: STRINGS[getLanguage()] }));
 
 // Urejevalnik sporoči jezik (preklopnik EN/SL); lupina (meniji, okna, posodobitve) mu sledi.
+// Izvozno okno pove, ali naj se naslednji izvoz STEP odpre v Fusionu (gumb »Fusion« v vrstici »Program«).
+let fusionNextStep = false;
+ipcMain.on("fusion:next-step", (_event, on) => {
+  fusionNextStep = !!on;
+});
+
 ipcMain.on("renderer:language", (_event, language) => {
   const next = normalizeLanguage(language);
   if (!next || next === getLanguage()) return;
@@ -645,23 +651,12 @@ async function openProjectDialog() {
   if (!result.canceled) result.filePaths.forEach(queueFile);
 }
 
-async function chooseFusionPath() {
-  const result = await dialog.showOpenDialog(mainWindow || undefined, {
-    title: tr("dlg.fusionPathTitle"),
-    properties: ["openFile"],
-    filters: isMac ? [] : [{ name: "Fusion", extensions: ["exe"] }, { name: tr("dlg.allFiles"), extensions: ["*"] }],
-  });
-  if (!result.canceled && result.filePaths[0]) config.update({ fusion: { exePath: result.filePaths[0] } });
-}
-
 function installMenu() {
   Menu.setApplicationMenu(buildMenu({
     isMac,
     isDev,
-    state: { fusionAfterStep: config.get().fusion.openAfterStepExport },
+    state: {},
     actions: {
-      toggleFusionAfterStep: (item) => config.update({ fusion: { openAfterStepExport: !!item.checked } }),
-      chooseFusionPath,
       about: showAbout,
       settings: openSettings,
       settingsAi: openSettings,
@@ -689,8 +684,10 @@ function hardenSession() {
   const allowed = new Set(["clipboard-read", "clipboard-sanitized-write", "fullscreen", "fileSystem"]);
   session.defaultSession.setPermissionRequestHandler((_wc, permission, callback) => callback(allowed.has(permission)));
   session.defaultSession.setPermissionCheckHandler((_wc, permission) => allowed.has(permission));
-  // Po izvozu STEP ga (če je tako nastavljeno) odpri v Fusionu.
+  // Po izvozu STEP ga odpri v Fusionu, če je v izvoznem oknu izbran gumb »Fusion«.
   session.defaultSession.on("will-download", (_event, item) => {
+    const toFusion = fusionNextStep && isStepFile(item.getFilename());
+    if (toFusion) fusionNextStep = false;
     item.once("done", async (_doneEvent, state) => {
       // Preklicano okno »Shrani kot«: spletni program mora vedeti, da ni bilo nič shranjeno
       // (sicer obvestilo »Varnostna kopija shranjena …« ostane, čeprav datoteke ni).
@@ -698,7 +695,7 @@ function hardenSession() {
       if (state !== "completed") return;
       const saved = item.getSavePath();
       const fusion = config.get().fusion;
-      if (!fusion.openAfterStepExport || !isStepFile(saved)) return;
+      if (!toFusion || !isStepFile(saved)) return;
       const error = await openInFusion(saved, fusion.exePath, { openPath: (file) => shell.openPath(file), log });
       if (error) {
         log(`Fusion: ${error}`);

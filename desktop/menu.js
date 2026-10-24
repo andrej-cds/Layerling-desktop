@@ -32,9 +32,6 @@ function buildMenu({ isMac, isDev, actions, state }) {
         { id: "restore", label: tr("menu.restore"), click: actions.restoreFromAutosave },
         { id: "fonts", label: tr("menu.openFontsFolder"), click: actions.openFontsFolder },
         { type: "separator" },
-        { id: "fusionAfterStep", type: "checkbox", label: tr("menu.fusionAfterStep"), checked: !!(state && state.fusionAfterStep), click: actions.toggleFusionAfterStep },
-        { label: tr("menu.fusionPath"), click: actions.chooseFusionPath },
-        { type: "separator" },
         ...(isMac ? [{ role: "close", label: tr("menu.closeWindow") }] : [
           { id: "settings", label: tr("menu.settings"), accelerator: "CmdOrCtrl+,", click: actions.settings },
           { type: "separator" },

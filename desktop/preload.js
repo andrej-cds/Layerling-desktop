@@ -22,5 +22,6 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   reportProjectCount: (count) => ipcRenderer.send("renderer:project-count", count),
   listFonts: () => ipcRenderer.invoke("fonts:list"),
   readFont: (fileName) => ipcRenderer.invoke("fonts:read", fileName),
+  setStepToFusion: (on) => ipcRenderer.send("fusion:next-step", !!on),
   reportLanguage: (language) => ipcRenderer.send("renderer:language", language),
 });
