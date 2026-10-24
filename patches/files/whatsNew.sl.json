@@ -1,4 +1,30 @@
 {
+  "1.108.0": [
+    [
+      "Polja združijo svoje dele",
+      "Okno Polje ima »Združi kopije«: original in vse kopije postanejo en predmet, tako da je krog s 36 deli en del. Pri več kot 5 delih se kljukica vklopi sama, izklopiš jo lahko kadar koli."
+    ],
+    [
+      "Izberi oblike, skrite za drugimi",
+      "Desni klik zdaj ponudi »Izberi drugo …«, kadar leži pod kazalcem več oblik: seznam jih pokaže od spredaj nazaj, tista, na katero kažeš, je obrobljena tudi skozi druge, klik pa jo izbere. Tako prideš do luknje v telesu, ne da bi obračal pogled."
+    ],
+    [
+      "Kotnik ostane tam, kamor ga postaviš",
+      "Postavljen kotnik zdaj pripada projektu: po ponovnem nalaganju ali ob naslednjem odpiranju leži na istem mestu, obrnjen enako in meri od istih točk, tudi iz datoteke .lyl. Z × ga odstraniš."
+    ],
+    [
+      "Priloge: navodila in seznami delov v projektu",
+      "Upravljanje ima zdaj »Priloge« (sponka): projektu pripni datoteke Markdown ali besedilne datoteke, na primer navodila za sestavo ali seznam delov. Ostanejo pri projektu, tudi v datoteki .lyl, varnostni kopiji in mapi na strežniku. Projekt s prilogami za odpiranje potrebuje to ali novejšo različico layerlinga."
+    ],
+    [
+      "Poravnava v skici",
+      "Izberi dva ali več obrisov v skici in jih zdaj lahko poravnaš: levo, na sredino, desno, zgoraj ali spodaj. Dva kroga, poravnana na sredino v obeh smereh, postaneta čist obroč."
+    ],
+    [
+      "Izbira več teles na tablici",
+      "Tapni telo na tablici in spodaj levo se pojavi okrogel gumb. Tapni ga in vsako naslednje telo, ki ga tapneš, se pridruži izboru, kot s tipko Shift na računalniku. Drugi tap na gumb konča izbiranje."
+    ]
+  ],
   "1.107.0": [
     [
       "Zgladi poravna oglišče z dvema ročicama naenkrat",
