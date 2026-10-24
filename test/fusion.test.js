@@ -4,7 +4,7 @@ const assert = require("node:assert");
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState } = require("../desktop/fusion");
+const { asciiName, pathForFusion, isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState } = require("../desktop/fusion");
 const { normalize } = require("../desktop/config");
 
 test("prepozna datoteke STEP", () => {
@@ -116,7 +116,7 @@ test("openInFusion: hladen zagon - najprej program brez datoteke, datoteka ko je
   const result = await openInFusion(step, "", {
     spawnFn: fake, findLauncher: () => launcher,
     getState: () => states.shift() || { running: true, ready: true },
-    wait: async () => { waits += 1; }, settleMs: 0, pollMs: 0,
+    wait: async () => { waits += 1; }, settleMs: 0, pollMs: 0, minColdWaitMs: 0,
   });
   assert.strictEqual(result, "");
   assert.deepStrictEqual(calls, ["zagon", "datoteka"]);
@@ -127,4 +127,35 @@ test("openInFusion: hladen zagon - najprej program brez datoteke, datoteka ko je
   const lines = [];
   assert.strictEqual(await openInFusion(step, "", { spawnFn: fake, findLauncher: () => launcher, getState: () => ({ running: true, ready: false }) , wait: async () => {}, readyTimeoutMs: -1, log: (t) => lines.push(t) }), "");
   assert.deepStrictEqual(calls, ["datoteka"]);
+});
+
+test("asciiName in pathForFusion: ime s č odpre kopija z imenom brez posebnih znakov", () => {
+  assert.strictEqual(asciiName("Gumb za ključavnico-2.step"), "Gumb za kljucavnico-2.step");
+  assert.strictEqual(asciiName("Škatla đ Ž.step"), "Skatla d Z.step");
+  assert.strictEqual(asciiName("日本.step"), "__.step");
+
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "lyl-ascii-"));
+  const plain = path.join(dir, "model.step");
+  fs.writeFileSync(plain, "A");
+  assert.strictEqual(pathForFusion(plain), plain); // brez posebnih znakov: nespremenjeno
+
+  const special = path.join(dir, "Gumb za ključavnico.step");
+  fs.writeFileSync(special, "STEP-DATA");
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "lyl-tmp-"));
+  const out = pathForFusion(special, { tmpdir: tmp });
+  assert.strictEqual(out, path.join(tmp, "layerling-fusion", "Gumb za kljucavnico.step"));
+  assert.strictEqual(fs.readFileSync(out, "utf8"), "STEP-DATA");
+});
+
+test("openInFusion: zaganjalniku pošlje ASCII pot za datoteko s č", async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "lyl-cc-"));
+  const step = path.join(dir, "Čudn gumb.step");
+  fs.writeFileSync(step, "X");
+  const launcher = path.join(dir, "FusionLauncher.exe");
+  fs.writeFileSync(launcher, "");
+  const sent = [];
+  const fake = (cmd, args) => { sent.push(args[0]); return { on() {}, unref() {} }; };
+  assert.strictEqual(await openInFusion(step, "", { spawnFn: fake, findLauncher: () => launcher, getState: () => ({ running: true, ready: true }) }), "");
+  assert.ok(!/[^\x20-\x7e]/.test(sent[0]), sent[0]);
+  assert.ok(sent[0].endsWith("Cudn gumb.step"));
 });

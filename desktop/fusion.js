@@ -2,6 +2,7 @@
 // Odpiranje izvoženih datotek STEP v Fusionu.
 const fs = require("node:fs");
 const path = require("node:path");
+const os = require("node:os");
 const { spawn } = require("node:child_process");
 
 function isStepFile(file) {
@@ -71,6 +72,36 @@ function fusionState({ platform = process.platform, run = (cmd, args) => require
   }
 }
 
+/** Ime brez diakritičnih in drugih znakov izven ASCII (č → c, ž → z, ostalo → _). */
+function asciiName(name) {
+  const plain = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D");
+  return plain.replace(/[^\x20-\x7e]/g, "_");
+}
+
+/**
+ * Zaganjalnik in Fusion360.exe dobita pot kot ANSI niz, zato se črka kot č lahko pokvari in datoteke ne najdeta
+ * (preizkus z ASCII imenom je deloval, z imenom s č ne). Datoteko z imenom ali potjo izven ASCII zato odpre
+ * kopija v začasni mapi z imenom brez posebnih znakov. Vrne pot, ki jo je treba poslati.
+ */
+function pathForFusion(file, { tmpdir = os.tmpdir(), copy = fs.copyFileSync, log = () => {} } = {}) {
+  const resolved = path.resolve(file);
+  if (!/[^\x20-\x7e]/.test(resolved)) return resolved;
+  const dir = path.join(tmpdir, "layerling-fusion");
+  fs.mkdirSync(dir, { recursive: true });
+  try {
+    // Stare kopije ob vsakem odpiranju pospravimo (obdržimo zadnjih nekaj).
+    const old = fs.readdirSync(dir).map((n) => ({ n, t: fs.statSync(path.join(dir, n)).mtimeMs })).sort((a, b) => b.t - a.t).slice(10);
+    for (const entry of old) fs.rmSync(path.join(dir, entry.n), { force: true });
+  } catch {
+    // pospravljanje ni nujno
+  }
+  const target = path.join(dir, asciiName(path.basename(resolved)));
+  if (/[^\x20-\x7e]/.test(target)) return resolved; // tudi začasna mapa ima posebne znake: nič ne pomaga
+  copy(resolved, target);
+  log(`Fusion: ime ima posebne znake, odpiram kopijo ${target}`);
+  return target;
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
@@ -91,6 +122,7 @@ async function openInFusion(file, exePath, opts = {}) {
     readyTimeoutMs = 180000,
     pollMs = 2000,
     settleMs = 4000,
+    minColdWaitMs = 30000,
     log = () => {},
   } = opts;
   if (!isStepFile(file) || !fs.existsSync(file)) return "datoteka ne obstaja";
@@ -106,7 +138,7 @@ async function openInFusion(file, exePath, opts = {}) {
     if (child && typeof child.unref === "function") child.unref();
   };
   try {
-    const target = path.resolve(file);
+    const target = pathForFusion(file, { log });
     const state = getState();
     if (!state.running) {
       // Hladen zagon: najprej samo program, datoteka pride na vrsto, ko je Fusion pripravljen.
@@ -121,7 +153,12 @@ async function openInFusion(file, exePath, opts = {}) {
           break;
         }
       }
-      if (ready) await wait(settleMs);
+      if (ready) {
+        // Naslov okna se pokaže že v prvih sekundah, a Fusion se nalaga še pol minute: počakaj vsaj toliko.
+        const left = minColdWaitMs - (Date.now() - started);
+        if (left > 0) await wait(left);
+        await wait(settleMs);
+      }
       else log("Fusion: ni bilo mogoče ugotoviti, da je pripravljen; datoteka se vseeno pošlje");
     }
     log(`Fusion: odpiram ${target}`);
@@ -132,4 +169,4 @@ async function openInFusion(file, exePath, opts = {}) {
   }
 }
 
-module.exports = { isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState };
+module.exports = { asciiName, pathForFusion, isStepFile, openInFusion, findInstalledFusion, findFusionLauncher, fusionState };
