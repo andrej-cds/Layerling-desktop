@@ -40,12 +40,18 @@ function applyGraphicsMode() {
   } catch {
     // Brez nastavitev ostane samodejni način.
   }
+  // Chromium v Windows sam ugiba, katera okna so zakrita, in jih takrat neha risati. Pri oddaljenem dostopu
+  // (Splashtop, RDP) in ob prikazu okna izza drugih ostane okno črno, dokler ga ne premakneš. Zato to ugibanje
+  // izklopimo (preprosta posledica: okno se riše tudi, ko je zakrito). »disable-features« velja le enkrat, zato se
+  // seznam sestavi tukaj.
+  const disabledFeatures = [];
+  if (process.platform === "win32") disabledFeatures.push("CalculateNativeWinOcclusion");
+  if (mode === "nographite") disabledFeatures.push("SkiaGraphite");
+  if (disabledFeatures.length) app.commandLine.appendSwitch("disable-features", disabledFeatures.join(","));
   if (mode === "gpu") {
     app.commandLine.appendSwitch("ignore-gpu-blocklist");
     app.commandLine.appendSwitch("enable-gpu-rasterization");
     if (process.platform === "win32") app.commandLine.appendSwitch("use-angle", "d3d11");
-  } else if (mode === "nographite") {
-    app.commandLine.appendSwitch("disable-features", "SkiaGraphite");
   } else if (mode === "software") {
     app.disableHardwareAcceleration();
   }
