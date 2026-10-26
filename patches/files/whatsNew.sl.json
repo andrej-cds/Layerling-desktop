@@ -1,4 +1,30 @@
 {
+  "1.112.0": [
+    [
+      "Meritve ostanejo pri projektu",
+      "Meritve merilnega traku se zdaj shranijo s projektom, tudi v datoteko .lyl, in ob odprtju spet so. Nov gumb z očesom med gumbi merilnega traku meritve skrije in pokaže; tudi to si program zapomni."
+    ],
+    [
+      "Označi središče ploskve",
+      "V meniju desnega klika na telesu »Označi središče te ploskve« postavi referenčno točko na sredino ravne ploskve, na katero si kliknil, na stranici ali na koncu, ne le zgoraj. Merilni trak se nanjo pripne."
+    ],
+    [
+      "Pladnji Gridfinity poljubne velikosti",
+      "Oblika Gridfinity ima zdaj pod »Vrsta« tudi »Pladenj«: pladenj poljubne velikosti v mm z ravnim dnom, brez nog in brez roba za zlaganje, primeren za vložke za namizne igre in podobno. Predelki, žlebovi za prste, police za oznake in odprte stranice delujejo kot pri posodi, predelne stene pa segajo do vrha."
+    ],
+    [
+      "Kotnik: mere samo za izbrana telesa",
+      "Ko je ob krakih kotnika veliko teles, vsako pokaže svoje mere in števil ni več mogoče ločiti. Nov gumb pod ročajem kotnika to izklopi: potem mere pokažejo samo izbrana telesa. Izbira se shrani s projektom."
+    ],
+    [
+      "Tečaj s stožci",
+      "Tečaj zdaj lahko namesto čepa dobi tudi stožce: vsak drugi člen se konča s stožci, ki se prilegajo v vdolbine sosednjih členov, brez dolgega mostu, ki bi se lahko povesil. Namesto števila členov lahko podaš tudi njihovo največjo širino."
+    ],
+    [
+      "Brisanje več projektov naenkrat",
+      "Začetna stran ima nad projekti gumb Izberi: klik na kartico jo izbere, Izberi vse vzame vse projekte, Izbriši pa vpraša enkrat za celotno izbiro. Veliko starih projektov izgine v hipu. Enako deluje v mapi na strežniku."
+    ]
+  ],
   "1.111.0": [
     [
       "Sprememba besedila ohrani osnovnico",
