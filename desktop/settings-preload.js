@@ -6,6 +6,7 @@ contextBridge.exposeInMainWorld("settingsApi", {
   strings: () => ipcRenderer.invoke("settings:strings"),
   save: (patch) => ipcRenderer.invoke("settings:save", patch),
   pickFolder: (options) => ipcRenderer.invoke("settings:pick-folder", options),
+  pickProgram: (options) => ipcRenderer.invoke("settings:pick-program", options),
   openFolder: (target) => ipcRenderer.invoke("settings:open-folder", target),
   checkUpdates: () => ipcRenderer.invoke("settings:check-updates"),
   regenerateToken: () => ipcRenderer.invoke("settings:regenerate-token"),

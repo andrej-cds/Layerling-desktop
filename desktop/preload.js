@@ -23,5 +23,6 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   listFonts: () => ipcRenderer.invoke("fonts:list"),
   readFont: (fileName) => ipcRenderer.invoke("fonts:read", fileName),
   setStepToFusion: (on) => ipcRenderer.send("fusion:next-step", !!on),
+  setStepToSolidcraft: (on) => ipcRenderer.send("solidcraft:next-step", !!on),
   reportLanguage: (language) => ipcRenderer.send("renderer:language", language),
 });

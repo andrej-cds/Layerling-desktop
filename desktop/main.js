@@ -11,6 +11,7 @@ const { tr, setLanguage, getLanguage, normalizeLanguage, languageFromLocale, STR
 const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
 const { isStepFile, openInFusion } = require("./fusion");
+const { openInSolidcraft } = require("./solidcraft");
 
 const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
@@ -436,6 +437,11 @@ let fusionNextStep = false;
 ipcMain.on("fusion:next-step", (_event, on) => {
   fusionNextStep = !!on;
 });
+// Enako za gumb »SolidCraft«: izvoz STEP se po shranjevanju odpre v programu, izbranem v nastavitvah.
+let solidcraftNextStep = false;
+ipcMain.on("solidcraft:next-step", (_event, on) => {
+  solidcraftNextStep = !!on;
+});
 
 ipcMain.on("renderer:language", (_event, language) => {
   const next = normalizeLanguage(language);
@@ -457,6 +463,11 @@ ipcMain.handle("settings:save", async (_event, patch) => {
   if (patch && "checkUpdatesOnStart" in patch) safePatch.checkUpdatesOnStart = !!patch.checkUpdatesOnStart;
   if (patch && "graphicsMode" in patch) safePatch.graphicsMode = patch.graphicsMode;
   if (patch && "graphicsFlags" in patch) safePatch.graphicsFlags = patch.graphicsFlags;
+  if (patch && patch.solidcraft && typeof patch.solidcraft.exePath === "string") {
+    const exe = patch.solidcraft.exePath.trim();
+    if (exe && !fs.existsSync(exe)) return { error: tr("dlg.programMissing", { path: exe }) };
+    safePatch.solidcraft = { exePath: exe };
+  }
 
   // Mapa mora biti zapisljiva, sicer bi uporabnik mislil, da je shranjeno, pa ne bi bilo.
   const folders = [];
@@ -617,6 +628,17 @@ ipcMain.handle("settings:pick-folder", async (_event, options) => {
   return result.canceled || !result.filePaths[0] ? null : result.filePaths[0];
 });
 
+ipcMain.handle("settings:pick-program", async (_event, options) => {
+  const windows = process.platform === "win32";
+  const result = await dialog.showOpenDialog(settingsWindow || mainWindow || undefined, {
+    title: (options && options.title) || tr("dlg.pickProgram"),
+    defaultPath: options && options.defaultPath ? options.defaultPath : undefined,
+    properties: ["openFile"],
+    filters: windows ? [{ name: tr("dlg.programFilter"), extensions: ["exe"] }, { name: tr("dlg.allFiles"), extensions: ["*"] }] : undefined,
+  });
+  return result.canceled || !result.filePaths[0] ? null : result.filePaths[0];
+});
+
 ipcMain.handle("settings:open-folder", (_event, target) => {
   if (typeof target === "string" && target) {
     fs.mkdirSync(target, { recursive: true });
@@ -688,6 +710,8 @@ function hardenSession() {
   session.defaultSession.on("will-download", (_event, item) => {
     const toFusion = fusionNextStep && isStepFile(item.getFilename());
     if (toFusion) fusionNextStep = false;
+    const toSolidcraft = !toFusion && solidcraftNextStep && isStepFile(item.getFilename());
+    if (toSolidcraft) solidcraftNextStep = false;
     item.once("done", async (_doneEvent, state) => {
       // Preklicano okno »Shrani kot«: spletni program mora vedeti, da ni bilo nič shranjeno
       // (sicer obvestilo »Varnostna kopija shranjena …« ostane, čeprav datoteke ni).
@@ -695,6 +719,14 @@ function hardenSession() {
       if (state !== "completed") return;
       const saved = item.getSavePath();
       const fusion = config.get().fusion;
+      if (toSolidcraft && isStepFile(saved)) {
+        const problem = await openInSolidcraft(saved, config.get().solidcraft.exePath, { log });
+        if (problem) {
+          log(`SolidCraft: ${problem}`);
+          dialog.showErrorBox(tr("dlg.solidcraftOpenFailed"), problem);
+        }
+        return;
+      }
       if (!toFusion || !isStepFile(saved)) return;
       const error = await openInFusion(saved, fusion.exePath, { openPath: (file) => shell.openPath(file), log });
       if (error) {

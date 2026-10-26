@@ -494,6 +494,62 @@ export const edits = [
     find: ".export-format-slider[data-format=\"drawing\"]::before {",
     replace: ".export-format-slider[data-format=\"fusion\"]::before {\n  display: none;\n}\n\n.export-program-button {\n  height: 38px;\n  padding: 0 22px;\n  color: #94816c;\n  font-size: 12px;\n  font-weight: 850;\n  letter-spacing: 0.02em;\n  background: #f6f2ec;\n  border: 1px solid #ede6d9;\n  border-radius: 8px;\n  cursor: pointer;\n}\n\n.export-program-button:hover {\n  color: #6a4722;\n}\n\n.export-program-button[aria-checked=\"true\"] {\n  color: #9f5508;\n  background: #fff;\n  border-color: #ddab78;\n  box-shadow: 0 2px 7px rgba(89, 59, 27, 0.12);\n}\n\n.export-format-slider[data-format=\"drawing\"]::before {",
   },
+  {
+    name: "Izvozno okno: stanje za gumb SolidCraft",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInSolidcraft",
+    find: "  const [openInFusion, setOpenInFusion] = useState(false);\n",
+    replace: "  const [openInFusion, setOpenInFusion] = useState(false);\n  const [openInSolidcraft, setOpenInSolidcraft] = useState(false);\n",
+  },
+  {
+    name: "Izvozno okno: izvoz STEP pove namizni različici, ali naj ga odpre v programu SolidCraft",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setStepToSolidcraft",
+    find: "      onExportStep(exportName, toServer);\n    }",
+    replace: "      try { (window as unknown as { layerlingDesktop?: { setStepToSolidcraft?: (on: boolean) => void } }).layerlingDesktop?.setStepToSolidcraft?.(openInSolidcraft && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExportStep(exportName, toServer);\n    }",
+  },
+  {
+    name: "Izvozno okno: izbira formata ugasne tudi SolidCraft",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInFusion(false); setOpenInSolidcraft(false)",
+    find: "onClick={() => { setExportFormat(format); setOpenInFusion(false); }}",
+    replace: "onClick={() => { setExportFormat(format); setOpenInFusion(false); setOpenInSolidcraft(false); }}",
+  },
+  {
+    name: "Izvozno okno: gumb STEP ni izbran, ko je izbran SolidCraft",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "(openInFusion || openInSolidcraft)",
+    find: "aria-checked={exportFormat === format && !(format === \"step\" && openInFusion)}",
+    replace: "aria-checked={exportFormat === format && !(format === \"step\" && (openInFusion || openInSolidcraft))}",
+  },
+  {
+    name: "Izvozno okno: drsnik formatov ne označi nobenega, ko je izbran SolidCraft",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "(openInFusion || openInSolidcraft) && exportFormat",
+    find: "data-format={openInFusion && exportFormat === \"step\" ? \"fusion\" : exportFormat}",
+    replace: "data-format={(openInFusion || openInSolidcraft) && exportFormat === \"step\" ? \"fusion\" : exportFormat}",
+  },
+  {
+    name: "Izvozno okno: gumb Fusion ugasne SolidCraft",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInFusion(true); setOpenInSolidcraft(false)",
+    find: "onClick={() => { setExportFormat(\"step\"); setOpenInFusion(true); }}",
+    replace: "onClick={() => { setExportFormat(\"step\"); setOpenInFusion(true); setOpenInSolidcraft(false); }}",
+  },
+  {
+    name: "Izvozno okno: gumb SolidCraft v vrstici »Program«",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "aria-checked={openInSolidcraft",
+    find: "                  Fusion\n                </button>\n",
+    replace: "                  Fusion\n                </button>\n                <button\n                  type=\"button\"\n                  role=\"radio\"\n                  className=\"export-program-button\"\n                  aria-checked={openInSolidcraft && exportFormat === \"step\"}\n                  title=\"STEP\"\n                  onClick={() => { setExportFormat(\"step\"); setOpenInSolidcraft(true); setOpenInFusion(false); }}\n                >\n                  SolidCraft\n                </button>\n",
+  },
+  {
+    name: "Izvozno okno: razmik med gumboma v vrstici »Program«",
+    file: "apps/web/src/app/globals.css",
+    marker: "div[aria-label=\"Program\"]",
+    find: ".export-program-button {\n  height: 38px;",
+    replace: "div[aria-label=\"Program\"] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n\n.export-program-button {\n  height: 38px;",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */

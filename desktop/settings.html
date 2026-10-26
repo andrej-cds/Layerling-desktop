@@ -56,6 +56,12 @@
   </section>
 
   <section>
+    <h2 data-i18n="s.solidTitle">SolidCraft</h2>
+    <p class="hint" data-i18n="s.solidHint">Gumb SolidCraft v izvoznem oknu (vrstica Program) izvozi STEP in ga odpre v tem programu. Izberite njegovo datoteko .exe.</p>
+    <div class="field"><span data-i18n="s.solidProgram">Program</span><input type="text" id="sc-exe" readonly placeholder="(ni izbran)" data-i18n-placeholder="s.solidNone"><button id="sc-pick" data-i18n="s.pick">Izberi …</button><button id="sc-clear" data-i18n="s.solidClear">Počisti</button></div>
+  </section>
+
+  <section>
     <h2 data-i18n="s.mcpTitle">Povezava z AI (MCP)</h2>
     <p class="hint" data-i18n="s.mcpHint">Z njo lahko Claude ali drug odjemalec MCP gradi v odprtem urejevalniku. Povezava je dostopna samo s tega računalnika in zaščitena z žetonom. Vnos prilepite v nastavitve odjemalca (Claude Desktop: Settings → Developer → Edit Config), nato ga znova zaženite.</p>
     <textarea id="mcp" readonly></textarea>
@@ -123,6 +129,7 @@ function render() {
   $("as-keep").value = c.autosave.keepVersions;
   $("as-gap").value = c.autosave.versionGapMin;
   $("sh-folder").value = c.sharedFolder || "";
+  $("sc-exe").value = (c.solidcraft && c.solidcraft.exePath) || "";
   $("up-check").checked = c.checkUpdatesOnStart;
   $("gfx-mode").value = c.graphicsMode || "auto";
   $("gfx-flags").value = c.graphicsFlags || "";
@@ -168,6 +175,12 @@ $("sh-pick").onclick = async () => {
 };
 $("sh-clear").onclick = () => { draft.sharedFolder = null; render(); };
 $("sh-icloud").onclick = () => { draft.sharedFolder = state.icloudTarget; render(); };
+$("sc-pick").onclick = async () => {
+  const current = (draft.solidcraft && draft.solidcraft.exePath) || "";
+  const exe = await window.settingsApi.pickProgram({ title: T("s.solidPick"), defaultPath: current || undefined });
+  if (exe) { draft.solidcraft = { exePath: exe }; render(); }
+};
+$("sc-clear").onclick = () => { draft.solidcraft = { exePath: "" }; render(); };
 $("mcp-copy").onclick = async () => { await window.settingsApi.copyText($("mcp").value); $("mcp-note").textContent = T("s.mcpCopied"); };
 $("mcp-regen").onclick = async () => {
   if (!confirm(T("s.mcpConfirm"))) return;
@@ -199,6 +212,7 @@ $("save").onclick = async () => {
     checkUpdatesOnStart: draft.checkUpdatesOnStart,
     graphicsMode: draft.graphicsMode,
     graphicsFlags: draft.graphicsFlags,
+    solidcraft: draft.solidcraft,
   });
   if (result && result.error) { msg(result.error, true); return; }
   state = result;

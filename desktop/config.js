@@ -42,6 +42,8 @@ function defaults(documentsDir) {
     windowBounds: null,
     // Fusion: po izvozu STEP ga odpri v Fusionu. exePath je neobvezen (prazno = privzeti program za .step).
     fusion: { openAfterStepExport: false, exePath: "" },
+    // SolidCraft: gumb v izvoznem oknu izvozi STEP in ga odpre v tem programu (exePath izbere uporabnik).
+    solidcraft: { exePath: "" },
   };
 }
 
@@ -78,6 +80,9 @@ function normalize(raw, documentsDir) {
       openAfterStepExport: !!(input.fusion && input.fusion.openAfterStepExport),
       exePath: input.fusion && typeof input.fusion.exePath === "string" ? input.fusion.exePath.trim() : "",
     },
+    solidcraft: {
+      exePath: input.solidcraft && typeof input.solidcraft.exePath === "string" ? input.solidcraft.exePath.trim() : "",
+    },
   };
 }
 
@@ -106,6 +111,7 @@ class ConfigStore {
       ...patch,
       autosave: { ...this.data.autosave, ...(patch && patch.autosave ? patch.autosave : {}) },
       fusion: { ...this.data.fusion, ...(patch && patch.fusion ? patch.fusion : {}) },
+      solidcraft: { ...this.data.solidcraft, ...(patch && patch.solidcraft ? patch.solidcraft : {}) },
     };
     this.data = normalize(merged, this.documentsDir);
     this.save();
