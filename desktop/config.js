@@ -44,6 +44,8 @@ function defaults(documentsDir) {
     fusion: { openAfterStepExport: false, exePath: "" },
     // SolidCraft: gumb v izvoznem oknu izvozi STEP in ga odpre v tem programu (exePath izbere uporabnik).
     solidcraft: { exePath: "" },
+    // Bambu Studio: gumb v izvoznem oknu izvozi STL in ga odpre v tem programu (exePath prazen = običajna namestitev).
+    bambustudio: { exePath: "" },
   };
 }
 
@@ -83,6 +85,9 @@ function normalize(raw, documentsDir) {
     solidcraft: {
       exePath: input.solidcraft && typeof input.solidcraft.exePath === "string" ? input.solidcraft.exePath.trim() : "",
     },
+    bambustudio: {
+      exePath: input.bambustudio && typeof input.bambustudio.exePath === "string" ? input.bambustudio.exePath.trim() : "",
+    },
   };
 }
 
@@ -112,6 +117,7 @@ class ConfigStore {
       autosave: { ...this.data.autosave, ...(patch && patch.autosave ? patch.autosave : {}) },
       fusion: { ...this.data.fusion, ...(patch && patch.fusion ? patch.fusion : {}) },
       solidcraft: { ...this.data.solidcraft, ...(patch && patch.solidcraft ? patch.solidcraft : {}) },
+      bambustudio: { ...this.data.bambustudio, ...(patch && patch.bambustudio ? patch.bambustudio : {}) },
     };
     this.data = normalize(merged, this.documentsDir);
     this.save();

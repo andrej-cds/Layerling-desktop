@@ -12,6 +12,7 @@ const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
 const { isStepFile, openInFusion } = require("./fusion");
 const { openInSolidcraft } = require("./solidcraft");
+const { openInBambuStudio, isStlFile } = require("./bambustudio");
 
 const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
@@ -442,6 +443,11 @@ let solidcraftNextStep = false;
 ipcMain.on("solidcraft:next-step", (_event, on) => {
   solidcraftNextStep = !!on;
 });
+// Enako za gumb »Bambu Studio«: izvoz STL se po shranjevanju odpre v Bambu Studiu.
+let bambuNextStl = false;
+ipcMain.on("bambustudio:next-stl", (_event, on) => {
+  bambuNextStl = !!on;
+});
 
 ipcMain.on("renderer:language", (_event, language) => {
   const next = normalizeLanguage(language);
@@ -467,6 +473,11 @@ ipcMain.handle("settings:save", async (_event, patch) => {
     const exe = patch.solidcraft.exePath.trim();
     if (exe && !fs.existsSync(exe)) return { error: tr("dlg.programMissing", { path: exe }) };
     safePatch.solidcraft = { exePath: exe };
+  }
+  if (patch && patch.bambustudio && typeof patch.bambustudio.exePath === "string") {
+    const exe = patch.bambustudio.exePath.trim();
+    if (exe && !fs.existsSync(exe)) return { error: tr("dlg.programMissing", { path: exe }) };
+    safePatch.bambustudio = { exePath: exe };
   }
 
   // Mapa mora biti zapisljiva, sicer bi uporabnik mislil, da je shranjeno, pa ne bi bilo.
@@ -712,6 +723,8 @@ function hardenSession() {
     if (toFusion) fusionNextStep = false;
     const toSolidcraft = !toFusion && solidcraftNextStep && isStepFile(item.getFilename());
     if (toSolidcraft) solidcraftNextStep = false;
+    const toBambu = bambuNextStl && isStlFile(item.getFilename());
+    if (toBambu) bambuNextStl = false;
     item.once("done", async (_doneEvent, state) => {
       // Preklicano okno »Shrani kot«: spletni program mora vedeti, da ni bilo nič shranjeno
       // (sicer obvestilo »Varnostna kopija shranjena …« ostane, čeprav datoteke ni).
@@ -719,6 +732,14 @@ function hardenSession() {
       if (state !== "completed") return;
       const saved = item.getSavePath();
       const fusion = config.get().fusion;
+      if (toBambu && isStlFile(saved)) {
+        const problem = await openInBambuStudio(saved, config.get().bambustudio.exePath, { log });
+        if (problem) {
+          log(`Bambu Studio: ${problem}`);
+          dialog.showErrorBox(tr("dlg.bambuOpenFailed"), problem);
+        }
+        return;
+      }
       if (toSolidcraft && isStepFile(saved)) {
         const problem = await openInSolidcraft(saved, config.get().solidcraft.exePath, { log });
         if (problem) {
