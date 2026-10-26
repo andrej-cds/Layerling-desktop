@@ -15,6 +15,28 @@ const here = dirname(fileURLToPath(import.meta.url));
 const localFile = join(here, "local", "apply-local.mjs");
 const local = existsSync(localFile) ? await import(pathToFileURL(localFile).href) : null;
 
+/** Besedila za izbiro »Imena gumbov« v vseh jezikih (vsak katalog mora imeti vse ključe): naslov, samo ikone, ikone in imena, samo imena. */
+const TOOL_LABEL_TEXTS = {
+  en: ["Button names", "Icons only", "Icons and names", "Names only"],
+  sl: ["Imena gumbov", "Samo ikone", "Ikone in imena", "Samo imena"],
+  ar: ["أسماء الأزرار", "الأيقونات فقط", "الأيقونات والأسماء", "الأسماء فقط"],
+  cs: ["Názvy tlačítek", "Jen ikony", "Ikony a názvy", "Jen názvy"],
+  da: ["Knapnavne", "Kun ikoner", "Ikoner og navne", "Kun navne"],
+  de: ["Schaltflächennamen", "Nur Symbole", "Symbole und Namen", "Nur Namen"],
+  es: ["Nombres de los botones", "Solo iconos", "Iconos y nombres", "Solo nombres"],
+  fr: ["Noms des boutons", "Icônes seules", "Icônes et noms", "Noms seuls"],
+  hu: ["Gombnevek", "Csak ikonok", "Ikonok és nevek", "Csak nevek"],
+  it: ["Nomi dei pulsanti", "Solo icone", "Icone e nomi", "Solo nomi"],
+  ja: ["ボタン名", "アイコンのみ", "アイコンと名前", "名前のみ"],
+  nl: ["Knopnamen", "Alleen pictogrammen", "Pictogrammen en namen", "Alleen namen"],
+  pl: ["Nazwy przycisków", "Tylko ikony", "Ikony i nazwy", "Tylko nazwy"],
+  "pt-br": ["Nomes dos botões", "Somente ícones", "Ícones e nomes", "Somente nomes"],
+  ru: ["Названия кнопок", "Только значки", "Значки и названия", "Только названия"],
+  tr: ["Düğme adları", "Yalnızca simgeler", "Simgeler ve adlar", "Yalnızca adlar"],
+  "zh-cn": ["按钮名称", "仅图标", "图标和名称", "仅名称"],
+  "zh-tw": ["按鈕名稱", "僅圖示", "圖示與名稱", "僅名稱"],
+};
+
 /** Vsak popravek: v `file` zamenja natanko eno pojavitev `find` z `replace`. `marker` pove, da je že uporabljen. */
 export const edits = [
   {
@@ -469,7 +491,7 @@ export const edits = [
   {
     name: "Izvozno okno: gumb STEP ni izbran, ko je izbran Fusion",
     file: "apps/web/src/components/workplane/TopActionPanel.tsx",
-    marker: "!(format === \"step\" && openInFusion)",
+    marker: "aria-checked={exportFormat === format && !(format === \"step\" && ",
     find: "aria-checked={exportFormat === format}",
     replace: "aria-checked={exportFormat === format && !(format === \"step\" && openInFusion)}",
   },
@@ -550,6 +572,68 @@ export const edits = [
     find: ".export-program-button {\n  height: 38px;",
     replace: "div[aria-label=\"Program\"] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n\n.export-program-button {\n  height: 38px;",
   },
+  {
+    name: "Imena gumbov: zagonski skript v glavi strani",
+    file: "apps/web/src/app/layout.tsx",
+    marker: "TOOL_LABELS_BOOT_SCRIPT",
+    find: "import { TOOLBAR_SIZE_BOOT_SCRIPT } from \"@/lib/toolbarSize\";\n",
+    replace: "import { TOOLBAR_SIZE_BOOT_SCRIPT } from \"@/lib/toolbarSize\";\nimport { TOOL_LABELS_BOOT_SCRIPT } from \"@/lib/toolLabels\";\n",
+  },
+  {
+    name: "Imena gumbov: zagonski skript se izvede pred prvim izrisom",
+    file: "apps/web/src/app/layout.tsx",
+    marker: "__html: TOOL_LABELS_BOOT_SCRIPT",
+    find: "        <script dangerouslySetInnerHTML={{ __html: TOOLBAR_SIZE_BOOT_SCRIPT }} />\n",
+    replace: "        <script dangerouslySetInnerHTML={{ __html: TOOLBAR_SIZE_BOOT_SCRIPT }} />\n        <script dangerouslySetInnerHTML={{ __html: TOOL_LABELS_BOOT_SCRIPT }} />\n",
+  },
+  {
+    name: "Imena gumbov: uvoz v nastavitvah delovnega prostora",
+    file: "apps/web/src/components/workplane/WorkspaceSettingsModal.tsx",
+    marker: "useToolLabels",
+    find: "import { useToolbarSize } from \"@/lib/useToolbarSize\";\n",
+    replace: "import { useToolbarSize } from \"@/lib/useToolbarSize\";\nimport { setToolLabels, TOOL_LABELS_OPTIONS, type ToolLabels } from \"@/lib/toolLabels\";\nimport { useToolLabels } from \"@/lib/useToolLabels\";\n",
+  },
+  {
+    name: "Imena gumbov: besedila možnosti",
+    file: "apps/web/src/components/workplane/WorkspaceSettingsModal.tsx",
+    marker: "TOOL_LABELS_LABEL_KEYS",
+    find: "const TOOLBAR_SIZE_LABEL_KEYS: Record<ToolbarSize, MessageKey> = {",
+    replace: "const TOOL_LABELS_LABEL_KEYS: Record<ToolLabels, MessageKey> = {\n  icons: \"workspace.toolLabelsIcons\",\n  both: \"workspace.toolLabelsBoth\",\n  text: \"workspace.toolLabelsText\",\n};\n\nconst TOOLBAR_SIZE_LABEL_KEYS: Record<ToolbarSize, MessageKey> = {",
+  },
+  {
+    name: "Imena gumbov: stanje v nastavitvah",
+    file: "apps/web/src/components/workplane/WorkspaceSettingsModal.tsx",
+    marker: "const toolLabels = useToolLabels();",
+    find: "  const toolbarSize = useToolbarSize();\n",
+    replace: "  const toolbarSize = useToolbarSize();\n  const toolLabels = useToolLabels();\n",
+  },
+  {
+    name: "Imena gumbov: izbirnik pod velikostjo orodne vrstice",
+    file: "apps/web/src/components/workplane/WorkspaceSettingsModal.tsx",
+    marker: "workspace.toolLabels\")}",
+    find: "                          {t(TOOLBAR_SIZE_LABEL_KEYS[size])}\n                        </option>\n                      ))}\n                    </select>\n                  </label>\n",
+    replace: "                          {t(TOOLBAR_SIZE_LABEL_KEYS[size])}\n                        </option>\n                      ))}\n                    </select>\n                  </label>\n                  <label className=\"workspace-select\" data-help={t(\"workspace.toolLabels\")}>\n                    <span>{t(\"workspace.toolLabels\")}</span>\n                    <select\n                      value={toolLabels}\n                      onChange={(event) => setToolLabels(event.currentTarget.value as ToolLabels)}\n                    >\n                      {TOOL_LABELS_OPTIONS.map((mode) => (\n                        <option key={mode} value={mode}>\n                          {t(TOOL_LABELS_LABEL_KEYS[mode])}\n                        </option>\n                      ))}\n                    </select>\n                  </label>\n",
+  },
+  {
+    name: "Imena gumbov: slog (ikone + ime, samo ime)",
+    file: "apps/web/src/app/globals.css",
+    marker: "data-tool-labels",
+    find: ".toolbar-icon:disabled {\n  pointer-events: none;\n}\n",
+    replace: ".toolbar-icon:disabled {\n  pointer-events: none;\n}\n\n/* Imena gumbov v orodni vrstici: ikone + ime (both) ali samo ime (text); brez atributa so samo ikone. */\nhtml[data-tool-labels] .toolbar-section-tools .toolbar-icon,\nhtml[data-tool-labels] .toolbar-section-tools .shape-menu-trigger,\nhtml[data-tool-labels] .toolbar-section .action-icon-button {\n  height: auto;\n  width: auto;\n  max-width: 78px;\n  align-content: center;\n  gap: 1px;\n}\nhtml[data-tool-labels] .toolbar-section-tools .toolbar-icon::after,\nhtml[data-tool-labels] .toolbar-section-tools .shape-menu-trigger::after,\nhtml[data-tool-labels] .toolbar-section .action-icon-button::after {\n  content: attr(aria-label);\n  display: block;\n  max-width: 100%;\n  font-size: 9.5px;\n  font-weight: 700;\n  line-height: 1.12;\n  text-align: center;\n  overflow-wrap: break-word;\n  color: inherit;\n}\nhtml[data-tool-labels=\"both\"] { --editor-toolbar-tools-height: 98px; }\nhtml[data-tool-labels=\"both\"][data-toolbar-size=\"small\"] { --editor-toolbar-tools-height: 87px; }\nhtml[data-tool-labels=\"both\"][data-toolbar-size=\"large\"] { --editor-toolbar-tools-height: 109px; }\nhtml[data-tool-labels=\"both\"] .toolbar-section-tools .toolbar-icon,\nhtml[data-tool-labels=\"both\"] .toolbar-section-tools .shape-menu-trigger,\nhtml[data-tool-labels=\"both\"] .toolbar-section .action-icon-button {\n  min-width: calc(var(--toolbar-icon-size) + 12px);\n  padding: 2px 3px 1px;\n  grid-auto-flow: row;\n}\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .toolbar-icon > *,\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .shape-menu-trigger > *,\nhtml[data-tool-labels=\"text\"] .toolbar-section .action-icon-button > * {\n  display: none;\n}\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .toolbar-icon,\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .shape-menu-trigger,\nhtml[data-tool-labels=\"text\"] .toolbar-section .action-icon-button {\n  min-width: 42px;\n  min-height: calc(var(--toolbar-icon-size) - 8px);\n  padding: 3px 4px;\n}\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .toolbar-icon::after,\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .shape-menu-trigger::after,\nhtml[data-tool-labels=\"text\"] .toolbar-section .action-icon-button::after {\n  font-size: 11px;\n}\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .toolbar-icon,\nhtml[data-tool-labels=\"text\"] .toolbar-section-tools .shape-menu-trigger,\nhtml[data-tool-labels=\"text\"] .toolbar-section .action-icon-button {\n  max-width: 92px;\n}\nhtml[data-tool-labels] .toolbar-mode-content,\nhtml[data-tool-labels] .sketch-toolbar-ribbon {\n  flex-wrap: wrap;\n  height: auto;\n}\nhtml[data-tool-labels] .toolbar-section-tools .toolbar-icon,\nhtml[data-tool-labels] .toolbar-section-tools .shape-menu-trigger,\nhtml[data-tool-labels] .toolbar-section .action-icon-button {\n  flex: 0 0 auto;\n}\n",
+  },
+  ...Object.entries(TOOL_LABEL_TEXTS).map(([lang, texts]) => ({
+    name: `Imena gumbov: besedila (${lang})`,
+    file: `apps/web/src/lib/messages.${lang}.ts`,
+    marker: '"workspace.toolLabels":',
+    find: '  "workspace.toolbarSizeLarge":',
+    replace: [
+      `  "workspace.toolLabels": ${JSON.stringify(texts[0])},`,
+      `  "workspace.toolLabelsIcons": ${JSON.stringify(texts[1])},`,
+      `  "workspace.toolLabelsBoth": ${JSON.stringify(texts[2])},`,
+      `  "workspace.toolLabelsText": ${JSON.stringify(texts[3])},`,
+      '  "workspace.toolbarSizeLarge":',
+    ].join("\n"),
+  })),
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
@@ -557,6 +641,8 @@ export const additions = [
   { stage: "jezik", from: "patches/files/userFonts.ts", to: "apps/web/src/lib/userFonts.ts" },
   { stage: "jezik", from: "patches/files/DesktopVersion.tsx", to: "apps/web/src/components/DesktopVersion.tsx" },
   { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
+  { from: "patches/files/toolLabels.ts", to: "apps/web/src/lib/toolLabels.ts" },
+  { from: "patches/files/useToolLabels.ts", to: "apps/web/src/lib/useToolLabels.ts" },
   { from: "patches/files/podpri.html", to: "apps/web/public/podpri/index.html", stage: "jezik" },
   { from: "patches/files/assets/cds-round.png", to: "apps/web/public/assets/cds/cds-round.png", stage: "jezik" },
 ];
