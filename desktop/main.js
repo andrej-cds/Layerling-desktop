@@ -12,7 +12,7 @@ const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
 const { isStepFile, openInFusion } = require("./fusion");
 const { openInSolidcraft } = require("./solidcraft");
-const { openInBambuStudio, isStlFile } = require("./bambustudio");
+const { openInBambuStudio, isObjFile } = require("./bambustudio");
 
 const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
@@ -443,10 +443,10 @@ let solidcraftNextStep = false;
 ipcMain.on("solidcraft:next-step", (_event, on) => {
   solidcraftNextStep = !!on;
 });
-// Enako za gumb »Bambu Studio«: izvoz STL se po shranjevanju odpre v Bambu Studiu.
-let bambuNextStl = false;
-ipcMain.on("bambustudio:next-stl", (_event, on) => {
-  bambuNextStl = !!on;
+// Enako za gumb »Bambu Studio«: izvoz OBJ se po shranjevanju odpre v Bambu Studiu.
+let bambuNextObj = false;
+ipcMain.on("bambustudio:next-obj", (_event, on) => {
+  bambuNextObj = !!on;
 });
 
 ipcMain.on("renderer:language", (_event, language) => {
@@ -723,8 +723,8 @@ function hardenSession() {
     if (toFusion) fusionNextStep = false;
     const toSolidcraft = !toFusion && solidcraftNextStep && isStepFile(item.getFilename());
     if (toSolidcraft) solidcraftNextStep = false;
-    const toBambu = bambuNextStl && isStlFile(item.getFilename());
-    if (toBambu) bambuNextStl = false;
+    const toBambu = bambuNextObj && isObjFile(item.getFilename());
+    if (toBambu) bambuNextObj = false;
     item.once("done", async (_doneEvent, state) => {
       // Preklicano okno »Shrani kot«: spletni program mora vedeti, da ni bilo nič shranjeno
       // (sicer obvestilo »Varnostna kopija shranjena …« ostane, čeprav datoteke ni).
@@ -732,7 +732,7 @@ function hardenSession() {
       if (state !== "completed") return;
       const saved = item.getSavePath();
       const fusion = config.get().fusion;
-      if (toBambu && isStlFile(saved)) {
+      if (toBambu && isObjFile(saved)) {
         const problem = await openInBambuStudio(saved, config.get().bambustudio.exePath, { log });
         if (problem) {
           log(`Bambu Studio: ${problem}`);

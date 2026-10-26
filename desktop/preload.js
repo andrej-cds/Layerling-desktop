@@ -24,6 +24,6 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   readFont: (fileName) => ipcRenderer.invoke("fonts:read", fileName),
   setStepToFusion: (on) => ipcRenderer.send("fusion:next-step", !!on),
   setStepToSolidcraft: (on) => ipcRenderer.send("solidcraft:next-step", !!on),
-  setStlToBambu: (on) => ipcRenderer.send("bambustudio:next-stl", !!on),
+  setObjToBambu: (on) => ipcRenderer.send("bambustudio:next-obj", !!on),
   reportLanguage: (language) => ipcRenderer.send("renderer:language", language),
 });

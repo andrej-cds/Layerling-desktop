@@ -62,6 +62,12 @@
   </section>
 
   <section>
+    <h2 data-i18n="s.bambuTitle">Bambu Studio</h2>
+    <p class="hint" data-i18n="s.bambuHint">Gumb BambuStudio v izvoznem oknu (vrstica Program) izvozi OBJ in ga odpre v tem programu. Če programa ne izberete, se uporabi običajna namestitev.</p>
+    <div class="field"><span data-i18n="s.solidProgram">Program</span><input type="text" id="bs-exe" readonly placeholder="(običajna namestitev)" data-i18n-placeholder="s.bambuNone"><button id="bs-pick" data-i18n="s.pick">Izberi …</button><button id="bs-clear" data-i18n="s.solidClear">Počisti</button></div>
+  </section>
+
+  <section>
     <h2 data-i18n="s.mcpTitle">Povezava z AI (MCP)</h2>
     <p class="hint" data-i18n="s.mcpHint">Z njo lahko Claude ali drug odjemalec MCP gradi v odprtem urejevalniku. Povezava je dostopna samo s tega računalnika in zaščitena z žetonom. Vnos prilepite v nastavitve odjemalca (Claude Desktop: Settings → Developer → Edit Config), nato ga znova zaženite.</p>
     <textarea id="mcp" readonly></textarea>
@@ -130,6 +136,7 @@ function render() {
   $("as-gap").value = c.autosave.versionGapMin;
   $("sh-folder").value = c.sharedFolder || "";
   $("sc-exe").value = (c.solidcraft && c.solidcraft.exePath) || "";
+  $("bs-exe").value = (c.bambustudio && c.bambustudio.exePath) || "";
   $("up-check").checked = c.checkUpdatesOnStart;
   $("gfx-mode").value = c.graphicsMode || "auto";
   $("gfx-flags").value = c.graphicsFlags || "";
@@ -181,6 +188,12 @@ $("sc-pick").onclick = async () => {
   if (exe) { draft.solidcraft = { exePath: exe }; render(); }
 };
 $("sc-clear").onclick = () => { draft.solidcraft = { exePath: "" }; render(); };
+$("bs-pick").onclick = async () => {
+  const current = (draft.bambustudio && draft.bambustudio.exePath) || "";
+  const exe = await window.settingsApi.pickProgram({ title: T("s.bambuPick"), defaultPath: current || undefined });
+  if (exe) { draft.bambustudio = { exePath: exe }; render(); }
+};
+$("bs-clear").onclick = () => { draft.bambustudio = { exePath: "" }; render(); };
 $("mcp-copy").onclick = async () => { await window.settingsApi.copyText($("mcp").value); $("mcp-note").textContent = T("s.mcpCopied"); };
 $("mcp-regen").onclick = async () => {
   if (!confirm(T("s.mcpConfirm"))) return;
@@ -213,6 +226,7 @@ $("save").onclick = async () => {
     graphicsMode: draft.graphicsMode,
     graphicsFlags: draft.graphicsFlags,
     solidcraft: draft.solidcraft,
+    bambustudio: draft.bambustudio,
   });
   if (result && result.error) { msg(result.error, true); return; }
   state = result;

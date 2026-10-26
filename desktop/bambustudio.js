@@ -1,11 +1,11 @@
 "use strict";
-// Odpiranje izvoženih datotek STL v programu Bambu Studio (pot do programa lahko izbere uporabnik v nastavitvah).
+// Odpiranje izvoženih datotek OBJ v programu Bambu Studio (pot do programa lahko izbere uporabnik v nastavitvah).
 const fs = require("node:fs");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
 
-function isStlFile(file) {
-  return typeof file === "string" && /\.stl$/i.test(file);
+function isObjFile(file) {
+  return typeof file === "string" && /\.obj$/i.test(file);
 }
 
 /** Običajna mesta namestitve; vrne prvo, ki obstaja, ali prazen niz. */
@@ -22,12 +22,12 @@ function findBambuStudio(env = process.env, platform = process.platform, exists 
 }
 
 /**
- * Odpre datoteko STL v Bambu Studiu: v izbranem programu, sicer v običajni namestitvi. Vrne prazen niz ob uspehu
+ * Odpre datoteko OBJ v Bambu Studiu: v izbranem programu, sicer v običajni namestitvi. Vrne prazen niz ob uspehu
  * ali sporočilo o napaki. Na macOS se paket .app odpre z ukazom »open -a«.
  */
 async function openInBambuStudio(file, exePath, opts = {}) {
   const { spawnFn = spawn, log = () => {}, platform = process.platform, find = () => findBambuStudio() } = opts;
-  if (!isStlFile(file) || !fs.existsSync(file)) return "datoteka ne obstaja";
+  if (!isObjFile(file) || !fs.existsSync(file)) return "datoteka ne obstaja";
   let program = typeof exePath === "string" ? exePath.trim() : "";
   if (program && !fs.existsSync(program)) return `Programa Bambu Studio ni na poti ${program}. V nastavitvah izberite njegovo datoteko.`;
   if (!program) program = find();
@@ -51,4 +51,4 @@ async function openInBambuStudio(file, exePath, opts = {}) {
   }
 }
 
-module.exports = { openInBambuStudio, findBambuStudio, isStlFile };
+module.exports = { openInBambuStudio, findBambuStudio, isObjFile };

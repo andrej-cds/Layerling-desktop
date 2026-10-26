@@ -670,6 +670,62 @@ export const edits = [
     find: "<a href={releaseNotesUrl()} target=\"_blank\" rel=\"noreferrer\" key=\"releases\" data-help={t(\"dashboard.footerHelp\")}>\n            {t(\"dashboard.releaseNotes\", { version })}",
     replace: "<a href={process.env.NEXT_PUBLIC_CDS_VERSION ? `${releaseNotesUrl()}/tag/v${process.env.NEXT_PUBLIC_CDS_VERSION}` : releaseNotesUrl()} target=\"_blank\" rel=\"noreferrer\" key=\"releases\" data-help={t(\"dashboard.footerHelp\")}>\n            {t(\"dashboard.releaseNotes\", { version: process.env.NEXT_PUBLIC_CDS_VERSION || version })}",
   },
+  {
+    name: "Izvozno okno: stanje za gumb BambuStudio",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInBambu",
+    find: "  const [openInSolidcraft, setOpenInSolidcraft] = useState(false);\n",
+    replace: "  const [openInSolidcraft, setOpenInSolidcraft] = useState(false);\n  const [openInBambu, setOpenInBambu] = useState(false);\n",
+  },
+  {
+    name: "Izvozno okno: izvoz OBJ pove namizni različici, ali naj ga odpre v Bambu Studiu",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setObjToBambu",
+    find: "    else onExport(exportFormat, exportName, false, exportFormat === \"dxf\" ? dxfView : svgView, toServer);",
+    replace: "    else {\n      try { (window as unknown as { layerlingDesktop?: { setObjToBambu?: (on: boolean) => void } }).layerlingDesktop?.setObjToBambu?.(openInBambu && exportFormat === \"obj\" && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExport(exportFormat, exportName, false, exportFormat === \"dxf\" ? dxfView : svgView, toServer);\n    }",
+  },
+  {
+    name: "Izvozno okno: izbira formata ugasne tudi BambuStudio",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInSolidcraft(false); setOpenInBambu(false)",
+    find: "onClick={() => { setExportFormat(format); setOpenInFusion(false); setOpenInSolidcraft(false); }}",
+    replace: "onClick={() => { setExportFormat(format); setOpenInFusion(false); setOpenInSolidcraft(false); setOpenInBambu(false); }}",
+  },
+  {
+    name: "Izvozno okno: gumb OBJ ni izbran, ko je izbran BambuStudio",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "!(format === \"obj\" && openInBambu)",
+    find: "aria-checked={exportFormat === format && !(format === \"step\" && (openInFusion || openInSolidcraft))}",
+    replace: "aria-checked={exportFormat === format && !(format === \"step\" && (openInFusion || openInSolidcraft)) && !(format === \"obj\" && openInBambu)}",
+  },
+  {
+    name: "Izvozno okno: drsnik formatov ne označi nobenega, ko je izbran BambuStudio",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "(openInBambu && exportFormat === \"obj\") ? \"fusion\"",
+    find: "data-format={(openInFusion || openInSolidcraft) && exportFormat === \"step\" ? \"fusion\" : exportFormat}",
+    replace: "data-format={((openInFusion || openInSolidcraft) && exportFormat === \"step\") || (openInBambu && exportFormat === \"obj\") ? \"fusion\" : exportFormat}",
+  },
+  {
+    name: "Izvozno okno: gumba Fusion in SolidCraft ugasneta BambuStudio",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInSolidcraft(false); setOpenInBambu(false); }}\n                >\n                  Fusion",
+    find: "onClick={() => { setExportFormat(\"step\"); setOpenInFusion(true); setOpenInSolidcraft(false); }}",
+    replace: "onClick={() => { setExportFormat(\"step\"); setOpenInFusion(true); setOpenInSolidcraft(false); setOpenInBambu(false); }}",
+  },
+  {
+    name: "Izvozno okno: gumb SolidCraft ugasne BambuStudio",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "setOpenInFusion(false); setOpenInBambu(false); }}",
+    find: "onClick={() => { setExportFormat(\"step\"); setOpenInSolidcraft(true); setOpenInFusion(false); }}",
+    replace: "onClick={() => { setExportFormat(\"step\"); setOpenInSolidcraft(true); setOpenInFusion(false); setOpenInBambu(false); }}",
+  },
+  {
+    name: "Izvozno okno: gumb BambuStudio v vrstici »Program«",
+    file: "apps/web/src/components/workplane/TopActionPanel.tsx",
+    marker: "aria-checked={openInBambu",
+    find: "                  SolidCraft\n                </button>\n",
+    replace: "                  SolidCraft\n                </button>\n                <button\n                  type=\"button\"\n                  role=\"radio\"\n                  className=\"export-program-button\"\n                  aria-checked={openInBambu && exportFormat === \"obj\"}\n                  title=\"OBJ\"\n                  onClick={() => { setExportFormat(\"obj\"); setOpenInBambu(true); setOpenInFusion(false); setOpenInSolidcraft(false); }}\n                >\n                  BambuStudio\n                </button>\n",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
