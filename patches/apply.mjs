@@ -641,6 +641,13 @@ export const edits = [
     find: ".toolbar-icon:disabled {\n  pointer-events: none;\n}\n",
     replace: ".toolbar-icon:disabled {\n  pointer-events: none;\n}\n\n/* Ko se orodna vrstica prelomi (imena gumbov, velike ikone), se odseki lomijo vsak zase: v prvi vrstici ostane toliko skupin,\n   kolikor jih gre, ne da bi se cela leva ali desna skupina preselila v novo vrstico. */\nhtml[data-tool-labels] .toolbar-mode-content > .tool-group,\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group {\n  display: contents;\n}\n",
   },
+  {
+    name: "Imena gumbov: Upravljanje v prvi vrstici, Pomoč desno v drugi",
+    file: "apps/web/src/app/globals.css",
+    marker: 'toolbar-mode-content > [data-group="help"]',
+    find: "html[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group {\n  display: contents;\n}\n",
+    replace: "html[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group {\n  display: contents;\n}\n" + "\n/* Ko se orodna vrstica lomi: Upravljanje gre v prvo vrstico, Razporeditev in Pomo\u010d v drugo; Pomo\u010d je vedno skrajno desno. */\nhtml[data-tool-labels] .toolbar-mode-content::before,\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content::before {\n  content: \"\";\n  order: 1;\n  flex: 0 0 100%;\n  height: 0;\n}\nhtml[data-tool-labels] .toolbar-mode-content > [data-group=\"manage\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > [data-group=\"manage\"] {\n  order: 0;\n}\nhtml[data-tool-labels] .toolbar-mode-content > .tool-group > [data-group=\"arrange\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group > [data-group=\"arrange\"] {\n  order: 2;\n}\nhtml[data-tool-labels] .toolbar-mode-content > [data-group=\"help\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > [data-group=\"help\"] {\n  order: 3;\n  margin-left: auto;\n}\n",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
