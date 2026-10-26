@@ -47,6 +47,28 @@ export const edits = [
     replace: '  ...(process.env.LAYERLING_DESKTOP === "true" && !isStaticExport ? { output: "standalone" as const } : {}),\n  ...(isStaticExport\n    ? {',
   },
   {
+    name: "Izvoz STEP: navadna skupina se združi v eno telo z imenom skupine (rob za Chamfer v Fusionu)",
+    file: "apps/web/src/lib/stepExport.ts",
+    marker: "CDS: group fused",
+    find: "      parts.push(...await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped));\n      continue;",
+    replace: `      // CDS: group fused - the group is one body in the editor, so it is one body in the file too.
+      const inner = await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped);
+      if (inner.length > 1) {
+        const fused = brep.fuseAll(inner.map((part) => part.solid) as Parameters<Brep["fuseAll"]>[0]);
+        if (fused.ok) {
+          const box: Aabb = {
+            min: [0, 1, 2].map((i) => Math.min(...inner.map((part) => part.box.min[i]))) as Aabb["min"],
+            max: [0, 1, 2].map((i) => Math.max(...inner.map((part) => part.box.max[i]))) as Aabb["max"],
+          };
+          parts.push({ solid: fused.value as BrepSolid, box, name: shape.name, kind: inner[0].kind, color: inner[0].color });
+          continue;
+        }
+        skipped.push({ name: shape.name, kind: shape.kind, reason: "the group's parts could not be fused; exported separately", code: "failed" });
+      }
+      parts.push(...inner);
+      continue;`,
+  },
+  {
     name: "Preizkusi: daljši čas za posamezen test (počasen strežnik za gradnjo)",
     file: "tests/vitest.config.ts",
     marker: "testTimeout",
