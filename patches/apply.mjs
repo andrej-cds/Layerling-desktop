@@ -634,6 +634,13 @@ export const edits = [
       '  "workspace.toolbarSizeLarge":',
     ].join("\n"),
   })),
+  {
+    name: "Imena gumbov: skupine se pri prelomu vrstice lomijo vsaka zase",
+    file: "apps/web/src/app/globals.css",
+    marker: "toolbar-mode-content > .tool-group",
+    find: ".toolbar-icon:disabled {\n  pointer-events: none;\n}\n",
+    replace: ".toolbar-icon:disabled {\n  pointer-events: none;\n}\n\n/* Ko se orodna vrstica prelomi (imena gumbov, velike ikone), se odseki lomijo vsak zase: v prvi vrstici ostane toliko skupin,\n   kolikor jih gre, ne da bi se cela leva ali desna skupina preselila v novo vrstico. */\nhtml[data-tool-labels] .toolbar-mode-content > .tool-group,\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group {\n  display: contents;\n}\n",
+  },
 ];
 
 /** Datoteke, ki jih popravki dodajo. */
