@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -33,3 +33,13 @@ export function capture(command, args, options = {}) {
 }
 
 export const hasUpstream = () => existsSync(join(upstreamDir, "package.json"));
+
+/** Naša različica izdaje (najnovejša datoteka v release-notes/), za prikaz v nogi programa. */
+export function ourVersion() {
+  const names = readdirSync(join(projectRoot, "release-notes"))
+    .map((n) => /^v(\d+)\.(\d+)\.(\d+)\.md$/.exec(n))
+    .filter(Boolean)
+    .map((m) => [Number(m[1]), Number(m[2]), Number(m[3])])
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2]);
+  return names.length ? names[names.length - 1].join(".") : "";
+}

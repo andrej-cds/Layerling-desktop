@@ -646,7 +646,29 @@ export const edits = [
     file: "apps/web/src/app/globals.css",
     marker: 'toolbar-mode-content > [data-group="help"]',
     find: "html[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group {\n  display: contents;\n}\n",
-    replace: "html[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group {\n  display: contents;\n}\n" + "\n/* Ko se orodna vrstica lomi: Upravljanje gre v prvo vrstico, Razporeditev in Pomo\u010d v drugo; Pomo\u010d je vedno skrajno desno. */\nhtml[data-tool-labels] .toolbar-mode-content::before,\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content::before {\n  content: \"\";\n  order: 1;\n  flex: 0 0 100%;\n  height: 0;\n}\nhtml[data-tool-labels] .toolbar-mode-content > [data-group=\"manage\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > [data-group=\"manage\"] {\n  order: 0;\n}\nhtml[data-tool-labels] .toolbar-mode-content > .tool-group > [data-group=\"arrange\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group > [data-group=\"arrange\"] {\n  order: 2;\n}\nhtml[data-tool-labels] .toolbar-mode-content > [data-group=\"help\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > [data-group=\"help\"] {\n  order: 3;\n  margin-left: auto;\n}\n",
+    replace: "html[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group {\n  display: contents;\n}\n" + "\n/* Ko se orodna vrstica lomi: Upravljanje gre v prvo vrstico, Razporeditev in Pomo\u010d v drugo; Pomo\u010d je vedno skrajno desno. */\nhtml[data-tool-labels] .toolbar-mode-content > [data-group=\"manage\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > [data-group=\"manage\"] {\n  order: 1;\n}\nhtml[data-tool-labels] .toolbar-mode-content > .tool-group > [data-group=\"arrange\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > .tool-group > [data-group=\"arrange\"] {\n  order: 2;\n}\nhtml[data-tool-labels] .toolbar-mode-content > [data-group=\"help\"],\nhtml[data-toolbar-size=\"large\"] .toolbar-mode-content > [data-group=\"help\"] {\n  order: 3;\n  margin-left: auto;\n}\n",
+  },
+  {
+    name: "Noga: povezava na projekt vodi na naš GitHub",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: "<a href={SOURCE_CODE_URL} target=\"_blank\" rel=\"noreferrer\" key=\"readme\">",
+    find: "<a href={readmeUrl(language)} target=\"_blank\" rel=\"noreferrer\" key=\"readme\">",
+    replace: "<a href={SOURCE_CODE_URL} target=\"_blank\" rel=\"noreferrer\" key=\"readme\">",
+  },
+  {
+    name: "Noga: Kaj je novega vodi na naše izdaje",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: "rel=\"noreferrer\"\n              key=\"whats-new\"",
+    find: "href=\"#\"\n              role=\"button\"\n              key=\"whats-new\"\n              onClick={(event) => {\n                event.preventDefault();\n                window.dispatchEvent(new Event(SHOW_WHATS_NEW_EVENT));\n              }}",
+    replace: "href={releaseNotesUrl()}\n              target=\"_blank\"\n              rel=\"noreferrer\"\n              key=\"whats-new\"",
+  },
+  {
+    name: "Noga: opombe ob izdaji kažejo našo različico",
+    stage: "jezik",
+    file: "apps/web/src/components/AppFooter.tsx",
+    marker: "process.env.NEXT_PUBLIC_CDS_VERSION ?",
+    find: "<a href={releaseNotesUrl()} target=\"_blank\" rel=\"noreferrer\" key=\"releases\" data-help={t(\"dashboard.footerHelp\")}>\n            {t(\"dashboard.releaseNotes\", { version })}",
+    replace: "<a href={process.env.NEXT_PUBLIC_CDS_VERSION ? `${releaseNotesUrl()}/tag/v${process.env.NEXT_PUBLIC_CDS_VERSION}` : releaseNotesUrl()} target=\"_blank\" rel=\"noreferrer\" key=\"releases\" data-help={t(\"dashboard.footerHelp\")}>\n            {t(\"dashboard.releaseNotes\", { version: process.env.NEXT_PUBLIC_CDS_VERSION || version })}",
   },
 ];
 

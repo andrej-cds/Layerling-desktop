@@ -6,7 +6,7 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { applyPatches } from "../patches/apply.mjs";
-import { capture, hasUpstream, projectRoot, readUpstreamPin, run, upstreamDir, webDist } from "./lib.mjs";
+import { capture, hasUpstream, ourVersion, projectRoot, readUpstreamPin, run, upstreamDir, webDist } from "./lib.mjs";
 import { syncUpstream } from "./sync-upstream.mjs";
 
 const args = new Set(process.argv.slice(2));
@@ -54,6 +54,7 @@ run("npm", ["run", "build"], {
     LAYERLING_DESKTOP: "true",
     NEXT_TELEMETRY_DISABLED: "1",
     NEXT_PUBLIC_SOURCE_CODE_URL: sourceUrl,
+    NEXT_PUBLIC_CDS_VERSION: ourVersion(),
   },
 });
 

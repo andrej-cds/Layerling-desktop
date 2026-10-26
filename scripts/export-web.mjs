@@ -8,7 +8,7 @@
 import { cpSync, existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { applyPatches } from "../patches/apply.mjs";
-import { capture, hasUpstream, projectRoot, readUpstreamPin, run, upstreamDir } from "./lib.mjs";
+import { capture, hasUpstream, ourVersion, projectRoot, readUpstreamPin, run, upstreamDir } from "./lib.mjs";
 import { syncUpstream } from "./sync-upstream.mjs";
 
 const baseArg = process.argv.find((a) => a.startsWith("--base="));
@@ -31,7 +31,11 @@ if (base) applyPatches(upstreamDir, { stage: "podmapa" });
 if (!existsSync(join(upstreamDir, "node_modules"))) run("npm", ["ci", "--no-audit", "--no-fund"], { cwd: upstreamDir });
 
 // Isti koraki kot `npm run export` v originalu, brez preverjanja "/_next/" korena, ki za podmapo ne more držati.
-const env = { NEXT_TELEMETRY_DISABLED: "1", ...(base ? { LAYERLING_BASE_PATH: base, NEXT_PUBLIC_LAYERLING_BASE: base } : {}) };
+const env = {
+  NEXT_TELEMETRY_DISABLED: "1",
+  NEXT_PUBLIC_SOURCE_CODE_URL: process.env.NEXT_PUBLIC_SOURCE_CODE_URL || `https://github.com/${process.env.LAYERLING_DESKTOP_REPO || "andrej-cds/layerling-desktop"}`,
+  NEXT_PUBLIC_CDS_VERSION: ourVersion(),
+  ...(base ? { LAYERLING_BASE_PATH: base, NEXT_PUBLIC_LAYERLING_BASE: base } : {}) };
 const nextBin = join(upstreamDir, "node_modules", "next", "dist", "bin", "next");
 run(process.execPath, ["scripts/copy-occt-wasm.mjs"], { cwd: upstreamDir, env });
 run(process.execPath, ["scripts/build-guide.mjs"], { cwd: upstreamDir, env });
