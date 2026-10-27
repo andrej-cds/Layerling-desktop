@@ -1,4 +1,14 @@
 {
+  "1.115.0": [
+    [
+      "STEP datoteke z več telesi",
+      "STEP datoteka iz drugega CAD programa, na primer sestav iz stebrov, letev in plošč, se zdaj naloži kot po eno telo, z imenom iz datoteke in na pravem mestu glede na ostala, vsa skupaj izbrana. Barv in skupin iz datoteke Layerling še ne prevzame."
+    ],
+    [
+      "Urejena začetna stran",
+      "Projekti so pod enim naslovom z zavihkoma Strežnik in Brskalnik, oba z enakimi gumbi: Nova mapa, Izberi, Varnostna kopija vsega in Obnovi kopijo. Tudi na strežniku »Varnostna kopija vsega« zdaj shrani vse v eno datoteko ZIP. Uvodna navodila so zgoraj in jih lahko zapreš, opozorilo, da se projekti, shranjeni samo v brskalniku, lahko izgubijo, pa je opazna kartica."
+    ]
+  ],
   "1.114.0": [
     [
       "Tvoje privzeto ostane na strežniku",
@@ -7,6 +17,14 @@
     [
       "Polmer oglišč posod Gridfinity",
       "Zunanja oglišča posode Gridfinity ne smejo biti več nujno zaobljena s 3,75 mm: v podoknu Lastnosti nastavi »Polmer oglišč«, vse do 0 za ostra oglišča, tako da pri štirih posodah v predalu ostanejo le 0,5 mm vrzeli med njimi. Noge in notranjost ostanejo, kot so, zato posode pasejo in se zlagajo kot prej."
+    ],
+    [
+      "Površinska tekstura za vsako telo",
+      "Novo v razdelku Spremeni: na katero koli telo položi relief, za oprijem ali videz. Na voljo je dvanajst vzorcev, med njimi žlebovi, rezkanje (knurling), satje, bunčice, pletenje, tvoja slika kot višinski zemljevid, razpoke z zlatom (kintsugi) in nalepljeno besedilo. Pri okroglih telesih je položen okoli osi, pri oglatih naokoli; pozneje ga lahko spremeniš ali odstraniš."
+    ],
+    [
+      "Vaza: lastna oblika za vaze, lonce in senčila",
+      "Nova oblika »Vaza« v knjižnici oblik: višina in največji premer sta njeni meri, vse drugo je na karticah, ki ostanejo urejljive tudi po shranjevanju. Oblika telesa, presek, zasuk, vzorci, odtočne luknje, odprta stena, senčilo za luč, nogice, podstavek, vložki in pokrovi; poln za vazni način rezalnika ali votel s steno in dnom, zraven pa še preizkus nepredušnosti."
     ]
   ],
   "1.113.0": [

@@ -122,11 +122,19 @@ export const edits = [
   },
   {
     name: "Nadzorna plošča: pasica o shranjevanju v brskalniku ne spada v namizni program (slog)",
+    file: "apps/web/src/app/dashboard.css",
+    marker: "layerling-desktop-shell",
+    find: "\n.browser-backup-note {\n",
+    replace:
+      "\n.layerling-desktop-shell .browser-backup-note {\n  display: none !important;\n}\n\n.browser-backup-note {\n",
+  },
+  {
+    name: "Urejevalnik v namizni različici: besedila na strani se ne da po nesreči označiti (slog)",
     file: "apps/web/src/app/globals.css",
     marker: "layerling-desktop-shell",
-    find: "\n.storage-notice {\n",
+    find: "\n.layerling-editor {\n  -webkit-user-select: none;\n",
     replace:
-      "\n.layerling-desktop-shell .storage-notice {\n  display: none !important;\n}\n\n/* Urejevalnik v namizni različici: besedila na strani se ne da po nesreči označiti (vlečenje prek spodnje vrstice, Ctrl+A). Polja za vnos ostanejo običajna. */\n.layerling-desktop-shell .layerling-editor,\n.layerling-desktop-shell .editor-legal {\n  -webkit-user-select: none;\n  user-select: none;\n}\n\n.layerling-desktop-shell .layerling-editor :is(input, textarea, [contenteditable=\"true\"]) {\n  -webkit-user-select: text;\n  user-select: text;\n}\n\n.storage-notice {\n",
+      "\n.layerling-desktop-shell .editor-legal {\n  -webkit-user-select: none;\n  user-select: none;\n}\n\n.layerling-editor {\n  -webkit-user-select: none;\n",
   },
   {
     name: "Posodobitve: namizni program jih ureja sam",
