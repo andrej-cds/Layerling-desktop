@@ -13,6 +13,7 @@ const updater = require("./updater");
 const { isStepFile, openInFusion } = require("./fusion");
 const { openInSolidcraft } = require("./solidcraft");
 const { openInBambuStudio, isObjFile } = require("./bambustudio");
+const { createSystemFonts } = require("./systemfonts");
 
 const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
@@ -325,6 +326,18 @@ ipcMain.handle("fonts:read", (_event, fileName) => {
     return null;
   }
 });
+
+// Pisave, nameščene v računalniku (Windows, Mac, Linux): seznam in branje izbranih; datoteke pozna samo glavni proces.
+const systemFonts = createSystemFonts();
+ipcMain.handle("fonts:system-list", () => {
+  try {
+    return systemFonts.list();
+  } catch (error) {
+    log(`Seznam sistemskih pisav ni uspel: ${error.message}`);
+    return [];
+  }
+});
+ipcMain.handle("fonts:system-read", (_event, id) => systemFonts.read(id));
 
 ipcMain.on("mirror:flush-done", () => flushWaiters.slice().forEach((done) => done()));
 

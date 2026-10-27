@@ -69,6 +69,20 @@ export const edits = [
       continue;`,
   },
   {
+    name: "Sistemske pisave: namizna lupina jih ponudi sama (okno »Dodaj pisave iz računalnika« deluje tudi brez Chromiuma)",
+    file: "apps/web/src/lib/systemFonts.ts",
+    marker: "CDS: desktop system fonts",
+    find: "  return typeof window !== \"undefined\" && typeof (window as LocalFontWindow).queryLocalFonts === \"function\";",
+    replace: "  // CDS: desktop system fonts - the desktop shell lists the installed fonts itself.\n  if (typeof window !== \"undefined\" && (window as unknown as { layerlingDesktop?: { listSystemFonts?: unknown } }).layerlingDesktop?.listSystemFonts) return true;\n  return typeof window !== \"undefined\" && typeof (window as LocalFontWindow).queryLocalFonts === \"function\";",
+  },
+  {
+    name: "Sistemske pisave: seznam in branje prek namizne lupine",
+    file: "apps/web/src/lib/systemFonts.ts",
+    marker: "CDS: desktop font list",
+    find: "  const query = (window as LocalFontWindow).queryLocalFonts;\n  if (!query) return [];",
+    replace: "  // CDS: desktop font list\n  const desktop = (window as unknown as { layerlingDesktop?: { listSystemFonts?: () => Promise<Array<Omit<SystemFont, \"blob\"> & { id: number }>>; readSystemFont?: (id: number) => Promise<ArrayBuffer | Uint8Array | null> } }).layerlingDesktop;\n  if (desktop?.listSystemFonts && desktop.readSystemFont) {\n    const read = desktop.readSystemFont;\n    const found = (await desktop.listSystemFonts()) ?? [];\n    return found.map((font) => ({\n      family: font.family,\n      fullName: font.fullName,\n      style: font.style,\n      postscriptName: font.postscriptName,\n      blob: async () => {\n        const raw = await read(font.id);\n        if (!raw) throw new Error(\"font unreadable\");\n        return new Blob([raw as BlobPart]);\n      },\n    }));\n  }\n  const query = (window as LocalFontWindow).queryLocalFonts;\n  if (!query) return [];",
+  },
+  {
     name: "Preizkusi: daljši čas za posamezen test (počasen strežnik za gradnjo)",
     file: "tests/vitest.config.ts",
     marker: "testTimeout",

@@ -22,6 +22,8 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   reportProjectCount: (count) => ipcRenderer.send("renderer:project-count", count),
   listFonts: () => ipcRenderer.invoke("fonts:list"),
   readFont: (fileName) => ipcRenderer.invoke("fonts:read", fileName),
+  listSystemFonts: () => ipcRenderer.invoke("fonts:system-list"),
+  readSystemFont: (id) => ipcRenderer.invoke("fonts:system-read", id),
   setStepToFusion: (on) => ipcRenderer.send("fusion:next-step", !!on),
   setStepToSolidcraft: (on) => ipcRenderer.send("solidcraft:next-step", !!on),
   setObjToBambu: (on) => ipcRenderer.send("bambustudio:next-obj", !!on),

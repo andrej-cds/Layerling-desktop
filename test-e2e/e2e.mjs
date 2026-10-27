@@ -222,6 +222,18 @@ try {
     assert.ok(labels.length >= 9, "seznam mora imeti vgrajene pisave, lastno pisavo in upravljalnik pisav");
     await page.keyboard.press("Escape");
     ok("lastna pisava iz mape se naloži in uporabi na besedilu");
+    const system = await page.evaluate(async () => {
+      const list = await window.layerlingDesktop.listSystemFonts();
+      const first = list[0];
+      const bytes = first ? await window.layerlingDesktop.readSystemFont(first.id) : null;
+      const outside = await window.layerlingDesktop.readSystemFont(-1);
+      return { count: list.length, hasPath: list.some((f) => "file" in f), size: bytes ? bytes.byteLength : 0, outside };
+    });
+    assert.ok(system.count > 0, "seznam sistemskih pisav ne sme biti prazen");
+    assert.ok(!system.hasPath, "pot do datoteke ne sme do strani");
+    assert.ok(system.size > 1000, "izbrana sistemska pisava se mora prebrati");
+    assert.strictEqual(system.outside, null);
+    ok("sistemske pisave: seznam in branje prek lupine");
   }
 
   const projectFile = await eventually("projekt se zapiše na disk z obema oblikama", () => {
