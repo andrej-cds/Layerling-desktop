@@ -703,8 +703,8 @@ export const edits = [
     name: "Izvozno okno: izvoz OBJ pove namizni različici, ali naj ga odpre v Bambu Studiu",
     file: "apps/web/src/components/workplane/TopActionPanel.tsx",
     marker: "setObjToBambu",
-    find: "    else onExport(exportFormat, exportName, false, exportFormat === \"dxf\" ? dxfView : svgView, toServer);",
-    replace: "    else {\n      try { (window as unknown as { layerlingDesktop?: { setObjToBambu?: (on: boolean) => void } }).layerlingDesktop?.setObjToBambu?.(openInBambu && exportFormat === \"obj\" && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExport(exportFormat, exportName, false, exportFormat === \"dxf\" ? dxfView : svgView, toServer);\n    }",
+    find: "      onExport(exportFormat, exportName, false, view, toServer, withBridges ? bridges : null);",
+    replace: "      try { (window as unknown as { layerlingDesktop?: { setObjToBambu?: (on: boolean) => void } }).layerlingDesktop?.setObjToBambu?.(openInBambu && exportFormat === \"obj\" && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExport(exportFormat, exportName, false, view, toServer, withBridges ? bridges : null);",
   },
   {
     name: "Izvozno okno: izbira formata ugasne tudi BambuStudio",
