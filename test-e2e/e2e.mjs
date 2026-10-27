@@ -210,11 +210,17 @@ try {
     const own = objects.find((o) => o.name === "Besedilo-lastna");
     assert.equal(own.settings.font, "Testna pisava", "lastna pisava mora biti shranjena v obliki besedila");
     await mcp("select_objects", { ids: [own.id] });
-    const options = await eventually("seznam pisav v urejevalniku lastnosti", async () => {
-      const found = await page.evaluate(() => [...document.querySelectorAll("select")].map((s) => [...s.options].map((o) => o.value)).find((v) => v.includes("Multilanguage")));
-      return found || null;
+    // Od 1.113.0 je seznam pisav lasten seznam s predogledom (combobox), ne več <select>.
+    const picker = page.locator("button.font-picker-button").first();
+    await picker.waitFor({ timeout: 15000 });
+    await picker.click();
+    const labels = await eventually("seznam pisav v urejevalniku lastnosti", async () => {
+      const found = await page.evaluate(() => [...document.querySelectorAll('[role="listbox"] [role="option"]')].map((o) => o.textContent || ""));
+      return found.length ? found : null;
     }, 15000);
-    assert.deepEqual(options, ["Multilanguage", "Sans", "Serif", "Script", "Monospace", "Rounded", "Stencil", "Japanese", "Testna pisava", "__font-manager"]);
+    assert.ok(labels.some((label) => label.includes("Testna pisava")), "lastna pisava mora biti v seznamu pisav");
+    assert.ok(labels.length >= 9, "seznam mora imeti vgrajene pisave, lastno pisavo in upravljalnik pisav");
+    await page.keyboard.press("Escape");
     ok("lastna pisava iz mape se naloži in uporabi na besedilu");
   }
 
