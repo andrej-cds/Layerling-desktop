@@ -1,4 +1,22 @@
 {
+  "1.116.0": [
+    [
+      "Merilni trak: jasnejše oznake",
+      "Vsaka oznaka pove, po katerih oseh meri, na primer X, XY ali 3D. Ko jo pokažeš s kazalcem, vidiš doseg po posamezni osi, pri točki pa, kje leži. Oznake stojijo ob črti, ne na njej, meritve za drugimi telesi pa zbledijo."
+    ],
+    [
+      "Ukrivljena cev: odprtina je spet na sredini",
+      "Pri »Vrtina reže kot luknja pri združevanju« je odprtina ukrivljene cevi po združitvi ležala za eno steno prenizko in prerezala dno cevi. Zdaj je spet na sredini, stena pa ostane zaprta."
+    ],
+    [
+      "Kolešček miške v polju lastnosti: polje ostane na mestu",
+      "Ko telo z miškinim kolescem vrtiš okoli X ali Y, se prikaže namig, da stoji nagnjeno. Polje je prej zdrsnilo izpod kazalca in kolešček je namesto tega drsel po podoknu. Zdaj polje ostane na mestu in sprejme vsak obrat kolesca."
+    ],
+    [
+      "Shranjevanje na lasten strežnik: tudi veliki projekti",
+      "store.php ob shranjevanju ne nalaga več celotnega projekta v pomnilnik. Veliki projekti, na primer s površinsko teksturo, se shranijo hitro tudi na majhnem strežniku in ne odpovejo več zaradi pomnilniške omejitve PHP."
+    ]
+  ],
   "1.115.0": [
     [
       "STEP datoteke z več telesi",
