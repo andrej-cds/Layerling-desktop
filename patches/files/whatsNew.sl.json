@@ -1,4 +1,26 @@
 {
+  "1.117.1": [
+    [
+      "Površinska tekstura na izbranih ploskvah",
+      "Z »Izberi ploskve« klikneš zgornjo, spodnjo ali stransko ploskev in vzorec, na primer rezkanje (knurling) samo na eni strani, se položi le tam. Na okroglih vrhovih potekajo žlebovi v obročih, pri zaobljenih oglatih telesih pa vzorec teče okoli vogalov brez šiva."
+    ],
+    [
+      "Ploski torus obdrži luknjo",
+      "Torus ima zdaj svojo »Debelino cevi«. Višina cev samo stisne, ne da bi jo odebelila, zato ploski obroč ostane odprt. Ko povlečeš ročice, cev raste z njimi."
+    ],
+    [
+      "Tipke za mrežo pripenjanja",
+      "Alt+1 do Alt+0 izbere ta vnos v meniju pripenjanja, Alt+1 pripenjanje izklopi. Vejica in pika korak naredita eno stopnjo finejši ali grobši, v 3D pogledu in v skici enako."
+    ],
+    [
+      "Zaobljena cev ostane okrogla pri spremembi velikosti",
+      "Votlo telo, ki si ga pozneje zaobljil ali posnel, se ob spremembi velikosti znova izvotli, zaobljenje pa se vrne na isti rob. Cev ne postane več kvadratna."
+    ],
+    [
+      "Brisanje točke spremeni samo sosednji",
+      "Če v skici izbrišeš točko gladkega obrisa, se zgladita le dve sosednji točki. Ročice, ki si jih drugje nastavil ročno, ostanejo, kot so."
+    ]
+  ],
   "1.117.0": [
     [
       "Uvoz, Izvoz in Priloge lahko premakneš",
