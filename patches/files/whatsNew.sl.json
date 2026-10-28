@@ -1,4 +1,34 @@
 {
+  "1.116.1": [
+    [
+      "Sestavi STEP: vsako telo v svoji barvi",
+      "STEP datoteka iz drugega CAD programa zdaj prinese tudi barve teles. Kjer je več teles pod enim vnosom, na primer vsi vijaki enega dela, postane vsako svoj del. STEP izvoz pa barv v datoteki ne bledi več."
+    ],
+    [
+      "Obnovljena varnostna kopija na strežniku: s sličico",
+      "Ko obnoviš varnostno kopijo in projekti gredo na strežnik, kot v različici Docker, zdaj obdržijo svojo sličico. Doslej je kartica ostala prazna, dokler projekta nisi enkrat shranil v urejevalniku."
+    ],
+    [
+      "Položaj od sredine ali od roba",
+      "V kartici Položaj zdaj izbereš, od česa merita X in Y: od sredine telesa kot doslej ali od njegovega levega in sprednjega roba. Tako rob postaviš natančno na mero, ne da bi računal polovico širine."
+    ],
+    [
+      "Vzorec lukenj: ozke luknje blizu skupaj",
+      "Pravokotne luknje in reže imajo zdaj svoj razmik med vrstami. Ozke, visoke reže stojijo ena ob drugi tako blizu, kot dovoljuje stena, namesto tako narazen, kot so visoke."
+    ],
+    [
+      "Skupina ali sveženj na prvi pogled",
+      "V podoknu Objekti skupina ali sveženj zdaj kaže enako oznako kot gumb, ki ju je naredil, pod njo pa »Skupina · 3 deli« ali »Sveženj · 3 deli«. To ostane pravilno tudi po preimenovanju."
+    ],
+    [
+      "Odpiranje projekta s strežnika se vidi na kartici",
+      "Velik projekt s strežnika se odpira nekaj sekund. Med nalaganjem se zdaj na kartici vrti krožec, dodatni kliki pa počakajo, da se odpre."
+    ],
+    [
+      "Strežniška shramba: mapa za vsakega uporabnika",
+      "Če Layerling poganjaš za posrednikom s prijavo, lahko vsakemu uporabniku daš svojo mapo na strežniku z nastavitvijo LAYERLING_USER_HEADER. Brez nje ostane vse, kot je bilo. Veliki projekti prihajajo s strežnika tudi, ne da bi mu polnili pomnilnik."
+    ]
+  ],
   "1.116.0": [
     [
       "Merilni trak: jasnejše oznake",
