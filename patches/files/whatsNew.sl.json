@@ -1,4 +1,26 @@
 {
+  "1.117.2": [
+    [
+      "Navpično besedilo",
+      "Z »Črke od zgoraj navzdol« se črke vrstijo navzdol, vsaka na sredini. Deluje pri besedilu, imenskih ploščicah in napisih na ploskvah, razmik med črkami pa določa vrzel med njimi."
+    ],
+    [
+      "Q skrije mere",
+      "Pri premikanju majhnih delov lahko mere in razdalje prekrijejo tisto, kar premikaš. Tipka Q jih skrije, ponoven pritisk jih vrne."
+    ],
+    [
+      "Majhna orodna vrstica ostane majhna",
+      "Če je razširitev brskalnika ali brskalnikov prevajalnik med nalaganjem spremenil stran, se je orodna vrstica po ponovnem zagonu vrnila v srednji velikosti. Njena velikost, preprost način in vogal kocke pogleda zdaj ostanejo, kot so nastavljeni."
+    ],
+    [
+      "Ovita telesa kažejo velikost valja",
+      "Telo, ovito okoli valja, zdaj pri ročicah kaže enake mere kot v lastnostih: mere valja."
+    ],
+    [
+      "Uvožene datoteke STL niso več črne",
+      "Nekateri programi v datoteko STL ne zapišejo smeri ploskev. Taki modeli so se naložili črni; Layerling smeri znova izračuna iz trikotnikov, tudi pri že shranjenih projektih."
+    ]
+  ],
   "1.117.1": [
     [
       "Površinska tekstura na izbranih ploskvah",
