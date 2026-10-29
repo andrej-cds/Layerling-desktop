@@ -1,4 +1,14 @@
 {
+  "1.120.2": [
+    [
+      "Rezalnik za piškote: plošča, zaobljenja in boljši mostički",
+      "Rezalnik za piškote zdaj odpre majhno okno: notranje stene lahko namesto mostičkov drži plošča, majhna zaobljenja pa stene podprejo, da tanki deli ne odlomijo. Mostički zdaj sedijo povsem na stenah in nikoli ne tečejo čez druge črke."
+    ],
+    [
+      "Višina nad delovno ravnino med merami",
+      "Kadar izbrano telo lebdi nad delovno ravnino, se njegova višina nad njo zdaj prikaže kar ob širini, globini in višini. Klikni številko, da vpišeš novo."
+    ]
+  ],
   "1.120.1": [
     [
       "Rezalnik za piškote: besedilo samo vtisni",
