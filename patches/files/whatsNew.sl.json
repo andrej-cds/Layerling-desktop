@@ -1,4 +1,50 @@
 {
+  "1.120.1": [
+    [
+      "Rezalnik za piškote: besedilo samo vtisni",
+      "Stene okoli črk in drugih lukenj so zdaj poseben del rezalnika za piškote. Če jih v lastnostih znižaš, besedilo samo vtisnejo v testo, izrezuje pa le zunanji rob. Vsak notranji del zdaj drži na dveh močnejših mostičkih."
+    ]
+  ],
+  "1.120.0": [
+    [
+      "Gibljivi spoji",
+      "Novo orodje Gibljivi spoji razreže ploščato telo, na primer ribo ali zmaja, ki si ga narisal sam, na člene in na vsak rez postavi spoj, ki se natisne kar sam. Po tisku se figura premika, brez podpor in brez sestavljanja."
+    ],
+    [
+      "Imena tudi za osivele ikone",
+      "Če se v traku z orodji ustaviš nad osivelo ikono, se zdaj prikaže tudi njeno ime. Rezalnik za piškote najdeš zdaj pod Prilagodi."
+    ],
+    [
+      "Tekstura površine: opeka, skorja in les",
+      "Trije novi vzorci: opečni zid v petih vezeh, skorja hrasta, bora, smreke, breze ali bukve ter lesne letnice, ki tečejo skozi telo kot pri pravem lesu."
+    ],
+    [
+      "Tekstura površine: karbon",
+      "Nov vzorec Karbon (keper) položi na telo preplet trakov, kot keper 2/2, 2/1 ali 3/1, po želji s širšimi ali ožjimi prekrižanimi trakovi."
+    ],
+    [
+      "Tečaj: luknje za vijake in zaobljeni vogali",
+      "Krilca tečaja zdaj sprejmejo do šest lukenj za vijake, posnetih za vijake z ravno glavo ali ravnih, razmik po dolžini in širini pa določiš sam. Polmer vogala zaobli zunanje vogale krilc."
+    ],
+    [
+      "Prstni tečaj",
+      "Oblika krilca zdaj ponuja prste: vsak členek ima svoj prst, obe strani pa se prepleteta kot dva glavnika. Tečaj se zloži do konca in leži raven, ko je zaprt, na primer med škatlo in njenim pokrovom."
+    ],
+    [
+      "Urejanje skice po posnetju roba",
+      "Po zaobljenju ali posnetju roba na vrtenem telesu skice, na primer iz SVG, se je njegova skica odprla zavrtena in premaknjena. Zdaj spet leži točno čez telo."
+    ]
+  ],
+  "1.62.3": [
+    [
+      "Čisti zaobljeni vogali v skicah",
+      "Vogal, zaobljen v skici, je zdaj zgrajen kot pravi krožni lok. Stena je gladka in ne pegasta, ima manj trikotnikov, orodje za robove pa se z njo bolje znajde. To velja tudi za vrtene skice."
+    ],
+    [
+      "Natančno polnjenje črt in Širše",
+      "Skice in SVG, napolnjeni kot črta (znotraj, zunaj, sredinsko) ali kot Širše, zdaj jedro zgradi natančno, ne več iz stotin kratkih koščkov. Stene izgubijo črte, posnetje in zaobljenje pa delujeta na zgornjih robovih."
+    ]
+  ],
   "1.119.2": [
     [
       "Modelček za piškote: notranjost ostane",
