@@ -1,4 +1,10 @@
 {
+  "1.119.1": [
+    [
+      "Modelček za piškote iz več delov",
+      "Deli, ki se prekrivajo, zdaj dobijo eno steno okoli vseh, ne da bi jih bilo treba prej združiti v skupino. Valj spet dobi rezilni rob."
+    ]
+  ],
   "1.119.0": [
     [
       "Povezovanje skic (loft)",
