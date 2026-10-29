@@ -37,7 +37,15 @@ jobs:
             exit 0
           fi
           git tag "$tag"
-          git push origin "$tag"
+          # Pin in opis izdaje se pogosto potisneta skupaj, zato lahko dva zagona hkrati poskusita postaviti isto oznako.
+          # Če je drugi zagon oznako že postavil (in sam zažene gradnjo), to ni napaka.
+          if ! git push origin "$tag"; then
+            if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1; then
+              echo "Oznako $tag je medtem postavil drug zagon - nič ni treba storiti."
+              exit 0
+            fi
+            exit 1
+          fi
           # Oznaka, ki jo postavi ta opravilo, sama ne zažene gradnje, zato jo zaženemo izrecno na oznaki.
           gh workflow run build.yml --ref "$tag"
           echo "Postavljena oznaka $tag, gradnja zagnana."
