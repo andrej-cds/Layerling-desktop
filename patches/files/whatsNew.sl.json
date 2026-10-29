@@ -1,4 +1,20 @@
 {
+  "1.119.0": [
+    [
+      "Povezovanje skic (loft)",
+      "Dve skici ali uvožena SVG postaneta eno telo: en obris spodaj, drugi zgoraj, vmes ravne stene. Dva obroča dasta votel okvir, »Uredi skupino« pa skici znova odpre."
+    ]
+  ],
+  "1.118.1": [
+    [
+      "Modelček za piškote: pravilno obrnjen in oster",
+      "Modelček za piškote zdaj zrcali obris, ker ga obrneš, ko režeš: besedilo in logotipi pridejo iz testa pravilno obrnjeni. Stena se konča s tankim rezilnim robom, njeno širino pa spremeniš pod Lastnosti."
+    ],
+    [
+      "Ujemanje velikosti",
+      "Med poravnavanjem drži Alt: pike postanejo kvadrati in dele raztegnejo do strani drugega telesa ali do njegove širine, dolžine ali višine, namesto da bi jih premaknile."
+    ]
+  ],
   "1.118.0": [
     [
       "Dvig za natančno razdaljo",
