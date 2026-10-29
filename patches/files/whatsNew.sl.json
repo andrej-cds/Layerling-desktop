@@ -1,4 +1,42 @@
 {
+  "1.118.0": [
+    [
+      "Dvig za natančno razdaljo",
+      "Ko vlečeš črno puščico nad telesom, se pri njegovem sprednjem vogalu zdaj vidi, koliko je šlo gor ali dol. Ko spustiš, klikneš številko in vpišeš natančno razdaljo, tako kot pri premikanju po X in Y."
+    ],
+    [
+      "Merilni trak: tudi navznoter",
+      "Negativna dolžina premakne telo mimo prve merilne točke, na primer luknjo 5 mm znotraj roba škatle. Shift ohrani meritev ravno, nitni križ pa pusti pripeto točko vidno."
+    ],
+    [
+      "Varnostna kopija samo nekaterih projektov",
+      "Po »Izberi« »Varnostna kopija« shrani le izbrane projekte, »Varnostna kopija« v meniju mape pa shrani celotno mapo. Varnostno kopiranje je tudi hitrejše, predvsem pri velikih projektih."
+    ],
+    [
+      "Skupine obdržijo vrtišče",
+      "Vrtišče, nastavljeno za več teles, preide na skupino, ki jih združuje. »Označi vrtišče« v kontekstnem meniju ga spremeni v referenčno točko, na katero se pripenjajo drugi deli."
+    ],
+    [
+      "Mere ostanejo blizu pri drobnih delih",
+      "Pri delih, manjših od milimetra, so mere ob povečavi končale daleč zunaj pogleda. Zdaj ostanejo tik ob telesu, zato ti ni več treba pomanjševati, da jih prebereš."
+    ],
+    [
+      "Posnetje skupin z luknjami",
+      "Skupino več delov, ki imajo vsak svoje luknje, na primer kopiran nosilec, je bilo težko posneti ali zaobliti: orodje je delalo minute in nato obupalo. Zdaj take skupine zgradi natančno in je pripravljeno v nekaj sekundah."
+    ],
+    [
+      "Obroč za vrtenje v skici",
+      "Vrtenje v skici kaže obroč kot v 3D urejevalniku: znotraj njega se vrtenje pripenja na 22,5°, zunaj gre v celih stopinjah. Mreža ne moti več, zato je 90° preprost."
+    ],
+    [
+      "Skica se odpre kot v 3D",
+      "Telo skice, ki si ga zavrtel ali premaknil v 3D urejevalniku, se v skici zdaj prikaže natanko tako, kot stoji na plošči, na mreži plošče."
+    ],
+    [
+      "Čist rob pri površinskih teksturah",
+      "Tudi pri okroglih telesih, na primer šesterokotni prizmi, površinska tekstura na gladkem robu bunčice in luknje pusti cele, namesto da bi jih prepolovila."
+    ]
+  ],
   "1.117.2": [
     [
       "Navpično besedilo",
