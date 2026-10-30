@@ -1,4 +1,22 @@
 {
+  "1.122.0": [
+    [
+      "Razveljavi pove, kaj vrača",
+      "Če pokažeš na Razveljavi ali Uveljavi, namig poimenuje korak z mero, na primer »Zaobljeni robovi škatle (5 mm)«, sporočilo po Ctrl+Z pa pove, kaj je bilo razveljavljeno."
+    ],
+    [
+      "Skica iz reza",
+      "V pogledu prereza »Skica iz reza« začne novo skico kar na rezu, z obrisi že v njej, luknje kot prave krožnice. Pokrov, vložek ali tesnilo se tako začne z obrisom dela, v katerega mora pasti."
+    ],
+    [
+      "Gumbi miške kot v tvojem rezalniku in 3D miška",
+      "V nastavitvah pod Videz lahko gumbi miške delujejo kot v Bambu Studiu in OrcaSlicerju: levi poteg po praznem prostoru vrti pogled, desni gumb ga premika. SpaceMouse pa krmili pogled v Chromu in Edgeu, ko je tam povezan."
+    ],
+    [
+      "Hirthov spoj",
+      "Nova oblika ob zobnikih: disk z zobmi v obliki črke V, ki tečejo od središča. Obrnjena kopija se zaskoči vanj pri vsakem zobu in se sama centrira, za tečaj, ki ga nastaviš pod kotom, ali gumb, ki se zaskoči na mestu."
+    ]
+  ],
   "1.121.1": [
     [
       "Ujemajoče ikone, poljščina spet popolna",
