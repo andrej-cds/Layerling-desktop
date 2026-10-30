@@ -1,4 +1,18 @@
 {
+  "1.124.1": [
+    [
+      "Vrsta, enakomerno razporejena čez ploščo",
+      "V vzorcu je pri »Vrsta« zdaj »Razporedi čez telo«: luknjo postaviš na ploščo, izbereš smer X ali Y in razmik do roba, luknje pa napolnijo ploščo od enega konca do drugega. Razmik sledi številu lukenj, tako da ti ni več treba računati – npr. za držalo za ključe ali obešalnik."
+    ],
+    [
+      "SVG-ji iz programa Adobe Illustrator",
+      "Datoteke, shranjene v Illustratorju z »Shrani kot → SVG«, je layerling doslej zavrnil (»SVG entities are not supported«). Zdaj jih uvoziš kot vse druge. Če uvoz ne uspe, je razlog izpisan v tvojem jeziku, skupaj z namigom, kaj pomaga."
+    ],
+    [
+      "Navojne luknje, v katere vijak tudi res gre",
+      "Navojna palica ali vijak, ki ga postaviš kot izrez, ima polno mero vijaka brez zračnosti, zato je natisnjena luknja pretesna. layerling zdaj na to opozori in z enim klikom naredi navojno luknjo, ki dobi nastavljeno zračnost."
+    ]
+  ],
   "1.124.0": [
     [
       "Naklon in ožitev vzdolž",
