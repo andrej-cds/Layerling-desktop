@@ -1,4 +1,22 @@
 {
+  "1.124.2": [
+    [
+      "Brisanje ploskve za klin, piramido in paraboloid",
+      "Kjer klin, piramida ali paraboloid moli iz drugega telesa, združi obe in odstrani, kar moli, z »Izbriši ploskev«. Izvoz STEP ju zdaj prav tako zajame, kot telesi in kot luknji."
+    ],
+    [
+      "Vzorec samo zunaj, tudi po zaobljenju",
+      "Pri skodelici z zaobljenimi robovi je »Izberi ploskve« za teksturo površine doslej zajel vso skodelico, tudi notranjost in dno. Zdaj se ploskev konča tudi pri tesnem zaobljenju: klik na zunanjost zajame samo zunanjost, zaobljenja pa lahko izbereš posebej."
+    ],
+    [
+      "Ostrejši naslovi",
+      "Naslovi, zavihki in oznake traku so malo manj debeli. Na Macu so se črke pri majhnih velikostih zlivale in so bile videti zamegljene; zdaj vmesnik tam uporablja Avenir Next Demi Bold namesto Heavy, v Windowsih pa Arial Bold namesto Arial Black."
+    ],
+    [
+      "Zložene skupine pokažejo, da se odprejo",
+      "Ko je okno ozko, se skupine na traku zložijo v en gumb. Videti je bilo kot eno samo orodje, npr. Zgodovina kot Razveljavi. Zdaj pod njim visi majhna puščica v barvi skupine, namig pa pove, da klik pokaže orodja."
+    ]
+  ],
   "1.124.1": [
     [
       "Vrsta, enakomerno razporejena čez ploščo",
