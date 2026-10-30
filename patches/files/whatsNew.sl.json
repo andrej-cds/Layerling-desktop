@@ -1,4 +1,20 @@
 {
+  "1.121.1": [
+    [
+      "Ujemajoče ikone, poljščina spet popolna",
+      "Gibljivi spoji, Rezalnik za piškote in Pokrov imajo zdaj v traku ikone, ki se ujemajo z drugimi orodji. Poljski vmesnik in navodila so spet posodobljeni, deli rezalnika za piškote (stena, rob, notranje stene, mostički, plošča) pa so poimenovani v tvojem jeziku."
+    ]
+  ],
+  "1.121.0": [
+    [
+      "Novo: trak zloži skupine",
+      "Da ostane več prostora za gradnjo, je trak zdaj vedno visok eno vrstico. Kadar se vse skupine ne prilegajo oknu, se najmanj uporabljene zložijo v en gumb; pokaži nanj ali se ga dotakni in orodja se odprejo. Gumb Začetek (hišica) je zdaj levo od »3D urejevalnika«, pomoč pa zgoraj desno. Imaš raje vse odprto kot prej? Klikni pripenjalko levo od povečevalnega stekla zgoraj desno: vse skupine ostanejo odprte, tudi naslednjič. Drugi klik jo spet izklopi."
+    ],
+    [
+      "Novo: pokrovi za škatle in lonce",
+      "Pod Prilagodi »Pokrov« naredi ustrezen pokrov za telo, ki je zgoraj odprto, na primer za škatlo, ki si jo izdolbel z odprtim vrhom. Izberi vstavljen, čez vrh ali raven pokrov in prileganje: tesno, normalno ali ohlapno. Pokrov sledi obrisu, tudi okroglemu, in leži obrnjen ob telesu, pripravljen za tisk."
+    ]
+  ],
   "1.120.2": [
     [
       "Rezalnik za piškote: plošča, zaobljenja in boljši mostički",
