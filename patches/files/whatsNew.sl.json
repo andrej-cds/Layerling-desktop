@@ -1,4 +1,18 @@
 {
+  "1.123.0": [
+    [
+      "Delta tiskalniki z okroglo ploščo",
+      "Seznam tiskalnikov ima zdaj delta tiskalnike FLSun, SeeMeCNC, Anycubic in Rolohaun. Pri njih je delovna ravnina okrogla kot plošča, layerling pa opozori, ko telo sega čez rob."
+    ],
+    [
+      "Šrafiran prerez",
+      "Pogled prereza zdaj šrafira rez kot risba, telo znotraj drugega pa je šrafirano v nasprotno smer. Pod »Površina reza« jo lahko tudi polno zapolniš ali pustiš odprto."
+    ],
+    [
+      "Zgodovina kot seznam",
+      "Gumb s seznamom v pogledu zgodovine pokaže vsak korak z imenom in mero, najnovejši na vrhu. Klik skoči v to stanje, brez iskanja po drsniku."
+    ]
+  ],
   "1.122.0": [
     [
       "Razveljavi pove, kaj vrača",
