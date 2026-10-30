@@ -1,4 +1,38 @@
 {
+  "1.125.0": [
+    [
+      "Vijaki s Torxom, Phillipsom ali brez glave",
+      "Vijak zdaj dobi pogon, kakršnega želiš: šesterorob, Torx, Phillips ali brez. Velikost in globino pogona ter premer glave lahko nastaviš, tako da dobi uporaben pogon tudi ploščata glava."
+    ],
+    [
+      "Odprtine za USB, HDMI, DisplayPort in RJ45",
+      "Nova oblika »Port opening« naredi luknjo za vtičnico v steno škatle: USB-C, Micro-USB, USB-A, HDMI, Mini HDMI, DisplayPort, Mini DisplayPort ali RJ45. Izberi vtičnico, jo premakni na steno in združi. Mere so iz podatkovnih listov in standardov, z malo prostora za tiskanje, HDMI in DisplayPort pa dobita poševne vogale."
+    ],
+    [
+      "Odmik deluje pri vseh črkah",
+      "Besedil s črkami A, B, M, N, W ali 9 ni bilo mogoče odmakniti. Zdaj se njihove črke povečajo ali skrčijo vzdolž obrisov, tudi kot luknja z zračnostjo in pri izrezovanju."
+    ],
+    [
+      "Hirthov spoj ostane okrogel",
+      "Namesto dolžine in širine ima Hirthov spoj zdaj en premer, vsak ročaj pa spreminja samo tega. Zobje se tako vedno ujemajo po vsem obodu."
+    ],
+    [
+      "Urejeni gumbi pod nastavitvami delovne površine",
+      "Na Macu so se napisi dveh gumbov na dnu nastavitev delovne površine razlezli čez rob. Zdaj ostane vsak napis v eni vrstici, kjer je premalo prostora, pa se gumba premakneta pod namig."
+    ],
+    [
+      "Razvrsti seznam objektov po imenu",
+      "Gumb A–Z v naslovni vrstici seznama objektov postavi poimenovane oblike na vrh po abecedi, Part 2 pred Part 10. Ostale ostanejo spodaj v vrstnem redu dodajanja, najnovejša zadnja."
+    ],
+    [
+      "Posnetja, zaobljenja in STEP za tečaj s stožci",
+      "Posnetja, zaobljenja in »Delete face« zdaj delujejo tudi pri tečaju s stožci. Izvoz STEP, ki ga je doslej izpustil, ga zdaj zajame z dejanskimi stožci."
+    ],
+    [
+      "Skicirne oblike v tvoji privzeti velikosti",
+      "Pravokotnik, krog in elipsa v skici zdaj začnejo tako veliki, kot si nastavil škatlo in valj v privzetih merah oblik, ne več vedno pri 20 mm."
+    ]
+  ],
   "1.124.2": [
     [
       "Brisanje ploskve za klin, piramido in paraboloid",
