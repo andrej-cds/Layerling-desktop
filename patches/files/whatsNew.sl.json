@@ -1,4 +1,30 @@
 {
+  "1.124.0": [
+    [
+      "Naklon in ožitev vzdolž",
+      "Dve novi kartici v nastavitvah škatle, valja, večkotnika, klina in drugih oblik: »Naklon vzdolž« spusti vrh proti enemu koncu, »Ožitev vzdolž« zoži stranice proti enemu koncu, ravno ali ukrivljeno. Tako dobiš poševno streho, klančino ali premec ladje, oranžna pika na koncu pa višino ali širino vleče kar v pogledu."
+    ],
+    [
+      "Skupina izgleda kot eno telo",
+      "Skupina teles se zdaj prikaže kot eno združeno telo, tako da jo na prvi pogled ločiš od svežnja. Nove skupine začnejo v eni barvi, »Večbarvno« pa vrne barve delov; shranjene skupine obdržijo barve."
+    ],
+    [
+      "Posnetja in zaobljenja na SVG-jih iz slike",
+      "SVG, ki ga je program izsledil iz slike, zdaj sprejme posnetja in zaobljenja na robovih. Prej je vsak rob odpovedal."
+    ],
+    [
+      "Ime datoteke za ime projekta",
+      "Če pri shranjevanju daš datoteki drugo ime kot projektu, sporočilo po tem ponudi gumb, ki projekt poimenuje enako. Če si drugo ime izbral namenoma, na primer s številko različice, ga pusti."
+    ],
+    [
+      "Izbokline: brez lukenj in ravne vrste po želji",
+      "Na okroglih telesih je površinska tekstura »Izbokline« izpuščala posamezne izbokline, nekatere vdolbine pa so bile videti raztrgane. Zdaj je vsaka na svojem mestu. Pod »Razporeditev« stojijo zamaknjene kot prej ali v ravnih vrstah."
+    ],
+    [
+      "Hitri namigi v nameščeni aplikaciji",
+      "Ko je bil layerling nameščen kot aplikacija, so se imena gumbov pokazala pozno ali sploh ne. Zdaj se pokažejo po kratkem trenutku v majhnem oblačku."
+    ]
+  ],
   "1.123.0": [
     [
       "Delta tiskalniki z okroglo ploščo",
