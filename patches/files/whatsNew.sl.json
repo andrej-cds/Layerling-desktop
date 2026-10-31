@@ -1,4 +1,30 @@
 {
+  "1.126.0": [
+    [
+      "Ročaji poravnave ostanejo ob majhnem delu",
+      "Pri majhnem delu, približanem od blizu, so ročaji poravnave pristali daleč stran ali zunaj zaslona. Zdaj stojijo na zaslonu največ 40 slikovnih pik ob izboru."
+    ],
+    [
+      "Meni desnega klika se premika s kolescem",
+      "Meni desnega klika, višji od okna, se zdaj premika s kolescem miške in se ne zapre. Kolesce zunaj menija ga zapre kot prej."
+    ],
+    [
+      "Iskane besede označene na strani vodnika",
+      "Ko odpreš rezultat iskanja po vodniku, stran označi vsako mesto, kjer se pojavijo tvoje besede, in skoči na prvo v tistem razdelku. Esc ali klik na oznako jih počisti."
+    ],
+    [
+      "Odmik samo vstran",
+      "Odmik ima novo kljukico »Sides only«: obris se poveča ali skrči za razdaljo, ravni zgornji in spodnji ploskvi pa ostaneta na svoji višini. Tabla tako dobi rob po vsem obodu, ne da bi postala višja."
+    ],
+    [
+      "Vijaki z režo in Robertson, podložke",
+      "Vijak ima lahko zdaj režo, za ploščati izvijač ali kovanec, ali kvadratni pogon Robertson, ki je običajen v Kanadi. Cev pa postane podložka z enim klikom: pod »Washer« izberi velikost vijaka, zunanji in notranji premer ter debelina sledijo ISO 7089."
+    ],
+    [
+      "Orodja tudi za luknje",
+      "Posnetje, zaobljenje, votlenje, odmik in brisanje ploskve zdaj delujejo tudi na luknji, ta pa ostane luknja: luknja zaobljene škatle izreže žep z zaobljenimi notranjimi vogali. Ovojnica dveh valjastih lukenj izreže režo."
+    ]
+  ],
   "1.125.0": [
     [
       "Vijaki s Torxom, Phillipsom ali brez glave",
