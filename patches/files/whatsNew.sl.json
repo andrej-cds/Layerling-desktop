@@ -1,4 +1,84 @@
 {
+  "1.129.1": [
+    [
+      "Sledenje s krivuljami, laso in več",
+      "Sledenje v nastavitvah slike zdaj položi obrise kot krivulje in vogale s toliko točkami, kot jih izbereš, in jih najprej pokaže rdeče nad sliko. Pri fotografiji Object vzame vse, kar izstopa iz ozadja, kot en obris; kliknjena območja postanejo luknje, Cut away odstrani npr. senco, magnetni laso pa sam sledi robu, kjer barva ne loči oblike. Risba vaze lahko na enak način sledi fotografiji."
+    ],
+    [
+      "Tečaj: snemljiv in žepi za matice",
+      "Tečaj ima slog Lift-off: dva členka, spodnji s sornikom, zgornji kot tulec, ki se dvigne, tako da lahko pokrov ali vrata snameš. Pri vseh slogih lahko luknje za vijake zdaj dobijo šesterokotne žepe za matice, na enem krilu poglobljene, na drugem po želji z žepi za matice."
+    ]
+  ],
+  "1.129.0": [
+    [
+      "Preglednejši urejevalnik",
+      "Ta posodobitev uredi urejevalnik, da hitreje najdeš, kar iščeš. Velika skupina Modify na traku je zdaj razdeljena na štiri poimenovane razdelke: Mirror & pattern, Split & shape, Edges & walls in Surface. Če se z miško ustaviš na osivelem gumbu, pove, kaj mu manjka, npr. »Select one body« ali »The selection is locked: unlock it first«. Prazen načrt na dnu pokaže, kje začeti: vzemi obliko s traku ali pritisni Ctrl+K in poišči katero koli orodje po imenu. Vrstica na levi se zdaj imenuje vrstica pogleda, njen gumb Center view on selection pa pokaže celoten prizor, kadar ni nič izbrano, kot tipka F. Vodnik vsak del urejevalnika imenuje enako, Getting started pa pokaže sliko z označenimi vsemi deli."
+    ],
+    [
+      "Loft skozi več prerezov",
+      "Oblika Loft dobi prereze med obema koncema (0 do 12): vsak ima svoj obris, velikost, višino in odmik. Smooth položi mehko površino skozi vse prereze, Straight naredi ravne stene od prereza do prereza. Tako dobiš vaze, ročaje in ohišja z ožino."
+    ],
+    [
+      "Vaza brez dna",
+      "Če dno votle vaze nastaviš na 0 mm, ostane spodaj odprta: cev, odprta na obeh koncih, za zvonove, ustnike in cevi. Ker na tiskalni plošči stoji samo obroč stene, predlog priporoča brim."
+    ],
+    [
+      "Oznaka dolžine ne zakriva več končne točke",
+      "Pri risanju kratke, strme črte, krivulje ali loka je oznaka z dolžino in kotom ležala čisto na točki, ki si jo hotel postaviti. Zdaj stoji ob črti in pušča oba konca prosta."
+    ]
+  ],
+  "1.128.0": [
+    [
+      "Navoj za steklenice PCO 1881",
+      "Meni velikosti navoja ima zdaj serijo »PCO – Bottles« s PCO 1881, 28 mm grlom večine steklenic za vodo in sok. Prinese svoj ploščati profil. Grlo naredi kot palico, zamašek kot matico ali navojno luknjo, za lijake, izlive ali nadomestni zamašek."
+    ],
+    [
+      "Podvoji ponovi tudi velikost",
+      "Podvoji obliko, kopijo povečaj in jo premakni: vsak naslednji Ctrl+D naredi naslednjo kopijo večjo za isti faktor in jo premakne za isti korak, kot v Tinkercadu."
+    ],
+    [
+      "Ročaji velikosti v barvah osi",
+      "Ročaji, ki spreminjajo eno samo mero, imajo zdaj barvo svoje osi: sredina stranice je rdeča za širino in zelena za globino, vrh je moder za višino. Tako takoj vidiš, kaj vlečeš."
+    ],
+    [
+      "Ploščate vzmeti",
+      "Vzmet je zdaj tudi ploščata: trak, ki teče v valovih čez ploščo in se tiska ležeč. Izberi okrogle valove, cikcak ali kvadratne zavoje, očesce, jeziček ali nič na koncih ter nastavi zavoje in širino traku. Najdeš jo pod Form pri vzmeti."
+    ],
+    [
+      "Zaobljenja in STEP za zobnik s puščičastimi zobmi",
+      "Zaobljenja in »Delete face« zdaj delujejo tudi pri zobniku s puščičastimi zobmi. Izvoz STEP, ki ga je doslej izpustil, ga zdaj zajame z dejanskimi poševnimi zobmi."
+    ]
+  ],
+  "1.127.0": [
+    [
+      "Sledenje sliki predloge",
+      "Slika pod skico postane skicirne črte z »Trace outline«, tam, kjer leži: njen temni ali svetli del, pri pragu, ki ga nastaviš. Črte nato urejaš kot vse druge."
+    ],
+    [
+      "Pokrov, ki prime steno z obeh strani",
+      "Orodje Lid ima četrto vrsto: »Both sides«. Pod ploščo sta ustnica, ki gre v odprtino, in rob, ki gre čez zunanjost. Stena tvoje škatle sedi v utoru med njima, kot pri posodi za hrano."
+    ],
+    [
+      "Vpiši položaj v skici",
+      "Izberi obliko v skici: vrstica nad njo zdaj kaže X in Y njene sredine, v mm od izhodišča. Vpiši vrednost in oblika se premakne natančno tja, npr. luknja 12 mm od sredine plošče."
+    ],
+    [
+      "Vrtišče na sredino ploskve",
+      "Drži Shift, medtem ko vlečeš rdeči označevalec vrtišča: pripne se na sredino ploskve pod kazalcem, npr. os obroča tečaja ali konica stožca. Pogleda mimo prozornih teles pred njo."
+    ],
+    [
+      "Zaobljene cevi se še vedno prevrtajo",
+      "Cev z zaobljenimi ali posnetimi konci obdrži »Bore cuts as a hole when grouped«. Združena njena izvrtina odpre steno druge cevi, npr. pri T-spoju, zaobljeni konci pa ostanejo."
+    ],
+    [
+      "Navoji v povečanih skupinah",
+      "Navoj v skupini, ki jo povečaš v eni smeri, se zdaj zgradi znova, da ustreza, namesto da bi bil stisnjen ali raztegnjen."
+    ],
+    [
+      "Urejenejša vrstica kamere",
+      "Gumbi vrstice kamere, ki spadajo skupaj, so v okvirjih. Njen prvi gumb vrstico zloži ali premakne, dvoklik pa jo vrne. Opombe so zdaj tam, zobnik nastavitev je v naslovni vrstici, »Manage« pa se zdaj imenuje »File«."
+    ]
+  ],
   "1.126.0": [
     [
       "Ročaji poravnave ostanejo ob majhnem delu",
