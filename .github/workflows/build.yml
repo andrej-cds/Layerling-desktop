@@ -15,6 +15,8 @@ jobs:
   priprava:
     # Izdajo ustvari ta opravilo, preden se začnejo vzporedne gradnje. Brez tega so gradnje za Windows in Mac
     # včasih hkrati ustvarile vsaka svojo izdajo z isto oznako in so se datoteke razdelile na dve izdaji.
+    # Izdaja se ustvari (in s tem objavi) šele, ko je celoten preizkus v oknu (preizkus-v-oknu) zelen.
+    needs: preizkus-v-oknu
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +34,8 @@ jobs:
 
   gradnja:
     needs: priprava
-    if: ${{ !cancelled() && (needs.priprava.result == 'success' || needs.priprava.result == 'skipped') }}
+    # Ob oznaki gradnja steče le, če je priprava uspela (torej so testi zeleni); brez oznake priprava ni potrebna.
+    if: ${{ !cancelled() && (needs.priprava.result == 'success' || !startsWith(github.ref, 'refs/tags/v')) }}
     strategy:
       fail-fast: false
       matrix:
