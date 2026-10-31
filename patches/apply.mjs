@@ -393,6 +393,14 @@ export const edits = [
     replace: "(typeof source.font === \"string\" && source.font.length > 0 && source.font.length <= 80)",
   },
   {
+    name: "STEP izvoz besedila: pisave živijo na strani, zato izvoz s tekstom teče na strani (ne v workerju)",
+    stage: "jezik",
+    file: "apps/web/src/lib/geometryWorker.ts",
+    marker: "CDS: STEP with text on the page",
+    find: "export async function exportShapesToStepOffThread(shapes: readonly WorkplaneShape[]): Promise<StepExportResult> {\n",
+    replace: "export async function exportShapesToStepOffThread(shapes: readonly WorkplaneShape[]): Promise<StepExportResult> {\n  // CDS: STEP with text on the page - the fonts are loaded on the page only, not in the worker.\n  if (containsText(shapes)) return (await import(\"@/lib/stepExport\")).exportShapesToStep([...shapes]);\n",
+  },
+  {
     name: "Slovenščina: jezikovni namig za napake",
     stage: "jezik",
     file: "apps/web/src/lib/userErrors.ts",
