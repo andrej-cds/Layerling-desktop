@@ -1,4 +1,38 @@
 {
+  "1.131.0": [
+    [
+      "Flexi členki, ki se gibljejo gor in dol",
+      "Flexi spoji zdaj omogočajo izbiro, kako se členki gibljejo: vstran kot doslej ali gor in dol. Gor in dol da trakove kot pri flexi obesku za ključe, jajcu ali zapestnici: vsak rez dobi ploščat tečaj, ki se natisne že sestavljen."
+    ],
+    [
+      "Vleci vrednosti, takoj razveljavi",
+      "V plošči lastnosti spremeniš vrednost tako, da povlečeš njeno ime, na primer »Width«, levo ali desno. Sporočilo o pravkar narejenem koraku, na primer »3 shapes deleted«, ima zdaj gumb Undo."
+    ],
+    [
+      "Pogled naravnost na delovno ravnino",
+      "Pritisni P ali klikni nov gumb ob Place workplane v vrstici pogleda: pogled se zavrti, dokler ne gledaš delovne ravnine naravnost, tudi na poševni ploskvi, z izhodiščem na sredini."
+    ],
+    [
+      "Imena gumbov nad gumbom",
+      "V nameščenem programu se ime gumba zdaj pokaže nad gumbom in ne pod njim, tako da ga kazalec miške ne pokriva, tudi če si v sistemskih nastavitvah povečal kazalec."
+    ],
+    [
+      "Krilne matice, zvezdasti gumbi, okrasne podložke",
+      "Matica je zdaj tudi kvadratna, z robom, s krilci ali kot zvezdasti gumb, vijak pa s kvadratno, robato ali krilno glavo ali kot zvezdasti gumb. Krilca in gumbi ležijo ravno in se natisnejo brez podpor. Novost je tudi okrasna podložka: izbočena podložka pod vijakom s stožčasto glavo, od M2 do M20."
+    ],
+    [
+      "Preveri zračnost",
+      "Combine ima Check clearance: pred tiskom pokaže, kateri deli se prekrivajo, dotikajo ali so preblizu, na primer pri flexi igrači, tečaju, natisnjenem sestavljenem, ali pokrovu v škatli."
+    ],
+    [
+      "Več površinskih tekstur",
+      "Telo lahko zdaj nosi več površinskih tekstur, vsako na svojih ploskvah: na primer opeke povsod naokoli in narebričenje na vrhu."
+    ],
+    [
+      "Raspberry Pi v pravi velikosti",
+      "Novo med oblikami: plošča Raspberry Pi 5, 4, 3 B+ ali Zero 2 W ali BIGTREETECH Pi z luknjami in priključki. Če jo združiš z ohišjem kot luknjo, izreže odprtine za njene priključke."
+    ]
+  ],
   "1.130.0": [
     [
       "Povrtine in žepi za matice po velikosti vijaka",
