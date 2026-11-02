@@ -1,4 +1,54 @@
 {
+  "1.132.0": [
+    [
+      "Prilagodi osnovno ploščo obrisu",
+      "Osnovna plošča Gridfinity zdaj zapolni predal, ki ni pravokoten. Izberi ploščo skupaj z obliko notranjosti predala in klikni »Fit baseplate to outline« v plošči lastnosti: cele celice na eni mreži, postavljene tja, kjer jih gre največ, največ 6 v širino in 6 v globino (12 z Large plate), ostalo je polno, tako da vsako gnezdo še vedno sprejme navadno posodico."
+    ],
+    [
+      "Posnetje in zaobljenje ohranita odprtino snopa",
+      "Snop moznika in večje luknje, združen s škatlo, izreže škatlo, ne pa svojega moznika. Pri posnetju ali zaobljenju se je žleb okoli moznika vrnil zapolnjen. Zdaj ostane."
+    ],
+    [
+      "Ovratnik pod glavo vijaka",
+      "Vijak ima zdaj Collar height in Collar diameter: okrogel ovratnik med glavo in navojem, na primer distančnik pod zvezdastim gumbom. Ostane znotraj glave in se natisne brez podpor."
+    ],
+    [
+      "Pokrovi so točna telesa: robove lahko zaobliš",
+      "Pokrov za točno telo, na primer zaobljeno škatlo, ki si jo izdolbel, je zdaj sam točno CAD telo. Njegove robove zaobliš ali posname z orodjem za robove, krivine pa ostanejo okrogle tudi v izvozu STEP."
+    ],
+    [
+      "Konkavno zaobljenje: robove izdolbi namesto zaoblitve",
+      "V oknu zaobljenja »Concave (scoop out)« izreže četrtkrožno izdolbino iz vsakega izbranega ravnega roba, kot zarezani koti škatle. Prej je to terjalo valj, spremenjen v luknjo in ročno poravnan."
+    ],
+    [
+      "Obrnjene oblike ostanejo obrnjene pri vlečenju ročaja",
+      "Ko je delovna ravnina na ploskvi, se je obrnjena oblika ob vlečenju ročaja zdela, kot da se obrne nazaj, ker je dolžina šla na drugo stran. Ročaji zdaj sledijo obratu oblike."
+    ],
+    [
+      "Vaza: sporočilo pokaže pot do izdolbine in pokrova",
+      "Vaza ima preveč trikotnikov za Hollow. Sporočilo zdaj navede vazino lastno pot: »Hollow with wall« pod Build in pokrov na kartici Accessories."
+    ],
+    [
+      "Potopi dele v ploskev, poravnano na vrhu (Shift)",
+      "Drži Shift, ko postaviš novo obliko ali del, pobran s C, na ploskev, in se potopi v ploskev, pokonci, z vrhom poravnano: dobro za povrtine in stožčaste povrtine. Shift+D spusti izbor z vrhom na delovni ravnini. Stožčasta povrtina, povrtina in dvojna stožčasta povrtina zdaj začnejo kot luknja."
+    ],
+    [
+      "Odprta skica preživi osvežitev",
+      "Če si bil sredi skice, z vstavljeno sliko in črto, narisano čez njo, je osvežitev, tudi zaradi posodobitve, vse vzela. Odprta skica se zdaj med risanjem hrani v tem brskalniku in je po osvežitvi spet tam."
+    ],
+    [
+      "Razveljavi z enim klikom, tudi zložen",
+      "V ozkem oknu se Zgodovina zloži v en gumb z ikono Undo. Klik nanj zdaj vzame nazaj tvoj zadnji korak; majhna puščica pod njim odpre Redo in zgodovino."
+    ],
+    [
+      "Gumb za prerez izklopi rez",
+      "Ko je okno odprto, klik na gumb pogleda prereza zdaj rez tudi izklopi. X in Esc okno le skrijeta in pustita rez vklopljen."
+    ],
+    [
+      "Projekti s Chamfillet se odprejo veliko hitreje",
+      "Chamfillet je telesa rezal veliko pregosto, do trideset krat toliko trikotnikov kot zaobljenje enake velikosti, zato je bil projekt z veliko takih robov ogromen in počasen. Chamfillet je zdaj enako fin kot drugi robovi, starejši projekti pa se ob odprtju sami olajšajo."
+    ]
+  ],
   "1.131.1": [
     [
       "Vlečenje z desno tipko ne konča več črte (Mac)",
