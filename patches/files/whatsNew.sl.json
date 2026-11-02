@@ -1,4 +1,22 @@
 {
+  "1.131.1": [
+    [
+      "Vlečenje z desno tipko ne konča več črte (Mac)",
+      "Desni klik konča črto ali gladko krivuljo, ki jo rišeš. Na Macu se je to zgodilo takoj, ko je bila desna tipka pritisnjena, tudi ko si premikal pogled s Shiftom in desno tipko, naslednja točka pa se ni več povezala s prejšnjo. Zdaj se črta konča, ko tipko spustiš, in le če se miška ni premaknila."
+    ],
+    [
+      "Pogled se na počasnih računalnikih tudi hitro neha drseti",
+      "Po premiku ali vrtenju pogled še za trenutek drsi naprej. Na računalnikih, ki narišejo malo sličic na sekundo, je to trajalo do deset sekund. Zdaj se povsod konča po enakem kratkem trenutku."
+    ],
+    [
+      "Zobniki z več kot 150 zobmi se spet naložijo",
+      "Shranjen projekt z zobnikom z več kot 150 zobmi se ni hotel odpreti. Zdaj se spet naloži, do 500 zob, kolikor jih urejevalnik dovoljuje."
+    ],
+    [
+      "Flexi členki, ki se prepogibajo, tudi v višjih telesih",
+      "Pri flexi členkih, ki se gibljejo gor in dol, je tečaj rasel z višino telesa, zato je moralo biti visoko telo zelo široko. Zdaj zadostuje okoli 20 mm širine ne glede na višino, sporočilo pa pove, kako široko mora biti."
+    ]
+  ],
   "1.131.0": [
     [
       "Flexi členki, ki se gibljejo gor in dol",
