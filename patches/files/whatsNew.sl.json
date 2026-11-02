@@ -1,4 +1,48 @@
 {
+  "1.132.2": [
+    [
+      "Preluknaj telo z obrisom",
+      "Combine ima zdaj Punch: najprej izberi telo, ki bo preluknalo, nato telo, ki dobi odprtino. Obris luknjača gre naravnost skozi po osi X, Y ali Z, tudi če luknjač stoji samo pred njim. Luknjač ostane, zato ga lahko premakneš ali obrneš in takoj preluknaš znova."
+    ],
+    [
+      "Plošča skice raste s skico",
+      "Profil za vrtenje lahko zdaj sega čez rob plošče, za večji polmer, ne da bi bilo treba v nastavitvah povečati delovne ravnine. Mreža raste z njim, točke zunaj je spet mogoče izbrati, gumb minus pa oddalji pogled, dokler ni vse vidno."
+    ],
+    [
+      "Posnetja čez napol posneto vogal",
+      "Ko posnetje ali zaobljenje ne uspe, layerling poskusi še enkrat s kratkimi robovi na koncih izbranih. Vogal, kjer se prejšnje posnetje sreča s še ostro steno, zdaj gre skozi v enem koraku; sporočilo pove, koliko robov je šlo zraven."
+    ],
+    [
+      "Ovratnik na matici",
+      "Tako kot vijak lahko tudi matica dobi okrogel ovratnik: Collar height in Collar diameter sta v nastavitvah šesterorobe, kvadratne, prirobnične, krilne in zvezdaste matice. Ovratnik stoji na vrhu matice, ožji od nje, navoj teče skozi; matica se še vedno tiska na svoji nalegalni ploskvi, ovratnik brez podpor. Višina šteje samo matico."
+    ],
+    [
+      "Pokrov čajnika: spoj kot višina od dna",
+      "Pri pokrovu čajnika za vazo lahko spoj zdaj vpišeš kot višino od dna, v novem polju »Body up to · lid from« ob višini pokrova. Obe skupaj dasta višino vaze: vpiši eno in druga vzame ostanek."
+    ]
+  ],
+  "1.132.1": [
+    [
+      "Pokrov čajnika za vazo",
+      "Accessories ima zdaj pokrov čajnika: vrh votle vaze postane njen pokrov z vazino steno in vzorcem, zato utori in zvitost tečejo naprej čez spoj. V odprtino gre rob, zraven pa lahko pride gumb kot svoj del."
+    ],
+    [
+      "Opeke ohranijo čist rob do vrha",
+      "Pri opekah na straneh telesa in na vrhu je bila zgornja vrsta zidu ob robu potegnjena v dolge kline. Zdaj rob ostane gladek, stiki pa še vedno tečejo okoli pokončnih vogalov."
+    ],
+    [
+      "layerling v celoti v italijanščini",
+      "Vsa besedila programa so zdaj prevedena v italijanščino."
+    ],
+    [
+      "Zavihek strežnika šteje tudi vse projekte na strežnikih PHP",
+      "Na strežniku s PHP je zavihek na začetni strani kazal samo projekte odprte mape, sam se ni pomaknil naprej in je odprl pozdravno stran, čeprav so projekti obstajali. Zdaj šteje vse projekte v vseh mapah, kot pri Dockerju."
+    ],
+    [
+      "Več prevodov: španščina, arabščina, poljščina, kitajščina in danščina",
+      "Check clearance, magneti pokrova, plasti površinskih tekstur, zložljivi flexi členki in druga nova okna so bila v teh jezikih še v angleščini. Zdaj so prevedena, prav tako sporočilo, ko konkavno zaobljenje naleti na ukrivljen rob."
+    ]
+  ],
   "1.132.0": [
     [
       "Prilagodi osnovno ploščo obrisu",
