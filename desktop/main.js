@@ -15,7 +15,7 @@ const { openInSolidcraft } = require("./solidcraft");
 const { openInBambuStudio, isObjFile } = require("./bambustudio");
 const { createSystemFonts } = require("./systemfonts");
 
-const WINDOW_TITLE = "Layerling - Free 3D CAD for 3D printing";
+const WINDOW_TITLE = "LayerLing by CDS - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
 const REPO = (process.env.LAYERLING_DESKTOP_REPO || "andrej-cds/layerling-desktop");
 const SOURCE_URL = `https://github.com/${REPO}`;
@@ -171,7 +171,7 @@ function createMainWindow() {
     minHeight: 600,
     show: false,
     backgroundColor: "#1e2327",
-    title: "Layerling",
+    title: "LayerLing by CDS",
     icon: fs.existsSync(iconPath()) ? iconPath() : undefined,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
@@ -350,7 +350,7 @@ ipcMain.handle("mirror:write", (_event, entries) => {
   if (result.failed.length) {
     log(`Zapisovanje na disk ni uspelo za ${result.failed.length} projektov: ${JSON.stringify(result.failed)}`);
     if (Notification.isSupported()) {
-      new Notification({ title: "Layerling", body: tr("dlg.autosaveFailed") }).show();
+      new Notification({ title: "LayerLing by CDS", body: tr("dlg.autosaveFailed") }).show();
     }
   }
   return result;

@@ -1,6 +1,6 @@
 # Obvestilo o licenci in spremembah
 
-**Layerling Desktop** je namizna izpeljanka programa **Layerling** (https://github.com/henmedia/layerling),
+**LayerLing by CDS (Desktop)** je namizna izpeljanka programa **Layerling** (https://github.com/henmedia/layerling),
 ki je sam izpeljanka programa **SketchForge-3D** (https://github.com/Formsmith746/SketchForge-3D).
 Vsi trije so objavljeni pod licenco **GNU Affero General Public License v3.0 (AGPL-3.0-only)**; besedilo je v datoteki `LICENSE`.
 

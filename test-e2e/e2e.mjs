@@ -131,8 +131,8 @@ try {
   ok("most do lupine je na voljo");
 
   const windowTitle = await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].getTitle());
-  assert.match(windowTitle, /^Layerling - Free 3D CAD for 3D printing - Desktop \d+\.\d+\.\d+$/, `naslov okna: ${windowTitle}`);
-  ok("naslovna vrstica: »Layerling - Free 3D CAD for 3D printing - Desktop x.y.z« (brez »in your browser«)");
+  assert.match(windowTitle, /^LayerLing by CDS - Free 3D CAD for 3D printing - Desktop \d+\.\d+\.\d+$/, `naslov okna: ${windowTitle}`);
+  ok("naslovna vrstica: »LayerLing by CDS - Free 3D CAD for 3D printing - Desktop x.y.z« (brez »in your browser«)");
 
   await page.waitForFunction(() => /Desktop \d+\.\d+\.\d+/.test(document.body.innerText), null, { timeout: 15000 });
   const noticeShown = await page.evaluate(() => {

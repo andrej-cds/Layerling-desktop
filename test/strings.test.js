@@ -21,7 +21,7 @@ test("jezik: sistem, veljavnost in prevod z vstavljanjem", () => {
   setLanguage("en");
   assert.equal(getLanguage(), "en");
   assert.equal(tr("update.download"), "Download and install");
-  assert.equal(tr("update.available", { version: "1.2.3" }), "A new version of Layerling is available: 1.2.3.");
+  assert.equal(tr("update.available", { version: "1.2.3" }), "A new version of LayerLing by CDS is available: 1.2.3.");
   setLanguage("sl");
   assert.equal(tr("update.download"), "Prenesi in namesti");
   assert.equal(tr("neobstojec.kljuc"), "neobstojec.kljuc");

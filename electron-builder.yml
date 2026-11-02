@@ -1,6 +1,6 @@
 appId: si.cassettedeck-service.layerling
 productName: Layerling
-copyright: "Layerling: GNU AGPL v3. Namizna lupina: Andrej Češarek."
+copyright: "Layerling (original): GNU AGPL v3. Namizna lupina: Andrej Češarek."
 directories:
   output: dist
   buildResources: build
@@ -12,12 +12,12 @@ files:
 afterPack: scripts/after-pack.cjs
 fileAssociations:
   - ext: lyl
-    name: Layerling projekt
-    description: Layerling projekt
+    name: LayerLing projekt
+    description: LayerLing projekt
     role: Editor
   - ext: skf
-    name: Layerling projekt (starejši zapis)
-    description: Layerling projekt (starejši zapis)
+    name: LayerLing projekt (starejši zapis)
+    description: LayerLing projekt (starejši zapis)
     role: Editor
 publish:
   provider: github
@@ -35,7 +35,7 @@ nsis:
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
   createStartMenuShortcut: true
-  shortcutName: Layerling
+  shortcutName: LayerLing by CDS
   language: "1060"
   installerSidebar: build/installerSidebar.bmp
   uninstallerSidebar: build/uninstallerSidebar.bmp

@@ -1,6 +1,8 @@
 SLOVENSKA VERZIJA:
 
-# Layerling Desktop
+# LayerLing by CDS (Desktop)
+
+<img src="patches/files/assets/layerling/layerling-logo.svg" alt="LayerLing by CDS" width="96" align="right">
 
 ![GitHub Downloads](https://img.shields.io/github/downloads/andrej-cds/Layerling-desktop/total)
 
@@ -132,7 +134,9 @@ GNU AGPL v3, kot originalni program. Glejte `LICENSE` in `NOTICE.md`.
 
 ENGLISH VERSION:
 
-# Layerling Desktop
+# LayerLing by CDS (Desktop)
+
+<img src="patches/files/assets/layerling/layerling-logo.svg" alt="LayerLing by CDS" width="96" align="right">
 
 A standalone application for **Windows** and **macOS** based on the 3D CAD program [Layerling](https://github.com/henmedia/layerling).
 It installs like a standard application, runs without a browser or internet connection, and stores your projects as regular `.lyl` files on your disk.
