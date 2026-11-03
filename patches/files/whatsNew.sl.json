@@ -1,4 +1,18 @@
 {
+  "1.133.0": [
+    [
+      "Sliko pritisni samo enkrat",
+      "Slikovna tekstura ima ob ploščicah četrto izbiro: Once. Slika se pritisne samo enkrat, tam kjer jo postaviš: Around in Height postavita njeno sredino, Turned jo obrne, Image width in Image height določita velikost. Površina ostane okoli nje gladka, robovi pa čisti."
+    ],
+    [
+      "Vtičnice za baterije, motorje in serijska vrata",
+      "Odprtina za vrata zdaj pozna XT30, XT60, MT60, MPX in D-Sub 9, velikosti po risbah proizvajalcev z okoli 0,25 mm zračnosti naokoli. D-Sub 9 prinese zraven dve vijačni luknji: odprtina in luknji se premikajo in vrtijo kot ena skupina."
+    ],
+    [
+      "Plošče SBC: microSD, trakasti kabli, GPIO in ESP32",
+      "Vsak Raspberry Pi in BIGTREETECH Pi ima zdaj režo za kartico microSD. Trakasti kabli lahko izstopijo skozi pokrov ali vstran skozi steno, glava GPIO pa skozi pokrov. Pridružijo se tri majhne plošče ESP32: XIAO ESP32-C6, ESP32-C3 Super Mini in ESP32-C6 Super Mini."
+    ]
+  ],
   "1.132.2": [
     [
       "Preluknaj telo z obrisom",

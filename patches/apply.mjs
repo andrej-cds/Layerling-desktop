@@ -446,7 +446,7 @@ export const edits = [
     file: "apps/web/src/app/page.tsx",
     marker: 'className="cds-letters"',
     find: '<span className="dashboard-brand-name">layerling</span>',
-    replace: '<span className="dashboard-brand-name">LayerLing by <img className="cds-letters" src="/assets/layerling/cds-letters.svg" alt="CDS" style={{ height: "0.74em", width: "auto", verticalAlign: "-0.05em", marginLeft: "0.1em" }} /></span>',
+    replace: '<span className="dashboard-brand-name">LayerLing by <img className="cds-letters" src="/assets/layerling/cds-letters.svg" alt="CDS" style={{ display: "inline-block", height: "0.74em", width: "auto", verticalAlign: "-0.05em", marginLeft: "0.1em" }} /></span>',
   },
   {
     name: "LayerLing by CDS: logotip na nadzorni plošči",
@@ -462,7 +462,7 @@ export const edits = [
     file: "apps/web/src/components/workplane/SecondaryToolbar.tsx",
     marker: 'className="cds-letters"',
     find: '<span className="toolbar-brand-name">layerling</span>',
-    replace: '<span className="toolbar-brand-name">LayerLing by <img className="cds-letters" src="/assets/layerling/cds-letters.svg" alt="CDS" style={{ height: "0.74em", width: "auto", verticalAlign: "-0.05em", marginLeft: "0.1em" }} /></span>',
+    replace: '<span className="toolbar-brand-name">LayerLing by <img className="cds-letters" src="/assets/layerling/cds-letters.svg" alt="CDS" style={{ display: "inline-block", height: "0.74em", width: "auto", verticalAlign: "-0.05em", marginLeft: "0.1em" }} /></span>',
   },
   {
     name: "LayerLing by CDS: logotip v urejevalniku",
@@ -471,6 +471,22 @@ export const edits = [
     marker: 'alt="LayerLing by CDS" />',
     find: '<img src="/assets/layerling/layerling-logo.svg" alt="Layerling" />',
     replace: '<img src="/assets/layerling/layerling-logo.svg" alt="LayerLing by CDS" />',
+  },
+  {
+    name: "LayerLing by CDS: napis v eni vrstici, enako širok kot podnapis (uvoz)",
+    stage: "jezik",
+    file: "apps/web/src/app/layout.tsx",
+    marker: 'from "@/components/BrandFit"',
+    find: 'import { NewVersionNotice } from "@/components/NewVersionNotice";',
+    replace: 'import { NewVersionNotice } from "@/components/NewVersionNotice";\nimport { BrandFit } from "@/components/BrandFit";',
+  },
+  {
+    name: "LayerLing by CDS: napis v eni vrstici, enako širok kot podnapis (zagon)",
+    stage: "jezik",
+    file: "apps/web/src/app/layout.tsx",
+    marker: "<BrandFit />",
+    find: "        <NewVersionNotice />",
+    replace: "        <NewVersionNotice />\n        <BrandFit />",
   },
   {
     name: "Podmapa: povezava na pregled navodil",
@@ -813,6 +829,7 @@ export const edits = [
 /** Datoteke, ki jih popravki dodajo. */
 export const additions = [
   { stage: "jezik", from: "patches/files/userFonts.ts", to: "apps/web/src/lib/userFonts.ts" },
+  { stage: "jezik", from: "patches/files/BrandFit.tsx", to: "apps/web/src/components/BrandFit.tsx" },
   { stage: "jezik", from: "patches/files/DesktopVersion.tsx", to: "apps/web/src/components/DesktopVersion.tsx" },
   { from: "patches/files/desktopBridge.ts", to: "apps/web/src/lib/desktopBridge.ts" },
   { from: "patches/files/toolLabels.ts", to: "apps/web/src/lib/toolLabels.ts" },
