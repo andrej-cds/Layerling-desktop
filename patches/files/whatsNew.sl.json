@@ -1,4 +1,120 @@
 {
+  "1.136.0": [
+    [
+      "Seznam objektov: premikanje oblik",
+      "Vsaka vrstica v seznamu objektov ima levo ročaj s šestimi pikami. Povleci ga navzgor ali navzdol z miško ali s prstom, ali pa ga fokusiraj in pritiskaj puščice – oblika se premakne na drugo mesto v seznamu. Undo vrne nazaj. Pri razvrščanju A–Z ali iskanju so ročaji skriti."
+    ],
+    [
+      "Luknje ob robu in lastne oblike",
+      "Vzorec lukenj zdaj lahko postavi luknje v obroč ob robu ploskve: luknja v vsakem oglišču, stranice pa enakomerno razdeljene po razmiku ali številu, pri okroglih ploskvah z začetkom, ki ga lahko premakneš. Okrogle luknje lahko dobijo pogrez ali čelno poglobitev z metričnimi velikostmi vijakov. Z možnostjo Own shape pa vzorec ponavlja obliko iz scene čez ploskev, izbočeno ali vrezano: kovice, čepi, rebrasta pločevina."
+    ],
+    [
+      "Umetna inteligenca počaka na tvoje opombe",
+      "Agent umetne inteligence na mostu MCP zdaj lahko čaka na tvoje opombe: enkrat ga prosiš, nato sam prevzame vsako zahtevo, ko pri opombi obkljukaš For the AI, in odgovori na modelu."
+    ],
+    [
+      "Kotomer",
+      "Ob kotniku zdaj kote meri tudi kotomer: klikni oglišče in točko na vsaki strani ali dve ravni ploskvi. Prime se na oglišča in robove ter sledi telesom, ko se premikajo."
+    ],
+    [
+      "Zožitev v razmerju",
+      "Kartica Taper ima zdaj stikalo Keep proportions: Length in Width istega konca se spreminjata skupaj, zato kvadratni vrh ostane kvadraten."
+    ],
+    [
+      "Presek najprej pokaže, kaj ostane",
+      "Prvi klik na Intersection pokaže skupni del zeleno, oblike pa lahko še premikaš; drugi klik ga uveljavi, Esc prekliče. Ločenega gumba »Show common part« ni več, zato je vrstica za en gumb ožja."
+    ],
+    [
+      "Telesa s posnetimi in zaobljenimi robovi sledijo takoj",
+      "Telo s posnetimi ali zaobljenimi robovi se je pri premikanju (z miško in s puščicami) opazno zakasnilo, ker se je ob vsakem koraku znova predelala vsa zgodovina robov. Zdaj sledi tako hitro kot navadna škatla, tudi shranjevanje je nato hitrejše."
+    ],
+    [
+      "Krogi in pravokotniki se prilepijo s sredino",
+      "Če v skici povlečeš krog ali pravokotnik, se njegova sredina prilepi na konce, oglišča in sredine drugih črt, na središča krogov in na presečišča pomožnih črt, z modrim obročem, ki kaže mesto. Tako luknja sedi natanko na sredini črte. Alt izklopi lepljenje."
+    ],
+    [
+      "STEP ne zapiše več napačne oblike",
+      "Telo, ki je bilo najprej zaobljeno ali izdolbeno, nato pa zoženo ali zasukano, je šlo v datoteko STEP brez zasuka, ne da bi kdo to povedal. Zdaj izvoz takega telesa izpusti in te obvesti, da ga shraniš kot STL. Seznam objektov pod takimi telesi piše Exact body ali Mesh, da vnaprej vidiš, kaj gre v STEP."
+    ]
+  ],
+  "1.135.1": [
+    [
+      "Sestavi iz STEP pridejo kot sveženj",
+      "Datoteka STEP iz drugega CAD programa zdaj prinese tudi sestave: vsak postane sveženj pod svojim imenom, sestav znotraj njega pa sveženj znotraj svežnja. Tako celoten sestav skriješ s Ctrl+H ali premakneš naenkrat."
+    ],
+    [
+      "Slika v datoteki .lyl",
+      "Vsaka datoteka .lyl zdaj nosi sliko tvojega načrta, kakršno kaže kartica na začetni strani. Drugi programi, knjižnica modelov ali upravljalnik datotek lahko tako pokažejo predogled, ne da bi odprli načrt."
+    ],
+    [
+      "Vzorec kot mreža",
+      "Poleg vrste in kroga orodje Pattern zdaj polaga tudi mrežo: stolpci vzdolž X in vrstice vzdolž Y, vsak s svojim številom in razmikom. Tako dobiš na primer 4 × 3 kose v enem koraku, recimo za luknje perforirane plošče."
+    ]
+  ],
+  "1.135.0": [
+    [
+      "Knjižnica oblik po razdelkih, z iskanjem in Recently used",
+      "Knjižnica oblik je zdaj razdeljena v razdelke (Basic shapes, Vessels, tubes & transitions, Holes & cut-outs in drugi), ki jih zložiš s klikom na ime. Na vrhu so zadnje štiri uporabljene oblike in iskalno polje: »USB« najde odprtino za vrata, »pipe« valj in cev. Vlečenje, premikanje in pripenjanje delujejo kot prej."
+    ],
+    [
+      "Kabelski kanal skozi telo",
+      "Pod Edges & walls je kabelski kanal: izberi telo, klikni, kje kabel vstopi in kje izstopi, layerling pa sam poišče pot skozi sredino telesa z debelino stene, ki jo zahtevaš, in ovinki, ki niso ožji od nastavljenega. Kanal je ukrivljena cev kot luknja, združena s telesom. Primerno za LED diode v natisnjeni figuri."
+    ],
+    [
+      "Pokrov s tečajem zadaj",
+      "Orodje za pokrov lahko vstavi tečaj vzdolž ravnega zadnjega roba: členki se izmenjujejo na telesu in pokrovu, ravna luknja sprejme zatič (1,75 mm, torej kos filamenta), zatič pa se lahko tudi natisne. Pokrov se odpre na tečaju, namesto da bi se snel."
+    ],
+    [
+      "Previsi: kako strmo in koliko",
+      "Pri Show overhangs vrstica pod pogledom zdaj pokaže najstrmejši previs in površino, ki potrebuje podpore, na primer »44 cm² beyond 45° need supports«. Pokrov vaze-čajnika se preveri tako, kot se tiska: narobe obrnjen."
+    ],
+    [
+      "Opeke na ploščatih škatlah ostanejo zaprte",
+      "Opeke na ploščati škatli (npr. visoki 7 mm, na vrhu in vseh straneh) so pri nekaterih velikostih ostale odprte. Zdaj se stiki vseh vrst režejo naenkrat; opeke izgledajo kot prej, mreža pa ostane zaprta."
+    ],
+    [
+      "Plošča SBC: trakovi drug nad drugim",
+      "Pri Raspberry Pi 5 sta kabla za kamero in zaslon šla skozi steno pri vratih Ethernet. Zdaj izhajata na koncu PCIe, tri odprtine ena nad drugo; pri Pi 4 in 3 B+ je odprtina kamere nad odprtino zaslona na levem koncu."
+    ]
+  ],
+  "1.134.0": [
+    [
+      "Gridfinity posode, napolnjene do vrha roba",
+      "»Floor height« v plošči Properties zdaj sega vse do vrha zložljivega roba posode Gridfinity. Nad najvišjim dnom, na katerega se še zloži druga posoda, je napolnjen tudi rob: posoda je poln blok z ravnim vrhom, visok kot posode z robom ob njem – surovec, v katerega izrežeš oblike svojega orodja."
+    ],
+    [
+      "Opombe kot pogovor z umetno inteligenco",
+      "Opomba ima zdaj polje For the AI. Agent umetne inteligence na mostu MCP prebere take opombe, opravi delo in odgovori pod tvojim besedilom. Lahko tudi sam doda opombe na model, da na določenem mestu kaj vpraša. Tako preprosto pokažeš na model, namesto da opisuješ ploskve in robove."
+    ],
+    [
+      "Ožje ali širše črke na loku",
+      "Besedilo na loku ima zdaj polje Letter width. Črke nariše ožje ali širše, na primer za visoke ozke napise na kovancu. Višina črk ostane, besedilo ostane na loku."
+    ],
+    [
+      "Blok besedila: več vrstic, levo, sredinsko ali desno",
+      "Besedilo ima zdaj kartico Text block. Vpiši več vrstic, izberi poravnavo, razmik in ali se vsaka vrstica pomanjša. Vsaka vrstica postane samostojno besedilo, ki ga lahko naknadno spreminjaš posebej, na primer za tablo ali ploščico."
+    ],
+    [
+      "Ukrivljeni stožec",
+      "Novo med osnovnimi oblikami: stožec z ukrivljeno stranico. Bend ga upogne navznoter v trobento kot pseudosfera ali navzven v kupolo, Top diameter gre od točke do polne širine. Je natančno telo, ki ga lahko izdolbeš in zaobliš."
+    ],
+    [
+      "Kopije so poimenovane po originalu",
+      "Če podvojiš ali prilepiš objekt, ki si ga poimenoval, se kopija zdaj imenuje »Holder (copy)«, nato »Holder (copy 2)«. Seznam objektov tako ne kaže dveh enakih imen."
+    ],
+    [
+      "Predvajanje zgodovine",
+      "V pogledu zgodovine dva gumba pod drsnikom predvajata korake kot film, naprej ali nazaj, počasi, normalno ali hitro. Primerno za zaslonski posnetek, kako je del nastal."
+    ],
+    [
+      "Hitri začetek z UI tudi na Macu",
+      "Postopni del poglavja o UI in enovrstična namestitev zdaj delujeta tudi na Macu: preveri Git in Node.js, prenese layerling in na namizje postavi »Start layerling«."
+    ],
+    [
+      "Plošča pod preslikano kodo QR je spet cela",
+      "Pri ikonski ploščici, narejeni iz slike kode QR, je spodnja plošča pokrivala samo vogale. Zdaj spet leži pod celotno kodo."
+    ]
+  ],
   "1.133.0": [
     [
       "Sliko pritisni samo enkrat",
