@@ -1,4 +1,78 @@
 {
+  "1.139.0": [
+    [
+      "Enake vrzeli",
+      "Align ima ob vsaki črti novo piko: dele različnih velikosti razporedi tako, da je razmik med njimi povsod enak. Na plošči ostane isti razmik ob robovih, več vrstic se razporedi vrstico za vrstico, klik na prazno ploščo jih razporedi čez celotno ploščo, z Alt pa razmik vpišeš sam."
+    ],
+    [
+      "Združevanje pusti robove, kot so",
+      "Pri združevanju z luknjami se je vogal ob zaobljenju lahko izkazal poševno odrezan, ker je čiščenje las tankih stopnic šlo predaleč. layerling zdaj preveri, da oblika ostane enaka."
+    ],
+    [
+      "Align iz menija desnega klika",
+      "Če je izbranih dva ali več delov, je Align zdaj tudi v meniju, ki se odpre z desnim klikom ob kazalcu, tik nad Mirror. Ni treba do orodne vrstice in si ni treba zapomniti tipke L."
+    ],
+    [
+      "Knjižnica oblik: piši takoj",
+      "Ko odpreš knjižnico oblik, je kazalec takoj v iskalnem polju, kot pri iskanju ukazov. Ne na zaslonu na dotik, da se ne odpre tipkovnica."
+    ],
+    [
+      "Drsniki za pogled",
+      "Novo stikalo v vrstici pogleda pokaže drsnike ob spodnjem in desnem robu pogleda. Pogled premikajo mirno in v majhnih korakih, ne da bi ga vrteli, tudi ko je del izbran. Prav pride pri delu od blizu na drobnih podrobnostih."
+    ],
+    [
+      "Zaklep oblike",
+      "Ob ključavnici je zdaj ščit (Ctrl+Shift+L): del z zaklenjeno obliko se še vedno premika, vrti, kopira in združuje z drugimi, vendar obdrži velikost, nastavitve in ime. Kopije in skupine zaklep obdržijo."
+    ]
+  ],
+  "1.138.0": [
+    [
+      "Izvoz 3MF/OBJ: nič več izgubljenih delov",
+      "Pri načrtih z več barvami je izvoz 3MF ali OBJ včasih izpustil majhne dele, na primer pike ali deščice logotipa, ker jih je imel za drobne ostanke. Zdaj se obdrži vsak del s kakršnim koli volumnom, izpuščene so le prave sliverje."
+    ],
+    [
+      "Las tanke ploskve pri Delete face",
+      "Če Make exact pusti las tanke ploskve med ploskvami v isti ravnini, jih Delete face odnese skupaj z izbranimi ploskvami, tako da lahko stran, ki je nastala kot trakovi, spet postane ena ploskev."
+    ],
+    [
+      "Vpis točk in ročic krivulj",
+      "V skici izbrana točka kaže, kje leži, kot X in Y, kliknjena ročica krivulje pa, kje leži glede na svojo točko. Oboje lahko vpišeš, tako da je krivulja natančna in na obeh straneh enaka."
+    ],
+    [
+      "Koničasti navoji in NPT",
+      "Navoj je zdaj lahko koničast, 1 proti 16, kot je cevni navoj, meni velikosti pa ima ameriške cevne navoje NPT od 1/16\" do 4\". Palica in vijak se proti konici ožata, matica in navojna luknja se proti ustju širita."
+    ],
+    [
+      "Align se pojavi takoj pri zasukanih delih",
+      "Če je med izbranimi zasukan del, je orodje za poravnavo pred pojavom pik potrebovalo nekaj sekund, in toliko še ob vsakem kliku. Zdaj vsak del izmeri samo enkrat in se pojavi takoj."
+    ],
+    [
+      "Prilepljanje na sredino delovne ravnine",
+      "Ko povlečeš obliko, se zdaj prilepi tudi na sredino delovne ravnine, vzdolž X, vzdolž Y ali oboje, to pa kažejo rožnate vodilne črte. Alt vleče brez lepljenja."
+    ],
+    [
+      "Tečaj pokrova: izbereš stran, kapljaste luknje, okrogle posode",
+      "Tečaj pokrova je zdaj lahko zadaj, desno, spredaj ali levo, na primer ob dolgi stranici škatle. Luknje za zatič dobijo konico na vrhu, da pri tiskanju ne povesijo, tečaj pa dobijo tudi okrogle posode."
+    ]
+  ],
+  "1.137.0": [
+    [
+      "Gridfinity osnovne plošče, ki se zaskočijo",
+      "V plošči Properties osnovne plošče vklopi »Swallowtail« in plošča dobi pod vsako stranjo brez obrobe pol žepov. »Add keys« poda majhne ključe za tisk; pritisnjen od spodaj čez stik se zaskoči in drži dve plošči skupaj. Plošča nato stoji na dnu, visokem 7,4 mm."
+    ],
+    [
+      "Uvožene mreže kot natančna telesa",
+      "STL, OBJ ali 3MF so samo trikotniki. »Make exact« (Modify, Surface) v njih poišče ravnine, valje, stožce, krogle in torusa ter ponovno zgradi natančno telo. Fillet in Chamfer nato sledita enemu čistemu robu, Delete face odstrani celotno izvrtino, STEP pa nosi prave ploskve. Simplify lahko ohrani robove in luknje."
+    ],
+    [
+      "Zaobljenje čez ostre notranje vogale",
+      "Fillet in Chamfer sta odpovedala pri zarezah, na primer pri več združenih diskih. Zdaj se ti notranji vogali najprej malo zaobljijo, izbrani robovi pa se nato obdelajo, kot je zahtevano. Statusna vrstica pove, kako veliko je postalo notranje zaobljenje."
+    ],
+    [
+      "Puščične tipke: bolj gladko in z razdaljo",
+      "Držana puščična tipka zdaj telo premika gladko in se ustavi takoj, ko jo spustiš, tudi na počasnem računalniku. Statusna vrstica pove tudi, koliko se je premaknilo, na primer »by 5 mm«."
+    ]
+  ],
   "1.136.0": [
     [
       "Seznam objektov: premikanje oblik",

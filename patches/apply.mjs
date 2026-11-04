@@ -50,9 +50,9 @@ export const edits = [
     name: "Izvoz STEP: navadna skupina se združi v eno telo z imenom skupine (rob za Chamfer v Fusionu)",
     file: "apps/web/src/lib/stepExport.ts",
     marker: "CDS: group fused",
-    find: "      parts.push(...await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped));\n      continue;",
+    find: "      parts.push(...await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, budget));\n      continue;",
     replace: `      // CDS: group fused - the group is one body in the editor, so it is one body in the file too.
-      const inner = await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped);
+      const inner = await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, budget);
       if (inner.length > 1) {
         const fused = brep.fuseAll(inner.map((part) => part.solid) as Parameters<Brep["fuseAll"]>[0]);
         if (fused.ok) {
@@ -549,14 +549,14 @@ export const edits = [
     file: "apps/web/src/lib/stepExport.ts",
     marker: "Desktop: a hole made of a solid with holes of its own",
     find: "/** The cutters among these shapes, a group of holes opened into the holes it holds. */\nfunction collectHoles(brep: Brep, shapes: WorkplaneShape[], skipped: SkippedShape[], holes: { box: Aabb; solid: BrepSolid }[]) {\n  for (const shape of shapes.filter((s) => s.hole)) {\n    const source = stepSourceForShape(shape);\n    if (source === \"unsupported\" && isOpenableGroup(shape)) {\n      collectHoles(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, holes);\n      continue;\n    }\n",
-    replace: "/** The cutters among these shapes, a group of holes opened into the holes it holds. */\nasync function collectHoles(brep: Brep, shapes: WorkplaneShape[], skipped: SkippedShape[], holes: { box: Aabb; solid: BrepSolid }[]) {\n  for (const shape of shapes.filter((s) => s.hole)) {\n    const source = stepSourceForShape(shape);\n    if (source === \"unsupported\" && isOpenableGroup(shape)) {\n      const children = restoreGroupedChildren(shape).filter((child) => !child.hidden);\n      if (children.some((child) => !child.hole)) {\n        // Desktop: a hole made of a solid with holes of its own (e.g. a round pocket with scallops\n        // taken out of it) is one cutter, the solid minus its holes - not only the inner holes.\n        for (const part of await buildScope(brep, children, skipped)) holes.push({ box: part.box, solid: part.solid });\n      } else {\n        await collectHoles(brep, children, skipped, holes);\n      }\n      continue;\n    }\n",
+    replace: "/** The cutters among these shapes, a group of holes opened into the holes it holds. */\nasync function collectHoles(brep: Brep, shapes: WorkplaneShape[], skipped: SkippedShape[], holes: { box: Aabb; solid: BrepSolid }[], budget: ExactExportBudget) {\n  for (const shape of shapes.filter((s) => s.hole)) {\n    const source = stepSourceForShape(shape);\n    if (source === \"unsupported\" && isOpenableGroup(shape)) {\n      const children = restoreGroupedChildren(shape).filter((child) => !child.hidden);\n      if (children.some((child) => !child.hole)) {\n        // Desktop: a hole made of a solid with holes of its own (e.g. a round pocket with scallops\n        // taken out of it) is one cutter, the solid minus its holes - not only the inner holes.\n        for (const part of await buildScope(brep, children, skipped, budget)) holes.push({ box: part.box, solid: part.solid });\n      } else {\n        await collectHoles(brep, children, skipped, holes, budget);\n      }\n      continue;\n    }\n",
   },
   {
     name: "STEP: čakanje na rezalnike",
     file: "apps/web/src/lib/stepExport.ts",
-    marker: "  await collectHoles(brep, shapes, skipped, holes);",
+    marker: "  await collectHoles(brep, shapes, skipped, holes, budget);",
     find: "  collectHoles(brep, shapes, skipped, holes);\n\n  const parts: ScopePart[] = [];",
-    replace: "  await collectHoles(brep, shapes, skipped, holes);\n\n  const parts: ScopePart[] = [];",
+    replace: "  await collectHoles(brep, shapes, skipped, holes, budget);\n\n  const parts: ScopePart[] = [];",
   },
   {
     name: "Strežnik: revizija na celo sekundo (sličice skupne mape in store.php)",
