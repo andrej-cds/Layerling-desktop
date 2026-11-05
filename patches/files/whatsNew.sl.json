@@ -1,4 +1,72 @@
 {
+  "1.141.0": [
+    [
+      "Mere premika tudi s puščičnimi tipkami",
+      "Ko je vklopljeno Show movement dimensions, puščične tipke zdaj prikažejo, za koliko premikaš izbor, tako kot vlečenje z miško. Pritiski se seštevajo, dokler ne izbereš česa drugega ali ne povlečeš; Ctrl+↑ in Ctrl+↓ pokažeta pot gor ali dol. Nato klikni na število in vpiši natančno razdaljo."
+    ],
+    [
+      "Ključi Swallowtail, ki se prilegajo",
+      "Ključi za Swallowtail osnovne plošče se vstavljajo lažje: šiv je odprt, ustnica pa drži le njihove zarezane konce. Z Key clearance pod Swallowtail na plošči Properties jih narediš ohlapnejše ali tesnejše za svoj tiskalnik; nato ponovno klikni Add keys."
+    ],
+    [
+      "Pokrovi s ključavničnimi izboklinami in ročajem",
+      "Orodje Lid zdaj pokrov lahko zaskoči: majhne izbokline na robu pokrova se ujamejo v vdolbinice v steni škatle. Pod Handle je tudi jeziček za vlečenje ali zareza za prst. Tako pokrov ostane zaprt brez magnetov, a ga še vedno lahko sneseš."
+    ],
+    [
+      "Tečaj poravnan v steno ali vrtljiv pokrov",
+      "Pod Hinge izbereš vrsto: zunaj kot prej, poravnan v zadnjo steno, da škatla obdrži velikost, ali vrtljiv pokrov na dveh čepih. Zračnost čepa zdaj nastaviš sam, če se težko vstavi."
+    ],
+    [
+      "Vijačni nastavek kot luknja izreže samo žep",
+      "Vijačni nastavek (screw boss), združen v blok kot luknja, zdaj izreže samo žep za navojni vložek, ne več celega stebrička."
+    ],
+    [
+      "Vaza: pogled ostane pri finem nastavljanju",
+      "V oknu za risanje vaze se pogled ne vrne več nazaj, ko približan spustiš točko ali ročico. Dvoklik na črto spet doda točko."
+    ],
+    [
+      "Slikovna tekstura Once brez lukenj na okroglih telesih",
+      "Slika, pritisnjena enkrat, ne trga več kosov iz krogel in jo je mogoče shraniti na zaobljene plošče. Če so izbrane ploskve, pristane na njih."
+    ],
+    [
+      "3D miška: smeri lahko obrneš",
+      "Premik vstran, premik gor in dol, nagib in zasuk na SpaceMouse zdaj tečejo drugače kot prej. Pod 3D mouse v nastavitvah lahko vsako smer obrneš posebej."
+    ]
+  ],
+  "1.140.0": [
+    [
+      "Polja mer v barvah osi",
+      "Novo stikalo v nastavitvah delovne površine vsakemu polju z vrednostjo ob izboru da barvo njegove osi, kot ročaji: rdeča X, zelena Y, modra Z. Tako tudi pri majhnih delih hitro vidiš, katera številka je katera. Na začetku je izklopljeno."
+    ],
+    [
+      "Vijačni nastavek, zaskočni spoj in rebro",
+      "Ohišja imajo v knjižnici oblik svoj razdelek s tremi novimi oblikami. Vijačni nastavek (screw boss) sprejme vložek za vročo vgradnjo ali vijak za plastiko in opozori, če je stena okoli luknje pretanka. Zaskočni spoj (snap-fit) drži pokrov in pove, ali bo njegov krak zdržal v PLA, PETG ali ABS. Rebro (rib) utrdi steno, tudi kot poševni opornik do dna."
+    ],
+    [
+      "Prostoročno risanje v skicah",
+      "Novo skicirno orodje Freehand (tipka 5) vzame črto, narisano s peresom, prstom ali miško, in ko dvigneš, iz nje naredi nekaj točk, ki jih lahko nato povlečeš: vogale, kjer se je ostro obrnila, in gladke krivulje vmes. Če se konča tam, kjer se je začela, postane obris, ki ga lahko spremeniš v telo."
+    ],
+    [
+      "Vpisane mere ohranijo zaklenjene točke",
+      "Ko v skici vpišeš dolžino ali kot, zaklenjena točka (Ctrl+L) ostane na mestu: dolžina premakne prosti konec črte, kot zasuka črto, katere oddaljeni konec je prost. Obris tako narediš natančno vogal za vogalom: zakleni vogal, vpiši dolžino in kot naslednje črte, zakleni njen konec in nadaljuj."
+    ],
+    [
+      "Desni klik znotraj okvirja izbora",
+      "Desni klik na prazen prostor znotraj okvirja izbora zdaj odpre meni izbora z Group, Align in ostalim. Prej je klik med deli prikazal samo kratek meni s Paste."
+    ],
+    [
+      "Pripeta knjižnica oblik ne prekriva več lastnosti",
+      "Pripeta knjižnica oblik zdaj leži pod lastnostmi izbranega objekta namesto čez njih, tudi ko jo premakneš ob desni rob. Če jo na kratko odpreš brez pripenjanja, je še vedno na vrhu kot prej."
+    ],
+    [
+      "Orodja za umetno inteligenco se naložijo v vsakem odjemalcu",
+      "Nekateri odjemalci AI so izpustili orodja za ustvarjanje in spreminjanje oblik ter orodje za referenčne slike, ker sta dve njihovi nastavitvi poimenovali več vrst hkrati. Zdaj so opisana tako, da jih naloži vsak odjemalec."
+    ],
+    [
+      "Odpri STL in 3MF z dvoklikom",
+      "Aplikacija, nameščena iz Chroma ali Edgea, se zdaj prijavi tudi za datoteke STL in 3MF. Dvoklik nanju ju odpre kot nov načrt, kot Import na začetni strani. Pod Open with lahko layerling narediš za privzeti program za te datoteke."
+    ]
+  ],
   "1.139.0": [
     [
       "Enake vrzeli",
