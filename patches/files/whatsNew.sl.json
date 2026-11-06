@@ -1,4 +1,228 @@
 {
+  "1.146.1": [
+    [
+      "Vzorec površinske teksture kot svoj del",
+      "Za tisk v dveh barvah Pattern as its own part v kartici Surface texture naredi vzorec svoj del, s katerim koli vzorcem, Colour of the pattern pa mu da barvo. Dvignjen je del tisto, kar štrli; vtisnjen zapolni vrez do površine. Telo in vzorec ostaneta skupaj v svežnju in do slicerja v 3MF pridejo kot dva dela."
+    ],
+    [
+      "Črke Gridfinity v svoji barvi",
+      "Črke na policah za nalepke Gridfinity zabojčka lahko zdaj dobijo svojo barvo: izberi jo pod Letter colour pod pisavo. 3MF obdrži zabojček kot eno telo s ploskvami črk v tej barvi, zato jih Bambu Studio, OrcaSlicer, PrusaSlicer 2.9 in slicerji, zgrajeni nanje, natisnejo s svojim filamentom brez menjave barve."
+    ],
+    [
+      "Lastne pisave in ena velikost črk na nalepkah Gridfinity",
+      "Črke na policah za nalepke Gridfinity zabojčka so zdaj lahko v tvoji pisavi, izbrani pod Font kot pri besedilu. Načrt obdrži obrise črk, ki jih uporablja, zato se na drugem računalniku odpre z istimi črkami. Letter size naredi velike črke enako visoke na vsaki polici, ki ima zanje prostor, tako da se nalepke različnih dolžin ujemajo."
+    ],
+    [
+      "Večbarvna telesa v OrcaSlicer in PrusaSlicer",
+      "Večbarvno telo, na primer skupina z vklopljenim Multicolor, je v OrcaSlicer in slicerje nanj prišlo v eni barvi. Izvoz 3MF zdaj tudi pobarva ploskve tako, kot to naredijo ti slicerji sami, zato vsaka barva dobi svoj filament; PrusaSlicer 2.9 to prav tako prebere."
+    ],
+    [
+      "Zakleni obliko iz seznama objektov",
+      "Ščit v seznamu objektov zdaj obliko tudi zaklene in odklene: pokaže se na izbrani vrstici in pod miško, klik pa zaklene ali odklene. Puščične tipke na kliknjenem ročaju zdaj premaknejo samo vnos v seznamu, ne več tudi dela ali pogleda."
+    ]
+  ],
+  "1.146.0": [
+    [
+      "Preverjanje tiska pred tiskanjem",
+      "En klik v Combine preveri, kar bi se pokazalo šele na tiskalniku: pretanke stene, plavajoče dele, premalo stika s ploščo, previse in odprte mreže. Vsaka vrstica je zelena ali oranžna z mestom, tanke stene pa so pobarvane."
+    ],
+    [
+      "Izmeri zračnost svojega tiskalnika",
+      "Make fit test v nastavitvah postavi na ploščo ploščico s sedmimi luknjami in čepom. Natisni jo, vpiši luknjo, v kateri se čep še vrti, in novi pokrovi, lastovičji repi, zaskočni spoji, matice in Check clearance začnejo od te zračnosti."
+    ],
+    [
+      "Spremeni velikost skupine, luknje ostanejo",
+      "Skupina ima zdaj nastavitev When resized: raztegni vse ali obdrži luknje in majhne dele. Takrat luknje ostanejo okrogle in enako oddaljene od roba, stene obdržijo debelino, rastejo pa samo plošča in stene."
+    ],
+    [
+      "Merilni trak: od središča do središča",
+      "Merilni trak se zdaj prilepi na središče ploskve ter luknje ali okroglega roba. Klikni eno središče, nato drugo, vpiši razdaljo in drugo telo se premakne, kot v Tinkercadu."
+    ],
+    [
+      "Merilni trak: razdalja vzdolž ene osi",
+      "Pri vpisu dolžine zdaj ponudi tudi polja za X, Y in Z: telo se nato premakne samo vzdolž te osi. Oznaka vnaprej pove, katero telo se premakne ali zakaj nobeno ne more."
+    ],
+    [
+      "Rebro z ovalno nogo",
+      "Noga pod rebrom je zdaj lahko ovalna. Brez pravokotnih vogalov se prva plast ob ohlajanju težje dvigne s plošče."
+    ],
+    [
+      "Nove plošče z mikrokrmilniki",
+      "Oblika SBC board ima zdaj Adafruit ESP32-S3 Feather, Arduino UNO R3, Arduino Nano in LOLIN D1 mini. Novo je tudi Button reach: gumbi RESET, BOOT in napajanje segajo skozi pokrov ali steno, tako da jih lahko pritisneš v ohišju."
+    ],
+    [
+      "Vstavi načrte s strežnika",
+      "Okno za uvoz ima zdaj Insert from the server: izberi mapo, klikni načrt in njegova telesa pridejo v odprti načrt z opombami in referenčnimi točkami, kot iz datoteke."
+    ],
+    [
+      "Tečaj pokrova: čep ostane v njem",
+      "Čep zdaj tesno sedi v delu tečaja na telesu in se vrti samo v delu na pokrovu, zato kos filamenta ne zdrsne ven. Višino izboklin za zaskok je zdaj mogoče nastaviti, manj za majhne škatle."
+    ],
+    [
+      "Navoji z več začetki za vodilna vretena",
+      "Navoj ima zdaj do osem začetkov, za vodilno vreteno, kot je T8x8: 4 začetki pri koraku 2 mm, vsak se vzpne 8 mm na obrat. Za palice, vijake, matice in navojne luknje enako."
+    ],
+    [
+      "Ročaji velikosti sledijo delovni ravnini na stranski ploskvi",
+      "Ko je delovna ravnina na strani škatle, ležijo njeni vogalni in robni ročaji zdaj na tej ploskvi, kot v Tinkercadu. Vsak spremeni velikost škatle, ki poteka vzdolž njega, ročaj na sredini ploskve pa velikost čez njo. To najbolj pomaga v pogledu od strani."
+    ],
+    [
+      "Površinska tekstura: vzorec izbereš z ogledom",
+      "Polje Pattern zdaj pokaže sliko izbranega vzorca. Odprto vsebuje vseh 18 vzorcev kot slike v mreži z iskanjem zgoraj. Namesto da vzorec uporabiš in pogledaš telo, ga izbereš po videzu, tudi s puščičnimi tipkami."
+    ],
+    [
+      "Drsniki ne skačejo več s kolescem",
+      "Kolesce nad drsnikom zdaj premakne pogled toliko, kolikor se je zavrtelo, kot na spletni strani. Na Macu je Magic Mouse ali drsenje po potegu po sledilni ploščici pogled vrglo z zaslona, ko je kazalec prečkal drsnik."
+    ],
+    [
+      "Vrat lastovičjega repa skoraj tako širok kot širok konec",
+      "Vrat lastovičjega repa je zdaj lahko do 0,1 mm ožji od širokega konca, namesto največ 95 % le-tega. Tako deluje tudi dolg, rahlo zožen rep, recimo 146 mm širok z 145 mm pri vratu."
+    ],
+    [
+      "Uvoženi modeli od zgoraj v skici",
+      "Pod skico uvožen model zdaj pokaže ves svoj obris od zgoraj, ne le dela, na katerem stoji. Benchy je prej pokazal samo trak svoje kobilice."
+    ],
+    [
+      "Vsako telo lahko ovijemo okoli valja",
+      "Kartica Wrap around a cylinder je zdaj pri vsakem telesu, tudi pri oblikah iz knjižnice, na primer za okroglo streho stene okroglega stolpa. Prej je bila samo pri uvoženih modelih, besedilu in skicah."
+    ]
+  ],
+  "1.145.0": [
+    [
+      "Vtiči Anderson Powerpole v odprtini za vrata",
+      "Odprtina za vrata (port opening) zdaj pozna bloke Powerpole (PP15, PP30, PP45) z 1 do 4 poli drug ob drugem: 7,9 mm na pol, s prostorom za jezičke lastovičjega repa in okoli 0,25 mm naokoli."
+    ],
+    [
+      "Besedilo na policah za nalepke Gridfinity",
+      "Vsaka polica za nalepko Gridfinity zabojčka, ob steni ali v predelku, zdaj sprejme besedilo do 24 znakov, dvignjeno 0,4 mm kot del zabojčka. Črke so tako velike, kot dovoli polica, nad njim naložen zabojček pa jih ne zadeva. Besedilo vpišeš pod Text na plošči Properties."
+    ],
+    [
+      "Drsniki od začetka",
+      "V nastavitvah je zdaj Start editor with scrollbars, shranjeno z načrtom in z Make default. Vrstici sta zdaj tudi na pravem mestu ob zmanjšani ali plavajoči plošči lastnosti in ob kocki pogleda v desnem kotu."
+    ],
+    [
+      "Chamfer in fillet obdržita nastavitve",
+      "Velikost, kot, prag, kakovost predogleda in stikala zdaj ostanejo po Apply, po razveljavitvi in ob naslednjem odprtju orodja, po en komplet za chamfer, fillet in chamfer-fillet."
+    ],
+    [
+      "Besedilo z več kot eno črko v izvozu STEP",
+      "Besedilo z več kot eno črko gre zdaj v datoteko STEP kot natančno telo, dvignjeno ali kot luknja. Še vedno je izpuščeno samo poševno robljeno, zgoraj zaobljeno, zožano ali zasukano besedilo, sporočilo pa ga poimenuje."
+    ],
+    [
+      "BIGTREETECH Pi V1.2 pravilno obrnjen",
+      "Plošča BIGTREETECH Pi V1.2 SBC je bila zrcalna slika. Zdaj sedi kot v proizvajalčevem modelu: USB-C, mikro-HDMI in napajalni priključek zadaj, glava GPIO spredaj, montažna luknja zunaj mreže spredaj desno."
+    ],
+    [
+      "Klik ob delih spet konča Align",
+      "Klik na prazen prostor spet konča Align. S pridržanim Shiftom klik naredi ploščo za referenco za enake razmike."
+    ],
+    [
+      "Slike s prozornim ozadjem pridejo cele",
+      "Slika s prozornim ozadjem zdaj pride cela: vsak piksel, ki ni prozoren, je del oblike, ne glede na barvo."
+    ],
+    [
+      "Center on workplane ostane na svoji plošči",
+      "Pri več gradbenih ploščah Center on workplane ne skoči več na prvo ploščo, ampak na sredino plošče, na kateri stoji izbor."
+    ],
+    [
+      "Jasnejše številke pri kotniku in plošči SBC",
+      "Pri telesu na višini 0 številka višine na kotniku ne leži več nanj, ampak ob njem. Številčna polja plošče SBC pokažejo celotno vrednost."
+    ]
+  ],
+  "1.144.0": [
+    [
+      "Tečaj, ki se zapre ploščato",
+      "Pod Leaf shape ima tečaj zdaj Raised leaf: drugo krilo leži višje, tako da zaprto leži ploščato na prvem, tečaj pa se zlaga daleč mimo ploščate lege. Tiska se s podporami pod dvignjenim krilom. Kot odpiranja gre zdaj tudi pod 0°, do -180°."
+    ],
+    [
+      "Rebro na nogi",
+      "Rebro ohišja lahko zdaj stoji na nogi: tanka plošča pod celim rebrom, širša od njega, za več oprijema na tiskalni plošči in na tleh. Vklopi jo pod Foot v nastavitvah rebra; širino in debelino lahko nastaviš."
+    ],
+    [
+      "Povleci oblike v skupino",
+      "V seznamu objektov oblika, povlečena za ročaj na razprto skupino, zdaj pride v to skupino, pri tem pa niti oblika niti skupina ne izgubita imena. Obratno se del, povlečen za ročaj iz skupine, spet znajde samostojno."
+    ],
+    [
+      "Text (stuck on) ostane pokonci okoli konic zvezde",
+      "Na zvezdi Text (stuck on) zdaj teče pokončno in po vrsti okoli njenih konic, kjer so deli prej prišli zasukani ali manjkali."
+    ],
+    [
+      "Združevanje brez tankih kožic",
+      "Ko je luknja prebila škatlo in uvožen ali izdolben del za njo, je na stiku včasih ostala kožica ničelne debeline in se pokazala kot tanka stena. Zdaj se deli stikajo natančno in luknja gre čisto skozi."
+    ]
+  ],
+  "1.143.0": [
+    [
+      "Jermenice GT2",
+      "Novo med oblikami pod Mechanics: jermenica za zobate jermene GT2 s pravo obliko zoba GT2. Poljubno število zob od 10 do 200, s širino jermena, prirobnicama, pestom in izvrtino."
+    ],
+    [
+      "Površinska tekstura: kvadrati in trikotniki",
+      "Dva nova vzorca polagata ploščice iste velikosti v mrežo, dvignjene ali vtisnjene: kvadrate in trikotnike. Velikost in razmik ostaneta natančno taka, kot ju nastaviš, na primer večkratnik tvoje šobe. From the bottom edge začne prvo vrsto čisto spodaj, za brim."
+    ],
+    [
+      "Hirthov spoj z žaganimi zobmi",
+      "Hirthov spoj ima zdaj lahko žagaste zobe kot zaskočnik: eno bočnico strmo do 90°, drugo blago, na poljubni strani. Obrnjena kopija se še vedno zaskoči vanj. Višina zoba zdaj gre čisto do dna."
+    ],
+    [
+      "Deli ohišij kot natančna telesa",
+      "Screw boss, snap-fit in rib so zdaj natančna telesa: fillet, chamfer, hollow in izvoz STEP jih sprejmejo. Screw boss, nastavljen kot luknja, je samo njegov žep, točno tam, kjer ga pokaže urejevalnik."
+    ],
+    [
+      "Veliki poševni zobniki v STEP",
+      "Poševni in rombasti zobniki z več kot okoli 30 zobmi so v datoteki STEP manjkali. Zdaj gredo noter pri vsakem številu zob."
+    ],
+    [
+      "Skriti deli v skupinah",
+      "Če skriješ del v odprti skupini, drugi deli po Done obdržijo obliko namesto da bi se raztegnili. Align še vedno šteje skriti del."
+    ],
+    [
+      "Align: enaki razmiki pri naloženih delih",
+      "Ko deli ležijo na enem mestu, zasivljena pika enakih razmikov zdaj pove, da klik na prazno ploščo naredi ploščo za referenco. Začetno sporočilo omenja L ali Esc za konec Align."
+    ],
+    [
+      "Merilni trak na robu valja",
+      "Z vklopljenim Measure whole edges klik na zgornji rob valja zdaj da njegov premer, kot pri polkrogli, namesto da samo postavi točko."
+    ],
+    [
+      "Risanje vaze: točka z dvoklikom",
+      "Dvoklik na črto v oknu za risanje vaze spet doda točko tam, zdaj tudi v brskalniku."
+    ],
+    [
+      "Poravnan tečaj pokrova: brez trsk",
+      "Na škatli z zaobljenimi vogali je na obeh koncih poravnanega tečaja stala tanka trska. Izginila je."
+    ],
+    [
+      "Dolga imena gumbov v aplikaciji",
+      "V nameščeni aplikaciji je ime gumba blizu vrha okna teklo čez rob. Zdaj obdrži širino in se pokaže pod gumbom, ko zgoraj ni prostora."
+    ]
+  ],
+  "1.142.0": [
+    [
+      "Več gradbenih plošč",
+      "Ko načrt ne gre na eno ploščo, dobi več plošč drugo ob drugi (Arrange > Build plates ali desni klik > Onto plate…). Telo pripada plošči, na kateri stoji; Arrange on plates razporedi dele, vsaka plošča se preveri posebej, izvoz pa zapiše eno ploščo ali eno datoteko na ploščo."
+    ],
+    [
+      "Stožčasti zobnik s spiralnimi zobmi",
+      "Stožčasti zobnik ima zdaj svoj kot vijačnice: zobje se vrtijo, ko se proti vrhu manjšajo, kot pri spiralnem stožčastem zobniku. Pri 0 ostanejo ravni kot prej. Tak zobnik ostane trikotna mreža, zato ga orodje za robove in izvoz STEP izpustita."
+    ],
+    [
+      "Odpri načrt brez zgodovine",
+      "Če se načrt odpira zelo počasi ali sploh ne, ker je zgodovina zrasla preveč, izberi Open without history v njegovem meniju na začetni strani. layerling nato prebere samo trenutno stanje in izbriše prejšnje korake. Če se stran sesuje med odpiranjem načrta, ponovno nalaganje ne odpre več takoj, ampak ostane na začetni strani."
+    ],
+    [
+      "Datoteke STEP z barvo skupine",
+      "Skupina, prikazana v eni barvi, zdaj da to barvo vsem delom tudi v datoteki STEP, namesto da bi vsak del vzel staro barvo. Z vklopljenim Multicolor vsak del obdrži svojo barvo, kot jo vidiš v urejevalniku."
+    ],
+    [
+      "Samodejni kerning za besedilo",
+      "Pari črk, kot so AY, AV, LT ali To, ne stojijo več z vrzeljo med seboj: novo besedilo jih približa samo, v vsaki pisavi, tudi tvoji. Pri starejših besedilih vklopi Automatic kerning pod More v lastnostih. Črke obdržijo velikost."
+    ],
+    [
+      "Varnostna kopija enega načrta nosi njegovo ime",
+      "Ko varnostno kopiraš samo en načrt s Select in Back up na začetni strani, se datoteka ZIP zdaj imenuje po njem, na primer layerling-Lantern-2026-11-05.zip, tako kot se varnostna kopija mape imenuje po mapi."
+    ]
+  ],
   "1.141.0": [
     [
       "Mere premika tudi s puščičnimi tipkami",

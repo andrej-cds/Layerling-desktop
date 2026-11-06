@@ -50,7 +50,7 @@ export const edits = [
     name: "Izvoz STEP: navadna skupina se združi v eno telo z imenom skupine (rob za Chamfer v Fusionu)",
     file: "apps/web/src/lib/stepExport.ts",
     marker: "CDS: group fused",
-    find: "      parts.push(...await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, budget));\n      continue;",
+    find: "      const inner = await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, budget);\n      // A group shown in one colour gives it to all its parts, as the editor draws it; with Multicolor they keep their own (#1305).\n      parts.push(...(groupShowsPartColors(shape) ? inner : inner.map((part) => ({ ...part, color: shape.color }))));\n      continue;",
     replace: `      // CDS: group fused - the group is one body in the editor, so it is one body in the file too.
       const inner = await buildScope(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, budget);
       if (inner.length > 1) {
@@ -60,12 +60,13 @@ export const edits = [
             min: [0, 1, 2].map((i) => Math.min(...inner.map((part) => part.box.min[i]))) as Aabb["min"],
             max: [0, 1, 2].map((i) => Math.max(...inner.map((part) => part.box.max[i]))) as Aabb["max"],
           };
-          parts.push({ solid: fused.value as BrepSolid, box, name: shape.name, kind: inner[0].kind, color: inner[0].color });
+          parts.push({ solid: fused.value as BrepSolid, box, name: shape.name, kind: inner[0].kind, color: groupShowsPartColors(shape) ? inner[0].color : shape.color });
           continue;
         }
         skipped.push({ name: shape.name, kind: shape.kind, reason: "the group's parts could not be fused; exported separately", code: "failed" });
       }
-      parts.push(...inner);
+      // A group shown in one colour gives it to all its parts, as the editor draws it; with Multicolor they keep their own (#1305).
+      parts.push(...(groupShowsPartColors(shape) ? inner : inner.map((part) => ({ ...part, color: shape.color }))));
       continue;`,
   },
   {
