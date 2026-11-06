@@ -1,4 +1,34 @@
 {
+  "1.147.0": [
+    [
+      "Vzorec lukenj okoli valja",
+      "Vzorec lukenj zdaj sprejme tudi okroglo steno valja, cevi ali izvrtine: klikni steno in luknje gredo v vrstah vse naokoli, vsaka je obrnjena proti osi. Dobro za lončke za svinčnike, senčnike in cevi z zračenjem. »Skozi steno« prereže samo steno, na katero si kliknil."
+    ],
+    [
+      "Deljenje s čepi ali vodilnimi zatiči",
+      "Ko deliš preveliko telo, okno »Split« pod »Connectors« zdaj po želji doda zatiče ali čepe, ki polovici spet natančno poravnata: »Dowels« naredi luknjo v vsako polovico in poleg položi proste zatiče, »Plugs« postavi okrogle čepe na eno polovico in njihove luknje v drugo. Obroči na ravnini vnaprej pokažejo, kam pridejo, zračnost pa sledi zračnosti tvojega tiskalnika."
+    ],
+    [
+      "Slepe luknje s konico svedra",
+      "Valj kot izrez, grezilo in stopničasta izvrtina se zdaj lahko končajo s konico svedra namesto ravno: pod »Bottom« so 90°, 118° in 135° ali poljuben kot. Globina šteje kot v risbi do začetka konice, namig pa pove, koliko globlje seže."
+    ],
+    [
+      "Lesena konstrukcija in kamnit zid kot površina",
+      "Za makete hišic in diorame ima kartica Surface texture dva nova vzorca: »Half-timbering« s tramovi, prečkami in podporniki nad rahlo grobim ometom ter »Stone wall« z nepravilnimi kamni, od lomljenca do okroglega kamna. Z »Pattern as its own part« natisneš tramove ali kamne v drugi barvi."
+    ],
+    [
+      "Novi osnutki z lestvijo kota v izhodišču",
+      "Kdor lestvico kota skoraj vedno potrebuje, v nastavitvah pod »Measurement« obkljuka »Start new designs with a framing square at the origin«. Potem je v vsakem novem osnutku tega brskalnika ena že v izhodišču. Obstoječi osnutki ostanejo, kot so."
+    ],
+    [
+      "Opeke brez štrcljev ob robu",
+      "Majhne opeke so ob zgornjem in spodnjem robu ter okoli oken kazale kratke črtice namesto zidu, kjer je rob pustil le ozek ostanek vrste. Taki ostanki zdaj ostanejo gladki; zidovi brez njih izgledajo kot prej."
+    ],
+    [
+      "Puščične tipke premikajo tekoče",
+      "Držana puščična tipka zdaj premika izbor tako tekoče kot vlečenje z miško, tudi v velikih osnutkih. Ob spustu nastane en sam korak, ki ga en Undo v celoti razveljavi."
+    ]
+  ],
   "1.146.1": [
     [
       "Vzorec površinske teksture kot svoj del",
