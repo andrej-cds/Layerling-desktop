@@ -306,6 +306,38 @@ export const edits = [
     replace: "/* CDS: slika mape */\n.server-folder-preview .server-folder-cover {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  display: block;\n}\n\n.server-folder-preview {\n  display: grid;\n  place-items: center;\n  color: #b07a2e;",
   },
   {
+    "name": "Slika mape: Node pot - funkcije",
+    "stage": "jezik",
+    "file": "apps/web/src/app/api/shared-projects/route.ts",
+    "marker": "function cdsCoverPath",
+    "find": "export async function GET(request: Request) {",
+    "replace": "/* CDS: slika mape - skrita datoteka .cover.png v mapi (enako kot store.php). */\nfunction cdsCoverPath(folder: string) {\n  return path.join(folder, \".cover.png\");\n}\n\nasync function cdsCoverInfo(root: string, parent: string, entry: string): Promise<{ coverUrl?: string }> {\n  const child = path.join(parent, entry);\n  const stat = await regularFileStat(cdsCoverPath(child));\n  if (!stat) return {};\n  const query = new URLSearchParams({ path: folderKey(root, child), cover: \"1\", v: String(Math.floor(stat.mtimeMs / 1000)) });\n  return { coverUrl: `/api/shared-projects?${query.toString()}` };\n}\n\nasync function cdsCoverGet(folder: string) {\n  const imagePath = cdsCoverPath(folder);\n  const imageStat = await regularFileStat(imagePath);\n  if (!imageStat) return NextResponse.json({ error: \"Folder picture was not found\" }, { status: 404 });\n  const imageStream = Readable.toWeb(createReadStream(imagePath));\n  return new Response(imageStream as BodyInit, {\n    headers: {\n      \"Cache-Control\": \"public, max-age=31536000, immutable\",\n      \"Content-Length\": String(imageStat.size),\n      \"Content-Type\": \"image/png\",\n    },\n  });\n}\n\nasync function cdsCoverSet(root: string, folder: string, request: Request) {\n  if (folder === root) return NextResponse.json({ error: \"A picture goes on a folder, not on the store itself\" }, { status: 400 });\n  const bytes = new Uint8Array(await request.arrayBuffer());\n  if (bytes.byteLength > MAX_THUMBNAIL_BYTES) return NextResponse.json({ error: \"The folder picture exceeds the 5 MB size limit\" }, { status: 413 });\n  if (!isPng(bytes)) return NextResponse.json({ error: \"The folder picture must be a PNG image\" }, { status: 400 });\n  const target = cdsCoverPath(folder);\n  const pending = `${target}.${randomUUID()}.tmp`;\n  try {\n    await fs.writeFile(pending, bytes);\n    await fs.rename(pending, target);\n  } catch (error) {\n    await fs.rm(pending, { force: true }).catch(() => undefined);\n    throw error;\n  }\n  return NextResponse.json({ saved: true, path: folderKey(root, folder) }, { status: 201 });\n}\n\nasync function cdsCoverRemove(root: string, folder: string) {\n  await fs.rm(cdsCoverPath(folder), { force: true });\n  return NextResponse.json({ removed: true, path: folderKey(root, folder) });\n}\n\nexport async function GET(request: Request) {"
+  },
+  {
+    "name": "Slika mape: Node pot - seznam map vrne coverUrl",
+    "stage": "jezik",
+    "file": "apps/web/src/app/api/shared-projects/route.ts",
+    "marker": "...(await cdsCoverInfo(root, folder, entry.name))",
+    "find": "      .map(async (entry) => ({ name: entry.name, ...(await folderContentsCount(path.join(folder, entry.name))) })));",
+    "replace": "      .map(async (entry) => ({ name: entry.name, ...(await folderContentsCount(path.join(folder, entry.name))), ...(await cdsCoverInfo(root, folder, entry.name)) })));"
+  },
+  {
+    "name": "Slika mape: Node pot - GET",
+    "stage": "jezik",
+    "file": "apps/web/src/app/api/shared-projects/route.ts",
+    "marker": "return await cdsCoverGet(folder)",
+    "find": "    if (requestUrl.searchParams.get(\"all\") === \"1\") return await allDesigns(root);",
+    "replace": "    if (requestUrl.searchParams.get(\"cover\") === \"1\") return await cdsCoverGet(folder);\n    if (requestUrl.searchParams.get(\"all\") === \"1\") return await allDesigns(root);"
+  },
+  {
+    "name": "Slika mape: Node pot - POST",
+    "stage": "jezik",
+    "file": "apps/web/src/app/api/shared-projects/route.ts",
+    "marker": "return await cdsCoverSet(root, folder, request)",
+    "find": "    const newFolder = requestUrl.searchParams.get(\"folder\");",
+    "replace": "    if (requestUrl.searchParams.get(\"setCover\") === \"1\") return await cdsCoverSet(root, folder, request);\n    if (requestUrl.searchParams.get(\"removeCover\") === \"1\") return await cdsCoverRemove(root, folder);\n    const newFolder = requestUrl.searchParams.get(\"folder\");"
+  },
+  {
     name: "Podmapa: ikone oblik v meniju (CSS spremenljivka)",
     stage: "podmapa",
     file: "apps/web/src/components/workplane/SecondaryToolbar.tsx",
