@@ -3572,5 +3572,39 @@
       "Plošča oblik ostane znotraj dosega",
       "Ploščo oblik ni več mogoče povleči pod orodno vrstico, kjer njene naslovne vrstice ni bilo mogoče prijeti. Plošča, ki obtiči tam, se ob odprtju sama spusti nazaj."
     ]
+  ],
+  "1.151.0": [
+    [
+      "Ogli, dolgi kot plošča",
+      "Kraka ogli lahko zdaj na koncih povlečeš daljša ali krajša. Gumb pod ročajem ju nastavi na dolžino tiskalne plošče tvojega tiskalnika."
+    ],
+    [
+      "Pokrov, ki se privije",
+      "Orodje »Lid« ima novo vrsto »Screw in«: telo dobi navoj znotraj odprtine, pokrov pa navojni čep pod seboj. Zunanjost telesa ostane gladka, na primer pri okroglem držalu za svinčnike. Oba dela se tiskata brez podpor."
+    ],
+    [
+      "Zasukane reže v vzorcu lukenj",
+      "Reže in pravokotnike v vzorcu lukenj lahko zdaj zasukaš: z »Angle of the holes« vsaka luknja stoji poševno, na primer prezračevalne reže pod 45°, mreža pa ostane ravna. Stena med luknjami se ohrani."
+    ],
+    [
+      "Ovojnica z odprtimi luknjami",
+      "Ovojnica zapolni vse votlo v svojih delih: cev, izdolben valj, luknje v skupini. S »Keep the parts' holes« pod »Properties« ostanejo luknje odprte, ovojnica pa zapolni samo prostor med deli."
+    ],
+    [
+      "Pokrov, ki ga potisneš noter",
+      "Orodje »Lid« ima novo vrsto »Slide-in«, kot pokrov lesene škatle za svinčnike: teče po jezičkih v utorih v treh stenah in zdrsne noter čez četrto. Škatla se tiska pokonci, pokrov obrnjen, oba brez podpor."
+    ],
+    [
+      "Pokrov na preklop in pritrditev",
+      "Navojni in bajonetni pokrovi lahko dobijo odprtino za točenje s tiskanim pokrovčkom, kot pri steklenički šampona, in pritrditev, ki pokrov drži na telesu. Oboje se tiska brez podpor."
+    ],
+    [
+      "Standardni navoji za steklenice in kozarce",
+      "Navojni pokrov lahko prevzame navoj po standardu (PCO 1881, PCO 1810, GL 45, kozarci za vlaganje), da se prilega steklenici iz trgovine. Zasuk bajonetnega pokrova je nastavljiv, zaobljen rob pa ni več zavrnjen."
+    ],
+    [
+      "Gladkejše slikovne teksture",
+      "Slika na veliki ali okrogli vazi ne izpade več v stopnicah mreže, »Fine« pa je zares finejše od »Medium«."
+    ]
   ]
 }
