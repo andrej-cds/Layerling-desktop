@@ -3606,5 +3606,151 @@
       "Gladkejše slikovne teksture",
       "Slika na veliki ali okrogli vazi ne izpade več v stopnicah mreže, »Fine« pa je zares finejše od »Medium«."
     ]
+  ],
+  "1.152.0": [
+    [
+      "Skrij ostale, obrni izbor",
+      "Izberi nekaj delov in v meniju z desnim klikom izberi »Hide others«: vse ostalo izgine, Ctrl+Z ga vrne. »Invert selection« izbere vsak drug viden del."
+    ],
+    [
+      "Barvne pike za poravnavo",
+      "Pike za poravnavo so zdaj rdeče, zelene in modre kot ročaji za premikanje, tako tudi tam, kjer se prekrivajo, vidiš, katera kaj počne."
+    ],
+    [
+      "Besedila do 250 znakov",
+      "Besedilo zdaj sprejme 250 namesto 24 znakov. Črke ohranijo velikost, vrstica pa je tako dolga, kot je treba. Zaobljen ali posnet rob črk deluje do 40 znakov."
+    ],
+    [
+      "Votlenje deluje na več oblikah",
+      "Telo z ravnim vrhom in dnom ter pokončnimi stranicami se zdaj izvotli skozi svoj obris. Oblike z ostrim vogalom v okroglem obrisu in uvožene datoteke STL, pri katerih je votlenje prej odpovedalo ali obtičalo, zdaj delujejo."
+    ],
+    [
+      "Zaobljena škatla: več svobode",
+      "Pika na zgornjem robu vleče polmer vogala, tudi pri navadni škatli. »Corners Separately« da vsakemu vogalu svoj polmer, »Top/Bottom Separately« pa zgoraj in spodaj zaobli različno, na primer raven vrh in okrogla spodnja stran."
+    ],
+    [
+      "Naklon vzdolž: sredina, lok in strani",
+      "»Curve Starts At« lahko pusti, da naklon pada od sredine proti obema koncema, ali pa enakomerno zaobli poševni vrh. »Sides Lowered« spusti obe dolgi stranici, ravno ali oboknjeno."
+    ],
+    [
+      "Zaobljenje pove, kje obtiči",
+      "Kadar ukrivljenega roba ni mogoče zaobliti, layerling zdaj poimenuje najožji ovinek in označi te robove rdeče. Izberi polmer, manjši od tega ovinka."
+    ],
+    [
+      "Stožec ostane okrogel",
+      "Polmer osnove stožca zdaj spreminja širino in dolžino skupaj, zato stožec ne postane ovalen. Kadar je zgornji polmer večji, namig pove, kako narediš stožec širši zgoraj."
+    ],
+    [
+      "Premeri čez 160 mm",
+      "Premer in polmer valja ali stožca lahko zdaj vtipkaš večje, kot sega drsnik, tako kot širino in višino."
+    ],
+    [
+      "Razporeditev na plošče spet deluje",
+      "Gumb »Arrange on plates« v vrstici plošč ni naredil nič. Zdaj spet razporedi izbor ali vse dele."
+    ],
+    [
+      "Shranjevanje pove, če ni bilo shranjeno",
+      "Ko se okno za shranjevanje zapre brez izbrane datoteke, vrstica stanja zdaj pokaže »Nothing saved« ali »No backup made«, pri Ctrl+S, Shrani kot in varnostnih kopijah."
+    ],
+    [
+      "AI lahko poimenuje projekt",
+      "Prek MCP lahko AI zdaj da projektu ime, kot svinčnik ob njegovem imenu, namesto da ostane »Untitled design«."
+    ]
+  ],
+  "1.152.1": [
+    [
+      "Točka na točko",
+      "Poravnava ploskev ima četrti način: klikni vogal, rob ali referenčno točko dela, nato točko drugega dela, in del se premakne naravnost tja brez vrtenja. Če sta vklopljena samo X in Y, pristane naravnost nad njo. Druga in tretja dvojica točk nato zavrtita del na mesto, kot pri poravnavi po treh točkah."
+    ],
+    [
+      "Pokrov na drsenje z okvirjem",
+      "Pokrov na drsenje ima možnost Frame above the lid: pokrov tako sedi malo pod robom, stene ohranijo polno višino vsenaokrog, pokrov pa zdrsne noter skozi utor v steni. Avtor: @marcus040473."
+    ],
+    [
+      "Uvoz STEP pove, kaj se dogaja",
+      "Med branjem datoteke STEP sporočilo ostane. Če se jedro CAD zatakne pri datoteki, layerling po 3 minutah preneha in sporoči, da je datoteka verjetno poškodovana in da uvoz kot STL običajno deluje; sporočilo ostane, dokler ga ne zapreš."
+    ]
+  ],
+  "1.153.0": [
+    [
+      "Luknje, ki se nagibajo skozi steno",
+      "Vzorec lukenj ima »Slope through the wall«: na ravni ploskvi nagne vsako luknjo do 60°. Na stoječi steni je pri pozitivnem naklonu notranji konec višje, tako da dež spet steče ven."
+    ],
+    [
+      "Tvoje oblike v iskanju ukazov",
+      "Ctrl+K zdaj najde tudi oblike, ki si jih sam shranil med »Custom shapes«. Vtipkaj del imena in Enter ali klik vstavi obliko kot meni oblik."
+    ],
+    [
+      "Odlomljiva podlaga za stoječe čepe",
+      "Pri tiskalniku s premikajočo se mizo se visoki tanki čepi majejo. Čep za preizkus ujemanja (nastavitve, printer play) in ohlapni zatiči orodja Split lahko zdaj stojijo na tanki plošči, ki se po tisku odlomi."
+    ],
+    [
+      "Alt+D spusti izbor kot en kos",
+      "D spusti vsak izbrani del posebej. Alt+D jih spusti skupaj, dokler najnižji ne leži na delovni ravnini, tako da zloženi deli ohranijo medsebojne višine."
+    ],
+    [
+      "Pokrov s standardnim navojem: ali vrat ustreza?",
+      "Okno Lid zdaj vnaprej izmeri, kako širok je vrh telesa, in pove, ali sprejme navoj vratu. Valj, cev ali obroč se z gumbom »Fit the body to the neck« prilagodi."
+    ],
+    [
+      "Ime izvoza vtipkaš takoj",
+      "Ko se odpre okno izvoza, je ime datoteke že izbrano. Samo vtipkaj in novo ime ga nadomesti."
+    ],
+    [
+      "Shranjevanje vedno deluje, po potrebi kot prenos",
+      "Na nekaterih računalnikih pogovorno okno za shranjevanje v Chromu in Edgeu ne vrne datoteke. Sporočilo »Nothing saved« zdaj ima gumb »Download instead«, ki shrani načrt v mapo Prenosi."
+    ],
+    [
+      "Zaobljeni robovi lukenj ne zapolnijo luknje",
+      "Zaporedno zaobljanje zgornjih robov več okroglih lukenj je včasih popolnoma izgubilo luknjo. Luknje zdaj ostanejo prave krožnice, obdelava roba, ki pogoltne ploskev, ki se je ni dotaknila, pa je zavrnjena z namigom."
+    ],
+    [
+      "Orodna vrstica sledi velikosti elementov",
+      "Po spremembi velikosti elementov v nastavitvah se orodna vrstica spet takoj prilagodi in ostane v eni vrsti, namesto da bi se zlomila v dve ali tri."
+    ],
+    [
+      "Ni več druge gradbene plošče",
+      "Delovna ravnina, postavljena na prazno ploščo, je nosila ime tiskalnika in je bila videti kot druga plošča ob pravi, sivi. Ime zdaj ostane na pravi plošči. Alt+W vrne delovno ravnino."
+    ]
+  ],
+  "1.154.0": [
+    [
+      "Privijalni pokrovi z zaobljenim ali posnetim zgornjim robom",
+      "V oknu pokrova »Top edge« zaobli ali posname zgornji rob privijalnega ali bajonetnega pokrova že ob nastanku. Pozneje to ne bi šlo: pokrov in navoj sta ena mreža s preveč trikotniki za orodje za robove."
+    ],
+    [
+      "Gladkejša vrtena telesa",
+      "Vrteno skicirano telo ima v lastnostih »Smoothness«: Fine in Extra fine razrežeta okrogle ploskve na manjše fasete, da se pri tisku velikega lonca ne vidijo več."
+    ],
+    [
+      "Neuporabljene gumbe odstrani iz traku",
+      "V Nastavitve, Videz, »Buttons in the ribbon« lahko odstraniš posamezne gumbe ali cele skupine iz traku. Iskanje ukazov (Ctrl+K) in tvoje tipke jih še vedno zaženejo, vrstni red ostane enak."
+    ],
+    [
+      "Uvoz pristane na plošči, na kateri si",
+      "Pri več gradbenih ploščah je uvožena datoteka STL, OBJ, 3MF, STEP, SVG ali DXF vedno prišla na prvo. Zdaj pristane na plošči, na kateri si, kot nove oblike."
+    ],
+    [
+      "Offset in votlenje z zaobljenimi robovi",
+      "Telo z zaobljenimi robovi, skrčeno z Offset, je včasih ostalo odprto in pokvarjeno. Zdaj je zaprto, tako zaobljeno ohišje pa se da izvotliti tudi v enem koraku."
+    ],
+    [
+      "Uvoženi deli STL se spet pravilno odprejo",
+      "Od 1.151.0 so se nekateri prej uvoženi deli STL odprli zasukani za 90 stopinj in raztegnjeni. Načrt jih zdaj prebere tako, kot so bili uvoženi, tudi če je bil v tem stanju shranjen znova."
+    ]
+  ],
+  "1.154.1": [
+    [
+      "Premikanje skupin in gumbov v traku",
+      "V nastavitvah je poseben zavihek »Ribbon«: tam sta velikost elementov in gumbi, ki jih lahko odstraniš. Ob vsaki skupini in vsakem gumbu sta dve puščici. S tem lahko na primer »Arrange« stoji takoj za »Combine«, gumb pa se premakne na začetek svoje skupine. Samo skupina Shapes obdrži svoje mesto."
+    ],
+    [
+      "Pripeto okno oblik ostane pod orodno vrstico",
+      "Premaknjeno ali povečano okno oblik je po pripenjanju zdrsnilo pod orodno vrstico z naslovom in iskanjem. Zdaj se odpre tam, kjer si ga pustil, in sledi orodni vrstici, ko se poveča ali zmanjša."
+    ],
+    [
+      "Podolgovate luknje za vijake",
+      "Izvrtina, posnetje in dvojno posnetje imajo stikalo »Slotted«: glava in steblo tečeta vzdolž reže, tako da lahko del še poravnaš, preden vijak zategneš. Dolžino nastaviš takoj pod njim."
+    ]
   ]
 }
