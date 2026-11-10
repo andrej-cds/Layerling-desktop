@@ -3752,5 +3752,73 @@
       "Podolgovate luknje za vijake",
       "Izvrtina, posnetje in dvojno posnetje imajo stikalo »Slotted«: glava in steblo tečeta vzdolž reže, tako da lahko del še poravnaš, preden vijak zategneš. Dolžino nastaviš takoj pod njim."
     ]
+  ],
+  "1.155.0": [
+    [
+      "Palčne velikosti za posnetja",
+      "Pod »Screw size« posnetje zdaj ponuja tudi #2 do #14 po ASME B18.6.1: stožec 82°, glava in steblo po meri vijaka. To so tudi avstralski kalibri (6-kaliber je #6). Dvojno posnetje in vzorec lukenj jih imata prav tako."
+    ],
+    [
+      "Načrte vedno shrani kot prenos",
+      "Nastavitve > Appearance imajo stikalo »Save designs as a download«: Export > LYL, Ctrl+S in Save as nato shranijo načrt v mapo Prenosi brez pogovornega okna. To pomaga na računalnikih, kjer pogovorno okno za shranjevanje v Chromu in Edgeu ne vrne datoteke. Tudi neuspel izvoz STL zdaj ponudi »Download instead«."
+    ],
+    [
+      "Poglobljena posnetja",
+      "Posnetje in dvojno posnetje imata polje »Recess«: ravna kapica, široka kot glava, je nad stožcem, tako da glava vijaka konča toliko milimetrov pod ploskvijo namesto v ravnini z njo."
+    ],
+    [
+      "Trak spet ustreza oknu",
+      "Pri širinah okna med približno 1900 in 2050 slikovnih pik (in tudi med 2215 in 2375) je bil trak širši od okna: skupine, kot sta Surface ali Mirror & Pattern, so zdrsnile pod sosednje in ikone so bile komaj vidne. Stopnje, pri katerih se ikone zmanjšajo, so izmerjene znova in zdaj veljajo pravočasno."
+    ],
+    [
+      "Lastne oblike: iskanje in vrstni red",
+      "Iskanje v knjižnici oblik zdaj najde tudi tvoje lastne oblike po imenu, tudi tiste v mapah. Prikazane so nad zadetki knjižnice. Ob gumbu za mapo je še gumb, ki lastne oblike razvrsti po imenu (A do Z) namesto po dnevu shranjevanja; brskalnik si izbiro zapomni."
+    ]
+  ],
+  "1.156.0": [
+    [
+      "Prehod: stena na vrhu",
+      "Prehod s steno ima zdaj v lastnostih tudi »Wall Thickness at the Top«: šoba, debela 3 mm na pravokotniku spodaj, ki se konča 1 mm tanka na okroglem vrhu. Vmes se stena enakomerno spreminja; brez lastne vrednosti je vrh enako debel kot dno."
+    ],
+    [
+      "Nastavi prosojnost lukenj",
+      "»Hole opacity« v Nastavitve > Appearance določa, kako polne so narisane luknje. Nižja vrednost bolje pokaže, kje se luknja dotika telesa; skupaj z »Show holes more clearly« luknje postanejo temne in dobro prosojne."
+    ],
+    [
+      "Novosti tudi v urejevalniku",
+      "Gumb z iskricami ob hitrem vodiču zgoraj desno (ali iskanje ukazov) odpre ta seznam tudi v urejevalniku. Ostane odprt ob načrtu, medtem ko preizkušaš novosti."
+    ],
+    [
+      "Jasnejši namigi za goste in odprte mreže",
+      "Offset, Hollow in obdelava robov zdaj povedo, kaj pomaga: kadar ima mreža preveč trikotnikov, pokažejo na »Simplify mesh« v meniju z desnim klikom. Kadar je odprta, predlagajo razveljavitev koraka poenostavitve ali popravilo uvožene mreže v razrezovalniku, namesto orodja za popravilo, ki ne obstaja."
+    ],
+    [
+      "Način osredotočenja: več prostora na majhnih zaslonih",
+      "Gumb z dvema puščicama zgoraj desno (ali Ctrl+Shift+F) skrije vrstico z naslovom in nogo, trak in pogled pa dobita prostor. Majhna premakljiva vrstica pod trakom ohrani Home, 3D urejevalnik in skico, iskanje ukazov in nastavitve. V celozaslonskem načinu brskalnika (F11) se način osredotočenja vklopi sam."
+    ],
+    [
+      "Hitrejše premikanje pogleda",
+      "Premikanje pogleda zdaj sledi miški: točka, ki jo primeš, ostane pod kazalcem, namesto da zaostaja. »Pan speed« v Nastavitve > Appearance ga upočasni ali pospeši. Če želiš, da se pogled ustavi takoj, ko spustiš, izklopi »Camera keeps turning«; velja za vrtenje in premikanje."
+    ],
+    [
+      "Trak: štiri skupine namesto Modify, zlaganje po tvoje",
+      "Mirror & pattern, Split & shape, Edges & walls in Surface so zdaj samostojne skupine: vsaka se premika, zloži in odstrani posebej. V Nastavitve > Ribbon »Folding« za vsako skupino določi, ali se zloži, ko zmanjka prostora, ostane zložena ali se zloži zadnja."
+    ]
+  ],
+  "1.156.1": [
+    [
+      "Način osredotočenja: pogled sega do dna",
+      "V načinu osredotočenja 3D pogled zdaj sega do spodnjega roba okna, tudi po F11; pripenjalna mreža je spet v pogledu in ne v lastnem pasu. Ikone male vrstice so vse enako velike."
+    ]
+  ],
+  "1.156.2": [
+    [
+      "Stretch: podaljšaj del na enem mestu",
+      "Orodje Split ima ob »Split in two« zdaj še »Stretch«: postavi ravnino, vtipkaj dolžino in telo se tam podaljša, rez na ravnini zapolni vrzel. Prenesena škatla zraste skozi ravne stene, predelki in zaobljeni vogali ostanejo, kot so bili. Negativna vrednost ga skrajša."
+    ],
+    [
+      "Vrtenje skice: brez prikazni pri urejanju",
+      "Pri urejanju vrtenega telesa, ki se začne nad ploščo, se je za stranskim pogledom videla zapolnjena oblika: nivo je rezal dele ob njem, gledano od zgoraj. Zdaj je ni več; samo telo ni bilo nikoli prizadeto."
+    ]
   ]
 }
