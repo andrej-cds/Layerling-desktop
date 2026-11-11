@@ -3820,5 +3820,105 @@
       "Vrtenje skice: brez prikazni pri urejanju",
       "Pri urejanju vrtenega telesa, ki se začne nad ploščo, se je za stranskim pogledom videla zapolnjena oblika: nivo je rezal dele ob njem, gledano od zgoraj. Zdaj je ni več; samo telo ni bilo nikoli prizadeto."
     ]
+  ],
+  "1.157.0": [
+    [
+      "Izvrtina s posnetjem na robu",
+      "Izvrtina ima zdaj polje »Rim chamfer«: na zgornji rob žepa naredi 45° posnetje, da rob ni oster in vijak lažje najde pot noter. Posnetje leži zunaj premera glave, tako da glava vijaka še vedno ustreza, in ostane točno telo, tudi v podolgovati luknji."
+    ],
+    [
+      "Votlenje: uvožene ploske figure z rahlo nagnjenimi stranicami",
+      "STL, pri katerem sta bila vrh in dno vzorčena ločeno, ima stranice iz mnogih posameznih trikotnikov, vsak rahlo nagnjen. Votlenje je pri taki figuri obupalo pri vsaki debelini stene. Zdaj jo izvotli skozi njen obris, kot pokončno telo, zunanjost pa ostane taka, kot je."
+    ],
+    [
+      "Orodja CAD delujejo tudi na počasni povezavi",
+      "Hollow, Fillet, Chamfer in druga orodja, ki uporabljajo jedro CAD, ga naložijo (21 MB) ob prvi uporabi. Njihova časovna omejitev je štela tudi ta prenos: na počasni povezavi je potekla, prenos se je začel znova in vsako orodje je poteklo. Zdaj urejevalnik jedro naloži vnaprej, ko je pripravljen, časovna omejitev pa se začne šele, ko je jedro naloženo."
+    ],
+    [
+      "Spustni seznami: vidna je cela izbira, opomba teče čez vso širino",
+      "Pri dolgi oznaki, kot je »Through the Sections« pri loftu, je bil spustni seznam tako ozek, da je bilo »Straight« odrezano, opomba pod njim pa je tekla v ozkem stolpcu. Zdaj se dolga oznaka prelomi in pusti polju prostor, opombe pod spustnimi seznami pa uporabljajo vso širino kot pod številčnimi polji."
+    ],
+    [
+      "Poševni in ribjekostni zobniki z notranjim ozobjem ter letve",
+      "Zobniki z notranjim ozobjem in letve zdaj sprejmejo kot vijačnice in ribjekostne zobe, da tečejo s poševnim ali ribjekostnim zobnikom. Daj jim enak kot kot zobniku, ki teče z njimi. Letev ohrani dolžino, poševni zobje so na koncih odrezani pravokotno, oba pa gresta v izvoz STEP kot točni telesi."
+    ]
+  ],
+  "1.157.1": [
+    [
+      "Več prostora za imena v seznamu objektov",
+      "Seznam objektov zdaj pokaže, ali je del trdno telo ali luknja, z eno črko namesto cele besede; z miško nad njo vidiš besedo. Seznam lahko tudi povlečeš širše na spodnjem desnem kotu, do 600 slikovnih pik; brskalnik si širino zapomni."
+    ],
+    [
+      "Posnetje in zaobljenje: največja velikost, ki ustreza",
+      "Kadar je posnetje ali zaobljenje prevelik za izbrane robove, se pod sporočilom zdaj pokaže »Find the largest size that fits«. En klik poskusi manjše velikosti in vstavi največjo, ki gre skozi, na stotinko milimetra natančno."
+    ],
+    [
+      "Rdeče in zelene puščice za premikanje lahko izklopiš",
+      "V Nastavitve → Appearance → »Show the red and green move arrows«. Ko so izklopljene, izbor obdrži puščice za vrtenje in puščico za dvig; dve puščici, ki ga samo premikata po X ali Y, ne ovirata več pri majhnih telesih."
+    ],
+    [
+      "Zasukano posnetje obdrži imena polj",
+      "Pri zasuku za 90° se je premer glave posnetja nenadoma imenoval Height, celotna dolžina pa Width. Zdaj za zasukom sledijo samo navadna polja Length, Width in Height; polja z lastnim imenom ga obdržijo."
+    ],
+    [
+      "Shrani kot privzeto ohrani vsa polja",
+      "»Save as default« je izpustil novejša polja, kot so posnetje roba izvrtine, utor in udrtina vijačne luknje ali glava, pogon in ovratnik navoja. Zdaj nove oblike dobijo polja nazaj, kot si jih shranil."
+    ]
+  ],
+  "1.157.2": [
+    [
+      "Načrti s strežnika nazaj v brskalnik",
+      "Meni načrta na zavihku Server ima zdaj »Put in this browser«, pot nazaj od »Put on the server«. Deluje tudi, če povlečeš njegovo kartico na zavihek Browser. Načrt potem živi samo v tem brskalniku in ne več v mapi na strežniku."
+    ],
+    [
+      "Seznam korakov v pogledu History se spet prikaže takoj",
+      "Pri načrtih z veliko koraki in velikimi telesi se je seznam korakov v pogledu History prikazal do pol minute. Zdaj je tam takoj, tudi ko ga odpreš znova."
+    ],
+    [
+      "Mape gredo s seboj na strežnik",
+      "»Put all on the server« zdaj ohrani tvoje mape: vsak načrt konča na strežniku v isti mapi kot v brskalniku. Tudi posamezna mapa gre na strežnik z vsem, kar je v njej, z »Put on the server« v njenem meniju ali z vlečenjem na zavihek Server."
+    ]
+  ],
+  "1.158.0": [
+    [
+      "Spreminjanje velikosti do stene",
+      "Ko povlečeš stranski ročaj, da oblika postane večja, se stranica zdaj ustavi na robovih drugih oblik in na steni, v katero naleti, tudi na notranji steni škatle ali ohišja. Tako del napolni škatlo natančno od stene do stene, brez merjenja."
+    ],
+    [
+      "Tretji krak kotnika, ki kaže navzgor",
+      "Kotnik ima tretji krak, ki stoji naravnost navzgor iz njegovega vogala, z lastnimi črticami, za valje in vse, kar gradiš navzgor. Nov gumb s tremi osmi pod njegovim ročajem vsak krak vklopi ali izklopi."
+    ],
+    [
+      "Urejanja se ne izgubijo več",
+      "Če je bil shranjeni čas načrta pred uro računalnika, na primer po vrnitvi ure nazaj, po ponovnem nalaganju ni bilo shranjeno nobeno urejanje, sprememba koraka pripenjanja pa je vrnila staro stanje. Zdaj je vsako urejanje shranjeno, prvo tak načrt spet postavi v red."
+    ],
+    [
+      "Kotomer meri, kar pokaže raven pogled",
+      "Pri pogledu naravnost od zgoraj, spredaj ali s strani kotomer zdaj meri kot, ki ga vidiš: diagonala kocke, gledana od zgoraj, da 45° namesto 54,7°. Tako ostane, tudi ko pogled pozneje zasukaš."
+    ],
+    [
+      "Podporno rebro: mostovi z režo do dela",
+      "V »More settings« »Gap at the bridge ends« omogoči, da se vsak most konča tik pred delom. Razrezovalnik most natisne kot lastno pot, podpora pa se lažje odlomi. Dobro izhodišče je pol črte, približno 0,2 mm pri šobi 0,4 mm."
+    ],
+    [
+      "Nove plošče: Cheap Yellow Display",
+      "Plošče SBC zdaj vključujejo ESP32-2432S028R (»CYD«) z micro-USB in z micro-USB plus USB-C, zaslon navzgor, vsi priključki na hrbtni strani. Gumbi pod ploščo zdaj segajo skozi dno."
+    ],
+    [
+      "Plošča SBC ostane na svojih pritrdilnih luknjah",
+      "Ko spremeniš zračnost plošče SBC, njen doseg skozi steno ali odprtine, plošča zdaj ohrani svoje mesto, tudi zasukana ali nagnjena. Prej se je lahko premaknila skupaj z luknjami."
+    ],
+    [
+      "Skicirano telo ohrani zožitev, zasuk in nagib",
+      "Ko urejaš skico skiciranega telesa ali spremeniš njegovo zapolnitev, zožitev, zasuk in nagib zdaj ostanejo. Zožitev raste ali se krči z obrisom."
+    ],
+    [
+      "Deli, ki ležijo na boku, se razširijo vzdolž",
+      "Ko raztegneš več izbranih delov, valj, ki leži na boku, zdaj zraste vzdolž: daljši z ročaji na koncih, debelejši in še vedno okrogel s tistimi ob strani."
+    ],
+    [
+      "Snopi: kje režejo njihove luknje",
+      "Opomba v nastavitvah snopa zdaj pove, da njegove luknje nikoli ne režejo lastnih delov snopa, tudi pozneje v skupini ne, samo druge dele."
+    ]
   ]
 }
