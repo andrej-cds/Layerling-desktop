@@ -3920,5 +3920,231 @@
       "Snopi: kje režejo njihove luknje",
       "Opomba v nastavitvah snopa zdaj pove, da njegove luknje nikoli ne režejo lastnih delov snopa, tudi pozneje v skupini ne, samo druge dele."
     ]
+  ],
+  "1.159.0": [
+    [
+      "Starejše različice – in zakaj še vedno potrebuješ lastno varnostno kopijo",
+      "Tvoji načrti živijo v tem brskalniku na tvojem računalniku. Varno je samo to, kar obstaja še drugje: okvara diska, nov računalnik, izbrisani podatki brskalnika ali hrošč, in brez kopije je delo izgubljeno. Kopijo moraš narediti ti, nobena programska oprema je ne more narediti namesto tebe.\n\nKaj naj narediš: po vsaki večji seji na začetni strani klikni »Back up all«. V eno datoteko spravi vse načrte z mapami in tvoje lastne oblike. Shrani jo na USB ključ, v oblačno mapo ali na NAS, ne samo na isti računalnik. »Restore backup« vse vrne, tudi na drugem računalniku.\n\nKaj layerling zdaj naredi sam: preden Ctrl+S prepiše datoteko .lyl, jo shrani, kakršna je bila. Med delom vsakih 10 minut obdrži stanje načrta, če se je kaj spremenilo. To pomaga, kadar si kaj prepisal ali pokvaril po pomoti.\n\nKje najdeš starejše različice: v urejevalniku pod Export → LYL → »Earlier versions« ali v iskanju ukazov, na začetni strani ob »Restore backup« za vse načrte in v meniju kartice načrta za ta načrt. Vsaka pokaže sliko, čas in velikost. »Open« naredi nov načrt; odprti načrt ostane, kot je. Lahko jo shraniš tudi kot datoteko ali izbrišeš.\n\nKaj lahko nastaviš (zobnik v traku → Backups): koliko starejših različic datoteke ostane (izklopljeno do 20, na začetku 5), kako pogosto se shrani stanje (izklopljeno, vsakih 10 ali 30 minut; zadnjih šest vsakega načrta ostane), kdaj te layerling opomni na »Back up all« (po 3, 7 ali 14 dneh ali nikoli) ter v Chromu in Edgeu mapa za varnostne kopije na računalniku, ki prejme vsako kopijo kot datoteko .lyl z imenom načrta in časom. Mapa v oblaku ali na drugem disku je drugo mesto.\n\nKako veš, da je čas: opozorilo nad načrti je glasnejše, čim dlje je zadnja kopija. Po 7 dneh s spremembami dobi gumb »Back up now«; po 30 dneh ali pri več načrtih brez kopije postane rdeče. V urejevalniku te vrstica stanja opomni največ enkrat na dan.\n\nPomembno: starejše različice živijo v istem brskalniku kot tvoji načrti. Če izbrišeš podatke brskalnika ali izgubiš računalnik, jih ni več. Zato ne nadomestijo »Back up all«, ampak ga dopolnjujejo."
+    ],
+    [
+      "layerling v švedščini",
+      "Program in uporabniški vodnik zdaj govorita tudi švedsko, vseh 17 poglavij. Brskalnik, nastavljen na švedščino, se zažene v njej; sicer jo izberi na seznamu jezikov zgoraj desno."
+    ],
+    [
+      "Lastovičji rep sledi naklonu",
+      "Ko klančino ali klin razdeliš čez naklon z lastovičjim repom, se je jezik prej končal pravokotno na rezni ploskvi, zato je po sestavljanju nad vsakim jezikom nastala stopnica v naklonu. Zdaj jezik teče naprej z naklonom in površina je gladka."
+    ]
+  ],
+  "1.159.1": [
+    [
+      "Skice na aktivni gradbeni plošči",
+      "Pri več gradbenih ploščah se je nova skica vedno odprla nad ploščo 1 in do plošče 2 se ni dalo priti. Zdaj se skica začne na plošči, ki je aktivna: vidiš telesa na njej, končano telo pa stoji tam."
+    ],
+    [
+      "Prusa CORE One INDX",
+      "Seznam tiskalnikov v nastavitvah ima zdaj tudi CORE One z menjalnikom orodij INDX, z manjšo ploščo 248 × 205 mm."
+    ],
+    [
+      "Podvoji ponovi premik tudi za več delov",
+      "Ctrl+D je prej ponovil, kako je bila kopija premaknjena, zasukana ali spremenjena, samo za en del. Zdaj deluje tudi za izbor: podvoji plast, dvigni kopijo in vsak nadaljnji Ctrl+D postavi naslednjo plast na vrh na isti razdalji."
+    ],
+    [
+      "Skica: točke brez pripenjanja",
+      "Točka blizu vogala telesa pod njo, sredine črte ali križišča se je vedno pripela tja. Drži Alt, ko jo postavljaš ali vlečeš, in se drži samo mreže, tako da lahko slediš tik ob vogalu."
+    ],
+    [
+      "Predloge SVG v Firefoxu",
+      "Slike SVG, dodane kot predloga pod skico, v Firefoxu ni bilo mogoče prebrati. Zdaj deluje tudi tam."
+    ],
+    [
+      "Docker: vsebniki se spet zaženejo",
+      "Če layerling poganjaš z Dockerjem na NAS in vsebnik znova ustvariš s Portainerjem ali Synologyjevim Container Managerjem, se vsebnik z 1.159.0 ni zagnal. Slika ima zdaj spet stari zagonski skript in taki vsebniki tečejo kot prej."
+    ]
+  ],
+  "1.159.2": [
+    [
+      "Stretch: ni več črnih črt na spojih",
+      "Ko je Stretch šel skozi poševne ali zaobljene stene, je daljši kos kazal črne črte in po poznejšem rezu so ostali ostanki. Povzročili so jih trikotniki debeline lasu ob obeh spojih; zdaj so zloženi stran, oblika pa ostane enaka."
+    ],
+    [
+      "Središčni križ ostane viden od daleč",
+      "Ob oddaljenem pogledu je križ skozi sredino plošče postal tanek kot druge črte mreže in se je izgubil med njimi. Zdaj je vedno vsaj tri slikovne pike širok; od blizu je videti kot prej."
+    ],
+    [
+      "Načrt, ki ga ni mogoče prebrati, se ne odpre več prazen",
+      "Kadar shranjenega načrta ni bilo mogoče prebrati, se je odprl prazen in prva sprememba ga je lahko tako shranila. Zdaj ostane nedotaknjen na začetni strani s sporočilom z razlogom. »Back up all« pove tudi, za katere načrte brskalnik nima vsebine, in ko odpiranje datoteke .lyl traja nenavadno dolgo, pove, pri katerem koraku je."
+    ]
+  ],
+  "1.160.0": [
+    [
+      "Izvrtina: dolžina pod glavo",
+      "Vijaki z valjasto glavo se prodajajo po dolžini pod glavo. Izvrtina ima zanjo zdaj polje »Screw length«: vnesi dolžino vijaka in globina glave se prišteje celotni dolžini. Pri globini glave 3,2 mm M3 × 12 naredi luknjo, dolgo 15,2 mm."
+    ],
+    [
+      "Preprosti način lahko na telefonih in tablicah izklopiš",
+      "Izklopiš ga tako, da gumb držiš dve sekundi. Na zaslonu na dotik je dolg pritisk namesto tega odprl meni brskalnika in preprosti način je ostal vklopljen. Zdaj meni ostane zaprt in dve sekundi stečeta."
+    ],
+    [
+      "Vrtenje: igla na številčnici se začne pri nič",
+      "Ko si prijel puščico za vrtenje malo ob njeni sredini, se je majhna igla na številčnici začela ob ničli za toliko, čeprav je odčitek kazal 0°. Zdaj se vedno začne pri ničli in kaže na črtico, ki jo imenuje odčitek."
+    ],
+    [
+      "Vtipkaj kodo barve",
+      "Šestnajstiška vrednost na vrhu kartice barve je zdaj polje. Klikni nanjo, vtipkaj ali prilepi kodo, na primer #5EBDDB, in pritisni Enter: telo dobi natanko to barvo, pri več izbranih telesih vsa. Ni več ovinka prek rdeče, zelene in modre."
+    ],
+    [
+      "Opomba o zelo velikih mrežah",
+      "layerling je narejen predvsem za točna telesa CAD. Mreže iz STL, OBJ ali 3MF delujejo tudi, manjši deli niso težava. Zelo velike mreže s sto tisoči ali milijoni trikotnikov pa upočasnijo urejevalnik, porabijo veliko pomnilnika in upočasnijo shranjevanje.\n\nKo uvoz prinese mrežo s 400.000 ali več trikotniki ali mreže načrta skupaj dosežejo milijon, layerling to enkrat pove z gumbom do novega razdelka uporabniškega vodnika. »Simplify mesh« (desni klik na telo) take mreže olajša."
+    ],
+    [
+      "Prazen načrt: Obdrži ali Izbriši",
+      "Ko si zapustil prazen načrt, je layerling vprašal »Keep empty design?« z Da in Ne, Ne pa ga je takoj izbrisal. V naglici je bilo to lahko narobe prebrati. Zdaj gumba povesta, kaj naredita: Keep in Delete, Delete pa je rdeč."
+    ],
+    [
+      "Kadar načrta ni mogoče shraniti",
+      "Pri zelo velikih mrežah je brskalniku med shranjevanjem lahko zmanjkalo pomnilnika. Shranjevanje je tiho spodletelo in po ponovnem nalaganju je bil načrt na stanju pred več urami. Zdaj layerling poskusi znova s krajšo zgodovino razveljavitev. Če še vedno ne gre, ostane rdeča opomba, dokler načrt ni spet shranjen, brskalnik pa vpraša, preden se zavihek zapre ali znova naloži."
+    ]
+  ],
+  "1.160.1": [
+    [
+      "Ni shranjeno: z razlogom, ponovno nalaganje počaka",
+      "Kadar brskalnik ne more shraniti načrta, rdeča opomba zdaj vedno navede razlog in pod njim v majhni vrstici, kaj pravi sam brskalnik: napako, kako poln je njegov prostor za layerling in ali gre skozi majhen preizkusni zapis. Posnetek zaslona pokaže, zakaj shranjevanje zastaja. Ista vrstica je v konzoli in v poročilu o napaki.\n\n»Save and reload« v obvestilu o posodobitvi zdaj počaka, da je načrt shranjen. Če odprtega načrta ni bilo mogoče shraniti, se ne naloži znova, ampak ti to pove; najprej shrani kopijo z Export → LYL."
+    ]
+  ],
+  "1.161.0": [
+    [
+      "Površinska tekstura samo v območju, ki ga narišeš",
+      "Tekstura lahko zdaj gre samo na del ploskve, na primer okrogla zaplata narebrenja na pokrovu. Klikni »Draw region« v panelu teksture in z držanim gumbom nariši okrog mesta na ploskvi: vzorec ostane znotraj obrisa, ostanek ploskve ostane gladek. Vsaka plast teksture ima lahko svoje območje.\n\nIn »Show picked faces« spet osvetli izbrane ploskve, da vidiš, kam gre tekstura."
+    ],
+    [
+      "Zaskočni tečaj",
+      "Tečaj ima nov slog »Snap-on«: ena polovica nosi čep, druga ima zgoraj odprte sponke, ki se zaskočijo čez čep in se nato prosto vrtijo. Obe polovici se natisneta ploščato brez podpor. Kako trdno sponke držijo, nastaviš s »Snap grip«."
+    ],
+    [
+      "Privijalni pokrov: navoj se lahko začne nižje",
+      "Z novim drsnikom »Thread offset« se navoj privijalnega pokrova ali pokrova za privijanje začne do 20 mm pod robom. Nad njim stoji navaden kos cevi, na primer za cev, pokrov pa se še vedno privije do konca."
+    ],
+    [
+      "Plošči: ESP32-S3-Zero in Arduino Pro Mini",
+      "Orodje za plošče ima dve novi plošči: Waveshare ESP32-S3-Zero in Arduino Pro Mini, po risbah proizvajalcev. Tudi USB vtičnici Raspberry Pi 4 in 3 B+ zdaj stojita natanko tam, kjer sta na pravi plošči; pri Pi 4 sta bili prej približno 0,7 mm preveč narazen."
+    ],
+    [
+      "Tvoja slika kot tekstura: ostrejša, s čistimi robovi",
+      "Tvoja slika je lahko zdaj 512 namesto 256 točk, zato so robovi, tanke črte in majhen tisk ostrejši. In risba SVG v dveh tonih, enkrat pritisnjena, se zdaj reže po obrisih kot besedilo: poševne črte in krivulje so čiste namesto stopničaste."
+    ],
+    [
+      "Kotnik: večje številke, lahko berljive",
+      "Številke ob krakih kotnika so večje in stojijo na majhni ploščici, tako da skoznje ne teče nobena črta mreže, tudi pri fini mreži, kot je 1/8 palca. Ob močno oddaljenem pogledu krak pokaže samo vsako 2., 5. ali 10. številko, da se ne prekrivajo."
+    ],
+    [
+      "Poškodovan prostor, ne poln: rdeča opomba pove, kaj pomaga",
+      "Kadar brskalnik zavrne shranjevanje, čeprav je komaj uporabljen, je njegov prostor za layerling poškodovan in brisanje načrtov ne pomaga. Rdeča opomba to zdaj pove in nakaže izhod: vse varnostno kopiraj, izbriši podatke spletnega mesta layerling.com v brskalniku in obnovi kopijo."
+    ],
+    [
+      "Odpri kopijo: preizkušaj, original ostane",
+      "Meni načrta na začetni strani ima zdaj »Open a copy«. Naredi kopijo kot Duplicate in jo takoj odpre. Karkoli narediš v kopiji, original ostane, kot je bil. Deluje tudi za načrte na strežniku."
+    ],
+    [
+      "Gladke stranice pri iztisnjenih krivuljah",
+      "Skica z gladko krivuljo je pri iztiskanju dobila nagubano stranico, v pogledu kot v datoteki STL in v razrezovalniku. Zdaj je taka stranica razdeljena v ravne trakove od spodaj do zgoraj in ostane gladka, z manj trikotniki."
+    ],
+    [
+      "Nagnjene cevi: izvrtina sledi naklonu",
+      "Dve cevi z naklonom vzdolž, sestavljeni v vogal, sta se zunaj čisto stikali, znotraj pa je čez vogal stal klin. Z vklopljenim »Bore cuts as a hole when grouped« izvrtina zdaj teče v isti ravnini kot cev in je vogal odprt tudi znotraj."
+    ],
+    [
+      "Podvoji: spet navadna kopija",
+      "Duplicate ponovi premik, zasuk ali spremembo velikosti zadnje narejene kopije, zato z zaporednimi pritiski nastane vrsta lukenj. To se zdaj konča, ko izbereš kaj drugega ali klikneš v prazen prostor. Nato spet izberi kopijo in Duplicate naredi navadno kopijo na istem mestu."
+    ],
+    [
+      "Kam gredo nastavitve oblike po posnetju",
+      "Po posnetju ali zaobljenju je oblika, kot je Hirthov spoj, fiksno telo in panel kaže samo Length, Width in Height. Zdaj pove tudi, iz česa je bilo telo narejeno in kako se vrnejo njegove nastavitve: razveljavi obdelavo roba."
+    ],
+    [
+      "Kotnik, lahko viden v temnih temah",
+      "V temni in grafitni temi so bili rjavi kraki, črtice in številke kotnika na mreži slabo vidni. Zdaj so tam svetli, v isti oranžni kot merilni trak."
+    ],
+    [
+      "Seznam objektov: izbiranje kot v upravitelju datotek",
+      "V seznamu objektov Ctrl (Cmd na Macu) doda vnos ali ga spet odvzame. Shift izbere vse vnose od zadnjega kliknjenega do tistega, na katerega klikneš, Ctrl+Shift pa jih doda izboru.\n\nV pogledu ostane pri Shiftu, saj tam Ctrl z levim gumbom miške vrti pogled."
+    ],
+    [
+      "Način osredotočenja: ime gre zraven",
+      "Majhna vrstica v načinu osredotočenja zdaj kaže tudi ime načrta. Klikni nanj in načrt preimenuješ, ne da bi zapustil način osredotočenja."
+    ],
+    [
+      "»Back up all« vzame s seboj tvoje nastavitve",
+      "Kopija vseh načrtov zdaj vsebuje tudi nastavitve tega brskalnika: tvojo privzeto za nove načrte, temo, trak, tvoje lastne tipke in tiskalnike.\n\nPri obnovi potrditveno polje vpraša, ali jih prevzeti. Na novem računalniku je že obkljukano, tako da se vse vrne v enem koraku."
+    ],
+    [
+      "Zasukana tekstura pride zasukana",
+      "Telo s teksturo, ki jo zasukaš, zožiš ali nagneš kot celoto, je v STL, 3MF in OBJ prišlo ravno, čeprav ga je pogled kazal zasukanega. Zdaj datoteka vsebuje, kar vidiš, v 3MF pa telo in vzorec obdržita barve."
+    ],
+    [
+      "Navoje lahko izvotliš",
+      "Votlenje navojne palice ali vijaka je prej naletelo na časovno omejitev. Zdaj traja nekaj sekund: navoj ostane zunaj, kakršen je, stena pa je tako debela, kot si jo nastavil, pri korenu navoja."
+    ]
+  ],
+  "1.162.0": [
+    [
+      "Spremeni merilo v merilo makete",
+      "»Scale by percent« zdaj zna tudi merilo: izberi zgoraj »Model scale« in merilo od Z (1:220) do G (1:22,5) ali vtipkaj svoje.\n\nČe je model zgrajen v naravni velikosti, postane toliko manjši. Če si ga zgradil v kateri koli drugi velikosti, vtipkaj pravo višino ali dolžino originala v metrih: 16 m visoko drevo v H0 postane natanko 184 mm. Okno pokaže novo velikost, preden spremeniš velikost.\n\nNajdeš ga z desnim klikom na dele ali s Ctrl+K, Scale by percent."
+    ],
+    [
+      "Poravnava brez tipke Alt na tablici",
+      "Poravnava ima zdaj stikalo »Size mode« ob pikah povsod, kjer prst ali pero nadomešča miško. Naredi to, kar drža Alt: pike uskladijo velikosti namesto da premikajo dele, pri piki za režo pa vtipkaš režo. Vklopi ga, tapni, spet izklopi."
+    ],
+    [
+      "Cev in ukrivljena cev z ujemajočimi polji",
+      "Obe cevi zdaj imenujeta mere enako: »Wall thickness« namesto Thickness pri cevi, »Outer diameter« pri okrogli ukrivljeni cevi (»Width across flats« pri oglatem profilu).\n\nČe ima ukrivljena cev enak profil znotraj, lahko vtipkaš tudi notranji premer in stena sledi. Kakovost je zgoraj, kjer ima navadna cev svoje stranice.\n\nNamig: ukrivljena cev s kotom 0° je ravna kvadratna, šestkotna ali osemkotna cev."
+    ],
+    [
+      "Klin: kot naklona v lastnostih",
+      "Lastnosti klina zdaj kažejo kot naklona ob dolžini, širini in višini. Vtipkaj kot in višina se ujema pri isti širini. Tako lahko delovno ravnino na njegovem naklonu nastaviš na natanko tisti kot, brez kotomera."
+    ],
+    [
+      "Skrij gradbeno ploščo, delovna ravnina ostane na ploskvi",
+      "Z delovno ravnino na ploskvi gumb z očesom nad mrežo v vrstici pogleda zdaj skrije samo gradbeno ploščo. Delovna ravnina na ploskvi ostane vidna in ima še vedno svoje oko."
+    ],
+    [
+      "Središčni križ mreže v barvah osi",
+      "Ničelni črti mreže zdaj prevzameta barve puščic osi: črta vzdolž X rdeča, vzdolž Y zelena, na gradbeni plošči in na delovni ravnini na ploskvi. Tako tudi pri majhnih delih takoj vidiš, kam teče vsaka os."
+    ],
+    [
+      "Gladke ploskve pri skicah, pometenih po poti",
+      "Skica, pometena po ukrivljeni poti, je bila zrnata, predvsem v razrezovalniku. Njene ploskve so zdaj razdeljene v enakomerno mrežo in ostanejo gladke. Prej zgrajeno telo to dobi, ko je zgrajeno znova, na primer po spremembi skice."
+    ],
+    [
+      "Sporočilo po vsakem koraku lahko izklopiš",
+      "Po koraku, kot je združitev, kratko sporočilo ob kocki pogleda pove, kaj je bilo narejeno, in ponudi Undo. Če ga ne potrebuješ, ga izklopi v nastavitvah pod »Appearance: the view« z »Show a message after each step«. Sporočila, ki nekaj zahtevajo od tebe ali javljajo težavo, se še vedno prikažejo, Undo v traku pa ob kazanju imenuje korak."
+    ],
+    [
+      "Stretch: skupina ostane skupina",
+      "Raztegovanje skupine zdaj spet da skupino, ki jo lahko razdružiš. Deli, ki jih ravnina seka, se podaljšajo, deli za njo se premaknejo, tisti pred njo ostanejo, kot so bili. Luknje ostanejo luknje. Tudi predmet, izbran skupaj z drugimi, ki leži povsem za ravnino, se premakne."
+    ],
+    [
+      "3D miška: pogled se ne trza več pri prosti vrtilni gibih",
+      "Hkratno vrtenje in nagibanje pokrovčka SpaceMouse je včasih povzročilo majhen skok pogleda. Gibi pokrovčka se zdaj za kratek čas zgladijo, zato pogled sledi mirno. Spustiš in se ustavi takoj."
+    ],
+    [
+      "Ikonska oznaka obdrži kartico po »Edit Bundle«",
+      "Odpiranje ikonske oznake z »Edit Bundle« ali klik na eno njenih plasti v seznamu objektov je po »Done« pustil samo lastnosti snopa: kartice s plastmi, širinami robov, višinami in luknjo za obesek ni bilo več. Zdaj ostane. Isto velja za imenske oznake, kode QR in plošče SBC."
+    ],
+    [
+      "Varnostne kopije brez pogovornega okna: »Download instead«",
+      "Na nekaterih računalnikih se pogovorno okno za shranjevanje v Chromu in Edgeu po Save zapre, a ne vrne datoteke, »Back up all« pa se je končal brez kopije. Sporočilo ima zdaj gumb »Download instead«: kopija gre v mapo Prenosi kot navaden prenos. Isto velja za varnostno kopiranje lastnih oblik."
+    ],
+    [
+      "Shapes se odpre tudi, ko pokažeš na njegovo puščico",
+      "Gumb Shapes ima enako puščico kot zložene skupine traka, a se je odprl samo s klikom. Zdaj se knjižnica oblik odpre tudi, ko miška za trenutek počiva na puščici, in se spet zapre, ko miška odide. Če klikneš gumb, delaš v knjižnici ali jo pripneš, ostane odprta."
+    ],
+    [
+      "Posnetje na skupini: mreža ostane zaprta",
+      "Po posnetju na skupini je imela mreža lahko luknje: Split se je ustavil s »mesh not closed«, preverjanje tiska z napako, razrezovalnik pa je izpustil dele. layerling zdaj take vrzeli zapre že ob posnetju ali zaobljenju.\n\nŽe shranjen načrt s takšno mrežo se lahko znova razdeli. Da ga izvoziš zaprtega, naredi posnetje še enkrat."
+    ],
+    [
+      "Črta skice se nadaljuje ob menjavi orodij",
+      "Preklapljanje med Line, Bezier curve in Smooth line med risanjem skice se zdaj nadaljuje od zadnje točke. Do zdaj je naslednji klik začel novo črto."
+    ]
   ]
 }

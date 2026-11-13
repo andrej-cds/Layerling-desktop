@@ -31,6 +31,8 @@ const TOOL_LABEL_TEXTS = {
   nl: ["Knopnamen", "Alleen pictogrammen", "Pictogrammen en namen", "Alleen namen"],
   pl: ["Nazwy przycisków", "Tylko ikony", "Ikony i nazwy", "Tylko nazwy"],
   "pt-br": ["Nomes dos botões", "Somente ícones", "Ícones e nomes", "Somente nomes"],
+  "pt-pt": ["Nomes dos botões", "Só ícones", "Ícones e nomes", "Só nomes"],
+  sv: ["Knappnamn", "Bara ikoner", "Ikoner och namn", "Bara namn"],
   ru: ["Названия кнопок", "Только значки", "Значки и названия", "Только названия"],
   tr: ["Düğme adları", "Yalnızca simgeler", "Simgeler ve adlar", "Yalnızca adlar"],
   "zh-cn": ["按钮名称", "仅图标", "图标和名称", "仅名称"],
@@ -111,7 +113,7 @@ export const edits = [
     marker: "useDesktopBridge({",
     find: "  const openLatestProject = () => {",
     replace:
-      "  // Namizna različica: samodejno shranjevanje na disk in odpiranje datotek iz lupine (v brskalniku brez učinka).\n  useDesktopBridge({ projects, getBytes: projectPackageBytes, openFiles: importFilesFromDashboard, onDownloadCancelled: () => setDashboardNotice(\"\") });\n\n  const openLatestProject = () => {",
+      "  // Namizna različica: samodejno shranjevanje na disk in odpiranje datotek iz lupine (v brskalniku brez učinka).\n  useDesktopBridge({ projects, getBytes: async (project) => (await projectPackageBytes(project)).bytes, openFiles: importFilesFromDashboard, onDownloadCancelled: () => setDashboardNotice(\"\") });\n\n  const openLatestProject = () => {",
   },
   {
     name: "Nadzorna plošča: pasica o shranjevanju v brskalniku ne spada v namizni program (oznaka)",
@@ -854,9 +856,9 @@ export const edits = [
   {
     name: "Noga: povezava na projekt vodi na naš GitHub",
     file: "apps/web/src/components/AppFooter.tsx",
-    marker: "<a href={SOURCE_CODE_URL} target=\"_blank\" rel=\"noreferrer\" key=\"readme\">",
-    find: "<a href={readmeUrl(language)} target=\"_blank\" rel=\"noreferrer\" key=\"readme\">",
-    replace: "<a href={SOURCE_CODE_URL} target=\"_blank\" rel=\"noreferrer\" key=\"readme\">",
+    marker: "<a href={SOURCE_CODE_URL} target=\"_blank\" rel=\"noreferrer\" key=\"readme\"",
+    find: "<a href={readmeUrl(language)} target=\"_blank\" rel=\"noreferrer\" key=\"readme\"",
+    replace: "<a href={SOURCE_CODE_URL} target=\"_blank\" rel=\"noreferrer\" key=\"readme\"",
   },
   {
     name: "Noga: Kaj je novega vodi na naše izdaje",
