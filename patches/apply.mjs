@@ -148,6 +148,14 @@ export const edits = [
       '  // Namizna različica se posodablja prek lastnega mehanizma lupine, ne prek GitHuba originalnega programa.\n  if (typeof window !== "undefined" && (window as unknown as { layerlingDesktop?: unknown }).layerlingDesktop) return false;\n  return typeof window === "undefined" || !PUBLISHED_HOSTS.has(window.location.hostname.toLowerCase());',
   },
   {
+    name: "Obvestila avtorja: namizni program ne kliče zunanjih naslovov",
+    file: "apps/web/src/lib/useAnnouncements.ts",
+    marker: "layerlingDesktop",
+    find: '    if (process.env.NODE_ENV === "development") return;',
+    replace:
+      '    // Namizna različica ne kliče zunanjih naslovov: obvestila avtorja bere samo iz vgrajenega seznama.\n    if (process.env.NODE_ENV === "development" || (window as unknown as { layerlingDesktop?: unknown }).layerlingDesktop) return;',
+  },
+  {
     name: "Namig za namestitev PWA: v namizni različici ni smiseln",
     file: "apps/web/src/components/InstallAppHint.tsx",
     marker: "layerlingDesktop",
