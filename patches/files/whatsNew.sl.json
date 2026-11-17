@@ -4146,5 +4146,135 @@
       "Črta skice se nadaljuje ob menjavi orodij",
       "Preklapljanje med Line, Bezier curve in Smooth line med risanjem skice se zdaj nadaljuje od zadnje točke. Do zdaj je naslednji klik začel novo črto."
     ]
+  ],
+  "1.163.0": [
+    [
+      "Nastavitve: Controls ter Saving and export kot samostojni področji",
+      "Področje Appearance v nastavitvah je postalo predolgo. Miška, 3D miška, izbiranje in premikanje, dvojni klik in pripenjanje na predmet so zdaj pod Controls, možnosti za shranjevanje načrtov in STL kot prenos z vprašanjem pred zaprtjem zavihka pa pod Saving and export. Zobnik v naslovni vrstici odpre nastavitve."
+    ],
+    [
+      "Nagnjena telesa: prava višina v lastnostih",
+      "Nagnjeno telo v lastnostih kaže svoje mere, ne tega, kako visoko stoji v prostoru. Pod opombo je zdaj še celotna velikost v prostoru (dolžina, širina, višina), za branje. Kocka 20 mm, nagnjena za 45°, tako kaže višino 28,3 mm."
+    ],
+    [
+      "Slika pod skico, večja od 200 mm",
+      "Širino in višino slike pod skico lahko zdaj vtipkaš tudi čez 200 mm, na primer za ploščo 250 mm. Drsnik seže do velikosti tvoje plošče, polje pa vedno kaže pravo velikost, tudi po vlečenju ročajev."
+    ],
+    [
+      "Shranjevanje deluje tudi z zelo dolgo zgodovino",
+      "Če brskalnik zavrne velik načrt, čeprav je prostora še dovolj, ga layerling zdaj shrani s krajšo zgodovino razveljavitev, namesto da ga sploh ne shrani. Opomba pove, koliko korakov je ostalo."
+    ],
+    [
+      "Presek: predogled se zapre, ko ni nič skupnega",
+      "Kadar izbrani liki nimajo ničesar skupnega, drugi klik na Intersection zdaj zapre predogled: liki so spet polni, gumb ni več pritisnjen, sporočilo pa pove, da se ni nič spremenilo. Prej je predogled ostal odprt, na tablici brez tipke Esc pa ni bilo izhoda."
+    ],
+    [
+      "Zrcaljeni stožci ohranijo smer pri združevanju",
+      "Stožec, zrcaljen od zgoraj navzdol, je po združitvi v skupino ležal narobe, ker se je zrcaljenje izgubilo pri spajanju delov. Zdaj ostane tak, kot je bil pred združitvijo, tudi pri spajanju, rezanju in votlenju."
+    ],
+    [
+      "Podložka se vrne v cev",
+      "Cev, spremenjena v podložko z menijem Washer, se ni dala vrniti: Custom in puščica nazaj na privzeto nista naredila nič. Zdaj cev spet dobi mere nove cevi."
+    ],
+    [
+      "Način osredotočenja se ne zažene pri pomanjšani strani",
+      "Pri pomanjšani strani v brskalniku (Ctrl in minus, recimo na 80 %) je layerling zmotno mislil, da je okno celozaslonsko, in odprl vsak nov načrt v načinu osredotočenja, tudi ko je bil izklopljen. Zdaj se način osredotočenja sam vklopi samo v pravem celozaslonskem načinu (F11)."
+    ],
+    [
+      "Prevzeta datoteka SVG s tisoči drobnih črt ostane skica",
+      "SVG se je kot skica (s Fill in Silhouette v lastnostih) uvozil samo do 2500 črt in krivulj; nad tem je ostal fiksna mreža in obeh ni bilo. Datoteka, vzorčena iz slike, je narisana v tisočih drobnih korakov, zato se je zdelo, da je gumb Silhouette izginil. Zdaj se SVG-ji do 10.000 črt in krivulj uvozijo kot skica; zelo fin lahko uvoz traja nekaj sekund."
+    ],
+    [
+      "3D miška brez Connect po vsakem zagonu",
+      "3D miško je bilo treba povezati znova v vsaki seji, ker Chrome pri mnogih takih miškah ne ohrani dovoljenja. Zdaj layerling miško 3Dconnexion bere tudi kot igralni krmilnik, ki ga brskalnik pokaže brez vprašanja, brž ko premakneš pokrovček. Če se pogled v eni smeri premika narobe, to obrni v nastavitvah pod Controls."
+    ]
+  ],
+  "1.164.0": [
+    [
+      "Brisanje posameznih korakov zgodovine",
+      "Velik načrt lahko zdaj olajšaš, ne da bi izgubil vso zgodovino. Odpri pogled History in seznam korakov: ob vsakem koraku piše, koliko prostora bi sprostilo njegovo brisanje, na vrhu pa, koliko vzame vsa zgodovina.\n\n– Koš ob koraku izbriše samo ta korak. Načrt ostane, kot je.\n– »Delete largest steps« izbere vsak korak, ki sam sprosti 1 MB ali več, in vpraša vnaprej.\n– To so večinoma koraki, kjer je bilo telo zasukano: vsak zasuk shrani novo mrežo.\n\nKadar brskalnik shrani načrt samo s skrajšano zgodovino, gumb v opombi takoj odpre ta seznam."
+    ],
+    [
+      "Prst samo za premikanje, spreminjanje velikosti ali vrtenje",
+      "Na tablici ležijo ročaji okoli izbora blizu skupaj in prst je zlahka zadel napačnega. Nov gumb z roko, ki kaže, v vrstici pogleda izbere, kaj dela prst:\n– Vsi ročaji, kot prej\n– Samo premikanje\n– Samo velikost\n– Samo vrtenje\n\nDrugi ročaji so skriti, pri izbiri velikosti ali vrtenja pa prst na delu del samo izbere, ne premakne. Gumb se pokaže samo na napravi z zaslonom na dotik, izbiro pa si brskalnik zapomni."
+    ],
+    [
+      "Vlečenje v sprednjem in stranskem pogledu sledi miški",
+      "Pri pogledu od spredaj ali s strani, na primer v sprednjem pogledu z ortogonalno projekcijo, se je vlečen del ustavljal na naključnih točkah, zaostajal za miško ali skakal v globino. Zdaj sledi miški vzdolž osi, ki jo pogled kaže, in ohrani globino."
+    ],
+    [
+      "Print check kaže pot do izvoza",
+      "Ikona tiskalnika odpre Print check: išče samo mesta, ki bi povzročala težave pri tisku, in ničesar ne natisne ali shrani. Okno to zdaj samo pove, njegov gumb Export pa zapre preverjanje in takoj odpre izvoz za razrezovalnik."
+    ],
+    [
+      "Meni z desnim klikom brez ponovljenega besedila",
+      "Ko si miško zadržal na vnosu menija z desnim klikom, se je nad njim prikazal isti tekst še enkrat kot namig. Vnosi že kažejo svoje besedilo v celoti, zato namiga tam ni več."
+    ],
+    [
+      "Izvoz STEP: skupine, nastavljene kot luknja, režejo kot v urejevalniku",
+      "Skupina, nastavljena kot luknja, v kateri je bilo telo z lastno luknjo (na primer škatla z izrezano kapsulo, ki obreže zaobljeno kapsulo na obris), je v izvozu STEP prišla narobe: telesa ni bilo, notranja luknja pa je rezala telo in pustila tanek obroč. Zdaj skupina reže datoteko STEP enako kot načrt v urejevalniku."
+    ],
+    [
+      "Iskanje najde imena v vsaki pisavi",
+      "Iskanje ukazov (Ctrl+K) in iskanje oblik ni našlo ničesar v jezikih, ki niso zapisani z latinico: v japonskem urejevalniku je ob vtipkanem »円柱« ostal ves seznam. Zdaj se ime najde v katerem koli pisavi, kot je zapisano v jeziku vmesnika: japonščina, kitajščina, ruščina, arabščina in druge, tudi imena s pomišljajem ali oklepaji, kot »USB-C«.\n\nCelotne in polovične črke, katakana in hiragana ter naglasi veljajo za isto. Iskalna beseda samo iz ločil ne najde ničesar namesto vsega. Medtem ko pišeš z vnosno metodo (kana v kanji, pinyin), Esc, puščice in Enter pripadajo vnosni metodi in ne zapirajo več okna."
+    ]
+  ],
+  "1.165.0": [
+    [
+      "Zložljive škatle",
+      "Ko izvotliš škatlo z odprtim vrhom, je zdaj stikalo Stackable. Zunanja polovica stene se dvigne nad rob kot ovratnik, pod steno pa je utor, ki sprejme ovratnik spodnje škatle. Ena škatla potem stoji na drugi in ne zdrsne.\n\n– Višino ovratnika nastaviš sam (na začetku 3 mm).\n– Dno in tla ostanejo ravna: škatla se še vedno tiska stoječa na tleh.\n– Potrebuje ravne stene in steno vsaj 1,2 mm."
+    ],
+    [
+      "Pokrov z zaskočnimi zapirali",
+      "Panel Lid ima nova Latches (0 do 4): zaskočna zapirala, kakršna so na škatli za fotoaparatsko baterijo. Telo dobi pod robom med dvema licema za vsako zapiralo čep, pokrov pa enak. Sponka z dvema režama v obliki črke C se zaskoči čez oba čepa, ostane viseti na pokrovu in se sname z vlekom za jezik.\n\nSponke ležijo pred pokrovom kot samostojno telo, na boku, kot se tiskajo, lici pod njimi pa so nagnjeni, da podpore niso potrebne. Širino sponke (6 do 30 mm) in prileganje rež (Clip grip, 0,3 mm) lahko nastaviš. S tečajem so zapirala na nasprotni strani, brez njega lahko tudi zadaj. Deluje za pokrov na potisk in ravni pokrov, ki leži na robu, ne pa skupaj z ročajem. Še ni bil natisnjen, zato se prileganje še lahko spremeni."
+    ],
+    [
+      "Kitajsko besedilo",
+      "Kitajsko besedilo je prej prišlo ven kot vprašaji, v vsaki pisavi in celo v tvoji kitajski pisavi. Zdaj deluje:\n\n– Poenostavljeni in tradicionalni znaki, kot 说明书 in 說明書, so v vsaki vgrajeni pisavi. Naložijo se, ko jih besedilo prvič potrebuje, zato tako besedilo za trenutek kaže vprašaje.\n– Tvoja kitajska pisava zdaj obdrži pogoste znake svojega jezika. Dodaj pisavo, ki je kazala vprašaje, še enkrat."
+    ],
+    [
+      "Tekstura na trebuhu vrtene vaze",
+      "Vaza, vrtena iz skice, ima na trebuhu vrste točk, ki ležijo le nekaj tisočink milimetra narazen. Površinska tekstura jih je vzela za ostre robove in na trebuhu so utori prišli kot kratke vodoravne črtice, vrat pa je ostal čist. Zdaj se take točke zlijejo: utori tečejo od vratu čez ves trebuh, izbiranje ploskev pa se ne ustavi več z napako."
+    ],
+    [
+      "Besedilo okoli telesa s stranicami brez prog",
+      "Ko je ležalo široko besedilo okoli telesa s stranicami, na primer plošče z 21 stranicami, trikotniki oddaljenih stranic pred rezanjem črk niso bili razdeljeni dovolj fino in črke so čez njih tekle kot proge. Zdaj so stranice razdeljene tako fino kot sredina in besedilo je povsod čisto berljivo."
+    ],
+    [
+      "Vtipkane velikosti tudi čez ploščo",
+      "Pri več izbranih delih je bila vtipkana širina, dolžina ali višina skrajšana na velikost plošče: 914 mm je postalo 260 mm. Zdaj število velja, kot ga vtipkaš, kar je že veljalo za en sam del. Samo ročaji se še vedno ustavijo na plošči."
+    ],
+    [
+      "Še dve plošči",
+      "Oblika plošče SBC pozna še dve: FriendlyELEC NanoPi NEO3 Plus in Waveshare ESP32-P4-NANO. Obe sta zgrajeni iz CAD datotek proizvajalcev, z luknjami, vtičnicami in gumbi na mestu, tako da se ohišje prilega okoli njiju."
+    ],
+    [
+      "Vrteni deli pravilno obrnjeni v skici",
+      "Vrtena škatla ali okroglo telo pod skico je bilo obrnjeno narobe: 45° je prišlo kot −45°, palica je tekla kot »\\« namesto »/«. Zdaj njegov obris in točke, na katere se črta pripne, ležijo natanko tam, kjer del stoji."
+    ],
+    [
+      "Razdružitev ohrani obliko",
+      "Zaobljen šestkotnik, narejen iz skupine, se je ob razdružitvi vrnil stisnjen, ker je bilo zaobljenje na njegovih konicah vzeto za spremembo velikosti. Zdaj se deli vrnejo na staro velikost."
+    ],
+    [
+      "Gumbi lastnih oblik v starejšem Firefoxu",
+      "V Firefoxu do različice 120, kot je zadnji Firefox na Windows 7, so gumbi na ploščicah lastnih oblik ostali nevidni: premakni, preimenuj in izbriši. Tudi gumbi na mapah. Zdaj se pokažejo, brž ko miška obstoji na ploščici."
+    ],
+    [
+      "Ležeče dele vleci dlje",
+      "Del, ki leži na boku, na primer škatla na čelni ploskvi ležeče tirnice, se je ustavil pri višini tiskalnika, ko si vlekel njegov ročaj za višino, čeprav višina teče vzdolž plošče. Zdaj ročaj seže tako daleč, kot je plošča široka."
+    ]
+  ],
+  "1.165.1": [
+    [
+      "Kot naklona z Keep proportions",
+      "Pri vklopljenem Keep proportions je kot naklona, vtipkan pri klinu, spremenil vse mere razen kota. Enako je veljalo za kot konice kaplje. Zdaj kot spremeni samo višino; dolžina in širina ostaneta, kot sta."
+    ]
+  ],
+  "1.165.2": [
+    [
+      "Kopije majhnih delov ostanejo v pogledu",
+      "Prilepljena kopija je vedno ležala 12 mm ob originalu, kar jo je pri delu, velikem nekaj milimetrov, ob povečanem pogledu spravilo iz pogleda. Zdaj se premakne za polovico velikosti kopiranega dela, med 1 in 12 mm. Veliki deli se še vedno premaknejo za 12 mm."
+    ]
   ]
 }

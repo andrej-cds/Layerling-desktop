@@ -660,20 +660,6 @@ export const edits = [
     replace: "  // section-izbira: ko ob vklopljenem prerezu izbereš drug objekt, ravnina skoči na njegovo sredino.\n  const sectionSelectionKey = selectedIds.join(\"|\");\n  useEffect(() => {\n    if (!sectionSettingsRef.current.enabled || selectedIdsRef.current.length === 0) return;\n    const bounds = getSectionBounds(shapesRef.current, sectionSettingsRef.current.axis, workspaceRef.current.width, workspaceRef.current.depth);\n    setSectionSettings((prev) => (prev.enabled ? { ...prev, offset: bounds.center } : prev));\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [sectionSelectionKey]);\n\n  const handleToggleShowSectionPlane = useCallback((showPlane: boolean) => {",
   },
   {
-    name: "STEP: luknja iz telesa z lastnimi luknjami je en sam rezalnik",
-    file: "apps/web/src/lib/stepExport.ts",
-    marker: "Desktop: a hole made of a solid with holes of its own",
-    find: "/** The cutters among these shapes, a group of holes opened into the holes it holds. */\nfunction collectHoles(brep: Brep, shapes: WorkplaneShape[], skipped: SkippedShape[], holes: { box: Aabb; solid: BrepSolid }[]) {\n  for (const shape of shapes.filter((s) => s.hole)) {\n    const source = stepSourceForShape(shape);\n    if (source === \"unsupported\" && isOpenableGroup(shape)) {\n      collectHoles(brep, restoreGroupedChildren(shape).filter((child) => !child.hidden), skipped, holes);\n      continue;\n    }\n",
-    replace: "/** The cutters among these shapes, a group of holes opened into the holes it holds. */\nasync function collectHoles(brep: Brep, shapes: WorkplaneShape[], skipped: SkippedShape[], holes: { box: Aabb; solid: BrepSolid }[], budget: ExactExportBudget) {\n  for (const shape of shapes.filter((s) => s.hole)) {\n    const source = stepSourceForShape(shape);\n    if (source === \"unsupported\" && isOpenableGroup(shape)) {\n      const children = restoreGroupedChildren(shape).filter((child) => !child.hidden);\n      if (children.some((child) => !child.hole)) {\n        // Desktop: a hole made of a solid with holes of its own (e.g. a round pocket with scallops\n        // taken out of it) is one cutter, the solid minus its holes - not only the inner holes.\n        for (const part of await buildScope(brep, children, skipped, budget)) holes.push({ box: part.box, solid: part.solid });\n      } else {\n        await collectHoles(brep, children, skipped, holes, budget);\n      }\n      continue;\n    }\n",
-  },
-  {
-    name: "STEP: čakanje na rezalnike",
-    file: "apps/web/src/lib/stepExport.ts",
-    marker: "  await collectHoles(brep, shapes, skipped, holes, budget);",
-    find: "  collectHoles(brep, shapes, skipped, holes);\n\n  const parts: ScopePart[] = [];",
-    replace: "  await collectHoles(brep, shapes, skipped, holes, budget);\n\n  const parts: ScopePart[] = [];",
-  },
-  {
     name: "Strežnik: revizija na celo sekundo (sličice skupne mape in store.php)",
     file: "apps/web/src/app/api/shared-projects/route.ts",
     marker: "Math.floor(stat.mtimeMs / 1000) * 1000000",
