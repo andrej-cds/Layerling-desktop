@@ -4276,5 +4276,63 @@
       "Kopije majhnih delov ostanejo v pogledu",
       "Prilepljena kopija je vedno ležala 12 mm ob originalu, kar jo je pri delu, velikem nekaj milimetrov, ob povečanem pogledu spravilo iz pogleda. Zdaj se premakne za polovico velikosti kopiranega dela, med 1 in 12 mm. Veliki deli se še vedno premaknejo za 12 mm."
     ]
+  ],
+  "1.166.0": [
+    [
+      "Kalup: smer odpiranja, material in zračni žepi",
+      "Orodje Mold & die zdaj predlaga najboljšo smer odpiranja: vsaka smer pokaže, koliko površine bi se oprijelo, spodrezi pa so na modelu rdeči. Na voljo je tudi prosta smer, ki jo zasukaš z gumbom v pogledu, in material za ulivanje (silikon, ulivna smola, mavec, vosek, milo, beton) s skrčkom in gostoto.\n\n– Pred izdelavo: zunanja velikost, prostornina vliva z vtokom, teža in zračni žepi, z rdečo piko tam, kjer bi ostal zrak.\n– Več mojstrskih modelov dobi vsak svoj vtok.\n– Zunaj blok ali konturna lupina, ki prihrani filament.\n– Stamp & die lahko prekopira relief kovanca ali logotipa."
+    ],
+    [
+      "Votlenje: dno Gridfinity, zlaganje in nova zapirala",
+      "Škatla, izvotljena z odprtim vrhom, lahko zdaj dobi dno Gridfinity z ležiščem za vsako celo celico, na željo z luknjami za magnete in predelki kot Gridfinity zaboj. Zlaganje zdaj poteka po nogi, ki se prilega v spodnjo škatlo, po želji votli in z vdolbinami za prijem; vrh za zlaganje sprejme nogo naslednje škatle.\n\nPokrov ima poleg sponk dve novi vrsti zapirala: drsnike, kot so na kovčku za orodje, in zapahe v cevki na steni, ki se natisnejo na mestu."
+    ],
+    [
+      "Analiza tiska: vsaka plast preverjena, s pogledom plasti",
+      "Ob Print check je zdaj Print analysis. Izbrane dele (ali vse vidne) razreže na plasti, ki jih položi tvoj tiskalnik, in vsako primerja s tisto pod njo. Dobiš seznam, najprej težave, nato namigi: lebdeči deli, površine brez podpore, previsi, mostovi, pretanke stene, majhni otoki in premalo oprijema na podlago, vsako z napotkom, kaj pomaga, pogosto z gumbom za to.\n\nKlik na najdbo odpre pogled plasti: del, prerezan na tisti plasti, z označenim mestom, drsnikom plasti in prerezom po višini. To ni predogled razrezovalnika."
+    ],
+    [
+      "Vijaki in navojne palice, razdeljeni po dolžini",
+      "Vijak, natisnjen stoječ, se pod obremenitvijo lomi po plasteh; natisnjen ležeč je njegov navoj večkrat močnejši. V lastnostih vijaka ali navojne palice »Split lengthwise and lay flat« prereže vijak na dva dela skozi njegovo os in obe polovici položi na prerezni ploskvi, v enem koraku razveljavitve.\n\nS centrirnimi zatiči (privzeto vklopljeni) se polovici natančno poravnata, tudi vzdolž osi, zato se zavoji ujamejo in matica se ne zatakne. Polovici po tisku zalepiš."
+    ],
+    [
+      "Vložki za navoj: luknja, najprej preverjena",
+      "Novo orodje Thread insert naredi luknjo za vložek (M2 do M8, 1/4-20 ali tvoja velikost) natanko tam, kamor klikneš, na ravnih ploskvah in okroglih stenah. Najprej preveri, ali je ob luknji dovolj stene in za njo dovolj globine: zelen obroč pomeni naprej, rdeč luknjo blokira. Avtor: @markopo1982."
+    ],
+    [
+      "Vtipkan kot zasuka vse izbrane dele",
+      "Pri več izbranih delih je kot, vtipkan v polje za kot, zasukal samo zadnjega: pri dveh škatlah in 30° je prva ostala na 0°. Zdaj se zasukajo vsi, en Undo pa jih vrne nazaj."
+    ],
+    [
+      "Pritrdilne luknje za plošče in pokrove",
+      "Vzorec lukenj ima drugi zavihek, Mounting holes. Postavi luknje za vijake v vogale najmanjšega pravokotnika okoli izbrane ploskve, enako oddaljene od njenih stranic, tudi pri zasukani ali izrezani plošči, kjer »Along the edge« razporedi luknje neenakomerno.\n\n– Razdalja od stranic: do roba luknje (glava vijaka se šteje) ali do sredine luknje.\n– Število lukenj: štiri v vogalih, ostale v parih, enakomerno razporejene ob stranicah, na primer za vodotesen pokrov.\n– Na okrogli ploskvi, kot je pokrov okrogle škatle, gredo enakomerno okoli kroga, tri ali več.\n– Navadna, z izvrtino ali s posnetjem, skoznje ali do globine.\n\nNaredijo se kot navadne oblike lukenj, združene s telesom, zato nanje deluje tudi kartica premera lukenj skupine."
+    ],
+    [
+      "Nova oblika: Sector",
+      "Knjižnica oblik ima novo osnovno obliko za Torusom, Sector: disk, ki ga z kotom (1 do 360°) odrežeš kot kazalec ure, od dvanajstih v smeri urnega kazalca.\n\n– Notranji premer: 0 je poln kos, več da obroč ali odsek obroča.\n– Zaobljenje koncev: zaobli oba konca, do pol kroga. Tako dobiš ukrivljeno režo, na primer za nosilce monitorjev in druge dele, ki se vrtijo in vpenjajo.\n– Premer in višina kot pri valju.\n\nOkvir ostane poln krog, zato se oblika vrti okoli sredine kroga."
+    ],
+    [
+      "Mnogokotnik z zaobljenimi vogali",
+      "Mnogokotnik ima zdaj drsnik »Corner fillet« pod »Sides« in vlečno točko na modelu, kot Rounded box. En polmer za vse vogale, pri poljubnem številu stranic.\n\nPolmer je v mm, zato raztegnjen mnogokotnik ohrani okrogle vogale. Največja vrednost je tam, kjer se sosednji zaobljenji srečata. 0 je navaden mnogokotnik, popolnoma kot prej."
+    ],
+    [
+      "Spremeni luknje skupine naenkrat",
+      "Kadar skupina ali skupina v njej vsebuje okrogle luknje, njeno okno kaže drsnik »Hole diameter« za vse naenkrat in stikalo »One by one«, ki našteje vsako luknjo z lastnim premerom.\n\nVsaka luknja ohrani svojo sredino in globino. Skupine se zgradijo znova od znotraj navzven, tako kot Edit group → Done, v enem koraku razveljavitve. Plošče, oznake, kode QR in snopi ostanejo nedotaknjeni, štejejo samo okrogle luknje, zato kvadratne ali ovalne ostanejo, kot so."
+    ],
+    [
+      "Gridfinity zaboji, ki segajo čez mrežo",
+      "Kadar podložena osnovna plošča zapolni predal, ki ni cele enote, lahko zaboj zdaj sega čez mrežo na kateri koli strani, prek podloge do stene, tako da nič ne pade ob njem. Noge ostanejo na mreži. Posnetje pod previsom omogoča tisk brez podpor; na izbiro sta tudi poln previs ali ustnica, ki ostane na mreži."
+    ],
+    [
+      "Nižje pregrade v zabojih Gridfinity",
+      "Pregrade v zaboju ali pladnju Gridfinity ni treba več speljati po celi višini: nastavi »Divider height« pod »Compartments«, merjeno od dna, od 3 mm naprej. Stene ostanejo, polica za oznako na pregradi pa se spusti z njo."
+    ],
+    [
+      "Besedilo na policah za oznake pladnja Gridfinity",
+      "Police za oznake na pladnju Gridfinity zdaj sprejmejo tudi besedilo, ob steni ali v predelku, z isto pisavo, barvo in velikostjo črk kot pri zaboju. Polica z besedilom je 0,4 mm nižje, tako da se črke končajo v ravnini z vrhom pladnja. Besedilo vtipkaš pod »Text« pod polico v panelu Properties."
+    ],
+    [
+      "Osnovne plošče, razdeljene po tvojem tiskalniku",
+      "Če je v nastavitvah delovnega prostora izbran tvoj tiskalnik, ima osnovna plošča, večja od podlage tiskalnika, v panelu Properties »Split to fit the printer«. Razreže ploščo po črtah celic na najmanj plošč, ki gredo na podlago, vsako s »Swallowtail«, in postavi ključe, ki jih držijo skupaj. Plošče ostanejo tam, kjer so bile njihove celice, zato jih eno za drugo premakni ali zasukaj na podlago."
+    ]
   ]
 }
