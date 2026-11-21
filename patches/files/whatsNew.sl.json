@@ -4334,5 +4334,169 @@
       "Osnovne plošče, razdeljene po tvojem tiskalniku",
       "Če je v nastavitvah delovnega prostora izbran tvoj tiskalnik, ima osnovna plošča, večja od podlage tiskalnika, v panelu Properties »Split to fit the printer«. Razreže ploščo po črtah celic na najmanj plošč, ki gredo na podlago, vsako s »Swallowtail«, in postavi ključe, ki jih držijo skupaj. Plošče ostanejo tam, kjer so bile njihove celice, zato jih eno za drugo premakni ali zasukaj na podlago."
     ]
+  ],
+  "1.167.0": [
+    [
+      "Premik čisto do stene",
+      "Ko povlečeš del, se zdaj prilepi tudi na steno, v katero zadene, tudi na notranjo steno škatle ali ohišja. Tako del sedi poravnano v kotu ohišja, brez merjenja."
+    ],
+    [
+      "Vzorec lukenj čisto do roba",
+      "Pri robu 0 rob vzorca lukenj zdaj luknje odreže, namesto da jih izpusti, zato rešetka ali satovje teče čisto do roba. Nov drsnik »Frame along the edge« ob robu ohrani trden okvir, če ga želiš, mreža pa je položena tako, da ostane čim manj tankih pasov."
+    ],
+    [
+      "Vzorec lukenj z zgornjo plastjo v drugi barvi",
+      "Pri vzorcu lukenj je lahko zgornja plast mreža v drugi barvi, v luknjah pa je barva telesa. Ploskev tako ostane ravna, obe barvi se začneta na prvih plasteh, brez podpor. 3MF ju vsebuje kot ločeni telesi."
+    ],
+    [
+      "Barva vsakega dela v pregledovalniku",
+      "Pri skupini ali snopu pod Multicolor pregledovalnik zdaj našteje dele, vsakega z barvnim kvadratkom. Tako lahko prebarvaš en del, ne da bi odprl skupino, mreža dvobarvnega vzorca lukenj pa ne izgine več v barvo podlage."
+    ],
+    [
+      "Pokrov s tečajem: filament se laže vstavi",
+      "Pri pokrovu s tečajem je bil zatič iz kosa filamenta pogosto pretesen v luknjah telesa ali sploh ni šel noter. Luknje so zdaj nekoliko večje: 0,1 mm na stran s privzetimi nastavitvami namesto 0,05 mm. Če tvoj tiskalnik potrebuje več prostora, luknja sledi toleranci iz preizkusa ujemanja. Zatič še vedno sedi tesneje v telesu kot v pokrovu, da ne zdrsne ven."
+    ],
+    [
+      "Luknje za 19″ nosilec",
+      "Montažne luknje zdaj poleg »Screws« ponujajo »19″ rack«: štiri reže v kotih sprednje plošče, natanko tam, kjer imajo luknje tirnice nosilca. Višina se prilagodi plošči ali sledi standardni plošči od 1U do 6U. Vrstica pokaže, kje so luknje nastale."
+    ],
+    [
+      "Shrani samo izbor kot LYL",
+      "V oknu za izvoz lahko datoteka LYL zdaj vsebuje samo izbrane predmete, kot nov načrt brez zgodovine, opomb in prilog. Tvoj načrt ostane vezan na svojo datoteko. Prav pride za dele, ki jih hraniš v knjižnici in jih vrneš z Insert from design."
+    ]
+  ],
+  "1.168.0": [
+    [
+      "Spreminjanje velikosti čisto v kot",
+      "Ko povlečeš ročaj v kotu, da oblika postane večja, se zdaj obe njeni stranici ustavita na robovih drugih oblik in na stenah, v katere tečeta. Tako del v enem potegu zapolni kot ohišja."
+    ],
+    [
+      "3MF in OBJ: majhni deli skupine ostanejo",
+      "Pri načrtih v več barvah so zelo majhni deli skupine, na primer zobci in pike logotipa, v 3MF in OBJ še vedno manjkali, v STL pa so bili. Zdaj taki deli ostanejo tudi v datoteki."
+    ],
+    [
+      "Brez zamrznitev pri shranjevanju velikih uvoženih sestavov",
+      "Pri načrtih z uvoženim sestavom STEP, na primer vezje v ohišju, se je urejevalnik po skoraj vsaki spremembi za nekaj sekund zamrznil, ker je samodejno shranjevanje vsakič znova pakiralo ves načrt. Zdaj se znova pakira samo spremenjeno, urejevalnik pa vmes ostane uporaben."
+    ],
+    [
+      "3MF iz skenerja: eno telo namesto tisočev",
+      "3MF iz 3D-skenerja ima skoraj v vsaki točki svojo barvo. layerling je naredil eno telo na barvo: en sken je postal več kot 42.000 teles, uvoz pa je trajal minute. Taka datoteka zdaj pride kot eno telo v eni barvi, z opombo, da barvni prehod ni ohranjen. Datoteke z nekaj barvami še vedno postanejo eno telo na barvo."
+    ],
+    [
+      "Urejanje skice na plošči 2",
+      "Pri več gradbenih ploščah je »Edit sketch« za telo na nadaljnji plošči pokazal prvo ploščo, obris telesa pa je ležal zunaj območja skice. Skica se zdaj odpre na plošči, na kateri telo stoji."
+    ],
+    [
+      "Posnetje na skupini ne zapre več izvrtine cevi",
+      "Cev, obroč ali ukrivljena cev z »Bore cuts as a hole when grouped« odpre vse, s čimer je združena. Posnetje ali zaobljenje na tej skupini je odprtino spet zaprlo. Zdaj ostane odprta."
+    ],
+    [
+      "3D miška: smeri ostanejo pravilne po ponovnem zagonu",
+      "Po ponovnem zagonu brskalnika layerling bere 3D miško kot igralni krmilnik, dokler znova ne klikneš Connect 3D mouse. Na nekaterih napravah so smeri tam obrnjene, označene smeri pa niso več ustrezale. layerling zdaj za oba načina hrani nastavitve ločeno: v nastavitvah pod Controls, 3D mouse vrstica pove, kdaj se miška bere kot igralni krmilnik, in kar tedaj označiš, velja samo za to. Tvoje dosedanje nastavitve ostanejo pri povezani miški."
+    ],
+    [
+      "Ko se 3D pogled ne zažene: jasno sporočilo",
+      "Ko brskalnik layerlingu ne da dostopa do grafike (WebGL), si videl samo »layerling ran into an error«. Okno zdaj pove, kaj se dogaja: vzrok je v brskalniku ali grafičnem gonilniku, tvoji načrti pa so ohranjeni. Spodaj našteje, kaj običajno pomaga: znova zaženi brskalnik ali računalnik, vklopi grafično pospeševanje, posodobi brskalnik in grafični gonilnik ali poskusi drug brskalnik. Zadnje shranjeno stanje lahko od tam še vedno shraniš kot datoteko .lyl."
+    ],
+    [
+      "Gradbene plošče: ime na plošči 1 in v imenu datoteke",
+      "Če ima prva gradbena plošča svoje ime, je zdaj napisano na plošči kot pri nadaljnjih ploščah: »Plate 1: Lid«, nad njim pa z drobno pisavo ime načrta. In ko v oknu za izvoz izbereš eno ploščo, se ime datoteke začne z imenom te plošče namesto z imenom načrta; plošča brez imena postane »Design - Plate 2«."
+    ],
+    [
+      "Seznam predmetov: ime zaklenjene oblike",
+      "Ko je oblika dela zaklenjena (ščit), ostane tudi njeno ime kot je. Seznam predmetov je še ponujal svinčnik in odprl polje za ime, a novega imena ni sprejel. Svinčnika za take dele zdaj ni. Če ga želiš preimenovati, klikni ščit v njegovi vrstici, kar odklene obliko."
+    ],
+    [
+      "Uporabniški priročnik: iskanje točne fraze z narekovaji",
+      "Iskalno polje priročnika zdaj razume narekovaje: »circular arc« najde samo razdelke, v katerih te besede stojijo ena ob drugi v tem vrstnem redu. Posamezna beseda v narekovajih se najde samo kot cela beseda. Do zdaj iskanje z narekovaji ni našlo prav nič."
+    ],
+    [
+      "Skrij ročaje s Shift+Q",
+      "Pri zelo majhnih delih kvadratki in puščice okoli izbora zlahka prekrijejo to, na čemer delaš. Shift+Q skrije vse ročaje in jih spet pokaže, kot Q za mere in razdalje. Del še vedno lahko povlečeš in desno vtipkaš njegove mere.\n\nDa vidiš, kaj je izbrano, tudi brez ročajev, ima izbrana vrstica na seznamu predmetov zdaj močnejšo barvo in oranžen trak na levi."
+    ],
+    [
+      "Sporočilo o napaki ostane v pogledu z gumbi",
+      "Pri dolgi plošči orodja, na primer Hollow, sta Cancel in Apply vedno ostala v pogledu, sporočilo, zakaj nekaj ni mogoče, pa je stalo čisto na dnu in se je pokazalo šele po pomikanju. Klik je potem videti, kot da ne naredi nič. Sporočilo zdaj stoji tik nad gumbi in tam ostane v pogledu."
+    ],
+    [
+      "Trakec meri takoj",
+      "Klik na trakec zdaj takoj vklopi Add measurement: klikni trakec, klikni prvo točko, klikni drugo, končano. Do zdaj si moral po odprtju izbrati plus.\n\nNov klik na plus odloži orodje in pusti gumbe odprte, na primer za vmesno izbiro telesa. Če so meritve skrite, se trakec odpre brez orodja, zato ostanejo skrite."
+    ],
+    [
+      "Zgodovina se ohrani po spremembi v polju",
+      "Če si mero v polju spremenil s kolescem miške ali s puščicami in nato zaprl ali ponovno naložil zavihek, ne da bi zapustil polje, se je načrt naslednjič odprl brez zgodovine: Undo in pogled History sta bila prazna. Isto se je zgodilo datoteki .lyl, shranjeni s Ctrl+S v tistem trenutku. Zgodovina zdaj ostane popolna, zadnja sprememba pa je v njej korak zase.\n\nNačrti, ki so zgodovino na ta način že izgubili, je ne dobijo nazaj. Njihovo trenutno stanje je nespremenjeno, skupino pa še vedno lahko razdružiš ali odpreš z Edit group."
+    ],
+    [
+      "Vzorec lukenj: vrtenje kvadratov in šestkotnikov",
+      "Drsnik Angle of the holes pri vzorcu lukenj zdaj deluje tudi za kvadrate in šestkotnike, ne samo za pravokotnike in reže. Kvadrat pri 45° je romb, šestkotnik pri 30° leži na ravni stranici. Razmik sledi, zato med zasukanimi luknjami vedno ostane stena."
+    ],
+    [
+      "Vzorec lukenj: luknja na sredini",
+      "Venec lukenj ob robu ali montažne luknje imajo lahko zdaj še eno luknjo na sredini ploskve, na primer za odtočne luknje v dnu cvetličnega lonca. Okence »A hole in the middle« je v vzorcu lukenj pod »Along the edge« in na zavihku »Mounting holes« in je sprva izklopljeno.\n\nLuknja je kot druge (oblika, vrsta luknje, globina) in se ne všteva v njihovo število. Pri navadnih okroglih, kvadratnih in šestkotnih luknjah lahko velikost nastaviš posebej. Kjer ne gre, ker je sredina odprta ali bi bila preblizu drugim, jo izpusti in vrstica to pove."
+    ],
+    [
+      "M3.5 na seznamih velikosti",
+      "M3.5 je zdaj ponujen med M3 in M4: za navoj (palica, vijak, matica in navojna luknja, korak 0,6 mm), žep za matico šestkotnika, podložke cevi in kot velikost vijaka pri vgrezu, dvojnem vgrezu, zaključni podložki in vgreznih luknjah vzorca lukenj.\n\nZ zaglobitvijo (counterbore) M3.5 ni ponujen, ker standardnega vijaka z valjasto glavo te velikosti ni; tam mere vtipkaš sam."
+    ],
+    [
+      "Hollow s predogledom",
+      "Orodje Hollow zdaj, ko je njegovo okno odprto, kaže izdolbeno telo. Spremeni debelino stene, odprte strani ali katero drugo nastavitev in predogled mu čez trenutek sledi. Če ni odprta nobena stran, je telo prikazano prosojno, da vidiš votlino.\n\nNič se ne spremeni, dokler ne klikneš »Hollow«; »Cancel« pusti telo, kot je bilo. Če nastavitev telesu ne ustreza, na primer prevelika stena, okno to pove takoj."
+    ],
+    [
+      "Izberi vse oblike ene barve",
+      "Na seznamu predmetov klik na barvno piko pred imenom izbere vse vidne oblike te barve, kar pride prav, ko ima vsaka komponenta svojo barvo. Ctrl (Cmd na Macu) ali Shift jih doda k izboru. »Select same colour« v meniju desnega klika in v iskanju ukazov (Ctrl+K) naredi isto za barve izbranih oblik."
+    ],
+    [
+      "Trakec pokaže debelino pod kazalcem",
+      "Z aktivnim Add measurement na trakcu in brez postavljene točke kazanje na ploskev pokaže, kako debelo je tam telo: izmerjeno naravnost noter, pravokotno na ploskev, do mesta, kjer material konča. Črtkana črta kaže, kje meri. Tako stene in dna preveriš kar z miško nad delom. Klik še vedno postavi prvo merilno točko kot prej."
+    ],
+    [
+      "Skupina prevzame ime poimenovanega dela",
+      "Če ima natanko en del svoje ime, ko združiš ali povežeš v snop, se nova skupina zdaj imenuje po njem, namesto samo Group ali Bundle. Ime tako ostane vidno na seznamu predmetov. Pri več poimenovanih delih se nič ne spremeni; deli znotraj skupine obdržijo svoja imena."
+    ],
+    [
+      "Ukrivljeno besedilo čisto okoli kroga",
+      "Ukrivljeno besedilo je med koncem in začetkom vedno puščalo vrzel, zavzelo je največ 84 % kroga. Z novim stikalom »All the way round« v pregledovalniku krog sklene: črke so enakomerno razporejene čisto okoli, razmik med zadnjo in prvo pa je enak kot med drugimi. Prav pride za obroč z datumom od 1 do 31, številčnico ali skalo.\n\nČrke obdržijo velikost; manjše postane samo besedilo, ki je predolgo za krog. Stik leži nasproti sredine besedila, zavrti besedilo, da ga premakneš."
+    ],
+    [
+      "Večkotnik: ravna stranica spredaj",
+      "Osemkotnik se je meril od oglišča do oglišča: vtipkaš 26 mm in dobiš samo 24 mm med ravnima stranicama. Večkotnik ima zdaj stikalo »Flat side in front« pod »Sides«. Večkotnik zavrti za pol stranice, zato dolžina in širina osemkotnika tečeta od ravne do ravne, kot velikost ključa.\n\nStikalo telo ohrani, kot je, spremenita se samo dve števili. Šestkotnik ima potem ravni stranici spredaj in zadaj namesto levo in desno."
+    ],
+    [
+      "Skica: koordinate točke",
+      "Ko kazalec počiva na točki skice, majhna oznaka ob njej pokaže X in Y točke. Sledi točki, medtem ko jo vlečeš, tako da takoj vidiš, kam bo pristala. »Show measurements« jo skrije skupaj z drugimi merami.\n\nPoleg tega točka zdaj ostane, kjer je, če nanjo samo klikneš: do zdaj je lahko malo poskočila, na mrežo."
+    ],
+    [
+      "Urejanje skice opozori na izgubljena posnetja",
+      "Ko odpreš skico telesa, ki že ima zaobljenja, posnetja ali izdolbljenje, layerling zdaj takoj pove, da ob koncu izginejo, ker je telo zgrajeno znova. Cancel jih ohrani. Po koncu to pove še enkrat in Undo jih vrne."
+    ],
+    [
+      "Oblike, ki ležijo na boku: ročaj višine ostane zgoraj",
+      "Oblika, zasukana za 90° na bok, je imela ročaj višine obrnjen vstran, kotne ročaje pa v zraku. Ročaji oblike, ki leži na boku, zdaj stojijo pokonci na delovni ravnini, kot v Tinkercadu: ročaj zgoraj jo vleče navzgor, spodnja stran ostane, kjer je, ročaji spodaj pa spreminjajo mere vzdolž plošče. Ležeči valj ostane okrogel."
+    ],
+    [
+      "Slikovna tekstura: risbe PNG brez stopnic",
+      "Risba s črtami ali logotip kot PNG ali JPEG, enkrat odtisnjen, je zdaj izrezan po obrisih kot SVG: poševne črte in krivulje so gladke namesto stopničaste. Pri starejšem načrtu sliko preprosto naloži znova."
+    ],
+    [
+      "Nova površinska tekstura: Kovano",
+      "Okrogle, prekrivajoče se vdolbine kot na ročno kovanem bakrenem vrču, vsaka malo drugačna po velikosti in globini. Najdeš jo pod Surface texture; Dent size določa, koliko se prekrivajo, Arrangement pa jih razporedi znova."
+    ],
+    [
+      "Razdeli vijak: filament kot zatiči",
+      "Ko vijak ali navojno palico razdeliš po dolžini, od M4 navzgor, so lahko zatiči kosi filamenta 1,75 mm, tudi kjer natisnjeni zatiči ne gredo. Označi Filament as pins; sporočilo pove, kako dolge kose odrezati."
+    ],
+    [
+      "Kalup: odprtino za vlivanje in zračnike nastaviš sam",
+      "Pri dvodelnem kalupu »Set the openings myself« omogoča, da sam določiš, kje material priteče in zrak uhaja: klik na model postavi vlivnik ali zračnik, klik na njegov stebriček ga odstrani. »Take over the suggested ones« ti kot začetek da samodejne."
+    ],
+    [
+      "Žepi za magnete",
+      "Novo v knjižnici oblik pod Holes & cut-outs: Magnet pocket. Klikni mesto in layerling izreže žep za okrogel magnet z vdolbino za lepilo pod njim, če želiš pa tudi ustreznega v delu, ki se stika. Split zdaj ponuja magnete tudi kot veznike."
+    ],
+    [
+      "Skica: držana puščična tipka brez zaostajanja",
+      "Ko v skici držiš puščično tipko, izbor zdaj sledi tipki in se ustavi takoj, ko jo spustiš. Pri velikih obrisih je prej močno zaostajal in se je premikal še dolgo po spustitvi tipke. Držan niz je še vedno en korak Undo."
+    ]
   ]
 }
