@@ -1,0 +1,54 @@
+"use strict";
+// Odpiranje izvoženih datotek OBJ v programu OrcaSlicer (pot do programa lahko izbere uporabnik v nastavitvah).
+const fs = require("node:fs");
+const path = require("node:path");
+const { spawn } = require("node:child_process");
+
+function isObjFile(file) {
+  return typeof file === "string" && /\.obj$/i.test(file);
+}
+
+/** Običajna mesta namestitve; vrne prvo, ki obstaja, ali prazen niz. */
+function findOrcaSlicer(env = process.env, platform = process.platform, exists = fs.existsSync) {
+  const candidates = [];
+  if (platform === "win32") {
+    for (const base of [env.ProgramFiles, env["ProgramFiles(x86)"], env.LOCALAPPDATA && path.join(env.LOCALAPPDATA, "Programs")]) {
+      if (base) candidates.push(path.join(base, "OrcaSlicer", "orca-slicer.exe"));
+    }
+  } else if (platform === "darwin") {
+    candidates.push("/Applications/OrcaSlicer.app");
+  }
+  return candidates.find((c) => exists(c)) || "";
+}
+
+/**
+ * Odpre datoteko OBJ v OrcaSlicerju: v izbranem programu, sicer v običajni namestitvi. Vrne prazen niz ob uspehu
+ * ali sporočilo o napaki. Na macOS se paket .app odpre z ukazom »open -a«.
+ */
+async function openInOrcaSlicer(file, exePath, opts = {}) {
+  const { spawnFn = spawn, log = () => {}, platform = process.platform, find = () => findOrcaSlicer() } = opts;
+  if (!isObjFile(file) || !fs.existsSync(file)) return "datoteka ne obstaja";
+  let program = typeof exePath === "string" ? exePath.trim() : "";
+  if (program && !fs.existsSync(program)) return `Programa OrcaSlicer ni na poti ${program}. V nastavitvah izberite njegovo datoteko.`;
+  if (!program) program = find();
+  if (!program) return "Program OrcaSlicer ni najden. V nastavitvah (razdelek OrcaSlicer) izberite njegovo datoteko.";
+  const useOpen = platform === "darwin" && /\.app\/?$/i.test(program);
+  const command = useOpen ? "open" : program;
+  const args = useOpen ? ["-a", program, file] : [file];
+  try {
+    await new Promise((resolve, reject) => {
+      const child = spawnFn(command, args, { detached: true, stdio: "ignore" });
+      if (!child || typeof child.on !== "function") return resolve();
+      child.once("error", reject);
+      child.once("spawn", resolve);
+      setTimeout(resolve, 400);
+      if (typeof child.unref === "function") child.unref();
+    });
+    log(`OrcaSlicer: odprto ${file}`);
+    return "";
+  } catch (error) {
+    return error && error.message ? error.message : String(error);
+  }
+}
+
+module.exports = { openInOrcaSlicer, findOrcaSlicer, isObjFile };

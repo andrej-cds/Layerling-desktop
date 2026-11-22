@@ -13,6 +13,7 @@ const updater = require("./updater");
 const { isStepFile, openInFusion } = require("./fusion");
 const { openInSolidcraft } = require("./solidcraft");
 const { openInBambuStudio, isObjFile } = require("./bambustudio");
+const { openInOrcaSlicer } = require("./orcaslicer");
 const { createSystemFonts } = require("./systemfonts");
 
 const WINDOW_TITLE = "LayerLing by CDS - Free 3D CAD for 3D printing";
@@ -461,6 +462,11 @@ let bambuNextObj = false;
 ipcMain.on("bambustudio:next-obj", (_event, on) => {
   bambuNextObj = !!on;
 });
+// Enako za gumb »OrcaSlicer«.
+let orcaNextObj = false;
+ipcMain.on("orcaslicer:next-obj", (_event, on) => {
+  orcaNextObj = !!on;
+});
 
 ipcMain.on("renderer:language", (_event, language) => {
   const next = normalizeLanguage(language);
@@ -491,6 +497,11 @@ ipcMain.handle("settings:save", async (_event, patch) => {
     const exe = patch.bambustudio.exePath.trim();
     if (exe && !fs.existsSync(exe)) return { error: tr("dlg.programMissing", { path: exe }) };
     safePatch.bambustudio = { exePath: exe };
+  }
+  if (patch && patch.orcaslicer && typeof patch.orcaslicer.exePath === "string") {
+    const exe = patch.orcaslicer.exePath.trim();
+    if (exe && !fs.existsSync(exe)) return { error: tr("dlg.programMissing", { path: exe }) };
+    safePatch.orcaslicer = { exePath: exe };
   }
 
   // Mapa mora biti zapisljiva, sicer bi uporabnik mislil, da je shranjeno, pa ne bi bilo.
@@ -738,6 +749,8 @@ function hardenSession() {
     if (toSolidcraft) solidcraftNextStep = false;
     const toBambu = bambuNextObj && isObjFile(item.getFilename());
     if (toBambu) bambuNextObj = false;
+    const toOrca = !toBambu && orcaNextObj && isObjFile(item.getFilename());
+    if (toOrca) orcaNextObj = false;
     item.once("done", async (_doneEvent, state) => {
       // Preklicano okno »Shrani kot«: spletni program mora vedeti, da ni bilo nič shranjeno
       // (sicer obvestilo »Varnostna kopija shranjena …« ostane, čeprav datoteke ni).
@@ -750,6 +763,14 @@ function hardenSession() {
         if (problem) {
           log(`Bambu Studio: ${problem}`);
           dialog.showErrorBox(tr("dlg.bambuOpenFailed"), problem);
+        }
+        return;
+      }
+      if (toOrca && isObjFile(saved)) {
+        const problem = await openInOrcaSlicer(saved, config.get().orcaslicer.exePath, { log });
+        if (problem) {
+          log(`OrcaSlicer: ${problem}`);
+          dialog.showErrorBox(tr("dlg.orcaOpenFailed"), problem);
         }
         return;
       }

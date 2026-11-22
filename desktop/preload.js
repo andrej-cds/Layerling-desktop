@@ -27,5 +27,6 @@ contextBridge.exposeInMainWorld("layerlingDesktop", {
   setStepToFusion: (on) => ipcRenderer.send("fusion:next-step", !!on),
   setStepToSolidcraft: (on) => ipcRenderer.send("solidcraft:next-step", !!on),
   setObjToBambu: (on) => ipcRenderer.send("bambustudio:next-obj", !!on),
+  setObjToOrca: (on) => ipcRenderer.send("orcaslicer:next-obj", !!on),
   reportLanguage: (language) => ipcRenderer.send("renderer:language", language),
 });

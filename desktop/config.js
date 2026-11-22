@@ -46,6 +46,8 @@ function defaults(documentsDir) {
     solidcraft: { exePath: "" },
     // Bambu Studio: gumb v izvoznem oknu izvozi STL in ga odpre v tem programu (exePath prazen = običajna namestitev).
     bambustudio: { exePath: "" },
+    // OrcaSlicer: enako kot Bambu Studio (izvoz OBJ in odpiranje v izbranem programu).
+    orcaslicer: { exePath: "" },
   };
 }
 
@@ -88,6 +90,9 @@ function normalize(raw, documentsDir) {
     bambustudio: {
       exePath: input.bambustudio && typeof input.bambustudio.exePath === "string" ? input.bambustudio.exePath.trim() : "",
     },
+    orcaslicer: {
+      exePath: input.orcaslicer && typeof input.orcaslicer.exePath === "string" ? input.orcaslicer.exePath.trim() : "",
+    },
   };
 }
 
@@ -118,6 +123,7 @@ class ConfigStore {
       fusion: { ...this.data.fusion, ...(patch && patch.fusion ? patch.fusion : {}) },
       solidcraft: { ...this.data.solidcraft, ...(patch && patch.solidcraft ? patch.solidcraft : {}) },
       bambustudio: { ...this.data.bambustudio, ...(patch && patch.bambustudio ? patch.bambustudio : {}) },
+      orcaslicer: { ...this.data.orcaslicer, ...(patch && patch.orcaslicer ? patch.orcaslicer : {}) },
     };
     this.data = normalize(merged, this.documentsDir);
     this.save();

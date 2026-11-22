@@ -68,6 +68,12 @@
   </section>
 
   <section>
+    <h2 data-i18n="s.orcaTitle">OrcaSlicer</h2>
+    <p class="hint" data-i18n="s.orcaHint">Gumb OrcaSlicer v izvoznem oknu (vrstica Program) izvozi OBJ in ga odpre v tem programu. Če programa ne izberete, se uporabi običajna namestitev.</p>
+    <div class="field"><span data-i18n="s.solidProgram">Program</span><input type="text" id="os-exe" readonly placeholder="(običajna namestitev)" data-i18n-placeholder="s.bambuNone"><button id="os-pick" data-i18n="s.pick">Izberi …</button><button id="os-clear" data-i18n="s.solidClear">Počisti</button></div>
+  </section>
+
+  <section>
     <h2 data-i18n="s.mcpTitle">Povezava z AI (MCP)</h2>
     <p class="hint" data-i18n="s.mcpHint">Z njo lahko Claude ali drug odjemalec MCP gradi v odprtem urejevalniku. Povezava je dostopna samo s tega računalnika in zaščitena z žetonom. Vnos prilepite v nastavitve odjemalca (Claude Desktop: Settings → Developer → Edit Config), nato ga znova zaženite.</p>
     <textarea id="mcp" readonly></textarea>
@@ -137,6 +143,7 @@ function render() {
   $("sh-folder").value = c.sharedFolder || "";
   $("sc-exe").value = (c.solidcraft && c.solidcraft.exePath) || "";
   $("bs-exe").value = (c.bambustudio && c.bambustudio.exePath) || "";
+  $("os-exe").value = (c.orcaslicer && c.orcaslicer.exePath) || "";
   $("up-check").checked = c.checkUpdatesOnStart;
   $("gfx-mode").value = c.graphicsMode || "auto";
   $("gfx-flags").value = c.graphicsFlags || "";
@@ -194,6 +201,12 @@ $("bs-pick").onclick = async () => {
   if (exe) { draft.bambustudio = { exePath: exe }; render(); }
 };
 $("bs-clear").onclick = () => { draft.bambustudio = { exePath: "" }; render(); };
+$("os-pick").onclick = async () => {
+  const current = (draft.orcaslicer && draft.orcaslicer.exePath) || "";
+  const exe = await window.settingsApi.pickProgram({ title: T("s.orcaPick"), defaultPath: current || undefined });
+  if (exe) { draft.orcaslicer = { exePath: exe }; render(); }
+};
+$("os-clear").onclick = () => { draft.orcaslicer = { exePath: "" }; render(); };
 $("mcp-copy").onclick = async () => { await window.settingsApi.copyText($("mcp").value); $("mcp-note").textContent = T("s.mcpCopied"); };
 $("mcp-regen").onclick = async () => {
   if (!confirm(T("s.mcpConfirm"))) return;
@@ -227,6 +240,7 @@ $("save").onclick = async () => {
     graphicsFlags: draft.graphicsFlags,
     solidcraft: draft.solidcraft,
     bambustudio: draft.bambustudio,
+    orcaslicer: draft.orcaslicer,
   });
   if (result && result.error) { msg(result.error, true); return; }
   state = result;

@@ -4498,5 +4498,79 @@
       "Skica: držana puščična tipka brez zaostajanja",
       "Ko v skici držiš puščično tipko, izbor zdaj sledi tipki in se ustavi takoj, ko jo spustiš. Pri velikih obrisih je prej močno zaostajal in se je premikal še dolgo po spustitvi tipke. Držan niz je še vedno en korak Undo."
     ]
+  ],
+  "1.169.0": [
+    [
+      "Barvanje: čopič s pritiskom peresa, magnetni lasso, višinski pas",
+      "Barvanje za večbarvni tisk ima nova orodja.\n\n– Čopič: riše črto, dokler držiš gumb miške ali pero. Pri peresu ali risalni tablici pritisk določa širino, do petine premera. Krog zdaj riše črto tudi, ko ga vlečeš; klik še vedno položi eno liso.\n– Prosojna krogla: kaže, kje čopič ali krog barva. Ctrl + kolesce ali tipki [ in ] spreminjata njeno velikost.\n– Kot krogla: krog in čopič pobarvata vse znotraj krogle, tudi zaobljene robove in votline, kot krogla v razrezovalnikih.\n– Magnetni lasso: klikaj približno vzdolž roba in črta ga sama najde: pregib površine, obris telesa ali rob že obstoječe barve. Enter ali klik na prvo točko ga sklene, Backspace vzame točko nazaj.\n– Glajenje: izravna črto obeh lassov, vogali ostanejo.\n– Višinski pas: en klik pobarva pas v enaki višini okoli vsega telesa.\n– Zapolni vrzeli: lise, manjše od nastavljene površine, prevzamejo barvo okoli sebe, zato zablodeli madeži izginejo.\n\nNov potez se položi na mrežo, ki so jo pustile prejšnje poteze, namesto da bi se znova uporabile vse, zato barvanje ostane hitro tudi z veliko potezami. Prek MCP »layerling_paint« sprejme čopič, kroglo, višinski pas in zapolnjevanje vrzeli."
+    ],
+    [
+      "Gridfinity: razdeli posamezne predale naprej",
+      "Na kartici predalov škatle Gridfinity meni Row in Column izbereta predal, ki ga je mogoče razdeliti. Z »Split across« in »Split deep« (vsak od 1 do 6) se razdeli na enakomerno razporejene dele s predelnimi stenami, enako debelimi in visokimi kot pri škatli.\n\nVsak del ostane širok vsaj 6 mm, škatla pa obdrži omejitev skupaj 40 predalov. Čez to se predali jemljejo od zadaj levo po vrstah, najprej njihovi deli počez, tako da datoteka ali klic MCP vedno zgradi enako. Oznaka predala stoji v delu ob njegovi strani, ki je najbolj levo ali zadaj. Škatla brez delitev je zgrajena kot prej."
+    ],
+    [
+      "Gridfinity: posode in pladnji tako veliki kot tvoja tiskalna plošča",
+      "Posode in pladnji Gridfinity so se ustavili pri 6 enotah (252 mm), tudi ko je imel tiskalnik več prostora. Z izbranim tiskalnikom v nastavitvah delovnega prostora »Units across« in »Units deep« zdaj ponudita toliko enot, kolikor jih gre na daljšo stranico njegove plošče, na primer 7 enot na plošči 330 × 320 mm. Širina in dolžina pladnja gresta do te stranice.\n\nNamig pod poljem pove, do kod seže. Brez izbranega tiskalnika ostane pri 6 enotah in 252 mm. Če je posoda večja od plošče, preverjanje tiska to pove."
+    ],
+    [
+      "Hollow: luknje za vijake v dnu Gridfinity",
+      "Pod Hollow > Gridfinity floor je pod »Magnet holes« novo polje »Screw holes«. Izreže luknjo skozi sredino vsakega vtiča, da škatlo privijačiš v predalu ali na desko: 4,5 mm široko za 4 mm vijak z grezno glavo, vgreznjeno pod 45 stopinj, da glava (do 8,5 mm) leži v ravnini z dnom vtiča. Posoda še vedno stoji v vtiču.\n\nDno je debelo 8,6 mm, enako kot pri luknjah za magnete, zato gresta skupaj, ne da bi bilo spet debelejše. Mere so nespremenljive. Prek MCP: »gridScrews« v »layerling_hollow_object«."
+    ],
+    [
+      "Imenska in ikonska oznaka: ravna vložitev",
+      "Na karticah »Name tag« in »Icon tag« je stikalo »Flat inlay« pod tabelo plasti. Ko je vklopljeno, se črke (ali ikona) in rob pogreznejo v spodnjo plast in vse barve končajo na eni ravni ploskvi. Oznako je tako mogoče tiskati z licem navzdol na plošči, s teksturo plošče na licu.\n\nSpodnja plast je nosilec: njena višina je debelina cele oznake, uho za obesek pa sedi na njej. Drsnik »Inlay depth« določa, kako globoko gredo plasti nad njo, vse skupaj. Začne pri 0,8 mm (štiri plasti po 0,2 mm), kar zadošča za večino PLA. Bolj prosojen filament (PETG, nekatere bele barve) potrebuje več: najprej natisni preizkus.\n\nMedtem ko je stikalo vklopljeno, so višine zgornjih plasti zasivljene. Izklopljeno je oznaka spet naložena. Pri izvozu STEP so vložene plasti mreže, 3MF in STL ostaneta nespremenjena."
+    ],
+    [
+      "Nova oblika: Streha",
+      "Osnovne oblike zdaj imajo Streho ob Okrogli strehi: trikotnik, ki leži na delovni ravnini, z vogalom zgoraj. Ročaj zgoraj spreminja višino trikotnika, medtem ko osnovnica ostane na plošči; ročaji spodaj spreminjajo širino in dolžino.\n\nNjene tri stranice ostanejo take, kot so; za drugo število stranic vzemi Večkotnik."
+    ],
+    [
+      "Slika za vsako mapo",
+      "Ko se ime mape na začetni strani začne z emojijem, na primer »💡 Ideas«, mapa namesto ikone mape pokaže ta emoji velik. Tako mape najdeš na prvi pogled.\n\nEmoji je del imena, zato gre kamor gre mapa. Mapo preimenuj, da ga spremeniš ali odstraniš."
+    ],
+    [
+      "Skica: puščične tipke se odzovejo takoj",
+      "V skici se je ob pritisku puščične tipke premik pokazal šele po kratkem trenutku, pri držani tipki pa je izbor skakal v velikih korakih. Zdaj se premika takoj in enakomerno. Cel niz s puščičnimi tipkami je še vedno en korak Undo."
+    ],
+    [
+      "Deli pristanejo tam, kamor jih postavi njihova datoteka",
+      "Če imaš dele enega modela kot ločene datoteke, na primer telo, roke in noge miniature, v oknu za uvoz vklopi »STL, OBJ, 3MF: keep the position from the file«. Vsak del potem stoji tam, kamor ga postavi njegova datoteka, in vse se ujema, tudi če datoteke uvoziš eno za drugo.\n\nStikalo ostane vklopljeno, dokler ga ne izklopiš. Brez njega vsaka datoteka pride sama blizu sredine plošče, kot prej."
+    ],
+    [
+      "Prazni načrti se vrnejo iz varnostne kopije",
+      "Po zrušitvi lahko kartice na začetni strani še vedno kažejo imena in število oblik, načrti pa se odprejo prazni. Do zdaj je »Restore backup« natanko te načrte preskočil, ker jih je imel za že obstoječe.\n\nZdaj kopija njihovo vsebino vrne v isto kartico. Načrti, ki še imajo svoje oblike, ostanejo, kot so."
+    ],
+    [
+      "Menijska vrstica: gumbi se ne prekrivajo več",
+      "Pri nekaterih širinah okna, predvsem v načinu fokusa, so bile skupine menijske vrstice stisnjene ožje od svojih gumbov. Takrat je na primer gumb Outliner pri Visibility segal v Shapes.\n\nZdaj vsaka skupina obdrži polno širino, kjer pa ni dovolj prostora, se še ena skupina zloži v en sam gumb."
+    ],
+    [
+      "Gladka zaobljenja na velikih okroglih robovih",
+      "Zaobljenje 1 mm ali več na okroglem robu, na primer na robu velikega diska ali obroča, je lahko v urejevalniku in razrezovalniku kazalo poševne vdolbine. Zaobljenje samo je bilo natančno; samo trikotna mreža za pogled in izvoz je mestoma tekla počez krivulje, do nekaj desetink milimetra pod površino.\n\nlayerling zdaj preveri mrežo pri vsakem zaobljenju ob okroglem robu in jo po potrebi razdeli finejše. Rob, ki si ga že zaobljil, bo gladek, ko zaobljenje uporabiš še enkrat."
+    ],
+    [
+      "Satovje in celice: brez špic ob robovih spojev",
+      "Rezanje satovja ali celic v ploskev in jemanje vzorca kot samostojnega dela je pustilo majhne špice ob robovih spojev, ki so segale v celice. Izginile so: vzorec zdaj pokriva samo spoje."
+    ],
+    [
+      "Rob črk tudi spodaj",
+      "Pri Text zdaj izbereš, kam gre rob črk: zgoraj, spodaj ali na obeh koncih. Spodnji je za vgravirane črke, ki jih iz telesa izrežeš z besedilom kot luknjo: posnetje, tako veliko kot je globok rez, naredi žlebove v obliki črke V, ki se tiskajo brez mostov, tudi na stranski steni."
+    ],
+    [
+      "Safari na Macih Intel: veliki deli spet pravilno narisani",
+      "V Safariju na Macu s procesorjem Intel in lastno grafično kartico so bili veliki deli narisani kot zmešnjava špic čez pogled, na primer vzorec, ovit okoli valja, ali velika uvožena mreža. Majhni deli so bili videti pravilni, izvoz pa je bil vedno v redu.\n\nVzrok je napaka v Safariju: od velikih blokov podatkov do grafične kartice tam pride samo prvi megabajt. layerling zdaj velike bloke pošilja Safariju v manjših kosih."
+    ],
+    [
+      "Gumbi miške kot v razrezovalniku: vrtenje tudi v orodjih",
+      "Z gumbi miške, nastavljenimi »Like Bambu Studio and OrcaSlicer«, levi vlek po praznem prostoru ni vrtel pogleda, ko je bilo odprto orodje, kot so Split, Fillet ali Chamfer. Zdaj pogled vrti tudi tam. Navaden klik na prazen prostor še vedno naredi, kar je tam vedno naredil."
+    ],
+    [
+      "Koda QR in plošča: premik se ne izgubi med ponovno gradnjo",
+      "Če si kodo QR naredil znova ali ploščo ponovno zgradil z novo nastavitvijo in jo vmes premaknil, zaklenil ali preimenoval, se je ta sprememba brez besed izgubila. Zdaj del ostane, kot si ga spremenil, obvestilo pa pove, da naj ponovno gradnjo začneš še enkrat."
+    ],
+    [
+      "Chamfillet hitrejši pri telesih z veliko robovi",
+      "Pri telesih z zelo veliko robovi, na primer velika plošča satovja, je Chamfillet zdaj narejen do dvakrat hitreje."
+    ]
   ]
 }
