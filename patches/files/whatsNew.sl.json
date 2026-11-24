@@ -4572,5 +4572,167 @@
       "Chamfillet hitrejši pri telesih z veliko robovi",
       "Pri telesih z zelo veliko robovi, na primer velika plošča satovja, je Chamfillet zdaj narejen do dvakrat hitreje."
     ]
+  ],
+  "1.170.0": [
+    [
+      "Hollow: predelne stene ročno, mulde za prst in oblikovani žepi",
+      "Pri škatli, izdolbeni z odprtim vrhom (brez dna Gridfinity), ima okno Hollow tri novosti.\n\n– Predelne stene: ob »Even grid« je »By hand«. Okno kaže škatlo od zgoraj; klikneš predal in vanj postaviš steno, jo povlečeš, potegneš enega njenih koncev, jo nagneš, zasučeš ali prezrcališ vse. Prvo stikalo prevzame enakomerne stene. Na škatli vsak predal kaže svojo velikost, pri »By hand« imajo stene tam tudi prijemala.\n– Mulda za prst: tapni predal in izberi stran, kamor se njegovo dno dvigne v četrtinskem krogu, da majhne dele potisneš ven s prstom. Deluje tudi brez predelnih sten.\n– Oblikovani žep: obris drugega dela, gledan od zgoraj, kjer leži čez škatlo, se izreže v polnilo škatle.\n\nPredelne stene zdaj sledijo tudi škatli, zasukani na delovni ravnini; prej so stale poševno glede na njene stene. Prek MCP: »dividerWalls«, »scoops«, »scoopRadius«, »pockets« in »pocketFill« v »layerling_hollow_object«."
+    ],
+    [
+      "layerling v hebrejščini",
+      "Vmesnik je zdaj na voljo tudi v hebrejščini. Jezik izbereš zgoraj desno. Nekaj novih besedil in priročnik sta tam še v angleščini."
+    ],
+    [
+      "Risba: številka, revizija in avtor v glavi risbe",
+      "Na zavihku 2D izvoznega okna so pod PDF ali SVG tri polja: Drawing number, Revision in Drawn by. Gredo v glavo risbe; prazno polje kaže črtico kot prej.\n\nŠtevilka in revizija ostaneta pri načrtu, tudi v datoteki .lyl, tvoje ime pa layerling hrani v tem brskalniku za vsak načrt. Datum je še vedno dan izvoza. Prek MCP: drawingNumber, revision in drawnBy v layerling_export_drawing."
+    ],
+    [
+      "Kotnik: novi načrti z njim v kotu plošče",
+      "V nastavitvah pod Measurement zdaj »Start new designs with a framing square« omogoča izbiro, kam gre: v izhodišče kot prej ali v sprednji levi kot gradbene plošče, z obema krakoma tako dolgima kot plošča izbranega tiskalnika.\n\nKotnik tako v vsakem novem načrtu takoj zajame celo ploščo. Križec ga odstrani iz načrta, ki ga ne potrebuje."
+    ],
+    [
+      "Osnovne plošče Gridfinity, spete s sponkami",
+      "Vklopi »Clip notches« v plošči Properties in rob dobi zarezo na sredini vsake celice ob vsaki strani brez roba, za male stenske sponke Gridfinity Extended. Tako se plošča spne tudi s ploščami, narejenimi tam. »Add clips« razporedi sponke pred ploščo, pripravljene za tisk, »Clips« določi njihovo število. Sponko pritisni od zgoraj čez dve nizki steni čez vsak šiv. »Split to fit the printer« razreže ploščo z zarezami na dele z zarezami tudi na rezanih straneh in razporedi sponke za šive."
+    ],
+    [
+      "Kocka pogleda: Top in Bottom ohranita zasuk pogleda",
+      "V nastavitvah pod Appearance je novo stikalo »Top and Bottom keep the view's turn«. Ko je vklopljeno, klik na Top ali Bottom na kocki pogleda ali tipki 5 in 6 gledata naravnost navzdol ali navzgor, a ohranita zasuk pogleda, zaokrožen na najbližjo četrtino obrata.\n\nČe si gledal ploščo z desne, desna stran ostane spodaj, namesto da bi se pogled vedno vrnil na sprednjo stran."
+    ],
+    [
+      "Enake vrzeli tudi za ugnezdene oblike",
+      "Pri Align pika enakih vrzeli zdaj razporedi oblike tudi takrat, ko med skrajnima dvema ni dovolj prostora. Vrzel postane negativna in se oblike enakomerno prekrivajo, kot ugnezdene skodelice.\n\nVrstica stanja imenuje vrzel. Na plošči ali kot del plošče se oblike še vedno morajo prilegati."
+    ],
+    [
+      "Zaobljenje in posnetje: orodje ne odpove več po zrušitvi",
+      "Pri nekaterih telesih določena velikost zruši jedro CAD. Orodje se zdaj po tem samo znova odpre z izbranimi robovi in velikostjo ter te opozori, naj poskusiš drugo. Iskanje največje velikosti, ki ustreza, se nadaljuje mimo take zrušitve."
+    ]
+  ],
+  "1.171.0": [
+    [
+      "Raven podrobnosti: pomagala odlagaj korak za korakom",
+      "Je okoli tvojega modela narisanega preveč? Vrstica pogleda ima zdaj raven podrobnosti, v urejevalniku in v skici. Drsnik v petih korakih odloži, česar zdaj ne potrebuješ: opombe in oznake, referenčne točke in razdalje, mere, vodilne črte pripenjanja in osne puščice, nazadnje mrežo.\n\n– Vsako pomagalo ima svoje stikalo pod drsnikom.\n– Drži V, da za hip vidiš vse.\n– Spremeni se samo pogled, nikoli načrt. Pripenjanje in merjenje delujeta naprej.\n– Urejevalnik in skica imata vsak svoj drsnik, brskalnik si zapomni oba."
+    ],
+    [
+      "Iskanje v nastavitvah",
+      "Okno nastavitev ima zdaj iskalno polje nad področji. Vtipkaj na primer »zoom« in vidiš vse nastavitve, ki imajo kaj s tem, iz vseh področij pod seboj. Tam jih lahko tudi spremeniš.\n\n– Išče se po oznakah, namigih in izbirah, na primer po tvojem tiskalniku.\n– Najde tudi pogoste druge besede, kot »mouse wheel« ali »dark mode«.\n– Vsako področje pokaže število najdenih nastavitev. Klik odpre celo področje z označenimi nastavitvami."
+    ],
+    [
+      "Namestitev kot aplikacija v Firefoxu",
+      "Začetna stran je pisala, da Firefox ne more nameščati aplikacij. V sistemu Windows od Firefoxa 143 lahko: klikni ikono »Add tab to taskbar« desno od naslovne vrstice. Tvoji načrti ostanejo, kot so. Namig zdaj imenuje to pot."
+    ],
+    [
+      "Nova oblika: Ventilator",
+      "Pod Systems & templates je zdaj Ventilator ob plošči SBC, v pravi velikosti po risbah proizvajalcev.\n\n– Radialni ventilatorji 5015 (tudi s širokim izhodom), 4020 in 4010.\n– Aksialni ventilatorji od 25×10 do 120×25.\n– Luknje za vijake, vhod in izhod lahko vsak sega skozi steno, z nastavljivo dolžino in zračnostjo.\n\nTako ležišče ventilatorja ali zračni kanal pri tiskalni glavi ustreza že prvič. Na voljo tudi prek MCP."
+    ],
+    [
+      "Večbarvne skupine: tvoja izbira ostane",
+      "Vklopi »Multicolor« za skupino (tudi s Shift+M) in naslednje skupine, ki jih narediš, se prav tako začnejo v barvah svojih delov. Tako ostane, dokler ga za skupino spet ne izklopiš. Brskalnik si izbiro zapomni."
+    ],
+    [
+      "Nastavitve tudi v skici",
+      "Zobnik zgoraj desno zdaj odpre nastavitve tudi med risanjem skice, nove barve pa vidiš takoj. V hitrem vodniku je povezava do celotnega priročnika zdaj čisto na vrhu."
+    ],
+    [
+      "Ni več prazne datoteke pri shranjevanju",
+      "Ko načrt shraniš v Chromu ali Edgeu, layerling zdaj preveri, da je res prišel v datoteko. Če ni, na primer ker je vmes posegel protivirusni program, to sporočilo pove, »Download instead« pa ga shrani kot prenos. Datoteka, ki je ostala prazna, se spet odstrani."
+    ],
+    [
+      "Skupine mnogih finih oblik ostanejo zaprte",
+      "Združevanje mnogih finih oblik z luknjo, na primer obročev po 512 stranic, je dalo površino z vrzelmi in brez opozorila nad mejo za uvožene mreže. Razrezovalnik je potem lahko napolnil celo telo.\n\nOblike iz knjižnice so zdaj vedno najprej rezane natančno. Če vrzeli kljub temu ostanejo, vrstica stanja to pove. Skupino, narejeno prej, je treba znova združiti iz delov."
+    ],
+    [
+      "Posnetje in zaobljenje na robu luknje",
+      "Rob luknje je pogosto narejen iz dveh lokov. Pri nekaterih telesih je posnetje delovalo samo, če si kliknil pravega. Zdaj večinoma ni pomembno, katerega: ko posnetja ali zaobljenja ni mogoče zgraditi iz kosa, na katerega si kliknil, se poskusi znova iz drugih kosov roba."
+    ],
+    [
+      "Izbiranje robov od spodaj",
+      "V orodju za posnetje ali zaobljenje se je prosojno telo, gledano od spodaj skozi delovno ravnino, zreduciralo na spodnjo ploskev. Z »Only visible edges« so tam manjkali tudi robovi nad ploščo. Zdaj se oboje spet prikaže."
+    ]
+  ],
+  "1.172.0": [
+    [
+      "Vzorčna plošča (Patties)",
+      "Novo v knjižnici oblik: ploščata plošča z enim od trinajstih vzorcev, kot so pike, rože, luske, celice ali žarki, ali z lastno figuro iz SVG, PNG ali JPG.\n\n– Kot šablona, štampiljka, kalup ali samo figure\n– Pravokotna, okrogla ali pahljača, ki se ovija okoli skodelice ali lonca\n– Samo figure, narejene v luknjo in združene s telesom, vrežejo vzorec vanj\n– Vzorec lahko shraniš kot SVG za laser ali rezalni plotter"
+    ],
+    [
+      "Kalupi: kalup kože, jedrni kalup in ohišja",
+      "Orodje Mold & die zmore več.\n\n– Silikonski kalup kože: tanek silikonski kalup v natisnjeni lupini, ki prihrani veliko silikona\n– Jedrni kalup za lonce, skodelice in vaze\n– Dve ohišji za vlivanje polovic kalupa iz silikona ali mavca\n– Dvodelni kalup, zalit skozi šiv, z luknjo za stenj, tesnilno ustnico ali štirimi stranskimi deli\n– Okno pove, kaj zmešati, koliko tega in koliko stane"
+    ],
+    [
+      "Pokrov sledi škatli, z oznako za vsak predal",
+      "Ko spremeniš predale ali velikost izdolbene škatle, se njen pokrov naredi znova v istem koraku. Pokrovi lahko zdaj nosijo oznako za vsak predal, zunaj ali znotraj. Odprto na škatli s pokrovom orodje Lid ta pokrov spremeni. Tečaj, zapahi, ročaj in magneti zdaj delujejo tudi na škatli, ki stoji zasukana."
+    ],
+    [
+      "Predelne stene kot ločen vložek",
+      "Pri dolbenju lahko predelne stene zdaj postanejo samostojen del: vložek, ki ga dvigneš iz škatle z vsebino. Škatla ostane znotraj gladka, vložek pa sledi škatli, ko jo spremeniš.\n\nKlik ob telesu z odprtim orodjem tudi ne zavrže več dolbenja."
+    ],
+    [
+      "Preveri velikost na papirju, preden tiskaš v 3D",
+      "Risba 2D zdaj pride iz tiskalnika v pravi velikosti, kot PDF na A4, A3, US Letter ali US Tabloid. Natisni jo pri 100 % in nanjo položi pravi del, na primer ventilator ali vezje: v nekaj sekundah vidiš, ali mere ustrezajo."
+    ],
+    [
+      "Razdruži vse ravni",
+      "V meniju desnega klika in iskanju ukazov »Ungroup all levels« razstavi tudi skupine znotraj skupine, v enem koraku. Snopi in zaklenjene skupine znotraj ostanejo cele."
+    ],
+    [
+      "Novi ventilatorji: 5020 in 50 mm",
+      "Oblika Ventilator ima zdaj radialni ventilator 5020 in aksialna 50 x 15 in 50 x 20 mm."
+    ],
+    [
+      "Raven podrobnosti: ročaji in V",
+      "Seznam ravni podrobnosti ima stikalo za ročaje ob izboru. Držanje V pokaže tudi mere in ročaje, ki sta jih skrila Q in Shift+Q."
+    ],
+    [
+      "Bližnjice, ki ustrezajo tvoji tipkovnici",
+      "Seznam bližnjic poimenuje tipke tako, kot jih imenuje tipkovnica tvojega jezika. Črkovne tipke zdaj delujejo tudi s cirilično, grško, arabsko ali hebrejsko tipkovnico, pogledi 1 do 5 pa na francoski tipkovnici brez Shift."
+    ],
+    [
+      "Seznam predmetov samo za trenutno ploščo",
+      "Ko ima načrt več gradbenih plošč, nov gumb v naslovni vrstici seznama predmetov pokaže samo predmete na trenutni plošči. Klikni drugo ploščo in seznam sledi."
+    ],
+    [
+      "Prst: brez ročajev",
+      "Na napravi z zaslonom na dotik ima gumb s kazalno roko v vrstici pogleda še eno izbiro: skrije vse ročaje ob izboru, da se nobenega ne dotakneš po nesreči. Prst ali pero na delu ga še vedno premakneta."
+    ],
+    [
+      "Ikonska oznaka iz podrobnih slik",
+      "Nekatere podrobne slike PNG ali JPG so bile kot ikonska oznaka zavrnjene. Zdaj postanejo oznaka."
+    ],
+    [
+      "Oznake obdržijo teksturo",
+      "Nova barva na imenski ali ikonski oznaki pusti teksture, zaobljene robove in barvo, kot so. Vsaka druga sprememba, ki bi jih odstranila, vpraša najprej."
+    ],
+    [
+      "Puščice za vrtenje na tankih telesih",
+      "Pri tankih, zasukanih telesih so se puščice za vrtenje prekrivale in ležale pod oznako kota. Zdaj se razmaknejo in jih je mogoče varno prijeti."
+    ],
+    [
+      "Izdolbena telesa po vrtenju",
+      "Ko je bilo izdolbeno telo zasukano in nato spremenjeno v velikosti, so bile odprte napačne strani. Zdaj ostanejo iste."
+    ],
+    [
+      "Modro dvižno puščico lažje primeš",
+      "Modra puščica za dvigovanje zdaj izgleda kot rdeča in zelena, vidna je tudi na temnih telesih in jo je mogoče prijeti po vsej dolžini."
+    ],
+    [
+      "Delete face pove izhod",
+      "Ko Delete face na uvoženi mreži ne deluje, sporočilo zdaj pove, da pogosto pomaga Make exact."
+    ],
+    [
+      "Vrstica gradbenih plošč ostane prosta",
+      "Opozorilo, da telesa ne gredo v gradbeni prostor tiskalnika, je ležalo čez vrstico gradbenih plošč in skrilo njene gumbe. Zdaj stoji nad vrstico."
+    ],
+    [
+      "Izvoz pod imenom načrta",
+      "Ko ima načrt samo eno telo, izvozno okno zdaj predlaga ime načrta, tudi po preimenovanju. Pri več telesih je še vedno ime izbranega."
+    ],
+    [
+      "Vtipkan premik deluje na vsaki gradbeni plošči",
+      "Število, vtipkano v razdaljo premika, je telo na plošči 2 ali kasneje potegnilo nazaj na ploščo 1. Zdaj telo premakne natanko za toliko na vsaki plošči."
+    ],
+    [
+      "Shranjevanje ne čaka na mapo za varnostne kopije",
+      "Ko je vprašanje brskalnika o mapi za varnostne kopije ostalo brez odgovora, je shranjena datoteka lahko ostala prazna. Zdaj se načrt kljub temu shrani po 20 sekundah in sporočilo to pove."
+    ]
   ]
 }
