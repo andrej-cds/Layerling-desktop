@@ -10,13 +10,18 @@ const { buildMenu } = require("./menu");
 const { tr, setLanguage, getLanguage, normalizeLanguage, languageFromLocale, STRINGS } = require("./strings");
 const { detectICloudFolders, mcpClientConfig } = require("./integrations");
 const updater = require("./updater");
+
+// Program se zdaj imenuje LayerLab, mapa z nastavitvami in projekti pa ostane »Layerling«, da se nič ne izgubi.
+if (!process.argv.some((arg) => arg.startsWith("--user-data-dir"))) {
+  app.setPath("userData", path.join(app.getPath("appData"), "Layerling"));
+}
 const { isStepFile, openInFusion } = require("./fusion");
 const { openInSolidcraft } = require("./solidcraft");
 const { openInBambuStudio, isObjFile } = require("./bambustudio");
 const { openInOrcaSlicer } = require("./orcaslicer");
 const { createSystemFonts } = require("./systemfonts");
 
-const WINDOW_TITLE = "LayerLing by CDS - Free 3D CAD for 3D printing";
+const WINDOW_TITLE = "LayerLab by CDS - Free 3D CAD for 3D printing";
 const windowTitle = () => `${WINDOW_TITLE} - Desktop ${app.getVersion()}`;
 const REPO = (process.env.LAYERLING_DESKTOP_REPO || "andrej-cds/layerling-desktop");
 const SOURCE_URL = `https://github.com/${REPO}`;
@@ -172,7 +177,7 @@ function createMainWindow() {
     minHeight: 600,
     show: false,
     backgroundColor: "#1e2327",
-    title: "LayerLing by CDS",
+    title: "LayerLab by CDS",
     icon: fs.existsSync(iconPath()) ? iconPath() : undefined,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
@@ -351,7 +356,7 @@ ipcMain.handle("mirror:write", (_event, entries) => {
   if (result.failed.length) {
     log(`Zapisovanje na disk ni uspelo za ${result.failed.length} projektov: ${JSON.stringify(result.failed)}`);
     if (Notification.isSupported()) {
-      new Notification({ title: "LayerLing by CDS", body: tr("dlg.autosaveFailed") }).show();
+      new Notification({ title: "LayerLab by CDS", body: tr("dlg.autosaveFailed") }).show();
     }
   }
   return result;
@@ -541,7 +546,7 @@ ipcMain.handle("settings:save", async (_event, patch) => {
 // Diagnostika grafike: ali se 3D izrisuje na grafični kartici ali programsko, in kdo porablja pomnilnik.
 async function graphicsReport() {
   const lines = [];
-  lines.push(`Layerling Desktop ${app.getVersion()} | Electron ${process.versions.electron} | Chromium ${process.versions.chrome}`);
+  lines.push(`LayerLab Desktop ${app.getVersion()} | Electron ${process.versions.electron} | Chromium ${process.versions.chrome}`);
   lines.push(`Način izrisa ob zagonu: ${graphicsModeAtStart}${graphicsFlagsAtStart ? ` + zastavice: ${graphicsFlagsAtStart}` : ""}`);
   try {
     lines.push("", "Stanje funkcij (app.getGPUFeatureStatus):");
@@ -691,7 +696,7 @@ function showAbout() {
   dialog.showMessageBox(mainWindow || undefined, {
     type: "info",
     title: tr("dlg.aboutTitle"),
-    message: `Layerling Desktop ${app.getVersion()}`,
+    message: `LayerLab Desktop ${app.getVersion()}`,
     detail:
       `${tr("dlg.aboutStandalone", { os: isMac ? "macOS" : "Windows" })}\n` +
       `${tr("dlg.aboutBase", { version: up.version, commit: up.commit ? ` (${String(up.commit).slice(0, 7)})` : "" })}\n` +

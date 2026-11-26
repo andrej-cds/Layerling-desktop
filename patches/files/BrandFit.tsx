@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 /**
- * LayerLing by CDS: napis ob logotipu je v eni vrstici in ravno tako širok kot podnapis pod njim
+ * LayerLab by CDS: napis ob logotipu je v eni vrstici in ravno tako širok kot podnapis pod njim
  * (nadzorna plošča in urejevalnik). Velikost črk se izmeri, zato velja za vsako pisavo in vsak jezik.
  */
 const LOCKUPS: Array<[string, string]> = [

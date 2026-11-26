@@ -10,7 +10,7 @@ function buildMenu({ isMac, isDev, actions, state }) {
   const noGrab = isMac ? { registerAccelerator: false } : {};
   const template = [
     ...(isMac ? [{
-      label: "LayerLing by CDS",
+      label: "LayerLab by CDS",
       submenu: [
         { id: "about", label: tr("menu.about"), click: actions.about },
         { type: "separator" },

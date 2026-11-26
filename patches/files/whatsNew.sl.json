@@ -4734,5 +4734,245 @@
       "Shranjevanje ne čaka na mapo za varnostne kopije",
       "Ko je vprašanje brskalnika o mapi za varnostne kopije ostalo brez odgovora, je shranjena datoteka lahko ostala prazna. Zdaj se načrt kljub temu shrani po 20 sekundah in sporočilo to pove."
     ]
+  ],
+  "1.173.0": [
+    [
+      "Vaza: reliefni vzorci, tvoja slika ali besedilo",
+      "Vaza ima zdaj kartico Pattern, ki prikaže vsak vzorec kot ploščico.\n\n– Reliefni vzorci, kot so cvetni listi, luske, satovje, opeke, pletenina ali listi, v enajstih oblikah\n– Tvoja slika ali besedilo kot relief: čez vse, kot pas ali enkrat\n– Enaka velikost vzorca tudi tam, kjer se vaza oži, in robovi pod 45°, primerni za tisk\n– Način vaze je stikalo in ga je mogoče prikazati, kot bo natisnjen\n– Vrstica na kartici Print pove, kako dobro se vaza tiska"
+    ],
+    [
+      "Vaza kot cvetlični lonec",
+      "Novo v knjižnici oblik: cvetlični lonec z vsem, kar sodi zraven.\n\n– Odtočne luknje in podstavek\n– Skleda, vpeta poravnano pod lonec, s zatiči ali magneti\n– Notranji lonec in stenski nosilec, v katerega lonec zdrsne\n– »Show assembled« postavi vse dele na mesto in preveri trke"
+    ],
+    [
+      "Vaza kot senčnik svetilke",
+      "Novo v knjižnici oblik: senčnik v oblikah, ki se tiskajo brez podpor.\n\n– Nosilec z dvema do šestimi špicami, ki prepušča svetlobo in topel zrak\n– Podnožje z diskom LED ali navojno objemko\n– Kot stenska svetilka z zadnjo ploščo\n– Preverjanje tiska pove, ali žarnica ustreza"
+    ],
+    [
+      "Premik zasukanih oblik vzdolž njihovih stranic",
+      "Drži J: puščične tipke, vlečenje z miško ter rdeči, zeleni in navzgor/navzdol ročaji zdaj premikajo zasukano ali nagnjeno obliko vzdolž njenih osi namesto vzdolž mreže, zato nagnjena oblika gre navzgor po svojem naklonu. V nastavitvah pod Controls lahko to narediš za običajen način."
+    ],
+    [
+      "Split: filament kot zatiči",
+      "Pri razdelitvi z zatiči lahko izbereš »Filament as dowels« (1,75 mm). Luknje potem sprejmejo kose filamenta, tudi v ploščah od 3 mm, in ne natisneš nobenih ločenih zatičev. Okno pove, kako dolge kose odrezati."
+    ],
+    [
+      "Pokrov pusti odprtine skozi",
+      "Če v škatli stoji cev, odprta na obeh koncih, pokrov zdaj dobi enako odprtino, njegov rob pa teče okoli cevi. To lahko izklopiš v oknu Lid."
+    ],
+    [
+      "Hollow: polica, ki se tiska brez podpor",
+      "Polica v izdolbenem telesu je zdaj lahko spodaj poševna pod 45°, zato se tiska brez podpor."
+    ],
+    [
+      "Vaza: okrogel ali posnet rob",
+      "Rob vaze in njen spodnji rob sta zdaj lahko zaobljena ali posneta, vsak s svojo velikostjo."
+    ],
+    [
+      "Delete face: cela stena s Shift",
+      "Drži Shift in klikni ploskev v orodju Delete face: klik vzame celo steno, ploskev in vse ploskve, v katere gladko teče, na primer vse ploskve stene luknje, tudi kjer je okrogla stena sestavljena iz mnogih majhnih ploskev."
+    ],
+    [
+      "Površinska tekstura: kaleidoskop in jasnejše skupine",
+      "– Slikovne ploščice so zdaj lahko kaleidoskop: vsaka slika postane brezšiven okras\n– Izbrana skupina tekstur ostane izbrana po Change texture\n– »Show texture clearly« nariše telo sivo, da je relief viden na vsaki barvi\n– Kovano in narebričenje okroglih valjev je čistejše"
+    ],
+    [
+      "Make exact po uvozu",
+      "Če uvožena mreža dobro deluje kot natančno telo, layerling to po uvozu ponudi z gumbom. Tako telo ima pogosto precej manj trikotnikov."
+    ],
+    [
+      "Uvoz SVG: poteze, ki se stikajo",
+      "Odprte poteze ene poti, katerih konca se srečata, se pri uvozu SVG zdaj združijo v sklenjen obris. Tanke ostanke v risbi ne postanejo več odprta telesa."
+    ],
+    [
+      "Vzorec lukenj v dnu privitega pokrova",
+      "Vzorec lukenj na notranjem dnu privitega pokrova zdaj gre čisto skozi. Do zdaj je navoj lahko naredil, da je dno štelo za okroglo steno, luknje pa so se končale v materialu. Prosim, luknje, nastavljene prej, naredi znova."
+    ],
+    [
+      "Posnetje na skupini, ki ni delovala kot luknja",
+      "Če sta se dva dela skupine razlikovala za nekaj stotink milimetra, skupine po posnetju ni bilo mogoče uporabiti kot luknjo. Take fine vrzeli so zdaj zaprte."
+    ],
+    [
+      "Izdelava pokrova drugič",
+      "Nov pokrov za škatlo z magneti ali vijaki zdaj nadomesti stare stebričke in žepe, namesto da bi vanje postavil zatiče."
+    ],
+    [
+      "Mulda za prst v vsakem predalu",
+      "Pri nizkih predelnih stenah vsak predal zdaj dobi svojo muldo za prst, ne samo prva vrsta."
+    ],
+    [
+      "Način fokusa v ozkem oknu",
+      "V ozkem oknu, na primer 9:16, mala vrstica ne prekriva več lastnosti."
+    ]
+  ],
+  "1.174.0": [
+    [
+      "Gridfinity: razdeljeno osnovno ploščo spni z GridFlockovo sestavljanko",
+      "Vklopi »GridFlock puzzle« na osnovni plošči in »Split to fit the printer« da vsakemu kosu na rezanih straneh zadaj in desno zatiče sestavljanke, spredaj in levo pa vtiče zanje. Kosi se spojijo s pritiskom od zgoraj, brez ključev ali sponk za tisk. »Puzzle fit« določa, kako tesno sedijo. Zatiči so majhni, zato je spete plošče namenjeno enkrat dati v predal in tam pustiti."
+    ],
+    [
+      "Patties: luknjasta plošča, poševne odprtine, posnetje za tisk, večkotnik in zvezda",
+      "Vzorčna plošča zmore več:\n\n– Vzorec »Pegboard«: pokončne reže na mreži običajnih luknjastih plošč, kolikor jih gre\n– Naklon: odprtine tečejo skozi ploščo pod kotom, od −60° do 60°\n– »Print chamfer«: zgornji vogali vsake odprtine so rezani pod 45°, zato se plošča tiska stoje brez podpore\n– Za motiv: vsaka druga vrsta prezrcaljena ali obrnjena\n– Obris večkotnik in zvezda, s 3 do 12 vogali ali konicami\n– Vrnitev iz Fan na Round da spet krog, ne elipse"
+    ],
+    [
+      "Ovitje okoli valja: hitrejše in lažje",
+      "Plošča z mnogimi luknjami je po ovitju postala ogromna mreža: plošča Patties je imela potem več kot 650.000 trikotnikov. Isto telo ima zdaj okoli 16.000, ovitje pa je večkrat hitrejše."
+    ],
+    [
+      "Ovitje okoli valja: namig o nastavitvah",
+      "Ovitje spremeni obliko v mrežo in njene lastne nastavitve potem izginejo. Kartica »Wrap around a cylinder« to zdaj pove že vnaprej. Undo nastavitve vrne."
+    ],
+    [
+      "Cev: velikost, ki si jo vtipkal zadnjo, ostane",
+      "Zunanji premer, notranji premer in debelina stene: vtipkaj dva od njih in tretji sledi, v poljubnem vrstnem redu. Stena 1 mm in nato zunanji 30 mm da notranji premer 28 mm. Obroč dela enako."
+    ],
+    [
+      "Merilna vrstica in plošča, izvožena z enim klikom",
+      "Pod Workspace settings > Appearance imajo merilna orodja lahko svojo vrstico, ki jo premakneš, kamor želiš, vrstico pogleda pa je mogoče sploh izpustiti. Zložena vrstica pokaže svoje ime. V vrstici plošč »Export plate« z enim klikom zapiše aktivno ploščo kot 3MF."
+    ],
+    [
+      "Pokrov na vsakem koncu",
+      "Obrni telo in orodje Lid naredi drugi pokrov za njegov drugi konec ter prvega pusti, kot je. Do zdaj je znova naredilo prvi pokrov za napačen konec."
+    ],
+    [
+      "Zapahi pokrova: sponka bolje drži",
+      "Vtiči sponke zdaj segajo okoli zatiča, vhod pa je ožji od zatiča. Pokrov, ki že obstaja, dobi novo sponko, ko ga narediš znova."
+    ],
+    [
+      "Robovi: opomba, ko zaobljen rob potrebuje podpore",
+      "Zaobljen rob na plošči v prvih plasteh visi čez. Okno posnetja in zaobljenja zdaj pove, kako strmo, črta previsa pa že bere predogled."
+    ],
+    [
+      "Ime ostane po izrezu",
+      "Telo, ki si ga poimenoval, obdrži ime na seznamu predmetov po Cut out, Punch, orodju Face, vzorcu lukenj, žepu za magnet ali navojnem vložku. Prej se je potem imenovalo »Group«."
+    ],
+    [
+      "Ponastavi vrtenje ali vzemi položaj kot nič",
+      "Na kartici Rotation »Reset to 0« postavi vse tri kote na 0. »Take as zero« naredi nasprotno za uvoženo mrežo (STL, OBJ, 3MF): ostane, kot si jo zasukal, njeni koti so od tam 0, njen okvir in ročaji pa spet sledijo plošči."
+    ],
+    [
+      "Klik ob številki je ne spremeni več",
+      "Klik tik ob številki, na primer na »mm«, je spremenjeno vrednost postavil nazaj na privzeto: 1 mm je postal 20 mm. Zdaj gre v polje za številko, vrednost pa nazaj postavi samo majhna puščica."
+    ],
+    [
+      "Izberi barvo uvoženih teles",
+      "V oknu za uvoz »Colour of imported bodies« določi barvo teles, ki jim datoteka ne da nobene, na primer STL. Brskalnik si izbiro zapomni."
+    ],
+    [
+      "Make exact: čisti šivi na zaobljenih mrežah",
+      "Fina mreža z zaobljenimi robovi zdaj postane svoje prave ploskve namesto tisočev majhnih: zaobljena škatla ima 26 ploskev, obroč eno samo ploskev."
+    ],
+    [
+      "Poševnica, ki se natisne",
+      "Pri Multilanguage, privzeti pisavi oznak Gridfinity, ter pri Serif in Rounded je bila »/« tako tanka, da jo je šoba 0,4 mm lahko izpustila: 1-1/2\" se je natisnilo kot 1-1 2\". Zdaj je tako debela kot druge poteze; oznaka s poševnico je lahko nekoliko manjša, da ji naredi prostor."
+    ]
+  ],
+  "1.175.0": [
+    [
+      "Besedilo na hrbtni strani imenskih in ikonskih oznak",
+      "Telefonska številka ali e-naslov za izgubljen obesek za ključe zdaj gre na spodnjo stran. Med Front in Back preklopiš zgoraj na kartici: pogled se obrne z njo.\n\nNastavi višino in globino črk. Črke so vdelane ali, če želiš, zapolnjene poravnano s svojo barvo za večbarvni tisk."
+    ],
+    [
+      "Ikonska oznaka: ti določiš končno širino",
+      "Ko narediš oznako in na njeni kartici širina zdaj pomeni končno oznako brez ušesa za obesek: 50 mm da oznako 50 mm široko, ikona pa se prilagodi. Kartica kaže tudi končno velikost, kratke vrstice pa razložijo Extra width per side, No holes in Flat inlay."
+    ],
+    [
+      "Ohrani izbore pod imenom",
+      "»Keep selection« na vrhu seznama predmetov ohrani izbrane predmete pod imenom. Klik jih spet izbere, na primer za ponovno združitev delov po razdružitvi. Izbori ostanejo pri načrtu in v datoteki .lyl."
+    ],
+    [
+      "Izbira več predmetov v seznamu na zaslonu na dotik",
+      "Na tabličnem računalniku je seznam predmetov lahko izbral samo eno telo naenkrat, ker dodajanje potrebuje Ctrl, Cmd ali Shift. Zdaj seznam sledi okroglemu gumbu »Select multiple«: dokler je zaklenjen, dotik v seznamu doda telo ali ga vzame ven. Dolg pritisk na vrstico začne Select multiple in doda to vrstico. Z miško in tipkovnico se nič ne spremeni."
+    ],
+    [
+      "Vrtišče vrtenja se pripne na referenčne točke",
+      "Referenčna točka na sredini drugega dela vrtišču ni pomagala. Zdaj se rdeča oznaka pri vlečenju pripne na vidne referenčne točke, klik nanjo z »Set rotation pivot« pa postavi vrtišče natanko tja. S Shiftom vlečenje še vedno vzame središče ploskve."
+    ],
+    [
+      "Spiralna vzmet kot v uri",
+      "Vzmet ima tretjo obliko: Spiral, trak, navit ploščato. Nastavi zavoje, trak, notranji premer, smer in konca; vrzel med zavoji je prikazana."
+    ],
+    [
+      "Dvoklik doda točko",
+      "V skici dvoklik na črto z orodjem Select tam doda točko, brez spremembe orodja."
+    ],
+    [
+      "Referenčna slika se vidi tudi v skici",
+      "Referenčna slika 3D-urejevalnika se v skici zdaj pokaže kot slika namesto zapolnjenega pravokotnika, z njenim mestom, velikostjo, zasukom in prosojnostjo, tako da lahko rišeš čez njo. Nagnjene slike in skice na ploskvi še vedno pokažejo samo obris."
+    ],
+    [
+      "Gradbene plošče v več vrstah",
+      "V vrstici plošč »Plates in a row« določa, koliko plošč stoji drug ob drugem: osem plošč lahko stoji kot dve vrsti po štiri. Telesa se premaknejo s svojimi ploščami."
+    ],
+    [
+      "Profili za nastavitve",
+      "Na dnu okna nastavitev lahko shraniš do dvanajst profilov, na primer enega za vsak tiskalnik. »Use profile« ga postavi na odprt načrt, s tiskalnikom in njegovo ploščo."
+    ],
+    [
+      "Dolga imena drsnikov se zlomijo",
+      "Ime drsnika, ki ni šlo ob polje z vrednostjo, se je končalo z »…«. Zdaj teče v drugo vrstico, v vsaki plošči s takimi drsniki."
+    ],
+    [
+      "Gridfinity: obroba na eno stran z enim klikom",
+      "Pod nastavitvami osnovne plošče z obrobo »All at the back«, »All at the front«, »All on the left« in »All on the right« premaknejo vso obrobo svoje smeri na svojo stran, tako da mreža sedi ob drugi steni predala. Plošča obdrži velikost in mesto."
+    ],
+    [
+      "Hollow na loftu",
+      "Loft iz knjižnice, pravokotnik spodaj in krog zgoraj, je zdaj mogoče narediti votlo tudi s stenami 1 ali 2 mm, odprt zgoraj, spodaj ali na obeh koncih ali zaprt okoli in okoli."
+    ],
+    [
+      "Make exact pokaže, da še dela",
+      "Sporočilo Make exact je po nekaj sekundah izginilo, medtem ko je delo teklo. Zdaj ostane, dokler ga ne zamenja rezultat ali napaka.\n\nKo Delete face ne more zapreti vrzeli, čeprav je izbrana vsaka ploskev, sporočilo zdaj pove obhod: zapolni jo z lastnim telesom ali odreži, kar moli ven, z luknjo, in obe združi."
+    ],
+    [
+      "Tvoj AI odpre shranjene datoteke .lyl po poti",
+      "S »layerling_open_project« AI odpre datoteko .lyl na tvojem računalniku samo po poti, kot nov načrt. Tvoje datoteke lahko ostanejo v tvojih mapah, »layerling_save_project« pa spremembe zapiše nazaj tja."
+    ]
+  ],
+  "1.176.0": [
+    [
+      "Skica: pomožne črte, odprti konci in več",
+      "Točka, ki jo narišeš ali povlečeš blizu višine ali stranice druge točke, se z njo poravna; črtkana modra črta to pokaže. Alt jo drži samo na mreži.\n\nČe obris ob koncu ni sklenjen, so odprti konci obkroženi z rdečo.\n\n– Prazno skico je mogoče končati; izpraznjena skica odstrani svoje telo (Undo ga vrne).\n– Ukrivljena črta sledi vogalu, namesto da se upogne proti njemu.\n– Gumb Stroke takoj vklopi potezo.\n– Dele, vidne skozi, je mogoče izpustiti povsem.\n– Klik znotraj okvirja izbora ga izpusti."
+    ],
+    [
+      "3MF: barvne spremembe po višini",
+      "Nekateri projekti 3MF iz Bambu Studio, OrcaSlicer ali PrusaSlicer dobijo barve iz menjav filamenta na določenih višinah. Layerling te spremembe zdaj prebere in ob uvozu vpraša, ali naj telesa tam prereže na telo za vsako barvo.\n\n»Keep in one piece« uvozi datoteko kot prej."
+    ],
+    [
+      "Pogled kot črtna risba",
+      "Pod View SVG izvoz zdaj nariše tudi načrt, kot ga gledaš: vidne robove, skrite tudi črtkane ali samo obris, v 1:1 in vsako telo v svoji barvi. Za ilustracije, priročnike in peresne plotterje."
+    ],
+    [
+      "Tablica: drsniki in ročaji natančnejši",
+      "S prstom ali peresom se drsnik v nastavitvah zdaj premakne samo, ko prime gumb in ga povleče vstran. Poteg, ki se začne drugje na vrstici, pomika ploščo in pusti vrednost, kot je.\n\nPero, kot sta S Pen ali Apple Pencil, prime ročaje ob izboru samo tam, kjer so, kot miška. Z miško ostane vse kot prej."
+    ],
+    [
+      "Hitrost za 3D miško",
+      "SpaceMouse ima zdaj svoj drsnik v nastavitvah pod Controls: 3D mouse speed, pod smermi za obračanje. Vrtenje, premikanje in približevanje s 3D miško naredi počasnejše ali hitrejše, od četrtine do štirikrat; na sredini ostane vse kot prej.\n\nZoom speed in Pan speed sta samo za navadno miško."
+    ],
+    [
+      "Gridfinity: pol celice v obrobi osnovne plošče",
+      "Vklopi »Half cells in the padding (21 mm)« v lastnostih osnovne plošče in vsaka stran z 21 mm obrobe ali več dobi vrsto vtičev 21 mm ob mreži, za posode na mreži polovične velikosti. Preostala obroba ostane polna, plošča obdrži velikost."
+    ],
+    [
+      "Pokrovi: poševen rob je imenovan kot tak",
+      "Pri telesu z zgornjim delom, odrezanim pod kotom, orodje za pokrov zdaj pove, da je rob poševen, tudi ko je nizka stran pod polovico višine. Prej je pisalo, da telo zgoraj nima odprtine."
+    ],
+    [
+      "Pokrovi: brez črt čez ploščo",
+      "Na nekaterih pokrovih, na primer črk O in B, je urejevalnik kazal tanke črte čez ploščo. Izginile so. Tiski niso bili nikoli prizadeti."
+    ],
+    [
+      "Besedilo zadaj: obrne se samo oznaka",
+      "Izberi »Back« na imenski ali ikonski oznaki in zdaj je na svojem mestu prikazana obrnjena samo oznaka. Plošča in pogled ostaneta kot sta. »Front« ali klik drugje jo obrne nazaj. Spremeni se samo pogled, ne oznaka."
+    ],
+    [
+      "Make exact: cela krogla deluje",
+      "Fino razdeljena krogla, izvožena kot STL in prebrana nazaj, zdaj z »Make exact« postane ena natančna ploskev krogle. Prej ni uspelo. Polkrogle in krogle z ravno spodnjo stranjo ali izvrtino delujejo tudi zanesljiveje."
+    ],
+    [
+      "Tipke, seznam bližnjic in majhni popravki",
+      "Ctrl+Shift+S je izbor spremenil v trdno telo, Ctrl+M je odprl orodje za zrcaljenje: črke H, S, M, L in N zdaj štejejo samo same. V pogledu zgodovine delujeta Page Up in Page Down tudi po kliku v pogledu.\n\nSeznam bližnjic imenuje več tipk: Split, Paint, trakec, Delete face in skica.\n\nUvoz nastavitev ohrani tvoje profile, cvetlični lonec, senčnik in druge oblike iz knjižnice pa so poimenovani v tvojem jeziku."
+    ]
   ]
 }

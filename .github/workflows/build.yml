@@ -47,7 +47,7 @@ jobs:
           # Starejši macOS (Monterey 12): Electron 44 ga ne podpira več, zato posebna gradnja z Electronom 43 (le Intel, dmg).
           - os: macos-latest
             monterey: true
-            ukaz: npx electron-builder --mac dmg --x64 -c.mac.artifactName='Layerling-${version}-Monterey-${arch}.${ext}'
+            ukaz: npx electron-builder --mac dmg --x64 -c.mac.artifactName='LayerLab-${version}-Monterey-${arch}.${ext}'
     runs-on: ${{ matrix.os }}
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

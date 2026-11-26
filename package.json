@@ -1,6 +1,6 @@
 {
   "name": "layerling-desktop",
-  "productName": "Layerling",
+  "productName": "LayerLab",
   "version": "1.0.0",
   "private": true,
   "description": "Layerling – samostojen program za Windows in macOS (Electron okrog Layerling spletne aplikacije)",

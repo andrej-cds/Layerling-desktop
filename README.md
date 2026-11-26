@@ -1,8 +1,8 @@
 ENGLISH VERSION:
 
-# LayerLing by CDS (Desktop)
+# LayerLab by CDS (Desktop)
 
-<img src="patches/files/assets/layerling/layerling-logo.svg" alt="LayerLing by CDS" width="96" align="right">
+<img src="patches/files/assets/layerling/layerling-logo.svg" alt="LayerLab by CDS" width="96" align="right">
 
 A standalone application for **Windows** and **macOS** based on the 3D CAD program [Layerling](https://github.com/henmedia/layerling).
 It installs like a standard application, runs without a browser or internet connection, and stores your projects as regular `.lyl` files on your disk.
@@ -74,9 +74,9 @@ Poleg sedmih vgrajenih pisav lahko pri oblikah »Besedilo« uporabiš lastne: da
 
 SLOVENSKA VERZIJA:
 
-# LayerLing by CDS (Desktop)
+# LayerLab by CDS (Desktop)
 
-<img src="patches/files/assets/layerling/layerling-logo.svg" alt="LayerLing by CDS" width="96" align="right">
+<img src="patches/files/assets/layerling/layerling-logo.svg" alt="LayerLab by CDS" width="96" align="right">
 
 ![GitHub Downloads](https://img.shields.io/github/downloads/andrej-cds/Layerling-desktop/total)
 
