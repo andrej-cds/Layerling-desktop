@@ -72,6 +72,17 @@ Electron 44 zahteva macOS 13 ali novejši. Ob vsaki izdaji se zato zgradi še po
 Poleg sedmih vgrajenih pisav lahko pri oblikah »Besedilo« uporabiš lastne: datoteke `.ttf` in `.otf` daš v mapo `Dokumenti\Layerling\Pisave` (odpreš jo z Datoteka → »Odpri mapo s pisavami«). Ob naslednjem zagonu urejevalnika se pojavijo v seznamu »Pisava«. Ime pisave je ime datoteke brez končnice. Črke, ki jih pisava nima (npr. č, š, ž), se izposodijo iz pisave Sans. Pisave ostanejo samo na tvojem računalniku in niso del namestitve ali repozitorija (pozor na licenco pisav). Projekt, ki uporablja pisavo, ki je na drugem računalniku ni, se tam izriše s privzeto pisavo. Mapo je mogoče spremeniti z okoljsko spremenljivko `LAYERLING_FONTS_DIR`.
 
 
+## Support the project
+
+LayerLab by CDS is free. If it saved you time, a coffee is very welcome and supports further development.
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-buy%20a%20coffee-c8a96e?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/anddrej)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsors-c8a96e?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/andrej-cds)
+[![PayPal](https://img.shields.io/badge/PayPal-donate-c8a96e?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate?business=info%40cassettedeck-service.com&currency_code=EUR&item_name=Support+CDS+Layerling)
+
+Other ways to help: star the repository, share the program and report bugs and ideas ([issues](https://github.com/andrej-cds/Layerling-desktop/issues)).
+
+
 SLOVENSKA VERZIJA:
 
 # LayerLab by CDS (Desktop)
@@ -201,6 +212,16 @@ upstream.json  pripeta različica originalnega programa
 - Vrata **47615** morajo biti prosta. Če jih zaseda drug program, se Layerling ne more zagnati in to tudi pove. Vrata lahko spremenite v `settings.json` (ključ `port`), vendar potem projekti iz prejšnjih vrat v programu niso vidni (obnovite jih iz mape samodejnega shranjevanja).
 - Brez plačljivih podpisov (Microsoft/Apple) se ob prvem zagonu pokažejo opozorila. Delovanje ni omejeno.
 - Hkratnega urejanja istega projekta ni (glejte Deljenje).
+
+## Podpri projekt
+
+LayerLab by CDS je brezplačen. Če ti je prihranil čas, je kavica zelo dobrodošla in podpira nadaljnji razvoj.
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-kavica-c8a96e?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/anddrej)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsors-c8a96e?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/andrej-cds)
+[![PayPal](https://img.shields.io/badge/PayPal-doniraj-c8a96e?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate?business=info%40cassettedeck-service.com&currency_code=EUR&item_name=Support+CDS+Layerling)
+
+Še kako drugače lahko pomagaš: daj repozitoriju zvezdico, deli program naprej ter javi napake in ideje ([issues](https://github.com/andrej-cds/Layerling-desktop/issues)).
 
 ## Licenca
 GNU AGPL v3, kot originalni program. Glejte `LICENSE` in `NOTICE.md`.
