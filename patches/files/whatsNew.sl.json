@@ -4974,5 +4974,175 @@
       "Tipke, seznam bližnjic in majhni popravki",
       "Ctrl+Shift+S je izbor spremenil v trdno telo, Ctrl+M je odprl orodje za zrcaljenje: črke H, S, M, L in N zdaj štejejo samo same. V pogledu zgodovine delujeta Page Up in Page Down tudi po kliku v pogledu.\n\nSeznam bližnjic imenuje več tipk: Split, Paint, trakec, Delete face in skica.\n\nUvoz nastavitev ohrani tvoje profile, cvetlični lonec, senčnik in druge oblike iz knjižnice pa so poimenovani v tvojem jeziku."
     ]
+  ],
+  "1.177.0": [
+    [
+      "Nova oblika: Kotni žleb (Cove)",
+      "Med osnovnimi oblikami je za Klinom zdaj Cove: trak za notranji kot. Dve ravni strani ležita ob stenah, stran med njima je izbočena navznoter (votla).\n\nČe sta širina in višina enaki, je vdolbina četrtina kroga, ki gladko preide v obe steni. »Radius of the hollow« jo naredi položnejšo. »Edge thickness« odreže tanka konca pravokotno, da ju je mogoče natisniti.\n\nTelo je natančno: posnetja, zaokrožitve in izvoz STEP delujejo nanj."
+    ],
+    [
+      "Sprememba posnetja ali zaokrožitve: novejše ostanejo",
+      "V oknu Chamfer and Fillet ima »Undo an edge feature« ob vsakem vnosu gumb »Edit«: odpre orodje z istimi robovi in staro velikostjo. Doslej so se z njim izgubila vsa novejša posnetja in zaokrožitve.\n\nZdaj ostanejo: ko uveljaviš spremenjeno velikost, se novejša znova nanesejo na svoje robove, v enem koraku. Zaokrožitev 3 mm postane 6 mm, posnetje na njej pa je še vedno tam.\n\n– Novejše, ki svojih robov ne najde več, ker jih je vzela nova velikost, se izpusti in sporočilo to pove.\n– Če je nad njimi votlenje, odmik, izbrisane ploskve ali tekstura, gredo novejše z njimi kot doslej."
+    ],
+    [
+      "Urejanje skice: posnetja in zaokrožitve ostanejo",
+      "Ko ponovno odpreš skico telesa in jo končaš, se telo zgradi znova. Doslej so se pri tem izgubila njegova posnetja in zaokrožitve.\n\nZdaj se nanesejo na novo telo v istem koraku: premakni točko, podaljšaj stranico, povleci krivuljo, robovi pa so potem spet posneti in zaokroženi.\n\n– Če ima novo telo en vogal več ali manj, se izpustijo in sporočilo to pove.\n– Votlenje, odmik ali izbrisane ploskve gredo kot doslej.\n– Undo vse vrne."
+    ],
+    [
+      "Zapaha na pokrovu natisnjena na pokrov",
+      "Pokrov z zapahi ima novo možnost »Print the clips on the lid«. Vsak zapah je narejen kar na svojem čepu na robu pokrova, z zračnostjo za vrtenje: pokrov in zapahi se natisnejo naenkrat.\n\nZapaha pred namestitvijo pokrova zasuči navzven. Možnost je na začetku izklopljena."
+    ],
+    [
+      "Velikosti predalov v palcih",
+      "Če je delovni prostor nastavljen na palce, »Change compartments« zdaj prikazuje palce tudi: v plošči, na škatli in v namigih spodaj."
+    ],
+    [
+      "Spremeni krog lukenj, luknje ostanejo",
+      "Kadar luknje iste velikosti v skupini ležijo enakomerno na krogu, na primer vijačne luknje prirobnice, ima skupina zdaj drsnik »Hole circle«.\n\nLuknje premika proti sredini ali stran od nje: krog dobi nov premer, luknje obdržijo velikost. Lok potrebuje vsaj štiri luknje; mrežam lukenj drsnik ni dodan."
+    ],
+    [
+      "Lastovičji rep sam najde smer in velikost",
+      "Na ozki prerezani ploskvi, na primer na tramu, se lastovičji rep pogosto ni prilegal, dokler ga nisi pomanjšal in ročno zasukal.\n\nZdaj teče pri smeri 0 po dolžini, kjer se prilega, in počez, kjer se ne. Pri številu 0 se preširok ali pregloboko zajet jeziček zmanjša, dokler se ne prilega. Plošča pove, kaj je naredila.\n\nPredogled vsak jeziček prikaže kot prosojno telo, puščice pa kažejo smer, v kateri se polovici zdrsneta skupaj."
+    ],
+    [
+      "Prilepi na ploščo, na kateri si",
+      "Kopiran del se ob lepljenju zdaj znajde na dejavni gradbeni plošči, na istem mestu kot na stari plošči, tudi v drugem načrtu."
+    ],
+    [
+      "SVG in slika: velikost po višini in ohranjeno za naslednji uvoz",
+      "V oknu za uvoz sta pod poljem »SVG in slika: širina v mm« dve novi kljukici.\n\n– »The number is the height«: risba pride tako visoka namesto tako široka.\n– »Keep for the next imports«: število ostane v polju po uvozu, tudi ob naslednjem odprtju layerlinga. Več risb zapored tako pride v enaki velikosti, ne da bi jo vsakič vtipkal.\n\nBrez druge kljukice velja velikost samo za naslednji uvoz, kot doslej."
+    ],
+    [
+      "Ctrl+S shrani tudi velike načrte",
+      "Pri velikem načrtu se je shranjevanje v datoteko ustavilo z »too big to save«, čeprav je varnostna kopija lahko shranila.\n\nZdaj, tako kot pri varnostni kopiji, gredo v datoteko samo najnovejši koraki zgodovine, ki gredo noter, in sporočilo pove, koliko jih je. Sam načrt se vedno shrani v celoti."
+    ],
+    [
+      "STEP: imenska oznaka pride cela",
+      "Imenska oznaka, izvožena kot STEP, je prišla v rezalnik s skoraj praznim srednjim slojem in s sto odprtimi robovi. Prizadet je bil vsak razširjen tekst z zaobljenimi vogali.\n\nStene teh slojev so zdaj vse v datoteki in vsak sloj je sklenjeno telo."
+    ]
+  ],
+  "1.178.0": [
+    [
+      "Novo: skica iz ploskve",
+      "Poleg gumba delovne ravnine je zdaj »Sketch from face«. Klikni ga, nato ravno ploskev dela: na njej se začne nova skica z njenim obrisom in vsemi luknjami v njej, luknje kot prave krožnice. Šteje samo del, na katerega si kliknil.\n\nSkico končaj in iz ploskve zraste novo telo. Plošča ali pokrov se tako natančno ujame z vijačnimi luknjami drugega dela, ne da bi šel prek prereza. Esc prekliče."
+    ],
+    [
+      "Prerez se vrti s pogledom",
+      "Pri »Axes from« na »View« se prerez zdaj vrti skupaj s pogledom, ko ga zavrtiš. Ni več ponovnega klikanja, povečava in premik ga pustita, kjer je.\n\nIzklopi »Turn with the view«, da prerez obdrži pri miru in si prerezano ploskev ogledaš s strani."
+    ],
+    [
+      "Prerez ob delovni ravnini",
+      "Gumb za prerez je zdaj pod gumbi delovne ravnine, ne več spodaj z merilnimi orodji."
+    ],
+    [
+      "Novo: črte vzporedno ali pravokotno",
+      "Izberi ravno črto v skici: vrstica ima zdaj »Parallel« in »Right angle«. Klikni enega, nato drugo ravno črto in izbrana črta se zavrti, da je vzporedna ali pravokotna nanjo, pod poljubnim kotom. Obdrži dolžino, druga črta ostane, kjer je.\n\nTo je enkraten korak: nič ni povezano, zato lahko potem vsako črto prosto premakneš. Esc prekliče."
+    ],
+    [
+      "Drsniki tudi v skici",
+      "Gumb »Show scrollbars« je zdaj tudi v vrstici pogleda v skici. Doda vodoravni drsnik spodaj in navpičnega ob desnem robu, kot v 3D pogledu: povleci drsnik, klikni puščico ali klikni ob drsniku.\n\nNajbolj pomaga na prenosniku brez srednje tipke miške. Stikalo je skupno za skico in 3D pogled."
+    ],
+    [
+      "Prerez: premer se lažje meri",
+      "Če prva točka meritve v prerezu leži na krožnici, črtkan obroč pokaže točko čez celoten premer, s črtkano črto skozi sredino. Kazalec ujame z večje razdalje, število pa kaže Ø, premer."
+    ],
+    [
+      "Novo: zapah kot lastna oblika",
+      "Med deli ohišij v knjižnici oblik je zdaj »Latch«, zapah s sponko kot na škatli za baterijo fotoaparata: dva čepa in sponka, ki se zaskoči čez oba. Vsaka škatla in pokrov ga lahko dobita.\n\n»Pins and clip« namesti na steno s šivom med čepoma; »Separate Parts« iz njega naredi tri dele. Nastaviš širino, prijem in razmak čepov, sponka pa se prilega tudi zapahom orodja Lid."
+    ],
+    [
+      "Pokrov: predogled ob škatli",
+      "Dokler je plošča Lid odprta, siv predogled ob škatli kaže pokrov, ki bi nastal po tvojih nastavitvah, z ločenimi deli in tem, kar gre na škatlo, na primer deli tečaja. Sledi trenutek za vsako spremembo, »Look at it« pa obrne pogled nanj.\n\nNič se ne naredi, dokler ne klikneš »Make lid«. Predogled je mogoče izklopiti."
+    ],
+    [
+      "Pokrovi z zaskočnimi kljukami",
+      "Pod zapahi pokrova so zdaj tudi »Snap hooks«. Natisnejo se skupaj s pokrovom, zato nič ni ločeno, in se zaskočijo pod majhne zatiče na škatli. Za odpiranje potegni jeziček ob vznožju kljuke navzven.\n\nŠkatla potrebuje pod robom dovolj stene zanje, vsaj 8 mm."
+    ],
+    [
+      "Več polic",
+      "Hollow zdaj lahko naredi do pet polic ena nad drugo, z razdaljo, ki jo nastaviš, na primer za nadstropja stavbe modelne železnice.\n\nVsaka višja je 1 mm ožja od spodnje, zato nadstropje za nižjo polico še vedno zdrsne noter od zgoraj."
+    ],
+    [
+      "Zapaha na pokrovu se zaprta v obroč",
+      "Ko sta zapaha natisnjena na pokrovu, gre zapah zdaj kot zaprt obroč okrog čepa pokrova. Ne more se odpeti, se še vedno vrti z zračnostjo in nima čeljusti, ki bi se zlomile."
+    ],
+    [
+      "Gridfinity: povleci pregrade predala",
+      "Izberi Gridfinity predal s pregradami: vsaka pregrada ima na vrhu oprimek, nad katerim se prikažejo velikosti predelkov med stenami in pregradami, ko so dovolj veliki, zaokrožene kot v Hollow. Povleci oprimek in pregrada se premika v korakih po 0,5 mm, z Alt po 0,1 mm; Esc jo vrne.\n\nDeluje kot pregrade, nastavljene ročno v Hollow."
+    ],
+    [
+      "Gridfinity: Lastovičji rep samo v vogalih",
+      "V Properties osnovne plošče vklopi »Corner pockets only« pod Swallowtail in plošča ohrani žepe samo pod prvo in zadnjo celico vsake stranice: plošča 5 x 5 potrebuje 4 ključe namesto 10. »Split to fit the printer« to ohrani na kosih in ključe razporedi samo za te žepe."
+    ],
+    [
+      "Lastovičji rep na tankih ploščah",
+      "Razdeli tanko ploščo, od približno 3 mm, z lastovičjim repom in jeziček zdaj gre skozi njo v nastavljeni velikosti. Polovici zdrsneta skupaj od zgoraj, kot koščka sestavljanke."
+    ],
+    [
+      "Izberi vsa telesa plošče",
+      "Nov gumb v vrstici plošče, ob puščicah, izbere vsa vidna telesa dejavne plošče. Tako gre cela plošča v drug načrt: Ctrl+C ali Ctrl+X, odpri drug načrt, klikni ploščo, na katero naj gre, in pritisni Ctrl+V. Deli pristanejo tam, razporejeni, kot so bili. Delete namesto tega izprazni ploščo."
+    ],
+    [
+      "Pogled kot mreža trikotnikov",
+      "Pod View ima izvoz SVG zdaj tudi »Current view: triangle mesh«: nariše vsak vidni rob trikotnika, mrežo, iz katere se telesa natisnejo, s tankimi črtami in vsako telo v njegovi barvi. Za ilustracije in risalnike s peresom. Na okroglih delih postane gosto."
+    ],
+    [
+      "Skrite opombe kažejo število",
+      "Ko so opombe z očesom izklopljene, gumb očesa levo pod gumbom za opombe zdaj prikaže majhno številko: toliko opomb je v projektu. Tako nobene ne spregledaš, tudi če odpreš projekt, ko so opombe izklopljene. Klik na oko jih spet pokaže."
+    ],
+    [
+      "Align faces pokaže izbrani ploskvi",
+      "V Align faces ploskvi, ki ju klikneš, ostaneta označeni, dokler ne pritisneš Align ali Cancel: ploskev dela, ki se premika, oranžno, ploskev, k kateri se premika, na drugem delu zeleno. Tako pred klikom vidiš, kateri dve ploskvi se bosta združili."
+    ],
+    [
+      "Manj lažnih opozoril o previsih",
+      "Ploskve, ki ležijo znotraj drugega telesa ali počivajo na njem, se ne štejejo več kot previsi, na primer tekst, potopljen v imensko ploščico, natisnjeno narobe obrnjeno. To velja za preverjanje tiska in vrstico pod pogledom. Šrafura v pogledu ostane kot prej."
+    ],
+    [
+      "Make exact zna več",
+      "Zaobljene škatle iz mreže, tudi z zaobljenostjo samo 1 mm, se zdaj vrnejo kot nekaj pravih ploskev, grobo mrežne zlite krogle pa niso več zavrnjene. Ko čas poteče, layerling to pove."
+    ]
+  ],
+  "1.179.0": [
+    [
+      "Dva nova zapaha za pokrove",
+      "Pokrov ima dva nova tipa zapaha, oba natisnjena na mestu na škatli.\n\n– Vlečni zapahi kot na kovčku z orodjem: potisni ročico k steni, zaskoči se in pokrov potegne tesno.\n– Vrtljivi gumbi kot na vratih omare: četrt obrata čez rob pokrova drži pokrov.\n\nTip zdaj izbereš s slikovnimi ploščicami, ki kažejo vsak zapah zaprt, gledan s strani."
+    ],
+    [
+      "Sponka, natisnjena na pokrovu, se prosto zavrti",
+      "Pri »Print the clips on the lid« se je sponka med zapiranjem dotikala stene in roba pokrova, zato jo je bilo treba pilit. Čepi zdaj stojijo malo dlje navzven in sponka se zavrti povsem prosto."
+    ],
+    [
+      "Naravnost v rezalnik, brez prenosa",
+      "Kadar vtičnik rezalnika prikazuje layerling v svojem zavihku, okno za izvoz ob prenosu ponudi »Send to …«, na primer »Send to OrcaSlicer«. Pošlje datoteko, ki bi jo okno zapisalo, in samo ko klikneš. V navadnem zavihku brskalnika se nič ne spremeni.\n\nDanes to deluje z OrcaSlicer 2.5 ali novejšim prek vtičnika orca-layerling, ločenega projekta, zaenkrat samo za Linux. Povezava je v navodilih."
+    ],
+    [
+      "Razdeljene skupine ohranijo dele",
+      "Doslej se je skupina z razdelitvijo spremenila v dve mreži in njeni deli so izginili.\n\nZdaj nastaneta dve skupini. Kar ravnina ne prereže, ostane, kot je bilo, »Ungroup« pa vrne dele vsake polovice. S konektorji se skupina še vedno razreže kot eno telo."
+    ],
+    [
+      "Align faces: po želji na sredino",
+      "Doslej je »Align faces« del obrnil vzporedno in ga premaknil samo proti drugi ploskvi; vstran je ostal, kjer je bil.\n\nNovo je za »Face to face« in »Flush« polje »Centre the faces«: sredini obeh ploskev potem ležita tudi ena nad drugo, v enem koraku. Razmik, ki ga nastaviš, ostane."
+    ],
+    [
+      "Samo ploskev, ki jo klikneš",
+      "»Sketch from face« je včasih vzel več kot ploskev, na katero si kliknil, na primer prerez skozi cel del. Zdaj gresta v skico samo njen obris in njene luknje."
+    ],
+    [
+      "Odstotki in vsote v poljih za številke",
+      "Pod Length, Width in Height vrstica z drobnim tiskom zdaj pove, kaj polja za številke sprejmejo: odstotek, na primer »50 %« (40 mm postane 20 mm), in vsote, na primer 40+2 ali (140+2)/2. To je delovalo že prej, vendar je bilo zapisano samo v navodilih."
+    ],
+    [
+      "Okna, povlečena nizko, obdržijo gumbe",
+      "Če si orodno okno, na primer »Fillet edges«, povlekel daleč navzdol, da vidiš obliko za njim, se je skrčilo na naslovno vrstico in naslednje orodje, odprto tam, prav tako.\n\nZdaj naslov, nekaj vrstic in gumbi ostanejo vedno v pogledu. To najbolj pomaga na tabličnem računalniku."
+    ],
+    [
+      "Konec votlih sten zaradi dela z vrzelmi",
+      "Kadar je imel en del v površini vrzeli, so lahko pri združevanju z luknjami ostale votle tudi stene drugih delov. Layerling zdaj takšno mešanico zavrne in poimenuje odprt del.\n\nPosnetje ali zaokrožitev, ki bi takšne vrzeli raztrgala v zaprto mrežo, se ne uveljavi."
+    ],
+    [
+      "Popravki po celotnem pregledu",
+      "Pregled celotnega programa je našel nekaj napak, ki so zdaj popravljene:\n\n– Ctrl+F v 3D pogledu spet odpre iskanje brskalnika.\n– Home v pogledu zgodovine ne ponastavi več kamere.\n– Če se jedro CAD zruši, se znova zažene, namesto da pokaže zavajajoče sporočilo.\n– »Lid« in »Mold« po napaki ne obvisita več.\n– Na zelo nizkih zaslonih gumbi premaknjenih orodnih oken ostanejo dosegljivi.\n– Sledenje podrobni sliki ne ustavi strani za več sekund.\n– Dolga upognjena cev se zdaj preveri po vsej dolžini, ali se sama križa.\n– Arduino UNO in MEGA: digitalne priključne letve so zdaj pravilno poimenovane.\n– Zaskočni spoj ostane v svoji velikosti tudi pri velikih vrednostih, plošča pa pove, kdaj je bila vrednost zmanjšana.\n– Okno za risanje vaze spusti referenčno fotografijo, ko se zapre.\n– Gridfinity predal s previsom se ne prikaže več brez previsa ali njegovega posnetja.\n– Gridfinity osnovne plošče s sestavljanko GridFlock nimajo več napačnih robov v mreži, na primer v datoteki STL."
+    ]
   ]
 }

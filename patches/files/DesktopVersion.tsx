@@ -16,5 +16,5 @@ export function DesktopVersion() {
       .then((settings) => setVersion(settings.appVersion ?? ""))
       .catch(() => undefined);
   }, []);
-  return version ? <span title="Različica namizne lupine (Layerling Desktop by Cassette Deck Service)">Desktop {version}</span> : null;
+  return version ? <span title="Različica namizne lupine (LayerLab Desktop by Cassette Deck Service)">Desktop {version}</span> : null;
 }

@@ -34,7 +34,7 @@ parts.push(
   "",
   "---",
   "",
-  `Layerling Desktop is a desktop version of the open-source [layerling](https://github.com/henmedia/layerling) (version ${version}) with a Slovenian interface. / Layerling Desktop je namizna različica odprtokodnega programa [layerling](https://github.com/henmedia/layerling) (različica ${version}) s slovenskim vmesnikom.`,
+  `LayerLab Desktop is a desktop version of the open-source [layerling](https://github.com/henmedia/layerling) (version ${version}) with a Slovenian interface. / LayerLab Desktop je namizna različica odprtokodnega programa [layerling](https://github.com/henmedia/layerling) (različica ${version}) s slovenskim vmesnikom.`,
   "",
 );
 

@@ -23,16 +23,16 @@ applies a few minor patches (`patches/`), and wraps it in an Electron shell (`de
 ## Installation
 
 ### Windows
-1. Download `Layerling Setup <version>.exe` from the repository's **Releases** page and run it.
+1. Download `LayerLab Setup <version>.exe` from the repository's **Releases** page and run it.
 2. Windows may display a blue warning stating *"Windows protected your PC"* because the program is not signed with a paid certificate. Click **More info → Run anyway**.
 3. The file association for `.lyl` files is set up automatically.
 
 Without GitHub: double-click `Zgradi-Windows.cmd` in the project folder (requires Node.js 20+ and Git). The installer will be created in the `dist` folder.
 
 ### macOS
-1. Download the `.dmg` file from the **Releases** page (Apple Silicon: `arm64`; older Intel Macs: without this label), open it, and drag Layerling into the *Applications* folder.
+1. Download the `.dmg` file from the **Releases** page (Apple Silicon: `arm64`; older Intel Macs: without this label), open it, and drag LayerLab into the *Applications* folder.
 2. Open the program for the first time by **right-clicking → Open** (or via *System Settings → Privacy & Security → Open Anyway*), as it is not signed with a paid Apple certificate. It will open normally thereafter.
-3. If you have downloaded the program and macOS claims it is damaged, run the following command in *Terminal*: `xattr -cr /Applications/Layerling.app`
+3. If you have downloaded the program and macOS claims it is damaged, run the following command in *Terminal*: `xattr -cr /Applications/LayerLab.app`
 
 ## First launch
 
@@ -43,7 +43,7 @@ Without GitHub: double-click `Zgradi-Windows.cmd` in the project folder (require
 ### Transferring projects from the browser (one-time)
 Projects created in the browser are not transferred automatically (the browser stores them in its own local storage):
 1. Open Layerling in your browser (the URL where you were working) → home page → **Back up all designs** (this gathers everything into a single ZIP file).
-2. In Layerling Desktop, click the **Open a design or import geometry** tile and select that ZIP file. All projects will be restored.
+2. In LayerLab Desktop, click the **Open a design or import geometry** tile and select that ZIP file. All projects will be restored.
 
 ## Sharing between users (iCloud Drive)
 
@@ -65,7 +65,7 @@ Configure this on **each** computer:
 
 ## macOS Monterey (12)
 
-Electron 44 zahteva macOS 13 ali novejši. Ob vsaki izdaji se zato zgradi še posebna datoteka `Layerling-<različica>-Monterey-x64.dmg` (Electron 43, samo Intel Mac), ki jo je treba ročno prenesti iz Releases. Samodejnih posodobitev za to gradnjo ni (Mac program samo odpre stran izdaje). Ko Electron 43 preneha dobivati popravke, jo je treba dvigniti ali opustiti (`.github/workflows/build.yml`).
+Electron 44 zahteva macOS 13 ali novejši. Ob vsaki izdaji se zato zgradi še posebna datoteka `LayerLab-<različica>-Monterey-x64.dmg` (Electron 43, samo Intel Mac), ki jo je treba ročno prenesti iz Releases. Samodejnih posodobitev za to gradnjo ni (Mac program samo odpre stran izdaje). Ko Electron 43 preneha dobivati popravke, jo je treba dvigniti ali opustiti (`.github/workflows/build.yml`).
 
 ## Lastne pisave (besedilo)
 
@@ -78,7 +78,7 @@ LayerLab by CDS is free. If it saved you time, a coffee is very welcome and supp
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-buy%20a%20coffee-c8a96e?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/anddrej)
 [![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsors-c8a96e?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/andrej-cds)
-[![PayPal](https://img.shields.io/badge/PayPal-donate-c8a96e?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate?business=info%40cassettedeck-service.com&currency_code=EUR&item_name=Support+CDS+Layerling)
+[![PayPal](https://img.shields.io/badge/PayPal-donate-c8a96e?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate?business=info%40cassettedeck-service.com&currency_code=EUR&item_name=Support+CDS+LayerLab)
 
 Other ways to help: star the repository, share the program and report bugs and ideas ([issues](https://github.com/andrej-cds/Layerling-desktop/issues)).
 
@@ -111,16 +111,16 @@ nanjo uporabi nekaj majhnih popravkov (`patches/`) in jo zapakira v lupino Elect
 ## Namestitev
 
 ### Windows
-1. Na strani **Releases** repozitorija prenesite `Layerling Setup <različica>.exe` in ga zaženite.
+1. Na strani **Releases** repozitorija prenesite `LayerLab Setup <različica>.exe` in ga zaženite.
 2. Windows lahko pokaže modro opozorilo *"Windows je zaščitil vaš računalnik"*, ker program ni podpisan s plačljivim potrdilom. Kliknite **Več informacij → Vseeno zaženi**.
 3. Povezava s privzetim programom za `.lyl` se nastavi sama.
 
 Brez GitHuba: v mapi projekta dvokliknite `Zgradi-Windows.cmd` (potrebna sta Node.js 20+ in Git). Namestitveni program nastane v mapi `dist`.
 
 ### macOS
-1. Na strani **Releases** prenesite `.dmg` (Apple Silicon: `arm64`, starejši Mac z Intelom: brez te oznake), ga odprite in povlecite Layerling v *Programi*.
+1. Na strani **Releases** prenesite `.dmg` (Apple Silicon: `arm64`, starejši Mac z Intelom: brez te oznake), ga odprite in povlecite LayerLab v *Programi*.
 2. Prvič program odprite z **desnim klikom → Odpri** (ali *Sistemske nastavitve → Zasebnost in varnost → Vseeno odpri*), ker ni podpisan z Applovim plačljivim potrdilom. Naslednjič se odpre običajno.
-3. Če je program prenesen in macOS trdi, da je poškodovan, v *Terminalu* zaženite: `xattr -cr /Applications/Layerling.app`
+3. Če je program prenesen in macOS trdi, da je poškodovan, v *Terminalu* zaženite: `xattr -cr /Applications/LayerLab.app`
 
 ## Prvi zagon
 
@@ -131,7 +131,7 @@ Brez GitHuba: v mapi projekta dvokliknite `Zgradi-Windows.cmd` (potrebna sta Nod
 ### Prenos projektov iz brskalnika (enkrat)
 Projekti, ki ste jih naredili v brskalniku, se ne prenesejo sami (brskalnik jih hrani v svoji shrambi):
 1. V brskalniku odprite Layerling (tisti naslov, kjer ste delali) → začetna stran → **Back up all designs** (zbere vse v en ZIP).
-2. V Layerling Desktop kliknite ploščico **Open a design or import geometry** in izberite ta ZIP. Vsi projekti se vrnejo.
+2. V LayerLab Desktop kliknite ploščico **Open a design or import geometry** in izberite ta ZIP. Vsi projekti se vrnejo.
 
 ## Deljenje med uporabnikoma (iCloud Drive)
 
@@ -209,7 +209,7 @@ upstream.json  pripeta različica originalnega programa
 
 ## Znane omejitve
 - Slovenščina je **samostojen jezik »SL«** (od različice 1.76.0 je v originalnem programu; prevod je Andrejev). V preklopniku jezika zgoraj desno izbereš SL, pri prvem zagonu pa se uporabi jezik sistema. Novosti (»Kaj je novega«) so v namizni različici prevedene v `patches/files/whatsNew.sl.json`. Lupina (meniji, nastavitve, okno posodobitev, sporočila) sledi izbranemu jeziku (SL ali EN).
-- Vrata **47615** morajo biti prosta. Če jih zaseda drug program, se Layerling ne more zagnati in to tudi pove. Vrata lahko spremenite v `settings.json` (ključ `port`), vendar potem projekti iz prejšnjih vrat v programu niso vidni (obnovite jih iz mape samodejnega shranjevanja).
+- Vrata **47615** morajo biti prosta. Če jih zaseda drug program, se LayerLab ne more zagnati in to tudi pove. Vrata lahko spremenite v `settings.json` (ključ `port`), vendar potem projekti iz prejšnjih vrat v programu niso vidni (obnovite jih iz mape samodejnega shranjevanja).
 - Brez plačljivih podpisov (Microsoft/Apple) se ob prvem zagonu pokažejo opozorila. Delovanje ni omejeno.
 - Hkratnega urejanja istega projekta ni (glejte Deljenje).
 
@@ -219,7 +219,7 @@ LayerLab by CDS je brezplačen. Če ti je prihranil čas, je kavica zelo dobrodo
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-kavica-c8a96e?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/anddrej)
 [![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsors-c8a96e?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/andrej-cds)
-[![PayPal](https://img.shields.io/badge/PayPal-doniraj-c8a96e?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate?business=info%40cassettedeck-service.com&currency_code=EUR&item_name=Support+CDS+Layerling)
+[![PayPal](https://img.shields.io/badge/PayPal-doniraj-c8a96e?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate?business=info%40cassettedeck-service.com&currency_code=EUR&item_name=Support+CDS+LayerLab)
 
 Še kako drugače lahko pomagaš: daj repozitoriju zvezdico, deli program naprej ter javi napake in ideje ([issues](https://github.com/andrej-cds/Layerling-desktop/issues)).
 

@@ -677,8 +677,8 @@ export const edits = [
     name: "Izvozno okno: izvoz STEP pove namizni različici, ali naj ga odpre v Fusionu",
     file: "apps/web/src/components/workplane/TopActionPanel.tsx",
     marker: "setStepToFusion",
-    find: "    else if (exportFormat === \"step\") onExportStep(exportName, toServer);",
-    replace: "    else if (exportFormat === \"step\") {\n      try { (window as unknown as { layerlingDesktop?: { setStepToFusion?: (on: boolean) => void } }).layerlingDesktop?.setStepToFusion?.(openInFusion && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExportStep(exportName, toServer);\n    }",
+    find: "    else if (exportFormat === \"step\") onExportStep(exportName, destination);",
+    replace: "    else if (exportFormat === \"step\") {\n      try { (window as unknown as { layerlingDesktop?: { setStepToFusion?: (on: boolean) => void } }).layerlingDesktop?.setStepToFusion?.(openInFusion && destination !== 'server'); } catch { /* spletna različica nima vmesnika */ }\n      onExportStep(exportName, destination);\n    }",
   },
   {
     name: "Izvozno okno: izbira formata ugasne Fusion",
@@ -726,8 +726,8 @@ export const edits = [
     name: "Izvozno okno: izvoz STEP pove namizni različici, ali naj ga odpre v programu SolidCraft",
     file: "apps/web/src/components/workplane/TopActionPanel.tsx",
     marker: "setStepToSolidcraft",
-    find: "      onExportStep(exportName, toServer);\n    }",
-    replace: "      try { (window as unknown as { layerlingDesktop?: { setStepToSolidcraft?: (on: boolean) => void } }).layerlingDesktop?.setStepToSolidcraft?.(openInSolidcraft && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExportStep(exportName, toServer);\n    }",
+    find: "      onExportStep(exportName, destination);\n    }",
+    replace: "      try { (window as unknown as { layerlingDesktop?: { setStepToSolidcraft?: (on: boolean) => void } }).layerlingDesktop?.setStepToSolidcraft?.(openInSolidcraft && destination !== 'server'); } catch { /* spletna različica nima vmesnika */ }\n      onExportStep(exportName, destination);\n    }",
   },
   {
     name: "Izvozno okno: izbira formata ugasne tudi SolidCraft",
@@ -880,8 +880,8 @@ export const edits = [
     name: "Izvozno okno: izvoz OBJ pove namizni različici, ali naj ga odpre v Bambu Studiu",
     file: "apps/web/src/components/workplane/TopActionPanel.tsx",
     marker: "setObjToBambu",
-    find: "      onExport(exportFormat, exportName, false, view, toServer, withBridges ? bridges : null);",
-    replace: "      try { (window as unknown as { layerlingDesktop?: { setObjToBambu?: (on: boolean) => void } }).layerlingDesktop?.setObjToBambu?.(openInBambu && exportFormat === \"obj\" && !toServer); } catch { /* spletna različica nima vmesnika */ }\n      onExport(exportFormat, exportName, false, view, toServer, withBridges ? bridges : null);",
+    find: "      onExport(exportFormat, exportName, false, view, destination, withBridges ? bridges : null);",
+    replace: "      try { (window as unknown as { layerlingDesktop?: { setObjToBambu?: (on: boolean) => void } }).layerlingDesktop?.setObjToBambu?.(openInBambu && exportFormat === \"obj\" && destination !== 'server'); } catch { /* spletna različica nima vmesnika */ }\n      onExport(exportFormat, exportName, false, view, destination, withBridges ? bridges : null);",
   },
   {
     name: "Izvozno okno: izbira formata ugasne tudi BambuStudio",
@@ -936,8 +936,8 @@ export const edits = [
     name: "Izvozno okno: izvoz OBJ pove namizni različici, ali naj ga odpre v OrcaSlicerju",
     file: "apps/web/src/components/workplane/TopActionPanel.tsx",
     marker: "setObjToOrca",
-    find: "      onExport(exportFormat, exportName, false, view, toServer, withBridges ? bridges : null);",
-    replace: "      try { (window as unknown as { layerlingDesktop?: { setObjToOrca?: (on: boolean) => void } }).layerlingDesktop?.setObjToOrca?.(openInOrca && exportFormat === \"obj\" && !toServer); } catch { /* spletna razli\u010dica nima vmesnika */ }\n      onExport(exportFormat, exportName, false, view, toServer, withBridges ? bridges : null);",
+    find: "      onExport(exportFormat, exportName, false, view, destination, withBridges ? bridges : null);",
+    replace: "      try { (window as unknown as { layerlingDesktop?: { setObjToOrca?: (on: boolean) => void } }).layerlingDesktop?.setObjToOrca?.(openInOrca && exportFormat === \"obj\" && destination !== 'server'); } catch { /* spletna razli\u010dica nima vmesnika */ }\n      onExport(exportFormat, exportName, false, view, destination, withBridges ? bridges : null);",
   },
   {
     name: "Izvozno okno: izbira formata ugasne tudi OrcaSlicer",
@@ -1061,6 +1061,20 @@ export function applyPatches(upstreamDir, { log = console.log, stage } = {}) {
       writeFileSync(file, JSON.stringify(data, null, 2) + "\n");
       log("  prevedene novosti (whatsNew.json)");
     } else problems.push("apps/web/src/lib/whatsNew.json: datoteke ni več");
+  }
+  if (wanted({ stage: "jezik" })) {
+    // Gumb za donacije in namig za podporo vodita na stran namizne različice, zato se tam program imenuje LayerLab
+    // (povsod drugje v originalnem besedilu ostane Layerling).
+    const dir = join(root, "apps/web/src/lib");
+    if (existsSync(dir)) {
+      for (const name of readdirSync(dir).filter((n) => /^messages\.[a-z-]+\.ts$/.test(n))) {
+        const path = join(dir, name);
+        const source = readFileSync(path, "utf8");
+        const next = source.replace(/^\s*"(?:dashboard\.sponsor|supportNudge\.(?:title|body|more))":.*$/gm, (line) => line.replace(/layerling/gi, "LayerLab"));
+        if (next !== source) writeFileSync(path, next);
+      }
+      log("  podpora: ime LayerLab v besedilih za donacije");
+    }
   }
   if (local?.applyExtra) local.applyExtra({ root, projectRoot, wanted, log, problems });
   // Izvedena grafitna tema (apps/web/src/app/graphite.generated.css ali podobno) mora ustrezati globals.css, sicer
